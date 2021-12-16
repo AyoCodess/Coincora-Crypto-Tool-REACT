@@ -15,24 +15,30 @@ function GoogleForm() {
         style={{ height: '85vh' }}>
         <form
           action=''
-          className='border-2 pt-5 w-96 rounded-full boxShadow'
+          className='border-2 lg:pt-5 lg:w-96 rounded-full boxShadow'
           style={{ border: '2px #B2D1F3 solid' }}>
           <div className='flex flex-col justify-center items-center gap-5 p-10'>
-            <label className='text-5xl text-center w-60 mt-5'>
+            <label className='lg:text-5xl text-3xl text-center w-60 mt-5'>
               Enter Email
             </label>
-            <input
-              type='email'
-              style={{ border: '2px blue solid' }}
-              className='w-60 h-10 rounded-full textFieldGoogleForm placeholder p-5 text-center'
-              placeholder='Join the waiting list'
-            />
+            <div
+              className='rounded-full'
+              style={{ border: '2px skyblue solid' }}>
+              <input
+                type='email'
+                style={{ border: '2px #0753FF solid' }}
+                className='lg:w-60 w-48 h-10 rounded-full textFieldGoogleForm placeholder p-5 text-center'
+                placeholder='Join the waiting list'
+              />
+            </div>
 
             <button
               className='
             mt-1'
               onClick={handleGoogleForm}>
-              <FingerprintIcon style={{ fontSize: '100px', color: 'blue' }} />
+              <FingerprintIcon
+                style={{ fontSize: '100px', color: '#0753FF' }}
+              />
             </button>
           </div>
         </form>

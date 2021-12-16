@@ -17,6 +17,7 @@ import Typography from '@mui/material/Typography';
 import { CreditScore } from '@mui/icons-material';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 
 const drawerWidth = 240;
 
@@ -46,7 +47,7 @@ function NavbarLayout(props) {
       <List>
         {mainNav.map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon style={{ color: 'blue' }}>
+            <ListItemIcon style={{ color: '#0753FF' }}>
               {mainNavIcons[index]}
             </ListItemIcon>
             <ListItemText primary={text} />
@@ -57,7 +58,7 @@ function NavbarLayout(props) {
       <List>
         {subNav.map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon style={{ color: 'blue' }}>
+            <ListItemIcon style={{ color: '#0753FF' }}>
               {subNavIcons[index]}
             </ListItemIcon>
             <ListItemText primary={text} />
@@ -75,21 +76,21 @@ function NavbarLayout(props) {
       <CssBaseline />
       <AppBar
         elevation={0}
-        style={{ backgroundColor: 'white', color: 'blue' }}
+        style={{ backgroundColor: 'white', color: '#0753FF' }}
         position='fixed'
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
         }}>
         <Toolbar>
-          <IconButton
+          <WidgetsIcon
             color='inherit'
             aria-label='open drawer'
             edge='start'
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}>
             <MenuIcon />
-          </IconButton>
+          </WidgetsIcon>
           <Typography variant='h5' noWrap component='div'>
             Coincora
           </Typography>

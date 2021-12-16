@@ -5,6 +5,7 @@ import NavbarLayout from './UI/NavbarLayout.js';
 import LandingPage from './Pages/LandingPage/Landing.js';
 import { ThemeProvider } from '@emotion/react';
 import theme from './MUIthemeOverrides';
+import Footer from './UI/Footer/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path='*' exact element={<LandingPage />}></Route>
             <Route path='/app' element={<MarketCapOf />}></Route>
           </Routes>
+          <Footer />
         </NavbarLayout>
       </ThemeProvider>
     </>
