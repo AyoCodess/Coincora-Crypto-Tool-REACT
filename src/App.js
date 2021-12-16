@@ -1,8 +1,8 @@
 import './App.scss';
 import { Route, Routes } from 'react-router-dom';
-import MarketCapOf from './Pages/MarketCapOf/MarketCapOf';
-import NavbarLayout from './UI/NavbarLayout';
-import LandingPage from './Pages/LandingPage/Landing.jsx';
+import MarketCapOf from './Pages/MarketCapOf/MarketCapOf.jsx';
+import NavbarLayout from './UI/NavbarLayout.js';
+import LandingPage from './Pages/LandingPage/Landing.js';
 import { ThemeProvider } from '@emotion/react';
 import theme from './MUIthemeOverrides';
 

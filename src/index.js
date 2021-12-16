@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './App.jsx';
+import App from './App.js';
 import { BrowserRouter } from 'react-router-dom';
-import ThemeProvider from './MUIthemeOverrides';
 
 ReactDOM.render(
   <React.StrictMode>
