@@ -12,7 +12,7 @@ function GoogleForm() {
     <>
       <div
         className='flex flex-col justify-center items-center'
-        style={{ height: '90vh' }}>
+        style={{ height: '85vh' }}>
         <form
           action=''
           className='border-2 pt-5 w-96 rounded-full boxShadow'
