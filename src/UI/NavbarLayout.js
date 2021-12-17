@@ -34,7 +34,8 @@ function NavbarLayout(props) {
 
   const mainNav = ['Contact Us', 'About Us', 'Telegram'];
   const mainNavIcons = [<MailIcon />, <GroupsIcon />, <TelegramIcon />];
-  const mainNavLinks = ['https://t.me/coincora'];
+  const mainNavLinks = ['', '', 'https://t.me/coincora'];
+  const targetBlank = ['', '', '_blank'];
 
   const subNav = [];
   const subNavIcons = [];
@@ -50,14 +51,18 @@ function NavbarLayout(props) {
 
       <List>
         {mainNav.map((text, index) => (
-          <ListItem button key={text}>
-            <Link href={`${mainNavLinks[0]}`} target='_blank' rel='noopener'>
+          <a
+            underline={'none'}
+            href={`${mainNavLinks[index]}`}
+            target={targetBlank[index]}
+            rel='noopener'>
+            <ListItem button key={text}>
               <ListItemIcon style={{ color: '#0753FF' }}>
                 {mainNavIcons[index]}
               </ListItemIcon>
-            </Link>
-            <ListItemText primary={text} />
-          </ListItem>
+              <ListItemText primary={text} />
+            </ListItem>
+          </a>
         ))}
       </List>
       <Divider />
