@@ -18,6 +18,8 @@ import { CreditScore } from '@mui/icons-material';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import WidgetsIcon from '@mui/icons-material/Widgets';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import Link from '@mui/material/Link';
 
 const drawerWidth = 240;
 
@@ -31,10 +33,13 @@ function NavbarLayout(props) {
 
   // - Nav Layout
 
-  const mainNav = ['Contact Us', 'About Us'];
-  const subNav = ['Support Us'];
-  const mainNavIcons = [<MailIcon />, <GroupsIcon />];
-  const subNavIcons = [<CreditScore />];
+  const mainNav = ['Contact Us', 'About Us', 'Telegram'];
+  const mainNavIcons = [<MailIcon />, <GroupsIcon />, <TelegramIcon />];
+  const mainNavLinks = ['https://t.me/coincora'];
+
+  const subNav = [];
+  const subNavIcons = [];
+  const subNavLinks = [];
 
   const drawer = (
     <div>
@@ -47,20 +52,33 @@ function NavbarLayout(props) {
       <List>
         {mainNav.map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon style={{ color: '#0753FF' }}>
-              {mainNavIcons[index]}
-            </ListItemIcon>
+            <Link href={`${mainNavLinks[0]}`} target='_blank' rel='noopener'>
+              <ListItemIcon style={{ color: '#0753FF' }}>
+                {mainNavIcons[index]}
+              </ListItemIcon>
+            </Link>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
+        <div className='mx-auto w-auto'>
+          <iframe
+            className='mx-auto mt-2'
+            src='https://www.github.com/sponsors/AyoCodess/button'
+            title='Sponsor AyoCodess'
+            height='35'
+            width='116'
+            style={{ border: '0' }}></iframe>
+        </div>
         {subNav.map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon style={{ color: '#0753FF' }}>
-              {subNavIcons[index]}
-            </ListItemIcon>
+            <Link>
+              <ListItemIcon style={{ color: '#0753FF' }}>
+                {subNavIcons[index]}
+              </ListItemIcon>
+            </Link>
             <ListItemText primary={text} />
           </ListItem>
         ))}
