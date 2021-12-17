@@ -33,10 +33,8 @@ function GoogleForm() {
               />
             </div>
 
-            <button className='mt-1 '>
-              <FingerprintIcon
-                style={{ fontSize: '100px', color: '#0753FF' }}
-              />
+            <button className='mt-1 text-appBlue hover:text-sky-300 transition ease-in-out duration-700'>
+              <FingerprintIcon style={{ fontSize: '100px' }} />
             </button>
           </div>
         </form>
