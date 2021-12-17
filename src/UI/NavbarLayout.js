@@ -51,18 +51,19 @@ function NavbarLayout(props) {
 
       <List>
         {mainNav.map((text, index) => (
-          <a
+          <Link
             underline={'none'}
             href={`${mainNavLinks[index]}`}
             target={targetBlank[index]}
-            rel='noopener'>
+            rel='noopener'
+            color={'none'}>
             <ListItem button key={text}>
               <ListItemIcon style={{ color: '#0753FF' }}>
                 {mainNavIcons[index]}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          </a>
+          </Link>
         ))}
       </List>
       <Divider />
