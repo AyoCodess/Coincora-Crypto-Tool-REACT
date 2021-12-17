@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -14,7 +13,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { CreditScore } from '@mui/icons-material';
+// import { CreditScore } from '@mui/icons-material';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import WidgetsIcon from '@mui/icons-material/Widgets';
@@ -39,7 +38,7 @@ function NavbarLayout(props) {
 
   const subNav = [];
   const subNavIcons = [];
-  const subNavLinks = [];
+  //   const subNavLinks = [];
 
   const drawer = (
     <div>
