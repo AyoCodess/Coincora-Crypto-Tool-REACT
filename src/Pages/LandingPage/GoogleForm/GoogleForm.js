@@ -25,6 +25,7 @@ function GoogleForm() {
               style={{ border: '2px skyblue solid' }}>
               <input
                 type='email'
+                required
                 name='emailAddress'
                 className='lg:w-60 w-48 h-10 rounded-full textFieldGoogleForm placeholder p-5 text-center focus:outline-sky-300 border-appBlue border-2'
                 placeholder='Join the waiting list'
