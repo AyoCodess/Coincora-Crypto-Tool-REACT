@@ -46,7 +46,7 @@ function NavbarLayout(props) {
       <Toolbar />
       <ListItem>
         {' '}
-        <ArrowDropDownCircleIcon style={{ color: 'lightgray' }} />
+        <ArrowDropDownCircleIcon className='hover:text-blue-500 text-gray-400 transition ease-in-out duration-700' />
       </ListItem>
 
       <List>
@@ -115,6 +115,7 @@ function NavbarLayout(props) {
             <MenuIcon />
           </WidgetsIcon>
           <Typography
+            className='hover:text-gray-400 transition ease-in-out duration-700'
             variant='h5'
             noWrap
             component='div'
