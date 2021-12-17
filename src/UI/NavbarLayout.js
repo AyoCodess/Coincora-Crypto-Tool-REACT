@@ -112,7 +112,7 @@ function NavbarLayout(props) {
             variant='h5'
             noWrap
             component='div'
-            style={{ marginTop: '3px' }}>
+            style={{ marginTop: '4px' }}>
             Coincora
           </Typography>
         </Toolbar>
