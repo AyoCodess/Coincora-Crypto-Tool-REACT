@@ -5,7 +5,12 @@ function Footer() {
   return (
     <div
       className='pt-3 negativeFooterMargin'
-      style={{ borderTop: '1px solid #E0DFE0' }}>
+      style={{
+        borderTop: '1px solid #E0DFE0',
+        position: 'absolute',
+        bottom: '0',
+        width: '100%',
+      }}>
       <div className='px-5'>
         <iframe
           className=''
@@ -13,7 +18,10 @@ function Footer() {
           title='Sponsor AyoCodess'
           height='35'
           width='116'
-          style={{ border: '0' }}></iframe>
+          style={{
+            border: '0',
+            marginBottom: '15px',
+          }}></iframe>
       </div>
     </div>
   );

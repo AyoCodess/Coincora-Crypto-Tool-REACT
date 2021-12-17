@@ -13,7 +13,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-// import { CreditScore } from '@mui/icons-material';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import WidgetsIcon from '@mui/icons-material/Widgets';
@@ -80,7 +79,7 @@ function NavbarLayout(props) {
         {subNav.map((text, index) => (
           <ListItem button key={text}>
             <Link>
-              <ListItemIcon style={{ color: '#0753FF' }}>
+              <ListItemIcon className='text-appBlue'>
                 {subNavIcons[index]}
               </ListItemIcon>
             </Link>

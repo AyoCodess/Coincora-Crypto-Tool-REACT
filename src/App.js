@@ -14,7 +14,7 @@ function App() {
         <NavbarLayout>
           <Routes>
             <Route path='*' exact element={<LandingPage />}></Route>
-            <Route path='/app' element={<MarketCapOf />}></Route>
+            <Route path='/app/marketcapof' element={<MarketCapOf />}></Route>
           </Routes>
           <Footer />
         </NavbarLayout>

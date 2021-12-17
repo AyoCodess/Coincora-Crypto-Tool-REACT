@@ -15,10 +15,9 @@ function GoogleForm() {
         style={{ height: '85vh' }}>
         <form
           action='https://docs.google.com/forms/u/0/d/e/1FAIpQLSfOljMM0BkFLBFikUm8X1Sdq3-TwJpyTtZbzmpDc1TMoo1FSQ/formResponse'
-          className='border-2 lg:pt-5 lg:w-96 rounded-full boxShadow'
-          style={{ border: '2px #B2D1F3 solid' }}>
+          className='border-2 lg:pt-5 lg:w-96 rounded-full boxShadow border-2 border-gray-200'>
           <div className='flex flex-col justify-center items-center gap-5 p-10'>
-            <label className='lg:text-5xl text-3xl text-center w-60 mt-5  hover:text-blue-500 transition ease-in-out duration-700 '>
+            <label className='lg:text-5xl text-3xl text-center w-60 mt-5  hover:text-blue-500 text-gray-400 transition ease-in-out duration-700 '>
               Enter Email
             </label>
             <div
@@ -27,8 +26,7 @@ function GoogleForm() {
               <input
                 type='email'
                 name='emailAddress'
-                style={{ border: '2px #0753FF solid' }}
-                className='lg:w-60 w-48 h-10 rounded-full textFieldGoogleForm placeholder p-5 text-center focus:outline-sky-300'
+                className='lg:w-60 w-48 h-10 rounded-full textFieldGoogleForm placeholder p-5 text-center focus:outline-sky-300 border-appBlue border-2'
                 placeholder='Join the waiting list'
               />
             </div>
