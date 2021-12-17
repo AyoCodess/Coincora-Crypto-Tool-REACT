@@ -108,7 +108,11 @@ function NavbarLayout(props) {
             sx={{ mr: 2, display: { sm: 'none' } }}>
             <MenuIcon />
           </WidgetsIcon>
-          <Typography variant='h5' noWrap component='div'>
+          <Typography
+            variant='h5'
+            noWrap
+            component='div'
+            style={{ marginTop: '3px' }}>
             Coincora
           </Typography>
         </Toolbar>
