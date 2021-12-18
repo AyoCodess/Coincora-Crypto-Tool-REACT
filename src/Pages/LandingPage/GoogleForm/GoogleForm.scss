@@ -5,3 +5,10 @@
 .textFieldGoogleForm {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  /*-webkit-appearance: inner-spin-button !important;*/
+  opacity: 1;
+  margin-left: 5px;
+}
