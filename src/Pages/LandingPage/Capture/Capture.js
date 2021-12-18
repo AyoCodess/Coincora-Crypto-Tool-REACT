@@ -8,11 +8,13 @@ function Capture() {
 
   return (
     <>
-      <div>CAPTURE FORM</div>
-      <ReCAPTCHA
-        sitekey={process.env.REACT_APP_GOOGLE_FORM}
-        onChange={onChange}
-      />
+      <div className='flex justify-center'>
+        <ReCAPTCHA
+          sitekey={process.env.REACT_APP_GOOGLE_FORM}
+          onChange={onChange}
+          //   size='invisible'
+        />
+      </div>
     </>
   );
 }
