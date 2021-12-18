@@ -15,6 +15,7 @@ function GoogleForm() {
         style={{ height: '85vh' }}>
         <form
           action='https://docs.google.com/forms/u/0/d/e/1FAIpQLSfOljMM0BkFLBFikUm8X1Sdq3-TwJpyTtZbzmpDc1TMoo1FSQ/formResponse'
+          method='POST'
           className='border-2 lg:pt-5 lg:w-96 rounded-full boxShadow border-2 border-gray-200'>
           <div className='flex flex-col justify-center items-center gap-5 p-10'>
             <label className='lg:text-5xl text-3xl text-center w-60 mt-5  hover:text-blue-500 text-gray-400 transition ease-in-out duration-700 '>
@@ -31,8 +32,9 @@ function GoogleForm() {
                 placeholder='Join the waiting list'
               />
             </div>
-
-            <button className='mt-1 text-appBlue hover:text-sky-300 transition ease-in-out duration-700'>
+            <button
+              type='submit'
+              className='mt-1 text-appBlue hover:text-sky-300 transition ease-in-out duration-700'>
               <FingerprintIcon style={{ fontSize: '100px' }} />
             </button>
           </div>
