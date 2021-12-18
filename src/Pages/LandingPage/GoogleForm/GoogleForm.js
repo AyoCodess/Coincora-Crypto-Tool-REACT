@@ -1,13 +1,9 @@
 import React from 'react';
 import './GoogleForm.scss';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import Capture from '../Capture/Capture';
 
 function GoogleForm() {
-  //   const handleGoogleForm = (event) => {
-  //     event.preventDefault();
-  //     return console.log('button clicked');
-  //   };
-
   return (
     <>
       <div
@@ -42,6 +38,7 @@ function GoogleForm() {
         <p className='w-full text-center text-3xl mt-10 text-gray-300 hover:text-gray-500 transition ease-in-out duration-700'>
           Predict. Profit. Conquer
         </p>
+        <Capture />
       </div>
     </>
   );
