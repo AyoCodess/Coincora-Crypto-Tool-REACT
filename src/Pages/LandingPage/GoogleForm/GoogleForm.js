@@ -16,9 +16,7 @@ function GoogleForm() {
               <label className='lg:text-5xl text-3xl text-center w-60 mt-5  hover:text-blue-500 text-gray-400 transition ease-in-out duration-700 '>
                 Enter Email
               </label>
-              <div
-                className='rounded-full'
-                style={{ border: '2px skyblue solid' }}>
+              <div className='rounded-full border-2 border-sky-400 border-solid '>
                 <input
                   type='email'
                   required
@@ -35,15 +33,15 @@ function GoogleForm() {
             </div>
           </div>
           <div className='flex justify-center items-center gap-2 mt-5'>
-            <labelc className=''>reCAPTCHA</labelc>
             <span> 2 + 2 </span>
-            <input
-              type='number'
-              required
-              name='entry.1369813225'
-              className='w-12 h-15 text-lg rounded-full textFieldGoogleForm placeholder p-2 ml-2 text-center focus:outline-sky-300 border-appBlue border-2'
-              placeholder='Join the waiting list'
-            />
+            <div className='rounded-full border-2 border-sky-400 border-solid'>
+              <input
+                type='number'
+                required
+                name='entry.1369813225'
+                className='w-12 h-15 text-lg rounded-full textFieldGoogleForm placeholder p-2  text-center focus:outline-sky-300 border-appBlue border-2'
+              />
+            </div>
           </div>
         </form>
         <p className='w-full text-center text-3xl mt-10 text-gray-300 hover:text-gray-500 transition ease-in-out duration-700'>
