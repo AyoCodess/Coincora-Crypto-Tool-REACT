@@ -31,10 +31,14 @@ function NavbarLayout(props) {
 
   // - Nav Layout
 
-  const mainNav = ['Contact Us', 'About Us', 'Telegram'];
+  const mainNav = ['Contact', 'About', 'Telegram'];
   const mainNavIcons = [<MailIcon />, <GroupsIcon />, <TelegramIcon />];
-  const mainNavLinks = ['', '', 'https://t.me/coincora'];
-  const targetBlank = ['', '', '_blank'];
+  const mainNavLinks = [
+    'mailto:ayo@ayoadesanya.com',
+    'https://github.com/sponsors/AyoCodess?o=esb',
+    'https://t.me/coincora',
+  ];
+  const targetBlank = ['_blank', '_blank', '_blank'];
 
   const subNav = [];
   const subNavIcons = [];
