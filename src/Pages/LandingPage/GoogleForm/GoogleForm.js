@@ -21,7 +21,7 @@ function GoogleForm() {
                   type='email'
                   required
                   name='emailAddress'
-                  className='lg:w-60 w-48 h-10 rounded-full textFieldGoogleForm placeholder p-5 text-center focus:outline-sky-300 border-appBlue border-2'
+                  className='lg:w-60 w-48 h-10 rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
                   placeholder='Join the waiting list'
                 />
               </div>
@@ -39,7 +39,7 @@ function GoogleForm() {
                 type='number'
                 required
                 name='entry.1369813225'
-                className='w-12 h-15 text-lg rounded-full textFieldGoogleForm placeholder p-2  text-center focus:outline-sky-300 border-appBlue border-2'
+                className='w-12 h-15 text-lg rounded-full textFieldGoogleForm placeholder p-2  text-center hover:border-sky-300  focus:outline-sky-300 border-appBlue border-2'
               />
             </div>
           </div>
