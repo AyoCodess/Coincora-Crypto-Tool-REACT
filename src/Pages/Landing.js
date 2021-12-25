@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleForm from './GoogleForm/GoogleForm.js';
+import GoogleForm from './GoogleForm.js';
 
 function LandingPage() {
   return (

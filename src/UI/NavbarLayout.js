@@ -17,7 +17,9 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import TelegramIcon from '@mui/icons-material/Telegram';
+import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import Link from '@mui/material/Link';
+import { Link as LinkR } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -68,6 +70,17 @@ function NavbarLayout(props) {
             </ListItem>
           </Link>
         ))}
+        {/* // - MANUAL NAV BAR ENTRIES - REACT-ROUTER-V6 */}
+        <LinkR to='/newbies'>
+          <Link underline={'none'} color={'none'}>
+            <ListItem>
+              <ListItemIcon style={{ color: '#0753FF' }}>
+                <NewReleasesIcon />
+              </ListItemIcon>
+              For Newbies
+            </ListItem>
+          </Link>
+        </LinkR>
       </List>
       <Divider />
       <List>

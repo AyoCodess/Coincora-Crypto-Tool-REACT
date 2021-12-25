@@ -7,9 +7,8 @@ function Footer() {
       className='pt-3 negativeFooterMargin'
       style={{
         borderTop: '1px solid #E0DFE0',
-        position: 'relative',
+        position: 'fixed',
         bottom: '0',
-        width: '100%',
       }}>
       <div className='px-5'>
         <iframe
