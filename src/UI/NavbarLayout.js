@@ -136,7 +136,7 @@ function NavbarLayout(props) {
             noWrap
             component='div'
             style={{ marginTop: '4px' }}>
-            Coincora
+            <LinkR to='/'>Coincora</LinkR>
           </Typography>
         </Toolbar>
       </AppBar>
