@@ -9,6 +9,7 @@ function Footer() {
         borderTop: '1px solid #E0DFE0',
         position: 'fixed',
         bottom: '0',
+        width: '100%',
       }}>
       <div className='px-5'>
         <iframe
