@@ -41,7 +41,6 @@ export default function Newbies({
         setInfo={setInfo}
         open={open}
         setOpen={setOpen}
-        cancelButtonRef={cancelButtonRef}
       />
     </>
   );

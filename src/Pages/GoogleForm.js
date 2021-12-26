@@ -34,12 +34,12 @@ function GoogleForm() {
           </div>
           <div className='flex justify-center items-center gap-2 mt-5'>
             <span> 2 + 2 </span>
-            <div className='rounded-full border-2 border-sky-400 border-solid'>
+            <div className='rounded-full border-2 border-gray-200 border-solid'>
               <input
                 type='number'
                 required
                 name='entry.1369813225'
-                className='w-12 h-15 text-lg rounded-full textFieldGoogleForm placeholder p-2  text-center hover:border-sky-300  focus:outline-sky-300 border-appBlue border-2'
+                className='w-12 h-15 text-lg rounded-full  placeholder p-2  text-center hover:border-sky-300  focus:outline-sky-300 border-gray-200 border-2'
               />
             </div>
           </div>
