@@ -15,7 +15,7 @@ export default function Newbies({
       <div className='grid lg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  gap-4'>
         {itemData.map((itemData) => (
           <div className='border-2'>
-            <img src={itemData.img} />
+            <img src={itemData.img} alt='image' />
             <div className='p-2'>
               <div>{itemData.title}</div>
               <button
@@ -51,6 +51,7 @@ const itemData = [
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
     title: 'Breakfast',
     info: '@bkristastucchio',
+    alt: 'image',
   },
   {
     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
