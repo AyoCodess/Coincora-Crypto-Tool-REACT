@@ -10,6 +10,8 @@ function Footer() {
         position: 'absolute',
         bottom: '0',
         width: '100%',
+        height: '10px',
+        marginTop: '20px',
       }}>
       <div className='px-5'>
         <iframe
