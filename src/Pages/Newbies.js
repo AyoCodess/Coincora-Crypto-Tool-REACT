@@ -1,4 +1,4 @@
-import { useState, React } from 'react';
+import { React } from 'react';
 import Modal from '../UI/Footer/Modal/Modal';
 
 export default function Newbies({

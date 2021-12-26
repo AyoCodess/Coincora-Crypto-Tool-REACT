@@ -1,5 +1,5 @@
 import './App.scss';
-import { React, useRef, useState } from 'react';
+import { React, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MarketCapOf from './Pages/MarketCapOf';
 import NavbarLayout from './UI/NavbarLayout.js';
