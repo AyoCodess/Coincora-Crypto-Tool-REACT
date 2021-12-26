@@ -7,10 +7,6 @@ function Footer() {
       className='pt-3 negativeFooterMargin'
       style={{
         borderTop: '1px solid #E0DFE0',
-        position: 'absolute',
-        bottom: '0',
-        width: '100%',
-        height: '10px',
         marginTop: '20px',
       }}>
       <div className='px-5'>
