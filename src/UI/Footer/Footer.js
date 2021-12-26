@@ -18,7 +18,7 @@ function Footer() {
           width='116'
           style={{
             border: '0',
-            marginBottom: '15px',
+            marginBottom: '25px',
           }}></iframe>
       </div>
     </div>
