@@ -15,7 +15,11 @@ export default function Newbies({
       <div className='grid lg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  gap-4'>
         {itemData.map((itemData) => (
           <div className='border-2'>
-            <img src={itemData.img} alt='test' />
+            <img
+              src={itemData.img}
+              alt='test'
+              style={{ objectFit: 'cover', width: '100%', height: '400px' }}
+            />
             <div className='p-2'>
               <div>{itemData.title}</div>
               <button
