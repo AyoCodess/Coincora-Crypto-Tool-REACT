@@ -1,5 +1,5 @@
 import { React } from 'react';
-import Modal from '../UI/Footer/Modal/Modal';
+import Modal from '../UI/Modal/Modal';
 
 export default function Newbies({
   open,
@@ -12,27 +12,46 @@ export default function Newbies({
 }) {
   return (
     <>
-      <div className='grid lg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4'>
+      <h2 className='text-4xl mb-6'>Get Started</h2>
+      <p className='text-2xl mb-6'>
+        Get best start in crypto today by tooling up the right way.
+      </p>
+      <div className='grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4'>
         {itemData.map((itemData) => (
-          <div className='border-2 shadow-sky-200 shadow-lg '>
-            <img
-              src={itemData.img}
-              alt='test'
-              style={{ objectFit: 'cover', width: '100%', height: '400px' }}
-            />
+          <div className='border-2 shadow  '>
+            <a href={itemData.link} target='_blank' rel='noreferrer'>
+              <img
+                className='cursor-pointer'
+                src={itemData.img}
+                alt={itemData.alt}
+                style={{ objectFit: 'cover', width: '100%', height: '400px' }}
+              />
+            </a>
             <div className='p-2'>
-              <div className='p-1 font-bold text-3xl'>{itemData.title}</div>
-              <p className='p-1 text-2xl'>{itemData.info}</p>
-              <button
-                className='px-4 py-2 border-2 text-xl bg-appBlue rounded-md my-2 text-white '
-                onClick={(e) => {
-                  e.preventDefault();
-                  setTitle(itemData.title);
-                  setInfo(itemData.info);
-                  setOpen(true);
-                }}>
-                Get Link
-              </button>
+              <div className='p-1  text-3xl text-gray-700'>
+                {itemData.title}
+              </div>
+              <p className='p-1 text-2xl text-gray-500'>{itemData.info}</p>
+              <div className='flex justify-evenly items-center'>
+                <a
+                  href={itemData.link}
+                  target='_blank'
+                  className='px-6 py-4 font-bold border-2 text-2xl bg-appBlue rounded-md my-6  text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
+                  rel='noreferrer'>
+                  Get Link
+                </a>
+
+                <button
+                  className='px-6 py-4 font-bold border-2 text-2xl bg-gray-500 rounded-md my-6  text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setTitle(itemData.title);
+                    setInfo(itemData.moreInfo);
+                    setOpen(true);
+                  }}>
+                  More Into
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -51,10 +70,12 @@ export default function Newbies({
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
-    info: '@bkristastucchio',
+    img: 'https://i.imgur.com/5gnYPMh.png',
+    title: 'Binance Exchange',
+    info: 'Sign up and get a discount on all transactions',
+    moreInfo: 'more info',
     alt: 'test',
+    link: 'https://accounts.binance.com/en/register?ref=37749695',
   },
   {
     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
