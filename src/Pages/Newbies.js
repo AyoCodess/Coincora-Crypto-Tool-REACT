@@ -12,27 +12,26 @@ export default function Newbies({
 }) {
   return (
     <>
-      <div className='grid lg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  gap-4'>
+      <div className='grid lg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4'>
         {itemData.map((itemData) => (
-          <div className='border-2'>
+          <div className='border-2 shadow-sky-200 shadow-lg '>
             <img
               src={itemData.img}
               alt='test'
               style={{ objectFit: 'cover', width: '100%', height: '400px' }}
             />
             <div className='p-2'>
-              <div>{itemData.title}</div>
+              <div className='p-1 font-bold text-3xl'>{itemData.title}</div>
+              <p className='p-1 text-2xl'>{itemData.info}</p>
               <button
-                className='p-2 border-2 border-sky-300 rounded-md'
+                className='px-4 py-2 border-2 text-xl bg-appBlue rounded-md my-2 text-white '
                 onClick={(e) => {
-                  console.log(title);
-                  console.log(info);
                   e.preventDefault();
                   setTitle(itemData.title);
                   setInfo(itemData.info);
                   setOpen(true);
                 }}>
-                More Info
+                Get Link
               </button>
             </div>
           </div>

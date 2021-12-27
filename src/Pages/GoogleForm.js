@@ -5,9 +5,7 @@ import FingerprintIcon from '@mui/icons-material/Fingerprint';
 function GoogleForm() {
   return (
     <>
-      <div
-        className='flex flex-col justify-center items-center'
-        style={{ height: '85vh' }}>
+      <div className='flex flex-col justify-center items-center min-h-[85vh]'>
         <form
           action='https://docs.google.com/forms/u/0/d/e/1FAIpQLSfOljMM0BkFLBFikUm8X1Sdq3-TwJpyTtZbzmpDc1TMoo1FSQ/formResponse'
           method='POST'>
