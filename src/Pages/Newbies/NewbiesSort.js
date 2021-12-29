@@ -48,12 +48,14 @@ function NewbiesSort({
                   </div>
                 )}
               </div>
-              <p className='p- text-xl text-gray-500 ml-1'>{itemData.info}</p>
-              <div className='flex gap-5 items-center '>
+              <p className='ml-1 text-xl text-gray-500 h-[50px]'>
+                {itemData.info}
+              </p>
+              <div className='ml-1 my-6  flex gap-5  '>
                 <a
                   href={itemData.link}
                   target='_blank'
-                  className=' ml-1 w-32 text-center px-3 py-3 font-bold  shadow-lg text-xl bg-appBlue my-6  text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
+                  className='  w-32 px-3 py-3 font-bold shadow-lg text-xl text-center     bg-appBlue  text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
                   rel='noreferrer'>
                   Get Link
                 </a>
