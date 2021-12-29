@@ -17,7 +17,7 @@ export default function Newbies({
 
   return (
     <>
-      <div className='flex flex-col lg:flex-row justify-between '>
+      <div className='flex flex-col lg:flex-row justify-between overflow-x-hidden '>
         <h2 className='text-3xl mb-6'>Get Started</h2>
         <div className='flex items-center mb-8  lg:mb-5'>
           <div className='mr-5 text-xl '>Sort by:</div>

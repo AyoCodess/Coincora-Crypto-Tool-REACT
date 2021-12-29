@@ -20,7 +20,7 @@ function NewbiesSort({
   }
 
   return (
-    <div className='grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4'>
+    <div className='grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 overflow-x-hidden'>
       {itemData.map((itemData, i) => {
         return (
           <div className='border-2 shadow-xl ' key={i}>
