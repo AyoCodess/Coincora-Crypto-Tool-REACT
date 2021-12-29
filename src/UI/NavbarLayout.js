@@ -71,7 +71,7 @@ function NavbarLayout(props) {
           </Link>
         ))}
         {/* // - MANUAL NAV BAR ENTRIES - REACT-ROUTER-V6 */}
-        <LinkR to='/newbies'>
+        {/* <LinkR to='/newbies'>
           <Link underline={'none'} color={'none'}>
             <ListItem>
               <ListItemIcon style={{ color: '#0753FF' }}>
@@ -80,7 +80,7 @@ function NavbarLayout(props) {
               For Newbies
             </ListItem>
           </Link>
-        </LinkR>
+        </LinkR> */}
       </List>
       <Divider />
       <List>
