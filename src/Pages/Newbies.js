@@ -9,6 +9,8 @@ export default function Newbies({
   setTitle,
   info,
   setInfo,
+  link,
+  setLink,
 }) {
   return (
     <>
@@ -48,6 +50,7 @@ export default function Newbies({
                     setTitle(itemData.title);
                     setInfo(itemData.moreInfo);
                     setOpen(true);
+                    setLink(itemData.link);
                   }}>
                   More Into
                 </button>
@@ -63,6 +66,7 @@ export default function Newbies({
         setInfo={setInfo}
         open={open}
         setOpen={setOpen}
+        link={link}
       />
     </>
   );

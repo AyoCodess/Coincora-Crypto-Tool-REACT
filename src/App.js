@@ -14,6 +14,7 @@ function App() {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('title');
   const [info, setInfo] = useState('info');
+  const [link, setLink] = useState('link');
 
   return (
     <>
@@ -32,6 +33,8 @@ function App() {
                   setTitle={setTitle}
                   info={info}
                   setInfo={setInfo}
+                  link={link}
+                  setLink={setLink}
                 />
               }></Route>
           </Routes>
