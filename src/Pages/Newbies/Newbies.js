@@ -18,10 +18,10 @@ export default function Newbies({
   return (
     <>
       <div className='flex flex-col lg:flex-row justify-between '>
-        <h2 className='text-4xl mb-6'>Get Started</h2>
+        <h2 className='text-3xl mb-6'>Get Started</h2>
         <div className='flex items-center mb-8  lg:mb-5'>
-          <div className='mr-5 text-2xl '>Sort by:</div>
-          <div className='flex  gap-3 text-2xl'>
+          <div className='mr-5 text-xl '>Sort by:</div>
+          <div className='flex  gap-3 text-xl'>
             <button
               onClick={() => {
                 setMustHave(true);
@@ -91,7 +91,7 @@ const itemData = [
   {
     img: 'https://i.imgur.com/wnhi5Ho.png',
     title: 'Coinbase Exchange',
-    info: 'Keep it super simple',
+    info: 'Making buying crypto super simple',
     moreInfo:
       'if you want to invest in the safer more established coins, easily via simple app experience, Coinbase is the way to go.',
     alt: 'coinbase logo',
@@ -101,7 +101,7 @@ const itemData = [
   {
     img: 'https://i.imgur.com/YUegSx8.png',
     title: 'Coingecko',
-    info: 'Track your crypto portfolio to the minor detail',
+    info: 'Track your crypto portfolio comprehensively',
     moreInfo:
       'This is the best investment portfolio tracker available right now.',
     alt: 'coingecko logo',
@@ -109,13 +109,14 @@ const itemData = [
     status: 'Must have',
   },
   {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    title: 'Coffee',
-    info: 'Sign up and get a discount on all transactions',
-    moreInfo: 'more info',
-    alt: 'test',
-    link: 'https://accounts.binance.com/en/register?ref=37749695',
-    status: 'Optional',
+    img: 'https://i.imgur.com/uhdaSOe.png',
+    title: 'CoinMarketCap',
+    info: 'Get free crypto and track your portfolio',
+    moreInfo:
+      "CoinMarketCap is owned and ran by Binance. If you subscribe you can get notified on 'air drops' (free crypto giveaways). You can also track your coins here similar to coingecko but not as comprehensive.",
+    alt: 'coinmarketcap logo',
+    link: 'https://coinmarketcap.com/invite?ref=94PLEUUN',
+    status: 'Must have',
   },
   {
     img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
