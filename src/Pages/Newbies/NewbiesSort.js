@@ -20,7 +20,7 @@ function NewbiesSort({
   }
 
   return (
-    <div className='grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 overflow-x-hidden'>
+    <div className='grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 overflow-x-hidden'>
       {itemData.map((itemData, i) => {
         return (
           <div className='border-2 shadow-xl ' key={i}>
@@ -53,13 +53,13 @@ function NewbiesSort({
                 <a
                   href={itemData.link}
                   target='_blank'
-                  className=' ml-1 w-30 text-center px-6 py-4 font-bold  shadow-lg text-xl bg-appBlue my-6  text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
+                  className=' ml-1 w-32 text-center px-3 py-3 font-bold  shadow-lg text-xl bg-appBlue my-6  text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
                   rel='noreferrer'>
                   Get Link
                 </a>
 
                 <button
-                  className=' w-30 px-6 py-4 font-bold  shadow-lg text-xl bg-gray-400    text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
+                  className=' w-32 px-3 py-3 font-bold  shadow-lg text-xl bg-gray-400    text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
                   onClick={(e) => {
                     e.preventDefault();
                     setTitle(itemData.title);
