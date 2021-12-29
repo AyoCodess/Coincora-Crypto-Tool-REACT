@@ -9,9 +9,9 @@ function GoogleForm() {
         <form
           action='https://docs.google.com/forms/u/0/d/e/1FAIpQLSfOljMM0BkFLBFikUm8X1Sdq3-TwJpyTtZbzmpDc1TMoo1FSQ/formResponse'
           method='POST'>
-          <div className='border-2 lg:pt-5 lg:w-96 rounded-full boxShadow border-2 border-gray-200'>
+          <div className=' flex justify-center lg:pt-5 lg:w-96 xl:w-[750px] xl:h-[750px] rounded-full boxShadow border-2 border-gray-200'>
             <div className='flex flex-col justify-center items-center gap-5 p-10'>
-              <label className='lg:text-5xl text-3xl text-center w-60 mt-5  hover:text-blue-500 text-gray-400 transition ease-in-out duration-700 '>
+              <label className='lg:text-5xl xl:text-7xl  text-3xl text-center w-60 xl:w-96 mt-5  hover:text-blue-500 text-gray-400 transition ease-in-out duration-700 '>
                 Enter Email
               </label>
               <div className='rounded-full border-2 border-sky-400 border-solid '>
@@ -19,7 +19,7 @@ function GoogleForm() {
                   type='email'
                   required
                   name='emailAddress'
-                  className='lg:w-60 w-48 h-10 rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
+                  className='lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
                   placeholder='Join the waiting list'
                 />
               </div>

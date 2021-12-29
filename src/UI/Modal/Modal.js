@@ -1,6 +1,5 @@
 import { Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { ExclamationIcon } from '@heroicons/react/outline';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 
 export default function Modal({ open, setOpen, title, info, link }) {
@@ -42,7 +41,7 @@ export default function Modal({ open, setOpen, title, info, link }) {
             <div className=' w-96  justify-between inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:min-h-[20vh] sm:w-full'>
               <div>
                 <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
-                  <div className='sm:flex sm:items-start '>
+                  <div className='sm:flex sm:items-start sm:mt-5'>
                     <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-white sm:mx-0 sm:h-10 sm:w-10 '>
                       <EmojiEmotionsIcon
                         color={'yellow'}
@@ -61,7 +60,7 @@ export default function Modal({ open, setOpen, title, info, link }) {
                     </div>
                   </div>
                 </div>
-                <div className='sm:mt-24 bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse'>
+                <div className=' bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse'>
                   <a
                     href={link}
                     target='_blank'

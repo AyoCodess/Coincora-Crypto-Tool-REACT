@@ -3,7 +3,7 @@ import { React, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MarketCapOf from './Pages/MarketCapOf';
 import NavbarLayout from './UI/NavbarLayout.js';
-import Newbies from './Pages/Newbies';
+import Newbies from './Pages/Newbies/Newbies';
 import { ThemeProvider } from '@emotion/react';
 import theme from './MUIthemeOverrides';
 import Footer from './UI/Footer/Footer';
@@ -40,13 +40,6 @@ function App() {
           </Routes>
           <Footer />
         </NavbarLayout>
-        {/* <Modal
-          open={open}
-          setOpen={setOpen}
-          cancelButtonRef={cancelButtonRef}
-          title={'title'}
-          info={'info'}
-        /> */}
       </ThemeProvider>
     </>
   );

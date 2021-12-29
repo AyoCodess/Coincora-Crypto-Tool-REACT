@@ -54,19 +54,20 @@ function NavbarLayout(props) {
         <ArrowDropDownCircleIcon className='hover:text-blue-500 text-gray-400 transition ease-in-out duration-700' />
       </ListItem>
 
-      <List>
+      <List style={{ fontSize: '20px' }}>
         {mainNav.map((text, index) => (
           <Link
             underline={'none'}
             href={`${mainNavLinks[index]}`}
             target={targetBlank[index]}
             rel='noopener'
-            color={'none'}>
-            <ListItem button key={text}>
+            color={'none'}
+            key={index}>
+            <ListItem button>
               <ListItemIcon style={{ color: '#0753FF' }}>
                 {mainNavIcons[index]}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <span style={{ fontSize: '20px' }}>{text}</span>
             </ListItem>
           </Link>
         ))}
@@ -136,7 +137,9 @@ function NavbarLayout(props) {
             noWrap
             component='div'
             style={{ marginTop: '4px' }}>
-            <LinkR to='/'>Coincora</LinkR>
+            <LinkR to='/'>
+              <span style={{ fontSize: '30px' }}>Coincora</span>
+            </LinkR>
           </Typography>
         </Toolbar>
       </AppBar>
