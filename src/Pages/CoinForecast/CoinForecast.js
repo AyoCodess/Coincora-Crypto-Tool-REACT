@@ -1,5 +1,5 @@
 import React from 'react';
-import StandardButtonReactRouter from '../../UI/Buttons/StandardButtonReactRouter';
+import StandardButtonReactRouter from '../../components/Buttons/StandardButtonReactRouter';
 
 function CoinForecast() {
   return (

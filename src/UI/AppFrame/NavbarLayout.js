@@ -22,7 +22,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import Link from '@mui/material/Link';
 import { Link as LinkR } from 'react-router-dom';
-import NavBarButton from '../Buttons/NavBarButton';
+import NavBarButton from '../../components/Buttons/NavBarButton';
 
 const drawerWidth = 240;
 

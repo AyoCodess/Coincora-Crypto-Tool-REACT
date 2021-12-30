@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import Modal from '../../UI/Modal/Modal';
+import Modal from '../../components/Modal/Modal';
 import NewbiesSort from './NewbiesSort';
 
 export default function Newbies({

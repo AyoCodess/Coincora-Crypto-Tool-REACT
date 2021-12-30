@@ -1,6 +1,6 @@
 import React from 'react';
-import AlinkStandardButton from '../../UI/Buttons/AlinkStandardButton';
-import StandardButton from '../../UI/Buttons/StandardButton';
+import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton';
+import StandardButton from '../../components/Buttons/StandardButton';
 import StatusOptions from './StatusOptions';
 
 function NewbiesSort({
