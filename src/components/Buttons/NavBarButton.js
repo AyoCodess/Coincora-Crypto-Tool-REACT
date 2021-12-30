@@ -10,7 +10,7 @@ function NavBarButton({ icon, text, to }) {
       <Link underline={'none'} color={'none'}>
         <ListItem button>
           <ListItemIcon style={{ color: '#0753FF' }}>{icon}</ListItemIcon>
-          {text}
+          <div className='font-medium'>{text}</div>
         </ListItem>
       </Link>
     </LinkR>

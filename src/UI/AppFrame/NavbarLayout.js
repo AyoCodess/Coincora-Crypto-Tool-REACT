@@ -81,7 +81,7 @@ function NavbarLayout(props) {
               <ListItemIcon style={{ color: '#0753FF' }}>
                 {mainNavIcons[index]}
               </ListItemIcon>
-              <span style={{ fontSize: '20px' }}>{text}</span>
+              <span className='font-medium'>{text}</span>
             </ListItem>
           </Link>
         ))}

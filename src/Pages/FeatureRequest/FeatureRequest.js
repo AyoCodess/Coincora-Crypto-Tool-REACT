@@ -25,15 +25,15 @@ export default function FeatureRequest() {
                       <label
                         htmlFor='about'
                         className='block text-md font-medium text-gray-700'>
-                        About
+                        Feature Description
                       </label>
                       <div className='mt-1'>
                         <textarea
                           id='about'
                           name='about'
                           rows={3}
-                          className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md'
-                          placeholder='you@example.com'
+                          className='p-1 shadow-sm focus:ring-appBlue focus:border-appBlue mt-1 block w-full sm:text-sm border border-gray-300 rounded-md'
+                          placeholder='Describe the feature in some detail'
                           defaultValue={''}
                           required
                         />
@@ -71,7 +71,7 @@ export default function FeatureRequest() {
                                   id='comments'
                                   name='comments'
                                   type='checkbox'
-                                  className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded'
+                                  className='p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
                                 />
                               </div>
                               <div className='ml-3 text-sm'>
@@ -88,7 +88,7 @@ export default function FeatureRequest() {
                                   id='candidates'
                                   name='candidates'
                                   type='checkbox'
-                                  className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded'
+                                  className=' p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
                                 />
                               </div>
                               <div className='ml-3 text-sm'>
@@ -117,7 +117,7 @@ export default function FeatureRequest() {
                                 type='text'
                                 name='company-website'
                                 id='company-website'
-                                className='focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300'
+                                className='p-1 focus:ring-appBlue focus:border-appBlue flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300'
                                 placeholder='www.example.com'
                               />
                             </div>
@@ -150,7 +150,7 @@ export default function FeatureRequest() {
                               name='first-name'
                               id='first-name'
                               autoComplete='given-name'
-                              className='mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
+                              className=' p-1 mt-1 focus:ring-appBlue focus:border-appBlue block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
                               required
                             />
                           </div>
@@ -167,7 +167,7 @@ export default function FeatureRequest() {
                               name='email-address'
                               id='email-address'
                               autoComplete='email'
-                              className='mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
+                              className='p-1 mt-1 focus:ring-appBlue focus:border-appBlue block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
                             />
                           </div>
                         </div>
@@ -203,7 +203,7 @@ export default function FeatureRequest() {
                                     id='comments'
                                     name='comments'
                                     type='checkbox'
-                                    className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded'
+                                    className=' p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
                                   />
                                 </div>
                                 <div className='ml-3 text-sm'>
@@ -224,7 +224,7 @@ export default function FeatureRequest() {
                                     id='candidates'
                                     name='candidates'
                                     type='checkbox'
-                                    className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded'
+                                    className='p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
                                   />
                                 </div>
                                 <div className='ml-3 text-sm'>

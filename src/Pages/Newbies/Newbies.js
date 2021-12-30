@@ -18,7 +18,7 @@ export default function Newbies({
   return (
     <>
       <div className='flex flex-col lg:flex-row justify-between overflow-x-hidden '>
-        <h2 className='text-3xl mb-6'>Get Started</h2>
+        <h2 className='font-medium md:text-3xl  text-2xl mb-3'>Get Started</h2>
         <div className='flex items-center mb-8  lg:mb-5'>
           <div className='mr-5 text-xl '>Sort by:</div>
           <div className='flex  gap-3 text-xl'>
@@ -28,7 +28,7 @@ export default function Newbies({
                 setOptional(false);
               }}
               type='button'
-              className='p-2 border-2 border-gray-300 shadow-md hover:text-appBlue transition duration-500 ease-in-out'>
+              className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
               Must have
             </button>
             <button
@@ -37,7 +37,7 @@ export default function Newbies({
                 setOptional(true);
               }}
               type='button'
-              className='p-2 border-2 border-gray-300 shadow-md hover:text-appBlue transition duration-500 ease-in-out'>
+              className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white  transition duration-500 ease-in-out'>
               Optional
             </button>
             <button
@@ -46,13 +46,13 @@ export default function Newbies({
                 setOptional(false);
               }}
               type='button'
-              className='p-2 border-2 border-gray-300 shadow-md hover:text-appBlue transition duration-500 ease-in-out'>
+              className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white  transition duration-500 ease-in-out'>
               All
             </button>
           </div>
         </div>
       </div>
-      <p className='text-2xl mb-6'>
+      <p className='text-xl mb-6'>
         Get best start in crypto today by tooling up the right way.
       </p>
       <NewbiesSort
