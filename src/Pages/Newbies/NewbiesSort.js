@@ -39,7 +39,12 @@ function NewbiesSort({
               <StatusOptions item={item} />
               <p className='ml-1 text-lg text-gray-500 h-[50px]'>{item.info}</p>
               <div className='ml-1 my-6  flex gap-5  '>
-                <AlinkStandardButton href={item.link} text={'Get Link'} />
+                <AlinkStandardButton
+                  href={item.link}
+                  text={'Get Link'}
+                  width={'w-32'}
+                  color={'bg-appBlue'}
+                />
                 <StandardButton
                   text={'Why'}
                   onClick={(e) => {

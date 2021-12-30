@@ -14,7 +14,6 @@ function CoinForecast() {
           text={'Join the waiting list'}
           width={'w-[250px]'}
           color={'bg-appBlue'}
-          py={'py-3'}
         />
       </div>
     </div>

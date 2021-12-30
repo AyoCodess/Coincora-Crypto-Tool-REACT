@@ -1,11 +1,11 @@
 import React from 'react';
 
-function AlinkStandardButton({ href, text }) {
+function AlinkStandardButton({ href, text, width, color }) {
   return (
     <a
       href={href}
       target='_blank'
-      className=' w-32 px-3 py-3 font-bold shadow-lg text-xl text-center bg-appBlue  text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
+      className={`${color} ${width} text-center justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-500`}
       rel='noreferrer'>
       {text}
     </a>
