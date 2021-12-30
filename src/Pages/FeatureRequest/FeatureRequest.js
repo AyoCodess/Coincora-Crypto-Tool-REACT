@@ -5,7 +5,9 @@ export default function FeatureRequest() {
   return (
     <>
       <div>
-        <form action='#' method='POST'>
+        <form
+          action='https://docs.google.com/forms/u/0/d/e/1FAIpQLSdhI7TxH8Igv3frjtBkybWknIZik8GA9APxpmDtQ3G-xyvPiQ/formResponse'
+          method='POST'>
           <div className='md:grid  md:gap-6'>
             <div className='md:col-span-1'>
               <div className='px-4 sm:px-3'>
@@ -22,15 +24,13 @@ export default function FeatureRequest() {
                 <div className='px-0 py-5 bg-white space-y-6 sm:p-6'>
                   <div className='px-4 sm:px-0'>
                     <div className='mt-4'>
-                      <label
-                        htmlFor='about'
-                        className='block text-md font-medium text-gray-700'>
+                      <label className='block text-md font-medium text-gray-700'>
                         Feature Description
                       </label>
                       <div className='mt-1'>
                         <textarea
                           id='about'
-                          name='about'
+                          name='entry.1633164053'
                           rows={3}
                           className='p-1 shadow-sm focus:ring-appBlue focus:border-appBlue mt-1 block w-full sm:text-sm border border-gray-300 rounded-md'
                           placeholder='Describe the feature in some detail'
@@ -63,50 +63,46 @@ export default function FeatureRequest() {
                   <div className='mt-5 md:mt-0 md:col-span-2'>
                     <div className='shadow overflow-hidden sm:rounded-md'>
                       <div className='px-4 py-5 bg-white space-y-6 sm:p-6'>
-                        <fieldset>
-                          <div className='mt-0 space-y-4'>
-                            <div className='flex items-start'>
-                              <div className='flex items-center h-5'>
-                                <input
-                                  id='comments'
-                                  name='comments'
-                                  type='checkbox'
-                                  className='p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
-                                />
-                              </div>
-                              <div className='ml-3 text-sm'>
-                                <label
-                                  htmlFor='comments'
-                                  className='font-medium text-gray-700'>
-                                  Yes
-                                </label>
-                              </div>
+                        <div className='mt-0 space-y-4'>
+                          <div className='flex items-start'>
+                            <div className='flex items-center h-5'>
+                              <input
+                                required
+                                id='helpBuildYes'
+                                name='entry.1285439103'
+                                value='Yes'
+                                type='radio'
+                                className='p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
+                              />
                             </div>
-                            <div className='flex items-start'>
-                              <div className='flex items-center h-5'>
-                                <input
-                                  id='candidates'
-                                  name='candidates'
-                                  type='checkbox'
-                                  className=' p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
-                                />
-                              </div>
-                              <div className='ml-3 text-sm'>
-                                <label
-                                  htmlFor='candidates'
-                                  className='font-medium text-gray-700'>
-                                  No
-                                </label>
-                              </div>
+                            <div className='ml-3 text-sm'>
+                              <label className='font-medium text-gray-700'>
+                                Yes
+                              </label>
                             </div>
                           </div>
-                        </fieldset>
+                          <div className='flex items-start'>
+                            <div className='flex items-center h-5'>
+                              <input
+                                required
+                                id='helpBuildNo'
+                                name='entry.1285439103'
+                                value='No'
+                                type='radio'
+                                className=' p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
+                              />
+                            </div>
+                            <div className='ml-3 text-sm'>
+                              <label className='font-medium text-gray-700'>
+                                No
+                              </label>
+                            </div>
+                          </div>
+                        </div>
 
                         <div className='grid grid-cols-3 gap-6'>
                           <div className='col-span-3 sm:col-span-2'>
-                            <label
-                              htmlFor='company-website'
-                              className='block text-md font-medium text-gray-700'>
+                            <label className='block text-md font-medium text-gray-700'>
                               Website
                             </label>
                             <div className='mt-1 flex rounded-md shadow-sm'>
@@ -115,8 +111,8 @@ export default function FeatureRequest() {
                               </span>
                               <input
                                 type='text'
-                                name='company-website'
-                                id='company-website'
+                                name='entry.2001534315'
+                                id='website'
                                 className='p-1 focus:ring-appBlue focus:border-appBlue flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300'
                                 placeholder='www.example.com'
                               />
@@ -132,23 +128,19 @@ export default function FeatureRequest() {
               <div className='mt-5 md:mt-0 md:col-span-2'>
                 <div className='shadow overflow-hidden sm:rounded-md'>
                   <div className='px-4 py- bg-white space-y-6 sm:p-2'>
-                    <fieldset>
-                      <div className='mt-0 space-y-4'></div>
-                    </fieldset>
+                    <div className='mt-0 space-y-4'></div>
 
                     <div className='col-span-3 sm:col-span-2'>
                       <div className='px-4 py-5 bg-white space-y-6 sm:p-6'>
                         <div className='grid grid-cols-6 gap-6'>
                           <div className='col-span-6 sm:col-span-3'>
-                            <label
-                              htmlFor='first-name'
-                              className='block text-nd font-medium text-gray-700'>
+                            <label className='block text-nd font-medium text-gray-700'>
                               Name
                             </label>
                             <input
                               type='text'
-                              name='first-name'
-                              id='first-name'
+                              name='entry.894728480'
+                              id='name'
                               autoComplete='given-name'
                               className=' p-1 mt-1 focus:ring-appBlue focus:border-appBlue block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
                               required
@@ -157,15 +149,15 @@ export default function FeatureRequest() {
 
                           <div className='col-span-6 sm:col-span-4'>
                             <label
-                              htmlFor='email-address'
                               className='block text-md font-medium text-gray-700'
                               required>
                               Email address
                             </label>
                             <input
-                              type='text'
-                              name='email-address'
-                              id='email-address'
+                              required
+                              type='email'
+                              name='emailAddress'
+                              id='emailAddress'
                               autoComplete='email'
                               className='p-1 mt-1 focus:ring-appBlue focus:border-appBlue block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
                             />
@@ -192,55 +184,53 @@ export default function FeatureRequest() {
                     <div className='mt-5 md:mt-0 md:col-span-2'>
                       <div className='shadow overflow-hidden sm:rounded-md'>
                         <div className='px-4 py-5 bg-white space-y-6 sm:p-6'>
-                          <fieldset>
-                            <legend className='text-base font-medium text-gray-900'>
-                              By Email
-                            </legend>
-                            <div className='mt-4 space-y-4'>
-                              <div className='flex items-start'>
-                                <div className='flex items-center h-5'>
-                                  <input
-                                    id='comments'
-                                    name='comments'
-                                    type='checkbox'
-                                    className=' p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
-                                  />
-                                </div>
-                                <div className='ml-3 text-sm'>
-                                  <label
-                                    htmlFor='comments'
-                                    className='font-medium text-gray-700'>
-                                    Email
-                                  </label>
-                                  <p className='text-gray-500'>
-                                    Get notified when someones posts a comment
-                                    on a posting.
-                                  </p>
-                                </div>
+                          <legend className='text-base font-medium text-gray-900'>
+                            By Email
+                          </legend>
+                          <div className='mt-4 space-y-4'>
+                            <div className='flex items-start'>
+                              <div className='flex items-center h-5'>
+                                <input
+                                  required
+                                  id='email'
+                                  name='entry.392137457'
+                                  value='Email'
+                                  type='radio'
+                                  className=' p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
+                                />
                               </div>
-                              <div className='flex items-start'>
-                                <div className='flex items-center h-5'>
-                                  <input
-                                    id='candidates'
-                                    name='candidates'
-                                    type='checkbox'
-                                    className='p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
-                                  />
-                                </div>
-                                <div className='ml-3 text-sm'>
-                                  <label
-                                    htmlFor='candidates'
-                                    className='font-medium text-gray-700'>
-                                    None
-                                  </label>
-                                  <p className='text-gray-500'>
-                                    Get notified when a candidate applies for a
-                                    job.
-                                  </p>
-                                </div>
+                              <div className='ml-3 text-sm'>
+                                <label className='font-medium text-gray-700'>
+                                  Email
+                                </label>
+                                <p className='text-gray-500'>
+                                  Get notified when someones posts a comment on
+                                  a posting.
+                                </p>
                               </div>
                             </div>
-                          </fieldset>
+                            <div className='flex items-start'>
+                              <div className='flex items-center h-5'>
+                                <input
+                                  required
+                                  id='none'
+                                  name='entry.392137457'
+                                  value='None'
+                                  type='radio'
+                                  className='p-1 focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300 rounded'
+                                />
+                              </div>
+                              <div className='ml-3 text-sm'>
+                                <label className='font-medium text-gray-700'>
+                                  None
+                                </label>
+                                <p className='text-gray-500'>
+                                  Get notified when a candidate applies for a
+                                  job.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
