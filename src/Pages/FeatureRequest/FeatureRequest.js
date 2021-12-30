@@ -204,8 +204,8 @@ export default function FeatureRequest() {
                                   Email
                                 </label>
                                 <p className='text-gray-500'>
-                                  Get notified when someones posts a comment on
-                                  a posting.
+                                  Yes, i want to receive updates about the
+                                  status of your feature request.
                                 </p>
                               </div>
                             </div>
@@ -225,8 +225,7 @@ export default function FeatureRequest() {
                                   None
                                 </label>
                                 <p className='text-gray-500'>
-                                  Get notified when a candidate applies for a
-                                  job.
+                                  I don't want to receive emails.
                                 </p>
                               </div>
                             </div>
