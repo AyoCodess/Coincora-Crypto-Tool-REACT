@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import SortButton from '../../components/Buttons/SortButton';
 import Modal from '../../components/Modal/Modal';
 import NewbiesSort from './NewbiesSort';
 
@@ -22,33 +23,33 @@ export default function Newbies({
         <div className='flex items-center mb-8  lg:mb-5'>
           <div className='mr-5 text-xl '>Sort by:</div>
           <div className='flex  gap-3 text-xl'>
-            <button
+            <SortButton
+              setMustHave={setMustHave}
+              setOptional={setOptional}
+              text={'Must have'}
               onClick={() => {
                 setMustHave(true);
                 setOptional(false);
               }}
-              type='button'
-              className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
-              Must have
-            </button>
-            <button
+            />
+            <SortButton
+              setMustHave={setMustHave}
+              setOptional={setOptional}
+              text={'Optional'}
               onClick={() => {
                 setMustHave(false);
                 setOptional(true);
               }}
-              type='button'
-              className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white  transition duration-500 ease-in-out'>
-              Optional
-            </button>
-            <button
+            />
+            <SortButton
+              setMustHave={setMustHave}
+              setOptional={setOptional}
+              text={'All'}
               onClick={() => {
                 setMustHave(false);
                 setOptional(false);
               }}
-              type='button'
-              className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white  transition duration-500 ease-in-out'>
-              All
-            </button>
+            />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import AlinkStandardButton from '../Buttons/AlinkStandardButton';
 
 export default function Modal({ open, setOpen, title, info, link }) {
   const getLink = useRef(null);
@@ -60,21 +61,21 @@ export default function Modal({ open, setOpen, title, info, link }) {
                     </div>
                   </div>
                 </div>
-                <div className=' bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse'>
-                  <a
+                <div className=' bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-3'>
+                  <AlinkStandardButton
+                    ref={getLink}
                     href={link}
-                    target='_blank'
-                    className='w-full mb-3 inline-flex justify-center rounded-md border text-2xl border-transparent shadow-sm px-4 py-2 bg-appBlue hover:text-appBlue  hover:border-gray-500 font-medium text-white hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 sm:ml-3 sm:w-auto '
-                    rel='noreferrer'
-                    ref={getLink}>
-                    Get Link
-                  </a>
-                  <button
-                    type='button'
-                    className='mt-3 mb-3 w-full inline-flex justify-center rounded-md shadow-sm px-4 py-2 bg-white text-2xl font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto '
-                    onClick={() => setOpen(false)}>
-                    Cancel
-                  </button>
+                    text={'Get Link'}
+                    color={'bg-appBlue'}
+                    width={'w-32'}
+                  />
+
+                  <AlinkStandardButton
+                    text={'Cancel'}
+                    color={'bg-gray-300'}
+                    width={'w-32'}
+                    onClick={() => setOpen(false)}
+                  />
                 </div>
               </div>
             </div>

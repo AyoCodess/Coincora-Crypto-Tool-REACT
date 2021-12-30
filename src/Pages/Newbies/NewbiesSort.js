@@ -44,6 +44,7 @@ function NewbiesSort({
                   text={'Get Link'}
                   width={'w-32'}
                   color={'bg-appBlue'}
+                  ref={null}
                 />
                 <StandardButton
                   text={'Why'}
