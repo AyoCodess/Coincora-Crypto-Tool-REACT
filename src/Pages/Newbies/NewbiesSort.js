@@ -1,4 +1,7 @@
 import React from 'react';
+import AlinkStandardButton from '../../UI/Buttons/AlinkStandardButton';
+import StandardButton from '../../UI/Buttons/StandardButton';
+import StatusOptions from './StatusOptions';
 
 function NewbiesSort({
   mustHave,
@@ -21,56 +24,32 @@ function NewbiesSort({
 
   return (
     <div className='grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 overflow-x-hidden'>
-      {itemData.map((itemData, i) => {
+      {itemData.map((item, i) => {
         return (
           <div className='border-2 shadow-xl ' key={i}>
-            <a href={itemData.link} target='_blank' rel='noreferrer'>
+            <a href={item.link} target='_blank' rel='noreferrer'>
               <img
                 className='cursor-pointer'
-                src={itemData.img}
-                alt={itemData.alt}
+                src={item.img}
+                alt={item.alt}
                 style={{ objectFit: 'cover', width: '100%', height: '300px' }}
               />
             </a>
             <div className='px-2'>
-              <div className='flex justify-between items-center mt-3 mb-2'>
-                <div className='p-1  text-2xl text-gray-700 my-2'>
-                  {itemData.title}
-                </div>
-                {itemData.status === 'Must have' && (
-                  <div className='mr-4 p-2  rounded-full font-bold bg-red-500 text-white text-center shadow-md'>
-                    {itemData.status}
-                  </div>
-                )}
-                {itemData.status === 'Optional' && (
-                  <div className='mr-4 p-2  rounded-full font-bold bg-green-500 text-white text-center shadow-md'>
-                    {itemData.status}
-                  </div>
-                )}
-              </div>
-              <p className='ml-1 text-xl text-gray-500 h-[50px]'>
-                {itemData.info}
-              </p>
+              <StatusOptions item={item} />
+              <p className='ml-1 text-lg text-gray-500 h-[50px]'>{item.info}</p>
               <div className='ml-1 my-6  flex gap-5  '>
-                <a
-                  href={itemData.link}
-                  target='_blank'
-                  className='  w-32 px-3 py-3 font-bold shadow-lg text-xl text-center     bg-appBlue  text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
-                  rel='noreferrer'>
-                  Get Link
-                </a>
-
-                <button
-                  className=' w-32 px-3 py-3 font-bold  shadow-lg text-xl bg-gray-400    text-white hover:bg-white hover:text-appBlue transition ease-in-out duration-500 '
+                <AlinkStandardButton href={item.link} text={'Get Link'} />
+                <StandardButton
+                  text={'Why'}
                   onClick={(e) => {
                     e.preventDefault();
-                    setTitle(itemData.title);
-                    setInfo(itemData.moreInfo);
+                    setTitle(item.title);
+                    setInfo(item.moreInfo);
                     setOpen(true);
-                    setLink(itemData.link);
-                  }}>
-                  Why?
-                </button>
+                    setLink(item.link);
+                  }}
+                />
               </div>
             </div>
           </div>
