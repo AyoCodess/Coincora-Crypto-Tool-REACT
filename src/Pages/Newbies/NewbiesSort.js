@@ -49,6 +49,8 @@ function NewbiesSort({
                     setOpen(true);
                     setLink(item.link);
                   }}
+                  color={'bg-gray-400'}
+                  width={'w-32'}
                 />
               </div>
             </div>

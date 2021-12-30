@@ -11,6 +11,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import GroupsIcon from '@mui/icons-material/Groups';
@@ -20,6 +22,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import Link from '@mui/material/Link';
 import { Link as LinkR } from 'react-router-dom';
+import NavBarButton from '../Buttons/NavBarButton';
 
 const drawerWidth = 240;
 
@@ -33,8 +36,8 @@ function NavbarLayout(props) {
 
   // - Nav Layout
 
-  const mainNav = ['Contact', 'About', 'Telegram'];
-  const mainNavIcons = [<MailIcon />, <GroupsIcon />, <TelegramIcon />];
+  const mainNav = ['About', 'Telegram', 'Contact'];
+  const mainNavIcons = [<GroupsIcon />, <TelegramIcon />, <MailIcon />];
   const mainNavLinks = [
     'mailto:ayo@ayoadesanya.com',
     'https://github.com/sponsors/AyoCodess?o=esb',
@@ -55,6 +58,17 @@ function NavbarLayout(props) {
       </ListItem>
 
       <List style={{ fontSize: '20px' }}>
+        <NavBarButton
+          to={'/coin-forecast'}
+          icon={<BarChartIcon />}
+          text={'Coin Forecast'}
+        />
+        <NavBarButton
+          to={'/newbies'}
+          icon={<NewReleasesIcon />}
+          text={'For Newbies'}
+        />
+
         {mainNav.map((text, index) => (
           <Link
             underline={'none'}
@@ -71,17 +85,11 @@ function NavbarLayout(props) {
             </ListItem>
           </Link>
         ))}
-        {/* // - MANUAL NAV BAR ENTRIES - REACT-ROUTER-V6 */}
-        <LinkR to='/newbies'>
-          <Link underline={'none'} color={'none'}>
-            <ListItem>
-              <ListItemIcon style={{ color: '#0753FF' }}>
-                <NewReleasesIcon />
-              </ListItemIcon>
-              For Newbies
-            </ListItem>
-          </Link>
-        </LinkR>
+        <NavBarButton
+          to={'/feature-request-form'}
+          icon={<AddCircleOutlineIcon />}
+          text={'Feature Request'}
+        />
       </List>
       <Divider />
       <List>

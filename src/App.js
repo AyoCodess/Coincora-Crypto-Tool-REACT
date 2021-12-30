@@ -1,13 +1,14 @@
 import './App.scss';
 import { React, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import MarketCapOf from './Pages/MarketCapOf';
-import NavbarLayout from './UI/NavbarLayout.js';
+import NavbarLayout from './UI/AppFrame/NavbarLayout.js';
 import Newbies from './Pages/Newbies/Newbies';
 import { ThemeProvider } from '@emotion/react';
 import theme from './MUIthemeOverrides';
 import Footer from './UI/Footer/Footer';
-import GoogleForm from './Pages/GoogleForm';
+import GoogleForm from './Pages/GoogleForm/GoogleForm';
+import CoinForecast from './Pages/CoinForecast/CoinForecast';
+import FeatureRequest from './Pages/FeatureRequest/FeatureRequest';
 
 function App() {
   // - Modal Logic
@@ -22,7 +23,10 @@ function App() {
         <NavbarLayout>
           <Routes>
             <Route path='*' exact element={<GoogleForm />}></Route>
-            <Route path='/marketcapof' element={<MarketCapOf />}></Route>
+            <Route path='/coin-forecast' element={<CoinForecast />}></Route>
+            <Route
+              path='/feature-request-form'
+              element={<FeatureRequest />}></Route>
             <Route
               path='/newbies'
               element={
