@@ -61,7 +61,7 @@ export default function Modal({ open, setOpen, title, info, link }) {
                     </div>
                   </div>
                 </div>
-                <div className=' bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-3'>
+                <div className=' bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse justify-center gap-3 mb-2'>
                   <AlinkStandardButton
                     ref={getLink}
                     href={link}
