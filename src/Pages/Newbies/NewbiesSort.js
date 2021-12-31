@@ -23,10 +23,10 @@ function NewbiesSort({
   }
 
   return (
-    <div className='grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 overflow-x-hidden'>
+    <div className=' grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 overflow-x-hidden'>
       {itemData.map((item, i) => {
         return (
-          <div className='border-2 shadow-xl ' key={i}>
+          <div className='border-2 shadow-xl min-w-[310px]' key={i}>
             <a href={item.link} target='_blank' rel='noreferrer'>
               <img
                 className='cursor-pointer'

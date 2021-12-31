@@ -4,7 +4,7 @@ const itemData = [
     title: 'Binance Exchange',
     info: 'Offering a wide range crypto assets.',
     moreInfo:
-      'Binance features great and many emerging crypto projects. If you have some experience, you need this exchange.',
+      'Binance features established and many emerging crypto projects. If you have some experience, you need this exchange.',
     alt: 'binance logo',
     link: 'https://accounts.binance.com/en/register?ref=37749695',
     status: 'Must have',
@@ -14,7 +14,7 @@ const itemData = [
     title: 'Coinbase Exchange',
     info: 'Making buying crypto super simple.',
     moreInfo:
-      'if you want to invest in the safer more established coins, easily via simple app experience, Coinbase is the way to go.',
+      'If you want to invest in the safer more established coins easily via simple app experience, Coinbase is the way to go.',
     alt: 'coinbase logo',
     link: 'https://www.coinbase.com/join/adesan_c9?src=ios-link',
     status: 'Must have',
@@ -34,7 +34,7 @@ const itemData = [
     title: 'CoinMarketCap',
     info: 'Get free crypto and track your portfolio.',
     moreInfo:
-      "CoinMarketCap is owned and ran by Binance. If you subscribe to their platform you can get notified on 'air drops' (free crypto giveaways). You can also track your coins here similar to coingecko but not as comprehensive.",
+      "CoinMarketCap is owned by Binance. If you subscribe to their platform you can get notified on 'air drops' (free crypto giveaways). You can also track your coins here similar to coingecko but not as comprehensive.",
     alt: 'coinmarketcap logo',
     link: 'https://coinmarketcap.com/invite?ref=94PLEUUN',
     status: 'Must have',
@@ -44,7 +44,7 @@ const itemData = [
     title: 'Celsius',
     info: 'Earn up to 17% a year on all your crypto.',
     moreInfo:
-      'We use and recommend Celsius to earn compounding interest on your crypto investment portfolio.',
+      'Upon signup, transferring $400 and holding it for 30 days, you will receive $50! We use and recommend Celsius to earn compounding interest on your crypto investment portfolio.',
     alt: 'Celsius logo',
     link: 'https://celsiusnetwork.app.link/111453048f',
     status: 'Optional',
@@ -52,9 +52,9 @@ const itemData = [
   {
     img: 'https://i.imgur.com/TrnVE8N.png',
     title: 'Kucoin Exchange',
-    info: 'Find the most new and promising crypto projects',
+    info: 'Find new and promising crypto projects',
     moreInfo:
-      'Kucoin is infamous for launching coins that go on to do great things',
+      'Kucoin is infamous for launching coins that go on to do great things, many coins that launch first on Kucoin, eventually end up on Binance.',
     alt: 'kucoin',
     link: 'https://www.kucoin.plus/land/register/r/22raNy7',
     status: 'Must have',
@@ -62,9 +62,9 @@ const itemData = [
   {
     img: 'https://i.imgur.com/6qokTZk.png',
     title: 'Token Sniffer',
-    info: 'Quickly detect scam coins',
+    info: 'Quickly detect and avoid scam coins',
     moreInfo:
-      'This tool helps you detect scam coins by simply supplying the coin address to auto-generate a useful report about the coin integrity.',
+      'This tool helps you detect scam coins before you invest. You simply supply the coin address and the app will auto-generate a useful report about the coins integrity.',
     alt: 'token sniffer',
     link: 'https://tokensniffer.com/',
     status: 'Optional',
@@ -83,7 +83,8 @@ const itemData = [
     img: 'https://i.imgur.com/5Bz2aih.png',
     title: 'Wise',
     info: 'Crypto friendly international bank account',
-    moreInfo: 'Our recommend bank account to use for crypto transactions',
+    moreInfo:
+      '1 of the 2 recommended bank account to use for all your crypto transactions. The other bank account we recommend you get too is Revolute as a backup. ',
     alt: 'wise logo',
     link: 'https://wise.com/invite/iwh/ayo-olaa',
     status: 'Optional',
@@ -92,7 +93,8 @@ const itemData = [
     img: 'https://i.imgur.com/TPPxPX2.png',
     title: 'Revolut',
     info: 'Crypto friendly international bank account',
-    moreInfo: 'Use for crypto transactions',
+    moreInfo:
+      '1 of the 2 recommended bank account to use for all your crypto transactions. The other bank account we recommend you get too is Wise as a backup.',
     alt: 'Revolut logo',
     link: 'https://revolut.com/referral/ayoi8wid!DEC1AR',
     status: 'Optional',
@@ -100,7 +102,7 @@ const itemData = [
   {
     img: 'https://i.imgur.com/2p0quQ5.png',
     title: 'Crypto Panic',
-    info: 'Curated crypto news',
+    info: 'The best curated crypto news app',
     moreInfo: 'Our recommend and central hub for breaking crypto news',
     alt: 'Crypto Panic logo',
     link: 'https://cryptopanic.com/',

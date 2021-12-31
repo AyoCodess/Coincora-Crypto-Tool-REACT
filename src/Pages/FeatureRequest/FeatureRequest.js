@@ -51,7 +51,7 @@ export default function FeatureRequest() {
                 <div className='md:grid  md:gap-6'>
                   <div className='px-4 sm:px-3'>
                     <h3 className='text-lg font-medium leading-6 text-gray-900'>
-                      Do you want to help is build it?
+                      Do you want to help us build it?
                     </h3>
                     <p className='mt-1 text-sm text-gray-600'>
                       If you a web developer we would love for you to

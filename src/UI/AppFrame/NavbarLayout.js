@@ -39,9 +39,9 @@ function NavbarLayout(props) {
   const mainNav = ['About', 'Telegram', 'Contact'];
   const mainNavIcons = [<GroupsIcon />, <TelegramIcon />, <MailIcon />];
   const mainNavLinks = [
-    'mailto:ayo@ayoadesanya.com',
     'https://github.com/sponsors/AyoCodess?o=esb',
     'https://t.me/coincora',
+    'mailto:ayo@ayoadesanya.com',
   ];
   const targetBlank = ['_blank', '_blank', '_blank'];
 
