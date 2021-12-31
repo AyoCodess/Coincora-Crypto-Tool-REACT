@@ -13,6 +13,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import GroupsIcon from '@mui/icons-material/Groups';
@@ -62,6 +63,11 @@ function NavbarLayout(props) {
           to={'/coin-forecast'}
           icon={<BarChartIcon />}
           text={'Coin Forecast'}
+        />
+        <NavBarButton
+          to={'/quick-compare'}
+          icon={<CompareArrowsIcon />}
+          text={'Quick Compare'}
         />
         <NavBarButton
           to={'/newbies'}

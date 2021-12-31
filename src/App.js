@@ -9,6 +9,7 @@ import Footer from './UI/Footer/Footer';
 import GoogleForm from './Pages/GoogleForm/GoogleForm';
 import CoinForecast from './Pages/CoinForecast/CoinForecast';
 import FeatureRequest from './Pages/FeatureRequest/FeatureRequest';
+import QuickCompare from './Pages/QuickCompare/QuickCompare';
 
 function App() {
   // - Modal Logic
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path='*' exact element={<GoogleForm />}></Route>
             <Route path='/coin-forecast' element={<CoinForecast />}></Route>
+            <Route path='/quick-compare' element={<QuickCompare />}></Route>
             <Route
               path='/feature-request-form'
               element={<FeatureRequest />}></Route>
