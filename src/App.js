@@ -10,10 +10,13 @@ import GoogleForm from './Pages/GoogleForm/GoogleForm';
 import CoinForecast from './Pages/CoinForecast/CoinForecast';
 import FeatureRequest from './Pages/FeatureRequest/FeatureRequest';
 import QuickCompare from './Pages/QuickCompare/QuickCompare';
+import NewsBanner from './components/NewsBanner/NewsBanner';
+import CookiesBanner from './components/CookiesBanner/CookiesBanner';
 
 function App() {
   // - Modal Logic
   const [open, setOpen] = useState(false);
+  const [openDisclaimer, setOpenDisclaimer] = useState(true);
   const [title, setTitle] = useState('title');
   const [info, setInfo] = useState('info');
   const [link, setLink] = useState('link');
@@ -22,6 +25,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <NavbarLayout>
+          <NewsBanner />
           <Routes>
             <Route path='*' exact element={<GoogleForm />}></Route>
             <Route path='/coin-forecast' element={<CoinForecast />}></Route>
@@ -45,6 +49,7 @@ function App() {
               }></Route>
           </Routes>
           <Footer />
+          <CookiesBanner open={openDisclaimer} setOpen={setOpenDisclaimer} />
         </NavbarLayout>
       </ThemeProvider>
     </>
