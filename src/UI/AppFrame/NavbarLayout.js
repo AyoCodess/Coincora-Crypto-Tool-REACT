@@ -24,6 +24,8 @@ import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import Link from '@mui/material/Link';
 import { Link as LinkR } from 'react-router-dom';
 import NavBarButton from '../../components/Buttons/NavBarButton';
+import NavBarButtonSub from '../../components/Buttons/NavBarButtonSub';
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 
 const drawerWidth = 240;
 
@@ -53,11 +55,6 @@ function NavbarLayout(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <ListItem>
-        {' '}
-        <ArrowDropDownCircleIcon className='hover:text-blue-500 text-gray-400 transition ease-in-out duration-700' />
-      </ListItem>
-
       <List style={{ fontSize: '20px' }}>
         <NavBarButton
           to={'/coin-forecast'}
@@ -98,8 +95,8 @@ function NavbarLayout(props) {
         />
       </List>
       <Divider />
-      <List>
-        <div className='mx-auto w-auto'>
+      <List style={{ fontSize: '20px' }}>
+        <div className='mx-auto w-auto mb-5'>
           <iframe
             className='mx-auto mt-2'
             src='https://www.github.com/sponsors/AyoCodess/button'
@@ -108,6 +105,12 @@ function NavbarLayout(props) {
             width='116'
             style={{ border: '0' }}></iframe>
         </div>
+        <NavBarButtonSub
+          to={'/legal'}
+          icon={<LocalPoliceIcon />}
+          text={'Legal'}
+          className='text=gray-300'
+        />
         {subNav.map((text, index) => (
           <ListItem button key={text}>
             <Link>

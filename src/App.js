@@ -12,13 +12,14 @@ import FeatureRequest from './Pages/FeatureRequest/FeatureRequest';
 import QuickCompare from './Pages/QuickCompare/QuickCompare';
 import NewsBanner from './components/NewsBanner/NewsBanner';
 import CookiesBanner from './components/CookiesBanner/CookiesBanner';
+import Legal from './Pages/Legal/Legal';
 
 function App() {
   // - News banner options
-  let newsLink = '#';
-  let mobileHeadline = 'We announced a new product!';
+  let newsLink = '/';
+  let mobileHeadline = 'Beta v.1 release - Announcement soon';
   let desktopHeadline =
-    "Big news! We're excited to announce a brand new product.";
+    "Big news! We're excited to release Beta v.1 of the app very soon.";
   // - Modal Logic
   const [open, setOpen] = useState(false);
   const [openNews, setOpenNews] = useState(true);
@@ -53,6 +54,7 @@ function App() {
             <Route path='*' exact element={<GoogleForm />}></Route>
             <Route path='/coin-forecast' element={<CoinForecast />}></Route>
             <Route path='/quick-compare' element={<QuickCompare />}></Route>
+            <Route path='/legal' element={<Legal />}></Route>
             <Route
               path='/feature-request-form'
               element={<FeatureRequest />}></Route>

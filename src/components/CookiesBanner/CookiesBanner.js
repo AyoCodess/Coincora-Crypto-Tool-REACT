@@ -41,29 +41,23 @@ export default function CookiesBanner({
             leave='ease-in duration-200'
             leaveFrom='opacity-100 translate-y-0 sm:scale-100'
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
-            <div className=' h-[290px] sm:h-[210px] md:h-[170px] lg:h-[150px] inline-block align-bottom bg-white rounded-lg text-left  shadow-xl transform transition-all '>
+            <div className=' h-[270px] sm:h-[210px] md:h-[170px] lg:h-[120px] inline-block align-bottom bg-white rounded-lg text-left  shadow-xl transform transition-all '>
               <div className='bg-white'>
-                <div className='flex flex-col md:flex-row  gap-5 h-[140px] items-start md:items-center'>
+                <div className='flex flex-col md:flex-row  gap-5 h-[140px]  items-start md:items-center p-3'>
                   <div className=' ml-4 text-left '>
-                    <Dialog.Title
-                      as='h3'
-                      className='text-xl  leading-6  text-gray-900 mb-3 mt-3 lg:mt-0'>
-                      Cookies & Legal
-                    </Dialog.Title>
-                    <div className=''>
-                      <p className='text-sm text-gray-700'>
-                        We use cookies to improve user experience, for web
-                        analytics and marketing purposes. You can block saving
-                        cookies to your hard drive at any time, by changing the
-                        settings of your web browser. By continuing to use this
-                        website without disabling cookies in your web browser
-                        you agree to saving cookies to your hard drive. Learn
-                        more in our Privacy Policy.
-                      </p>
-                    </div>
+                    <p className='text-sm text-gray-700 mt-3 md:mt-8 lg:mt-0 '>
+                      We use cookies to improve user experience, for web
+                      analytics and marketing purposes. You can block saving
+                      cookies to your hard drive at any time, by changing the
+                      settings of your web browser. By continuing to use this
+                      website without disabling cookies in your web browser you
+                      agree to saving cookies to your hard drive. Learn more in
+                      our Privacy Policy.
+                    </p>
                   </div>
-                  <div className=' flex flex-row-reverse gap-3 ml-4 md:ml-0 mr-5'>
+                  <div className=' flex flex-row-reverse gap-3 ml-4 md:ml-0 mr-5 sm:mt-5 md:mt-0'>
                     <button
+                      className='bg-appBlue font-medium text-center justify-center py-2 px-4 border border-transparent shadow-sm text-md rounded-md text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-500'
                       onClick={() => {
                         setOpen(false);
                         // - Local storage expires after 7 days.
@@ -74,15 +68,12 @@ export default function CookiesBanner({
                         setUnderstand(true);
                       }}
                       style={{
-                        border: ' 2px solid blue',
-                        padding: '5px',
                         width: '8rem',
                       }}>
                       I Understand
                     </button>
 
-                    <button
-                      style={{ border: ' 2px solid blue', padding: '5px' }}>
+                    <button className='bg-appBlue font-medium text-center justify-center py-2 px-4 border border-transparent shadow-sm text-md rounded-md text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-500'>
                       Legal
                     </button>
                   </div>

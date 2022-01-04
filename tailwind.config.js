@@ -7,5 +7,5 @@ module.exports = {
       },
     },
   },
-  plugins: ['@tailwindcss/forms'],
+  plugins: ['@tailwindcss/forms', require('@tailwindcss/typography')],
 };
