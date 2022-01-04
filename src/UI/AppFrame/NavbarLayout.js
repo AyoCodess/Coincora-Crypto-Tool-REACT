@@ -17,7 +17,6 @@ import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import GroupsIcon from '@mui/icons-material/Groups';
-import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
