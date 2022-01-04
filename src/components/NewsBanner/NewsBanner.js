@@ -41,6 +41,7 @@ export default function NewsBanner({
             <div className='order-3 mt-4 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto  '>
               <Link to={newsLink}>
                 <StandardButtonDarkBG
+                  onClick={() => setOpenNews(false)}
                   text={'Learn More'}
                   color={'bg-white'}
                   width={'w-full'}>
