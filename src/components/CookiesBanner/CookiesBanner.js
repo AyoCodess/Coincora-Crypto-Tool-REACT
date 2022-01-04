@@ -1,10 +1,14 @@
 import { Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
-import AlinkStandardButton from '../Buttons/AlinkStandardButton';
 
-export default function CookiesBanner({ open, setOpen }) {
+export default function CookiesBanner({
+  open,
+  setOpen,
+  setUnderstand,
+  understand,
+}) {
   const getLink = useRef(null);
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -60,7 +64,15 @@ export default function CookiesBanner({ open, setOpen }) {
                   </div>
                   <div className=' flex flex-row-reverse gap-3 ml-4 md:ml-0 mr-5'>
                     <button
-                      onClick={() => setOpen(false)}
+                      onClick={() => {
+                        setOpen(false);
+                        // - Local storage expires after 7 days.
+                        const today = new Date();
+                        const expire = new Date();
+                        expire.setDate(today.getDate() + 7);
+                        localStorage.setItem('understand', expire);
+                        setUnderstand(true);
+                      }}
                       style={{
                         border: ' 2px solid blue',
                         padding: '5px',
