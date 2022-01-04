@@ -1,5 +1,6 @@
 import { Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import { Link } from 'react-router-dom';
 
 export default function CookiesBanner({
   open,
@@ -73,9 +74,13 @@ export default function CookiesBanner({
                       I Understand
                     </button>
 
-                    <button className='bg-appBlue font-medium text-center justify-center py-2 px-4 border border-transparent shadow-sm text-md rounded-md text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-500'>
-                      Legal
-                    </button>
+                    <Link to={'/legal'}>
+                      <button
+                        onClick={() => setOpen(false)}
+                        className='bg-appBlue font-medium text-center justify-center py-2 px-4 border border-transparent shadow-sm text-md rounded-md text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-500'>
+                        Legal
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

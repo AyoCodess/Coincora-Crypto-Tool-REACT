@@ -1,6 +1,7 @@
 import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline';
 import { Transition } from '@headlessui/react';
 import { Link } from 'react-router-dom';
+import StandardButtonDarkBG from '../Buttons/StandardButtonDarkBG';
 
 export default function NewsBanner({
   openNews,
@@ -37,13 +38,14 @@ export default function NewsBanner({
                 <span className='hidden md:inline'>{desktopHeadline}</span>
               </p>
             </div>
-            <div className='order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto'>
+            <div className='order-3 mt-4 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto  '>
               <Link to={newsLink}>
-                <a
-                  href={newsLink}
-                  className='flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-appBlue bg-white hover:bg-indigo-50'>
+                <StandardButtonDarkBG
+                  text={'Learn More'}
+                  color={'bg-white'}
+                  width={'w-full'}>
                   Learn more
-                </a>
+                </StandardButtonDarkBG>
               </Link>
             </div>
             <div className='order-2 flex-shrink-0 sm:order-3 sm:ml-3'>
