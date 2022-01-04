@@ -1,5 +1,5 @@
 import './App.scss';
-import { React useState } from 'react';
+import { React, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NavbarLayout from './UI/AppFrame/NavbarLayout.js';
 import Newbies from './Pages/Newbies/Newbies';
