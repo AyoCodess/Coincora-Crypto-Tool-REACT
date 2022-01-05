@@ -205,7 +205,7 @@ export default function FeatureRequest() {
                                 </label>
                                 <p className='text-gray-500'>
                                   Yes, i want to receive updates about the
-                                  status of your feature request.
+                                  status of my feature request.
                                 </p>
                               </div>
                             </div>
