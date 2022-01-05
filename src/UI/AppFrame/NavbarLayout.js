@@ -59,18 +59,22 @@ function NavbarLayout(props) {
           to={'/coin-forecast'}
           icon={<BarChartIcon />}
           text={'Coin Forecast'}
+          onClick={handleDrawerToggle}
         />
         <NavBarButton
           to={'/quick-compare'}
           icon={<CompareArrowsIcon />}
           text={'Quick Compare'}
+          onClick={handleDrawerToggle}
         />
         <NavBarButton
           to={'/newbies'}
           icon={<NewReleasesIcon />}
           text={'For Newbies'}
+          onClick={handleDrawerToggle}
         />
 
+        {/* // - Links with have URLS only */}
         {mainNav.map((text, index) => (
           <Link
             underline={'none'}
@@ -87,10 +91,12 @@ function NavbarLayout(props) {
             </ListItem>
           </Link>
         ))}
+
         <NavBarButton
           to={'/feature-request-form'}
           icon={<AddCircleOutlineIcon />}
           text={'Feature Request'}
+          onClick={handleDrawerToggle}
         />
       </List>
       <Divider />
@@ -109,6 +115,7 @@ function NavbarLayout(props) {
           icon={<LocalPoliceIcon />}
           text={'Legal'}
           className='text=gray-300'
+          onClick={handleDrawerToggle}
         />
         {subNav.map((text, index) => (
           <ListItem button key={text}>

@@ -4,9 +4,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Link from '@mui/material/Link';
 import { Link as LinkR } from 'react-router-dom';
 
-function NavBarButton({ icon, text, to }) {
+function NavBarButton({ icon, text, to, onClick }) {
   return (
-    <LinkR to={to}>
+    <LinkR to={to} onClick={onClick}>
       <Link underline={'none'} color={'none'}>
         <ListItem button>
           <ListItemIcon style={{ color: '#0753FF' }}>{icon}</ListItemIcon>
