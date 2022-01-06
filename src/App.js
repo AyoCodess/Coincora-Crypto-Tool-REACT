@@ -14,6 +14,7 @@ import NewsBanner from './components/NewsBanner/NewsBanner';
 import CookiesBanner from './components/CookiesBanner/CookiesBanner';
 import Legal from './Pages/Legal/Legal';
 import Advice from './Pages/Advice/Advice';
+import DonateCrypto from './Pages/DonateCrypto/DonateCrypto';
 
 function App() {
   // - News banner options
@@ -57,6 +58,7 @@ function App() {
             <Route path='/quick-compare' element={<QuickCompare />}></Route>
             <Route path='/legal' element={<Legal />}></Route>
             <Route path='/advice' element={<Advice />}></Route>
+            <Route path='/donate-crypto' element={<DonateCrypto />}></Route>
             <Route
               path='/feature-request-form'
               element={<FeatureRequest />}></Route>
