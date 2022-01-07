@@ -1,7 +1,9 @@
 import { Fragment, useRef } from 'react';
+import { React, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import StandardButton from '../../components/Buttons/StandardButton';
+import axios from 'axios';
 
 export default function DonateCryptoModal({
   open,
@@ -12,6 +14,32 @@ export default function DonateCryptoModal({
   qr,
   thankyouMessage,
 }) {
+  const [convertValue, setConvertValue] = useState(0);
+  const [coinValue, setCoinValue] = useState(5);
+
+  const api = async (e) => {
+    e.preventDefault();
+    console.log(e);
+    console.log('convert');
+
+    try {
+      // - Calling api to get 1 unit of fiat currency in quoted coin current price.
+      const response = await axios.get(
+        'https://rest.coinapi.io/v1/exchangerate/USD/BTC?apikey=35357289-7F5A-4801-9777-DF2C0FA616A4'
+      );
+      const data = response.data;
+      const { time, asset_id_base, asset_id_quote, rate } = data;
+
+      setCoinValue(() => {
+        console.log(convertValue * rate);
+        return convertValue * rate;
+      });
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const getLink = useRef(null);
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -67,25 +95,24 @@ export default function DonateCryptoModal({
                         <p className='text-2xl text-gray-700'>{info}</p>
                         <p>{thankyouMessage}</p>
                         <div>
-                          <form action=''>
-                            <span className='text-2xl mr-3 font-bold'>$</span>
-                            <input
-                              type='number'
-                              required
-                              className='lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
-                              placeholder='in put dollar amount you want to donate'
-                            />
-                            <button
-                              onClick={(e) => {
-                                e.preventDefault();
-                                console.log('convert');
-                              }}>
-                              Convert to {coinName}
-                            </button>
-                          </form>
+                          <span className='text-2xl mr-3 font-bold'>$</span>
+                          <input
+                            onChange={(e) => {
+                              setConvertValue(e.target.value);
+                            }}
+                            type='number'
+                            name='convert'
+                            required
+                            className='lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
+                            placeholder='in put dollar amount you want to donate'
+                          />
+                          <button type='submit' onClick={api}>
+                            Convert to {coinName}
+                          </button>
+
                           <input
                             type='number'
-                            value={45}
+                            value={coinValue}
                             required
                             className=' ml-7 lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
                             placeholder='in put dollar amount you want to donate'
