@@ -1,44 +1,50 @@
 import { Fragment, useRef } from 'react';
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import StandardButton from '../../components/Buttons/StandardButton';
 import axios from 'axios';
+import SortButton from '../../components/Buttons/SortButton';
+import ConvertBox from './components/ConvertBox';
+import QrBox from './components/QrBox';
+import CoinAddressBox from './components/CoinAddressBox';
 
 export default function DonateCryptoModal({
   open,
   setOpen,
   coinName,
-  info,
+  coinLogo,
   address,
   qr,
-  thankyouMessage,
+  ticker,
 }) {
   const [convertValue, setConvertValue] = useState(0);
-  const [coinValue, setCoinValue] = useState(5);
+  const [coinValue, setCoinValue] = useState(0);
+  const [currency, setCurrency] = useState(0);
 
-  const api = async (e) => {
-    e.preventDefault();
-    console.log(e);
-    console.log('convert');
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const apiCall = async () => {
     try {
       // - Calling api to get 1 unit of fiat currency in quoted coin current price.
-      const response = await axios.get(
-        'https://rest.coinapi.io/v1/exchangerate/USD/BTC?apikey=35357289-7F5A-4801-9777-DF2C0FA616A4'
+      const response = await axios(
+        'https://api.coingecko.com/api/v3/exchange_rates'
       );
-      const data = response.data;
-      const { time, asset_id_base, asset_id_quote, rate } = data;
 
+      const data = response.data.rates;
+      const { usd } = data;
+      setCurrency(usd.value);
       setCoinValue(() => {
-        console.log(convertValue * rate);
-        return convertValue * rate;
+        return convertValue / currency;
       });
-      return data;
     } catch (err) {
-      console.error(err);
+      console.error(err.response.status);
+      console.error(err.response.data.error);
     }
   };
+
+  useEffect(() => {
+    apiCall();
+  }, [currency, convertValue, apiCall]);
 
   const getLink = useRef(null);
   return (
@@ -75,68 +81,33 @@ export default function DonateCryptoModal({
             leave='ease-in duration-200'
             leaveFrom='opacity-100 translate-y-0 sm:scale-100'
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
-            <div className=' w-96  justify-between inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:min-h-[20vh] sm:w-full'>
-              <div>
-                <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
-                  <div className='sm:flex sm:items-start sm:mt-5'>
-                    <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-white sm:mx-0 sm:h-10 sm:w-10 '>
-                      <EmojiEmotionsIcon
-                        color={'yellow'}
-                        style={{ fontSize: '50px' }}
-                      />
-                    </div>
-                    <div className='mt-7 text-center sm:mt-0 sm:ml-4 sm:text-left'>
-                      <Dialog.Title
-                        as='h3'
-                        className='text-3xl leading-6  text-gray-900 mb-5'>
-                        {coinName}
-                      </Dialog.Title>
-                      <div className='mt-2'>
-                        <p className='text-2xl text-gray-700'>{info}</p>
-                        <p>{thankyouMessage}</p>
-                        <div>
-                          <span className='text-2xl mr-3 font-bold'>$</span>
-                          <input
-                            onChange={(e) => {
-                              setConvertValue(e.target.value);
-                            }}
-                            type='number'
-                            name='convert'
-                            required
-                            className='lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
-                            placeholder='in put dollar amount you want to donate'
-                          />
-                          <button type='submit' onClick={api}>
-                            Convert to {coinName}
-                          </button>
-
-                          <input
-                            type='number'
-                            value={coinValue}
-                            required
-                            className=' ml-7 lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
-                            placeholder='in put dollar amount you want to donate'
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className=' bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse justify-center gap-3 mb-2'>
-                  <StandardButton
-                    text={'Get Link'}
-                    color={'bg-appBlue'}
-                    width={'w-32'}
-                  />
-
-                  <StandardButton
-                    text={'Cancel'}
-                    color={'bg-gray-300'}
-                    width={'w-32'}
-                    onClick={() => setOpen(false)}
-                  />
-                </div>
+            {/* //- Modal container  */}
+            <div className=' sm:my-8 sm:align-middle sm:min-h-[20vh] justify-between inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all '>
+              <div className=' flex flex-col justify-center items-center bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 '>
+                <CoinAddressBox
+                  coinLogo={coinLogo}
+                  coinName={coinName}
+                  address={address}
+                />
+                <ConvertBox
+                  ticker={ticker}
+                  coinValue={coinValue}
+                  setConvertValue={setConvertValue}
+                />
+                <p className='mt-5 text-left'>
+                  You can scan the QR code with your phone camera or use a QR
+                  scanner app to copy and paste our address, so you can support
+                  us.
+                </p>
+                <QrBox coinName={coinName} qr={qr} />
+              </div>
+              <div className=' bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse justify-center gap-3 mb-2'>
+                <StandardButton
+                  text={'Done'}
+                  color={'bg-appBlue'}
+                  width={'w-32'}
+                  onClick={() => setOpen(false)}
+                />
               </div>
             </div>
           </Transition.Child>
