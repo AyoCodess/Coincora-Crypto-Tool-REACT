@@ -83,23 +83,27 @@ export default function DonateCryptoModal({
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
             {/* //- Modal container  */}
             <div className=' sm:my-8 sm:align-middle sm:min-h-[20vh] justify-between inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all '>
-              <div className=' flex flex-col justify-center items-center bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 '>
-                <CoinAddressBox
-                  coinLogo={coinLogo}
-                  coinName={coinName}
-                  address={address}
-                />
-                <ConvertBox
-                  ticker={ticker}
-                  coinValue={coinValue}
-                  setConvertValue={setConvertValue}
-                />
-                <p className='mt-5 text-left'>
-                  You can scan the QR code with your phone camera or use a QR
-                  scanner app to copy and paste our address, so you can support
-                  us.
-                </p>
-                <QrBox coinName={coinName} qr={qr} />
+              <div className=' flex flex-col md:flex-row md:gap-5 justify-center items-center bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 '>
+                <div className='flex flex-col items-center '>
+                  <CoinAddressBox
+                    coinLogo={coinLogo}
+                    coinName={coinName}
+                    address={address}
+                  />
+                  <ConvertBox
+                    ticker={ticker}
+                    coinValue={coinValue}
+                    setConvertValue={setConvertValue}
+                  />
+                </div>
+                <div className='flex flex-col justify-center'>
+                  <p className='mt-5 text-center max-w-md'>
+                    You can scan the QR code with your phone camera or use a QR
+                    scanner app to copy and paste our address, so you can
+                    support us.
+                  </p>
+                  <QrBox coinName={coinName} qr={qr} />
+                </div>
               </div>
               <div className=' bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse justify-center gap-3 mb-2'>
                 <StandardButton
