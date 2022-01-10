@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import SortButton from '../../../components/Buttons/SortButton';
+
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function CoinAddressBox({ coinLogo, coinName, address }) {
