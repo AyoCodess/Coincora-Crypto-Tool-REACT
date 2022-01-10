@@ -1,8 +1,14 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import SortButton from '../../../components/Buttons/SortButton';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function CoinAddressBox({ coinLogo, coinName, address }) {
+  const [copied, setCopied] = useState({
+    value: address,
+    copied: false,
+  });
+
   return (
     <div className='sm:flex items-start sm:mt-5  '>
       <div className='flex flex-col items-center  '>
@@ -18,10 +24,18 @@ function CoinAddressBox({ coinLogo, coinName, address }) {
         </div>
         <div className='mt-2'>
           <div className='flex flex-col gap-4 items-center'>
-            <p className='text-sm text-gray-700 border-b-2 border-appBlue pb-3'>
-              {address}
-            </p>
-            <SortButton text={'Copy Address'} />
+            <input
+              value={address}
+              className='text-sm text-gray-700 border-b-2 text-center border-appBlue pb-3 w-[310px]'
+            />
+
+            <CopyToClipboard
+              text={copied.value}
+              onCopy={() => setCopied({ copied: true })}>
+              <button className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
+                Copy Address
+              </button>
+            </CopyToClipboard>
           </div>
         </div>
       </div>

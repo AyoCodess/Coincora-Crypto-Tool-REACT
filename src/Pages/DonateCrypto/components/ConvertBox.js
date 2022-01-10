@@ -1,7 +1,15 @@
-import React from 'react';
+import { React, useState } from 'react';
 import SortButton from '../../../components/Buttons/SortButton';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function ConvertBox({ ticker, setConvertValue, coinValue }) {
+  const [copied, setCopied] = useState({
+    value: coinValue,
+    copied: false,
+  });
+  console.log(coinValue);
+
+  console.log(copied);
   return (
     <>
       <div
@@ -43,6 +51,27 @@ function ConvertBox({ ticker, setConvertValue, coinValue }) {
             <div className='mt-5 ml-14'>
               <SortButton text={'Copy Amount'} />
             </div>
+
+            {/* //-new */}
+
+            <input
+              type='number'
+              readOnly
+              value={coinValue}
+              required
+              className=' ml-3 lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
+            />
+
+            <CopyToClipboard
+              text={copied.value}
+              onCopy={() => {
+                console.log('yes');
+                setCopied({ copied: true });
+              }}>
+              <button className=' mt-5 ml-14 text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
+                Copy Address
+              </button>
+            </CopyToClipboard>
           </div>
         </div>
       </div>

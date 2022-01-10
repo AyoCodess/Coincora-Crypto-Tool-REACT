@@ -15,6 +15,7 @@ export default function DonateCrypto() {
   const [coinName, setCoinName] = useState(null);
   const [address, setAddress] = useState(null);
   const [qr, setQr] = useState(null);
+
   return (
     <>
       <div>Crypto</div>
