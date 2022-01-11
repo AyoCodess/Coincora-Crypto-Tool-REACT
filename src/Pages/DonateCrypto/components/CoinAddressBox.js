@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import { Dialog } from '@headlessui/react';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -16,7 +16,7 @@ function CoinAddressBox({
     <div className='sm:flex items-start sm:mt-5  '>
       <div className='flex flex-col items-center  '>
         <div className='mx-auto flex-shrink-0 flex justify-center h-12 w-12 rounded-full bg-white  sm:h-10 sm:w-10 '>
-          <img src={coinLogo} style={{ fontSize: '50px' }} />
+          <img src={coinLogo} alt='coin logo' style={{ fontSize: '50px' }} />
         </div>
         <div className='mt-7 text-start sm:ml-4 sm:text-left'>
           <Dialog.Title
