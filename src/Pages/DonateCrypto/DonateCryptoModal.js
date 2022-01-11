@@ -6,6 +6,9 @@ import axios from 'axios';
 import ConvertBox from './components/ConvertBox';
 import QrBox from './components/QrBox';
 import CoinAddressBox from './components/CoinAddressBox';
+import DonateForm from './components/DonateForm';
+// import { Route } from 'react-router-dom';
+// import SuccessPage from '../../components/SuccessPage';
 
 export default function DonateCryptoModal({
   open,
@@ -60,7 +63,7 @@ export default function DonateCryptoModal({
         as='div'
         className='fixed z-10 inset-0 overflow-y-auto'
         initialFocus={getLink}
-        onClose={setOpen}>
+        onClose={() => setOpen(true)}>
         <div className='flex items-end justify-center md:min-h-screen min-h-[70vh] pt-4 px-4 pb-20 text-center sm:block sm:p-0'>
           <Transition.Child
             as={Fragment}
@@ -88,7 +91,14 @@ export default function DonateCryptoModal({
             leaveFrom='opacity-100 translate-y-0 sm:scale-100'
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
             {/* //- Modal container  */}
-            <div className=' sm:my-8 sm:align-middle sm:min-h-[20vh] justify-between inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all '>
+            <form
+              name='cryptoDonate'
+              //   action={
+              //     <Route path='/coin-forecast' element={<SuccessPage />}></Route>
+              //   }
+              method='POST'
+              data-netlify='true'
+              className='sm:my-8 sm:align-middle sm:min-h-[20vh] justify-between inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all '>
               <div className=' flex flex-col md:flex-row md:gap-5 justify-center items-center bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 '>
                 <div className='flex flex-col items-center '>
                   <CoinAddressBox
@@ -111,6 +121,7 @@ export default function DonateCryptoModal({
                   />
                 </div>
                 <div className='flex flex-col justify-center'>
+                  <DonateForm />
                   <p className='mt-5 text-center max-w-md'>
                     You can scan the QR code with your phone camera or use a QR
                     scanner app to copy and paste our address, so you can
@@ -124,10 +135,14 @@ export default function DonateCryptoModal({
                   text={'Done'}
                   color={'bg-appBlue'}
                   width={'w-32'}
-                  onClick={() => setOpen(false)}
+                  onSubmit={(e) => {
+                    e.preventDefault();
+
+                    setOpen(false);
+                  }}
                 />
               </div>
-            </div>
+            </form>
           </Transition.Child>
         </div>
       </Dialog>

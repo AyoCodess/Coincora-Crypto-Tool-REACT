@@ -29,8 +29,7 @@ function ConvertBox({
                 setConvertValue(event.target.valueAsNumber);
               }}
               type='number'
-              name='convert'
-              required
+              name='originalAmount'
               className='lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
               placeholder='Enter amount'
             />
@@ -44,6 +43,7 @@ function ConvertBox({
             <input
               type='number'
               readOnly
+              name='convertedAmount'
               value={coinValue}
               className=' ml-3 lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
             />
@@ -56,9 +56,9 @@ function ConvertBox({
 
                   setCopiedAddress({ copied: false });
                 }}>
-                <button className=' w-32 mt-5 ml-14 text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
+                <span className=' inline-block w-32 mt-5 ml-14 text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
                   Copy Amount
-                </button>
+                </span>
               </CopyToClipboard>
               {copiedCoinValue.copied && !copiedAddress.copied === true && (
                 <span className='ml-2 text-red-500'>copied</span>

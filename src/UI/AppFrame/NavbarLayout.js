@@ -23,7 +23,7 @@ import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import Link from '@mui/material/Link';
 import { Link as LinkR } from 'react-router-dom';
 import NavBarButton from '../../components/Buttons/NavBarButton';
-import NavBarButtonSub from '../../components/Buttons/NavBarButtonSub';
+import NavBarButtonSubGrayIcon from '../../components/Buttons/NavBarButtonSubGrayIcon';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 
@@ -111,18 +111,17 @@ function NavbarLayout(props) {
             width='116'
             style={{ border: '0' }}></iframe>
         </div>
-        <NavBarButtonSub
+        <NavBarButton
           to={'/donate-crypto'}
           icon={<CardGiftcardIcon />}
           text={'Donate Crypto'}
-          className='text=gray-300'
           onClick={handleDrawerToggle}
         />
-        <NavBarButtonSub
+        <NavBarButtonSubGrayIcon
           to={'/legal'}
           icon={<LocalPoliceIcon />}
           text={'Legal'}
-          className='text=gray-300'
+          className='text-gray-300 font-medium'
           onClick={handleDrawerToggle}
         />
         {subNav.map((text, index) => (
