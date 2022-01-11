@@ -3,12 +3,15 @@ import { Dialog } from '@headlessui/react';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-function CoinAddressBox({ coinLogo, coinName, address }) {
-  const [copied, setCopied] = useState({
-    value: address,
-    copied: false,
-  });
-
+function CoinAddressBox({
+  coinLogo,
+  coinName,
+  address,
+  copiedCoinValue,
+  setCopiedCoinValue,
+  copiedAddress,
+  setCopiedAddress,
+}) {
   return (
     <div className='sm:flex items-start sm:mt-5  '>
       <div className='flex flex-col items-center  '>
@@ -28,14 +31,21 @@ function CoinAddressBox({ coinLogo, coinName, address }) {
               value={address}
               className='text-sm text-gray-700 border-b-2 text-center border-appBlue pb-3 w-[310px]'
             />
-
-            <CopyToClipboard
-              text={copied.value}
-              onCopy={() => setCopied({ copied: true })}>
-              <button className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
-                Copy Address
-              </button>
-            </CopyToClipboard>
+            <div>
+              <CopyToClipboard
+                text={address}
+                onCopy={() => {
+                  setCopiedAddress({ copied: true });
+                  setCopiedCoinValue({ copied: false });
+                }}>
+                <button className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
+                  Copy Address
+                </button>
+              </CopyToClipboard>
+              {copiedAddress.copied && !copiedCoinValue.copied === true && (
+                <span className='ml-2 text-red-500'>copied</span>
+              )}
+            </div>
           </div>
         </div>
       </div>

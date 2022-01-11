@@ -1,10 +1,8 @@
 import { Fragment, useRef } from 'react';
 import { React, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import StandardButton from '../../components/Buttons/StandardButton';
 import axios from 'axios';
-import SortButton from '../../components/Buttons/SortButton';
 import ConvertBox from './components/ConvertBox';
 import QrBox from './components/QrBox';
 import CoinAddressBox from './components/CoinAddressBox';
@@ -21,6 +19,12 @@ export default function DonateCryptoModal({
   const [convertValue, setConvertValue] = useState(0);
   const [coinValue, setCoinValue] = useState(0);
   const [currency, setCurrency] = useState(0);
+  const [copiedAddress, setCopiedAddress] = useState({
+    copied: false,
+  });
+  const [copiedCoinValue, setCopiedCoinValue] = useState({
+    copied: false,
+  });
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const apiCall = async () => {
@@ -45,6 +49,8 @@ export default function DonateCryptoModal({
   useEffect(() => {
     apiCall();
   }, [currency, convertValue, apiCall]);
+
+  console.log({ coinValue });
 
   const getLink = useRef(null);
   return (
@@ -89,11 +95,19 @@ export default function DonateCryptoModal({
                     coinLogo={coinLogo}
                     coinName={coinName}
                     address={address}
+                    copiedAddress={copiedAddress}
+                    setCopiedAddress={setCopiedAddress}
+                    setCopiedCoinValue={setCopiedCoinValue}
+                    copiedCoinValue={copiedCoinValue}
                   />
                   <ConvertBox
                     ticker={ticker}
                     coinValue={coinValue}
                     setConvertValue={setConvertValue}
+                    copiedCoinValue={copiedCoinValue}
+                    setCopiedCoinValue={setCopiedCoinValue}
+                    copiedAddress={copiedAddress}
+                    setCopiedAddress={setCopiedAddress}
                   />
                 </div>
                 <div className='flex flex-col justify-center'>

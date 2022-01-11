@@ -2,14 +2,15 @@ import { React, useState } from 'react';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-function ConvertBox({ ticker, setConvertValue, coinValue }) {
-  const [copied2, setCopied2] = useState({
-    value: coinValue,
-    copied: false,
-  });
-
-  console.log(copied2.value);
-
+function ConvertBox({
+  ticker,
+  setConvertValue,
+  coinValue,
+  copiedCoinValue,
+  setCopiedCoinValue,
+  copiedAddress,
+  setCopiedAddress,
+}) {
   return (
     <>
       <div
@@ -34,25 +35,11 @@ function ConvertBox({ ticker, setConvertValue, coinValue }) {
               placeholder='Enter amount'
             />
           </div>
-          {/* <button type='submit' onClick={api}>
-                                    Convert to {coinName}
-                                  </button> */}
           <p className='mt-5 text-left'>
             Below is the <b>{ticker}</b> amount you wish to support us with.
           </p>
           <div className='mt-5'>
             <span className='text-2xl mr-3 font-bold'>{ticker}</span>
-            {/* <input
-              type='number'
-              value={coinValue}
-              required
-              className=' ml-3 lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
-            />
-            <div className='mt-5 ml-14'>
-              <SortButton text={'Copy Amount'} />
-            </div> */}
-
-            {/* //-new */}
 
             <input
               type='number'
@@ -61,16 +48,22 @@ function ConvertBox({ ticker, setConvertValue, coinValue }) {
               className=' ml-3 lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
             />
 
-            <CopyToClipboard
-              text={copied2.value}
-              onCopy={() => {
-                console.log('yes');
-                setCopied2({ copied: true });
-              }}>
-              <button className=' mt-5 ml-14 text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
-                Copy Amount
-              </button>
-            </CopyToClipboard>
+            <div className=''>
+              <CopyToClipboard
+                text={coinValue}
+                onCopy={() => {
+                  setCopiedCoinValue({ copied: true });
+
+                  setCopiedAddress({ copied: false });
+                }}>
+                <button className=' w-32 mt-5 ml-14 text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
+                  Copy Amount
+                </button>
+              </CopyToClipboard>
+              {copiedCoinValue.copied && !copiedAddress.copied === true && (
+                <span className='ml-2 text-red-500'>copied</span>
+              )}
+            </div>
           </div>
         </div>
       </div>
