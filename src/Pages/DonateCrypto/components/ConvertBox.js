@@ -56,9 +56,9 @@ function ConvertBox({
 
                   setCopiedAddress({ copied: false });
                 }}>
-                <span className=' inline-block w-32 mt-5 ml-14 text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
+                <div className='w-32 mt-5 ml-14 text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
                   Copy Amount
-                </span>
+                </div>
               </CopyToClipboard>
               {copiedCoinValue.copied && !copiedAddress.copied === true && (
                 <span className='ml-2 text-red-500'>copied</span>
