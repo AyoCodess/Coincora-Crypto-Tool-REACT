@@ -29,6 +29,7 @@ function CoinAddressBox({
           <div className='flex flex-col gap-4 items-center'>
             <input
               value={address}
+              name='donatedToAddress'
               className='text-sm text-gray-700 border-b-2 text-center border-appBlue pb-3 w-[310px] outline-none'
             />
             <div>
@@ -38,9 +39,7 @@ function CoinAddressBox({
                   setCopiedAddress({ copied: true });
                   setCopiedCoinValue({ copied: false });
                 }}>
-                <div
-                  type='button'
-                  className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
+                <div className='text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
                   Copy Address
                 </div>
               </CopyToClipboard>

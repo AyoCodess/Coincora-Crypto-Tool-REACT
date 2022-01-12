@@ -2,6 +2,7 @@ import { Fragment, useRef } from 'react';
 import { React, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import StandardButton from '../../components/Buttons/StandardButton';
+import StandardButtonDarkBG from '../../components/Buttons/StandardButtonDarkBG';
 import axios from 'axios';
 import ConvertBox from './components/ConvertBox';
 import QrBox from './components/QrBox';
@@ -93,14 +94,19 @@ export default function DonateCryptoModal({
             {/* //- Modal container  */}
             <form
               name='cryptoDonate'
-              //   action={
-              //     <Route path='/coin-forecast' element={<SuccessPage />}></Route>
-              //   }
+              //   action='/donate-success'
               method='POST'
               data-netlify='true'
+              netlify-honeypot='bot-field'
               className='sm:my-8 sm:align-middle sm:min-h-[20vh] justify-between inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all '>
               <div className=' flex flex-col md:flex-row md:gap-5 justify-center items-center bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 '>
                 <div className='flex flex-col items-center '>
+                  <p class='hidden'>
+                    <label>
+                      Don’t fill this out if you’re human:{' '}
+                      <input name='bot-field' />
+                    </label>
+                  </p>
                   <CoinAddressBox
                     coinLogo={coinLogo}
                     coinName={coinName}
@@ -132,12 +138,19 @@ export default function DonateCryptoModal({
               </div>
               <div className=' bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse justify-center gap-3 mb-2'>
                 <StandardButton
-                  text={'Done'}
+                  text={'Submit'}
                   color={'bg-appBlue'}
                   width={'w-32'}
                   onSubmit={(e) => {
+                    setOpen(false);
+                  }}
+                />
+                <StandardButtonDarkBG
+                  text={'Cancel'}
+                  color={'bg-gray-200'}
+                  width={'w-32'}
+                  onClick={(e) => {
                     e.preventDefault();
-
                     setOpen(false);
                   }}
                 />
