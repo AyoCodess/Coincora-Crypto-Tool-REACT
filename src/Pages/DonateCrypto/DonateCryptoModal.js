@@ -93,20 +93,11 @@ export default function DonateCryptoModal({
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
             {/* //- Modal container  */}
             <form
-              name='cryptoDonate'
-              //   action='/donate-success'
+              action='https://docs.google.com/forms/u/0/d/e/1FAIpQLScTfIh7qu1Bm_UCiwnytIDETTfCoeT-6QdXobV4yN_-pP4smw/formResponse'
               method='POST'
-              data-netlify='true'
-              netlify-honeypot='bot-field'
               className='sm:my-8 sm:align-middle sm:min-h-[20vh] justify-between inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all '>
               <div className=' flex flex-col md:flex-row md:gap-5 justify-center items-center bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 '>
                 <div className='flex flex-col items-center '>
-                  <p class='hidden'>
-                    <label>
-                      Don’t fill this out if you’re human:{' '}
-                      <input name='bot-field' />
-                    </label>
-                  </p>
                   <CoinAddressBox
                     coinLogo={coinLogo}
                     coinName={coinName}
@@ -145,6 +136,7 @@ export default function DonateCryptoModal({
                     setOpen(false);
                   }}
                 />
+
                 <StandardButtonDarkBG
                   text={'Cancel'}
                   color={'bg-gray-200'}

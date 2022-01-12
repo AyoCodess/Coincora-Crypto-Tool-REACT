@@ -29,7 +29,8 @@ function CoinAddressBox({
           <div className='flex flex-col gap-4 items-center'>
             <input
               value={address}
-              name='donatedToAddress'
+              readOnly
+              name='entry.180076200'
               className='text-sm text-gray-700 border-b-2 text-center border-appBlue pb-3 w-[310px] outline-none'
             />
             <div>

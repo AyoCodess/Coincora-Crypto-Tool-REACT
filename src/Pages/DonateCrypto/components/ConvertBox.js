@@ -29,9 +29,10 @@ function ConvertBox({
                 setConvertValue(event.target.valueAsNumber);
               }}
               type='number'
-              name='originalAmount'
+              name='entry.1204200204'
               className='lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
               placeholder='Enter amount'
+              required
             />
           </div>
           <p className='mt-5 text-left'>
@@ -43,7 +44,7 @@ function ConvertBox({
             <input
               type='number'
               readOnly
-              name='convertedAmount'
+              name='entry.2005307353'
               value={coinValue}
               className=' ml-3 lg:w-60 xl:w-80 w-48 h-10 lg:text-xl  xl:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
             />

@@ -9,13 +9,15 @@ function DonateForm() {
       <div className='p-5 flex gap-4 items-center'>
         <input
           type='text'
-          name='name'
+          name='entry.945193122'
           className='  w-40 md:w-48  h-10  text-sm rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
           placeholder='Your Name'
+          required
         />
         <input
           type='email'
-          name='email'
+          name='emailAddress'
+          required
           className='  w-40 md:w-48 h-10   text-sm rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
           placeholder='Your email'
         />
