@@ -54,8 +54,6 @@ export default function DonateCryptoModal({
     apiCall();
   }, [currency, convertValue, apiCall]);
 
-  console.log({ coinValue });
-
   const getLink = useRef(null);
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -118,7 +116,7 @@ export default function DonateCryptoModal({
                   />
                 </div>
                 <div className='flex flex-col justify-center'>
-                  <DonateForm />
+                  <DonateForm ticker={ticker} />
                   <p className='mt-5 text-center max-w-md'>
                     You can scan the QR code with your phone camera or use a QR
                     scanner app to copy and paste our address, so you can
