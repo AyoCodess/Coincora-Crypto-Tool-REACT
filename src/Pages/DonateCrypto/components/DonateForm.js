@@ -4,7 +4,7 @@ function DonateForm() {
   return (
     <div className='flex flex-col mx-auto mt-5'>
       <h2 className='font-bold text-xl px-5'>Share your details (optional)</h2>
-      <div className='p-5 rounded-md shadow-lg flex gap-4 items-center'>
+      <div className='p-5 flex gap-4 items-center'>
         <input
           type='text'
           name='name'
