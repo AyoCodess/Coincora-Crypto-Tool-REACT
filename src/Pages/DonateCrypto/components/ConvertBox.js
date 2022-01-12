@@ -17,7 +17,7 @@ function ConvertBox({
         style={{
           boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
         }}
-        className='p-4 my-5 rounded-xl sm:w-[480px]'>
+        className='p-4 my-5 rounded-xl w-[300px] sm:w-[480px]'>
         <p className='mt-3 text-left'>
           Enter the amount you want wish you support us with below.
         </p>
@@ -57,7 +57,7 @@ function ConvertBox({
 
                   setCopiedAddress({ copied: false });
                 }}>
-                <span className=' inline-block text-center w-32 mt-5 ml-14 text-sm text-lg p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
+                <span className=' inline-block text-center w-32 mt-5 ml-14  text-lg p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
                   Copy Amount
                 </span>
               </CopyToClipboard>

@@ -19,7 +19,7 @@ export default function DonateCrypto() {
 
   return (
     <>
-      <div className='text-3xl font-bold mt-10'>
+      <div className='text-3xl font-bold mt-10 overflow-x-hidden'>
         Support us with CryptoCurrency
       </div>
       <div className='flex flex-wrap gap-3 mt-5'>
