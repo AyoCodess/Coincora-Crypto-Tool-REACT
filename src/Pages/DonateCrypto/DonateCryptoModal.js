@@ -115,9 +115,9 @@ export default function DonateCryptoModal({
                     setCopiedAddress={setCopiedAddress}
                   />
                 </div>
-                <div className='flex flex-col justify-center'>
+                <div className='flex flex-col justify-center items-center'>
                   <DonateForm ticker={ticker} />
-                  <p className='mt-5 text-center max-w-md'>
+                  <p className='mt-5 p-x text-center w-[280px] md:w-[400px]'>
                     You can scan the QR code with your phone camera or use a QR
                     scanner app to copy and paste our address, so you can
                     support us.

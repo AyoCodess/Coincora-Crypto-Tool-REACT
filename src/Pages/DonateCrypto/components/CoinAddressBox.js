@@ -40,7 +40,7 @@ function CoinAddressBox({
                   setCopiedAddress({ copied: true });
                   setCopiedCoinValue({ copied: false });
                 }}>
-                <span className=' inline-block text-sm md:text-lg p-1 md:p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
+                <span className=' inline-block  text-lg p-2 rounded-md border-2 border-gray-300 shadow-md hover:bg-appBlue hover:text-white transition duration-500 ease-in-out'>
                   Copy Address
                 </span>
               </CopyToClipboard>

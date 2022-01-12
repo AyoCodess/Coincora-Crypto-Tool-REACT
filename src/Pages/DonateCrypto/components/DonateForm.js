@@ -2,15 +2,15 @@ import React from 'react';
 
 function DonateForm({ ticker }) {
   return (
-    <div className='flex flex-col mx-auto mt-5'>
-      <p className='font-bold w-[400px] text-center mb-5 text-appBlue'>
+    <div className='flex flex-col items-center mx-auto mt-5'>
+      <p className='font-bold text-xl w-[300px] md:w-[400px]  px-1 text-center mb-5 text-appBlue'>
         Send crypto to our <span className='text-gray-500'>{ticker}</span>{' '}
         <b>address</b> and then click submit, or click cancel. Thank you.
       </p>
-      <h2 className='font-bold text-center text-xl px-5'>
+      <h2 className='font-bold text-center text-lg px-5'>
         Share your details (optional)
       </h2>
-      <div className='p-5 flex gap-4 items-center'>
+      <div className='p-5 flex flex-col sm:flex-row gap-4 items-center justify-center'>
         <input
           type='text'
           name='entry.945193122'
