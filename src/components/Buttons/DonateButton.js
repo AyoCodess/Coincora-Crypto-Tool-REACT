@@ -1,11 +1,18 @@
 import React from 'react';
 
-function DonateButton({ className, onClick, text, coinLogo, borderColor }) {
+function DonateButton({
+  className,
+  onClick,
+  text,
+  coinLogo,
+  borderColor,
+  textColorHover,
+}) {
   return (
     <button
-      className={`py-2 px-4 border-2 rounded-md shadow ${borderColor} hover:bg-green-500 hover:text-white hover:border-0 transition ease-in-out duration-300`}
+      className={`py-2 w-28 px-4 border-2 rounded-md shadow ${borderColor} ${textColorHover} `}
       onClick={onClick}>
-      <div className='flex gap-2 items-center'>
+      <div className='flex gap-2 justify-center items-center'>
         <img src={coinLogo} alt='coin logo' className='w-6' />
         <span>{text}</span>
       </div>

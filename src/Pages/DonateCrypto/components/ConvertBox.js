@@ -36,10 +36,13 @@ function ConvertBox({
             />
           </div>
           <p className='mt-5 text-left'>
-            Below is the <b>{ticker}</b> amount you wish to support us with.
+            Below is the <b>{ticker.toUpperCase()}</b> amount you wish to
+            support us with.
           </p>
           <div className='mt-5'>
-            <span className='text-2xl mr-3 font-bold'>{ticker}</span>
+            <span className='text-2xl mr-3 font-bold'>
+              {ticker.toUpperCase()}
+            </span>
 
             <input
               type='number'

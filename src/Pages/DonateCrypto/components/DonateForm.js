@@ -4,7 +4,8 @@ function DonateForm({ ticker }) {
   return (
     <div className='flex flex-col items-center mx-auto mt-5'>
       <p className='font-bold text-xl w-[320px] md:w-[400px]  px-1 text-center mb-5 text-appBlue'>
-        Send crypto to our <span className='text-gray-500'>{ticker}</span>{' '}
+        Send crypto to our{' '}
+        <span className='text-gray-500'>{ticker.toUpperCase()}</span>{' '}
         <b>address</b> and then click submit.{' '}
         <span className='inline-block'>Thank you.</span>
       </p>

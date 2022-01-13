@@ -2,7 +2,7 @@ import { Fragment, useRef } from 'react';
 import { React, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import StandardButton from '../../components/Buttons/StandardButton';
-import StandardButtonDarkBG from '../../components/Buttons/StandardButtonDarkBG';
+import StandardButtonDarkBGDonate from '../../components/Buttons/StandardButtonDarkBGDonate';
 import axios from 'axios';
 import ConvertBox from './components/ConvertBox';
 import QrBox from './components/QrBox';
@@ -17,6 +17,7 @@ export default function DonateCryptoModal({
   setOpen,
   coinName,
   coinLogo,
+  network,
   address,
   qr,
   ticker,
@@ -38,12 +39,19 @@ export default function DonateCryptoModal({
       const response = await axios(
         'https://api.coingecko.com/api/v3/exchange_rates'
       );
-
+      //= TODO: REMOVE OTHERS AND ADD WHAT YOU CAN USE. CREATE CRYPTO.COM WALLET
       const data = response.data.rates;
+
+      console.log(data);
       const { usd } = data;
       setCurrency(usd.value);
+
+      // - Coin Exchange
+      const baseCoin = data[ticker].value;
+      const exchange = baseCoin * convertValue;
+
       setCoinValue(() => {
-        return convertValue / currency;
+        return exchange / currency;
       });
     } catch (err) {
       console.error(err.response.status);
@@ -101,6 +109,7 @@ export default function DonateCryptoModal({
                       coinLogo={coinLogo}
                       coinName={coinName}
                       address={address}
+                      network={network}
                       copiedAddress={copiedAddress}
                       setCopiedAddress={setCopiedAddress}
                       setCopiedCoinValue={setCopiedCoinValue}
@@ -135,7 +144,7 @@ export default function DonateCryptoModal({
                       setOpen(false);
                     }}
                   />
-                  <StandardButtonDarkBG
+                  <StandardButtonDarkBGDonate
                     text={'Cancel'}
                     color={'bg-gray-200'}
                     width={'w-32'}
@@ -143,6 +152,7 @@ export default function DonateCryptoModal({
                       setOpen(false);
                       setCopiedAddress(false);
                       setCopiedCoinValue(false);
+                      setConvertValue(null);
                     }}
                   />
                 </div>

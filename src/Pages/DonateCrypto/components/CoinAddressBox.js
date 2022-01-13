@@ -7,6 +7,7 @@ function CoinAddressBox({
   coinLogo,
   coinName,
   address,
+  network,
   copiedCoinValue,
   setCopiedCoinValue,
   copiedAddress,
@@ -33,6 +34,10 @@ function CoinAddressBox({
               name='entry.180076200'
               className='  text-sm text-gray-700 border-b-2 text-center border-appBlue pb-3 w-[310px] outline-none'
             />
+            <div>
+              <span className='font-bold'>Address Network: </span>
+              {network}
+            </div>
             <div>
               <CopyToClipboard
                 text={address}
