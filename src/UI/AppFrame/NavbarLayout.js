@@ -65,7 +65,7 @@ function NavbarLayout(props) {
         <NavBarButton
           to={'/quick-compare'}
           icon={<CompareArrowsIcon />}
-          text={'Quick Compare'}
+          text={'Quick Forecast'}
           onClick={handleDrawerToggle}
         />
         <NavBarButton

@@ -8,6 +8,7 @@ import ConvertBox from './components/ConvertBox';
 import QrBox from './components/QrBox';
 import CoinAddressBox from './components/CoinAddressBox';
 import DonateForm from './components/DonateForm';
+
 // import { Route } from 'react-router-dom';
 // import SuccessPage from '../../components/SuccessPage';
 
@@ -63,7 +64,7 @@ export default function DonateCryptoModal({
         className='fixed inset-0 overflow-y-auto overflow-x-hidden'
         initialFocus={getLink}
         onClose={() => setOpen(true)}>
-        <div className='  md:min-w-[90%] mx-auto flex items-end justify-center  p-4 text-center sm:p-0'>
+        <div className='  md:min-w-[90%] mx-auto flex items-end md:block  justify-center  p-4 text-center sm:p-0'>
           <Transition.Child
             as={Fragment}
             enter='ease-out duration-300'
@@ -90,7 +91,7 @@ export default function DonateCryptoModal({
             leaveFrom='opacity-100 translate-y-0 scale-100'
             leaveTo='opacity-0 translate-y-0 scale-95'>
             {/* //- Modal container  */}
-            <div className=' max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
+            <div className='max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
               <form
                 action='https://docs.google.com/forms/u/0/d/e/1FAIpQLScTfIh7qu1Bm_UCiwnytIDETTfCoeT-6QdXobV4yN_-pP4smw/formResponse'
                 method='POST'>
@@ -140,6 +141,8 @@ export default function DonateCryptoModal({
                     width={'w-32'}
                     onClick={(e) => {
                       setOpen(false);
+                      setCopiedAddress(false);
+                      setCopiedCoinValue(false);
                     }}
                   />
                 </div>

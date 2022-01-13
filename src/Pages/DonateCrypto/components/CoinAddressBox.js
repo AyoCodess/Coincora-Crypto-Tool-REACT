@@ -31,7 +31,7 @@ function CoinAddressBox({
               value={address}
               readOnly
               name='entry.180076200'
-              className='text-sm text-gray-700 border-b-2 text-center border-appBlue pb-3 w-[310px] outline-none'
+              className='  text-sm text-gray-700 border-b-2 text-center border-appBlue pb-3 w-[310px] outline-none'
             />
             <div>
               <CopyToClipboard
