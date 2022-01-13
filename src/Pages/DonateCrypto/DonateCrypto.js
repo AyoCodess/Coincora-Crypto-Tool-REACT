@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 
 import DonateCryptoModal from './DonateCryptoModal.js';
+import DonateCryptoModalStablecoin from './DonateCryptoModalStablecoin';
 //-qr codes
 import ethQrCode from '../../assets/qr-code-images/eth-qr-code.png';
 import btcQrCode from '../../assets/qr-code-images/btc-qr-code.png';
@@ -27,6 +28,8 @@ export default function DonateCrypto() {
   const [network, setNetwork] = useState(null);
   const [qr, setQr] = useState(null);
 
+  const [stablecoin, setStablecoin] = useState(false);
+
   return (
     <>
       <div className='text-3xl font-bold mt-10'>
@@ -46,6 +49,7 @@ export default function DonateCrypto() {
             setCoinLogo(usdtLogo);
             setTicker('usdt');
             setNetwork('Tron');
+            setStablecoin(true);
           }}
         />
         <DonateButton
@@ -61,6 +65,7 @@ export default function DonateCrypto() {
             setCoinLogo(usdcLogo);
             setTicker('usdc');
             setNetwork('Tron');
+            setStablecoin(true);
           }}
         />
         <DonateButton
@@ -76,6 +81,7 @@ export default function DonateCrypto() {
             setCoinLogo(maticLogo);
             setTicker('matic');
             setNetwork('Polygon');
+            setStablecoin(false);
           }}
         />
         <DonateButton
@@ -91,6 +97,7 @@ export default function DonateCrypto() {
             setCoinLogo(bnbLogo);
             setTicker('bnb');
             setNetwork('Bep20');
+            setStablecoin(false);
           }}
         />
 
@@ -107,6 +114,7 @@ export default function DonateCrypto() {
             setCoinLogo(adaLogo);
             setTicker('ada');
             setNetwork('Cardano');
+            setStablecoin(false);
           }}
         />
         <DonateButton
@@ -122,6 +130,7 @@ export default function DonateCrypto() {
             setCoinLogo(solLogo);
             setTicker('sol');
             setNetwork('Solana');
+            setStablecoin(false);
           }}
         />
         <DonateButton
@@ -137,6 +146,7 @@ export default function DonateCrypto() {
             setCoinLogo(linkLogo);
             setTicker('link');
             setNetwork('Ethereum');
+            setStablecoin(false);
           }}
         />
         <DonateButton
@@ -152,6 +162,7 @@ export default function DonateCrypto() {
             setCoinLogo(btcLogo);
             setTicker('btc');
             setNetwork('Bitcoin');
+            setStablecoin(false);
           }}
         />
 
@@ -168,6 +179,7 @@ export default function DonateCrypto() {
             setCoinLogo(ethLogo);
             setTicker('eth');
             setNetwork('Ethereum');
+            setStablecoin(false);
           }}
         />
         <DonateButton
@@ -183,19 +195,34 @@ export default function DonateCrypto() {
             setCoinLogo(ltcLogo);
             setTicker('ltc');
             setNetwork('Litecoin');
+            setStablecoin(false);
           }}
         />
       </div>
-      <DonateCryptoModal
-        coinLogo={coinLogo}
-        coinName={coinName}
-        address={address}
-        network={network}
-        qr={qr}
-        ticker={ticker}
-        open={open}
-        setOpen={setOpen}
-      />
+
+      {!stablecoin && setOpen ? (
+        <DonateCryptoModal
+          coinLogo={coinLogo}
+          coinName={coinName}
+          address={address}
+          network={network}
+          qr={qr}
+          ticker={ticker}
+          open={open}
+          setOpen={setOpen}
+        />
+      ) : (
+        <DonateCryptoModalStablecoin
+          coinLogo={coinLogo}
+          coinName={coinName}
+          address={address}
+          network={network}
+          qr={qr}
+          ticker={ticker}
+          open={open}
+          setOpen={setOpen}
+        />
+      )}
     </>
   );
 }
