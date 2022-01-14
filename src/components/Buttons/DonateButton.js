@@ -10,7 +10,7 @@ function DonateButton({
 }) {
   return (
     <button
-      className={`py-2 w-28 px-4 border-2 rounded-md shadow ${borderColor} ${textColorHover} `}
+      className={`py-2 w-32 px-4 border-2 rounded-md shadow ${borderColor} ${textColorHover} `}
       onClick={onClick}>
       <div className='flex gap-2 justify-center items-center'>
         <img src={coinLogo} alt='coin logo' className='w-6' />

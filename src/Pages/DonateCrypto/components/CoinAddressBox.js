@@ -15,11 +15,15 @@ function CoinAddressBox({
 }) {
   return (
     <div className='sm:flex items-start sm:mt-5  '>
-      <div className='flex flex-col items-center  '>
+      <div className='flex flex-col items-center '>
         <div className='mx-auto flex-shrink-0 flex justify-center h-12 w-12 rounded-full bg-white  sm:h-10 sm:w-10 '>
-          <img src={coinLogo} alt='coin logo' style={{ fontSize: '50px' }} />
+          <img
+            src={coinLogo}
+            alt={`${coinName} logo`}
+            style={{ fontSize: '50px' }}
+          />
         </div>
-        <div className='mt-7 text-start sm:ml-4 sm:text-left'>
+        <div className='mt-7 text-start sm:text-left'>
           <Dialog.Title
             as='h3'
             className='text-3xl text-center leading-6  text-gray-900 mb-5'>
@@ -34,9 +38,9 @@ function CoinAddressBox({
               name='entry.180076200'
               className='  text-sm text-gray-700 border-b-2 text-center border-appBlue pb-3 w-[310px]  outline-none'
             />
-            <div>
+            <div className='flex items-center gap-2'>
               <span className='font-bold'>Address Network: </span>
-              {network}
+              <span className='text-red-500 font-bold text-2xl'>{network}</span>
             </div>
             <div>
               <CopyToClipboard
