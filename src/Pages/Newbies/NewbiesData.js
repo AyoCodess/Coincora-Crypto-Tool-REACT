@@ -1,6 +1,6 @@
 const itemData = [
   {
-    img: 'https://i.imgur.com/5gnYPMh.png',
+    img: 'https://i.imgur.com/7fdU1Xb.jpg',
     title: 'Binance Exchange',
     info: 'Offering a wide range crypto assets.',
     moreInfo:
@@ -10,7 +10,7 @@ const itemData = [
     status: 'Must have',
   },
   {
-    img: 'https://i.imgur.com/wnhi5Ho.png',
+    img: 'https://i.imgur.com/bdIs9pi.jpg',
     title: 'Coinbase Exchange',
     info: 'Making buying crypto super simple.',
     moreInfo:
@@ -20,7 +20,7 @@ const itemData = [
     status: 'Must have',
   },
   {
-    img: 'https://i.imgur.com/YUegSx8.png',
+    img: 'https://i.imgur.com/JRn40ht.jpg',
     title: 'Coingecko',
     info: 'Track your crypto portfolio comprehensively.',
     moreInfo:
@@ -30,7 +30,7 @@ const itemData = [
     status: 'Must have',
   },
   {
-    img: 'https://i.imgur.com/uhdaSOe.png',
+    img: 'https://i.imgur.com/R7TOUxV.jpg',
     title: 'CoinMarketCap',
     info: 'Get free crypto and track your portfolio.',
     moreInfo:
@@ -40,7 +40,7 @@ const itemData = [
     status: 'Must have',
   },
   {
-    img: 'https://i.imgur.com/ppQvdwK.png',
+    img: 'https://i.imgur.com/CS1mnYp.jpg',
     title: 'Celsius',
     info: 'Earn up to 17% a year on all your crypto.',
     moreInfo:
@@ -50,7 +50,7 @@ const itemData = [
     status: 'Optional',
   },
   {
-    img: 'https://i.imgur.com/TrnVE8N.png',
+    img: 'https://i.imgur.com/GhU78Su.jpg',
     title: 'Kucoin Exchange',
     info: 'Find new and promising crypto projects',
     moreInfo:
@@ -60,7 +60,7 @@ const itemData = [
     status: 'Must have',
   },
   {
-    img: 'https://i.imgur.com/6qokTZk.png',
+    img: 'https://i.imgur.com/euUl5sQ.jpg',
     title: 'Token Sniffer',
     info: 'Quickly detect and avoid scam coins',
     moreInfo:
@@ -70,7 +70,7 @@ const itemData = [
     status: 'Optional',
   },
   {
-    img: 'https://i.imgur.com/fiIXkNx.png',
+    img: 'https://i.imgur.com/SYvQtd9.jpg',
     title: 'Trust Wallet',
     info: 'Store all your crypto in one place',
     moreInfo:
@@ -80,7 +80,7 @@ const itemData = [
     status: 'Optional',
   },
   {
-    img: 'https://i.imgur.com/5Bz2aih.png',
+    img: 'https://i.imgur.com/Y1fBpIf.jpg',
     title: 'Wise',
     info: 'Crypto friendly international bank account',
     moreInfo:
@@ -90,7 +90,7 @@ const itemData = [
     status: 'Optional',
   },
   {
-    img: 'https://i.imgur.com/TPPxPX2.png',
+    img: 'https://i.imgur.com/gIT5TSj.jpg',
     title: 'Revolut',
     info: 'Crypto friendly international bank account',
     moreInfo:
@@ -100,7 +100,7 @@ const itemData = [
     status: 'Optional',
   },
   {
-    img: 'https://i.imgur.com/2p0quQ5.png',
+    img: 'https://i.imgur.com/UGOrmbq.jpg',
     title: 'Crypto Panic',
     info: 'The best curated crypto news app',
     moreInfo: 'Our recommend and central hub for breaking crypto news',

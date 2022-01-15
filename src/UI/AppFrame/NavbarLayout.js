@@ -92,6 +92,19 @@ function NavbarLayout(props) {
             </ListItem>
           </Link>
         ))}
+<<<<<<< HEAD:src/UI/NavbarLayout.js
+        {/* // - MANUAL NAV BAR ENTRIES - REACT-ROUTER-V6 */}
+        {/* <LinkR to='/newbies'>
+          <Link underline={'none'} color={'none'}>
+            <ListItem>
+              <ListItemIcon style={{ color: '#0753FF' }}>
+                <NewReleasesIcon />
+              </ListItemIcon>
+              For Newbies
+            </ListItem>
+          </Link>
+        </LinkR> */}
+=======
 
         <NavBarButton
           to={'/feature-request-form'}
@@ -99,6 +112,7 @@ function NavbarLayout(props) {
           text={'Feature Request'}
           onClick={handleDrawerToggle}
         />
+>>>>>>> beta:src/UI/AppFrame/NavbarLayout.js
       </List>
       <Divider />
       <List style={{ fontSize: '20px' }}>

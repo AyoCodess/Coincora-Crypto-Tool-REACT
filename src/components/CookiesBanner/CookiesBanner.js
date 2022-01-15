@@ -42,11 +42,11 @@ export default function CookiesBanner({
             leave='ease-in duration-200'
             leaveFrom='opacity-100 translate-y-0 sm:scale-100'
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
-            <div className=' h-[310px] sm:h-[210px] md:h-[170px] lg:h-[150px] w-full inline-block align-bottom bg-white rounded-lg text-left  shadow-xl transform transition-all '>
-              <div className='bg-white'>
-                <div className='flex flex-col md:flex-row  gap-5 h-[140px]  items-start md:items-center p-3'>
-                  <div className=' ml-4 text-left '>
-                    <p className='text-sm text-gray-700 mt-3 md:mt-8 lg:mt-0 '>
+            <div className=' h-[300px] sm:h-[290px] md:h-[170px] lg:h-[150px] w-full inline-block align-bottom bg-white rounded-lg text-left  shadow-xl transform transition-all '>
+              <div className='bg-white '>
+                <div className='flex flex-col md:flex-row  gap-5 h-[140px] justify-center items-start md:items-center p-3'>
+                  <div className='  ml-4 text-left'>
+                    <p className='text-sm text-gray-700 md:mt-8 lg:mt-0  mt-[10rem] sm:pt-[4rem] md:pt-0'>
                       1) We use cookies to improve user experience, for web
                       analytics and marketing purposes. By continuing to use
                       this website without disabling cookies in your web browser
