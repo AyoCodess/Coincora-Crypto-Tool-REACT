@@ -1,6 +1,11 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  palette: {
+    yellow: {
+      main: '#ffeb3b',
+    },
+  },
   typography: {
     fontFamily: 'DaxlinePro',
     body1: {

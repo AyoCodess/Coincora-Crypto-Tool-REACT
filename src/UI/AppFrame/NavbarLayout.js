@@ -11,15 +11,21 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import GroupsIcon from '@mui/icons-material/Groups';
-import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import Link from '@mui/material/Link';
 import { Link as LinkR } from 'react-router-dom';
+import NavBarButton from '../../components/Buttons/NavBarButton';
+import NavBarButtonSubGrayIcon from '../../components/Buttons/NavBarButtonSubGrayIcon';
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 
 const drawerWidth = 240;
 
@@ -33,12 +39,12 @@ function NavbarLayout(props) {
 
   // - Nav Layout
 
-  const mainNav = ['Contact', 'About', 'Telegram'];
-  const mainNavIcons = [<MailIcon />, <GroupsIcon />, <TelegramIcon />];
+  const mainNav = ['About', 'Telegram', 'Contact'];
+  const mainNavIcons = [<GroupsIcon />, <TelegramIcon />, <MailIcon />];
   const mainNavLinks = [
-    'mailto:ayo@ayoadesanya.com',
     'https://github.com/sponsors/AyoCodess?o=esb',
     'https://t.me/coincora',
+    'mailto:ayo@ayoadesanya.com',
   ];
   const targetBlank = ['_blank', '_blank', '_blank'];
 
@@ -49,27 +55,44 @@ function NavbarLayout(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <ListItem>
-        {' '}
-        <ArrowDropDownCircleIcon className='hover:text-blue-500 text-gray-400 transition ease-in-out duration-700' />
-      </ListItem>
+      <List style={{ fontSize: '20px' }}>
+        <NavBarButton
+          to={'/coin-forecast'}
+          icon={<BarChartIcon />}
+          text={'Coin Forecast'}
+          onClick={handleDrawerToggle}
+        />
+        <NavBarButton
+          to={'/quick-compare'}
+          icon={<CompareArrowsIcon />}
+          text={'Quick Forecast'}
+          onClick={handleDrawerToggle}
+        />
+        <NavBarButton
+          to={'/newbies'}
+          icon={<NewReleasesIcon />}
+          text={'For Newbies'}
+          onClick={handleDrawerToggle}
+        />
 
-      <List>
+        {/* // - Links with have URLS only */}
         {mainNav.map((text, index) => (
           <Link
             underline={'none'}
             href={`${mainNavLinks[index]}`}
             target={targetBlank[index]}
             rel='noopener'
-            color={'none'}>
-            <ListItem button key={text}>
+            color={'none'}
+            key={index}>
+            <ListItem button>
               <ListItemIcon style={{ color: '#0753FF' }}>
                 {mainNavIcons[index]}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <span className='font-medium'>{text}</span>
             </ListItem>
           </Link>
         ))}
+<<<<<<< HEAD:src/UI/NavbarLayout.js
         {/* // - MANUAL NAV BAR ENTRIES - REACT-ROUTER-V6 */}
         {/* <LinkR to='/newbies'>
           <Link underline={'none'} color={'none'}>
@@ -81,10 +104,19 @@ function NavbarLayout(props) {
             </ListItem>
           </Link>
         </LinkR> */}
+=======
+
+        <NavBarButton
+          to={'/feature-request-form'}
+          icon={<AddCircleOutlineIcon />}
+          text={'Feature Request'}
+          onClick={handleDrawerToggle}
+        />
+>>>>>>> beta:src/UI/AppFrame/NavbarLayout.js
       </List>
       <Divider />
-      <List>
-        <div className='mx-auto w-auto'>
+      <List style={{ fontSize: '20px' }}>
+        <div className='mx-auto w-auto mb-5'>
           <iframe
             className='mx-auto mt-2'
             src='https://www.github.com/sponsors/AyoCodess/button'
@@ -93,6 +125,19 @@ function NavbarLayout(props) {
             width='116'
             style={{ border: '0' }}></iframe>
         </div>
+        <NavBarButton
+          to={'/donate-crypto'}
+          icon={<CardGiftcardIcon />}
+          text={'Donate Crypto'}
+          onClick={handleDrawerToggle}
+        />
+        <NavBarButtonSubGrayIcon
+          to={'/legal'}
+          icon={<LocalPoliceIcon />}
+          text={'Legal'}
+          className='text-gray-300 font-medium'
+          onClick={handleDrawerToggle}
+        />
         {subNav.map((text, index) => (
           <ListItem button key={text}>
             <Link>
@@ -136,7 +181,9 @@ function NavbarLayout(props) {
             noWrap
             component='div'
             style={{ marginTop: '4px' }}>
-            <LinkR to='/'>Coincora</LinkR>
+            <LinkR to='/'>
+              <span style={{ fontSize: '30px' }}>Coincora</span>
+            </LinkR>
           </Typography>
         </Toolbar>
       </AppBar>

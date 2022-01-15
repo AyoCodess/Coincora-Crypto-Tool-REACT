@@ -29,8 +29,20 @@
 }
 
 body {
-  font-family: 'DaxlinePro !important';
+  font-family: 'DaxlinePro !important', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
+}
+
+//= STOP AUTOMATIC ZOOM FORM INPUT FIELDS
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+  }
+  input {
+    font-size: 16px !important;
+  }
 }
