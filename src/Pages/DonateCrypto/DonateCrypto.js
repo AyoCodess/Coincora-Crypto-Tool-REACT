@@ -619,8 +619,8 @@ export default function DonateCrypto() {
         <iframe
           title='How to send crypto to coincora.crypto'
           src='https://player.vimeo.com/video/665905534?h=d734b5b5a6&loop=1&byline=0&portrait=0'
-          width='500'
-          height='280'
+          width='365'
+          height='210'
           frameborder='0'
           allow='autoplay; fullscreen; picture-in-picture'
           allowfullscreen></iframe>
