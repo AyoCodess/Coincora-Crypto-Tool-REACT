@@ -22,7 +22,7 @@ export default function DonateCryptoModalStablecoin({
   ticker,
 }) {
   const [convertValue, setConvertValue] = useState(0);
-  const [coinValue, setCoinValue] = useState(0);
+  const [, setCoinValue] = useState(0);
   const [currency, setCurrency] = useState(0);
   const [copiedAddress, setCopiedAddress] = useState({
     copied: false,
@@ -41,7 +41,6 @@ export default function DonateCryptoModalStablecoin({
 
       const data = response.data.rates;
 
-      console.log(data);
       const { usd } = data;
       setCurrency(usd.value);
 
