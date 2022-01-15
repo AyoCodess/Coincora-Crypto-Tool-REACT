@@ -4,7 +4,6 @@ import { Dialog, Transition } from '@headlessui/react';
 import StandardButton from '../../components/Buttons/StandardButton';
 import StandardButtonDarkBGDonate from '../../components/Buttons/StandardButtonDarkBGDonate';
 import axios from 'axios';
-import ConvertBoxStablecoin from './components/ConvertBoxStablecoin';
 import QrBox from './components/QrBox';
 import CoinAddressBox from './components/CoinAddressBox';
 import DonateForm from './components/DonateForm';
