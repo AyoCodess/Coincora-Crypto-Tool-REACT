@@ -28,6 +28,11 @@
   src: local('DaxlinePro'), url('./Fonts/DaxlinePro.woff') format('woff');
 }
 
+// - stop page from dragging left to right
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 body {
   font-family: 'DaxlinePro !important', sans-serif;
   font-weight: 300;
@@ -36,7 +41,7 @@ body {
   overflow-y: scroll !important;
 }
 
-//= STOP AUTOMATIC ZOOM FORM INPUT FIELDS
+// - stop automatic zoom on input fields
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   select:focus,
   textarea:focus,

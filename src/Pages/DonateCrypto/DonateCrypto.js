@@ -59,7 +59,10 @@ import wallet from '../../wallet.js';
 import DonateCryptoModalNoConvert from '../DonateCrypto/DonateCryptoModalNoConvert';
 
 export default function DonateCrypto() {
+  // - modal open/close
   const [open, setOpen] = useState(false);
+
+  // - modal props
   const [coinLogo, setCoinLogo] = useState(null);
   const [ticker, setTicker] = useState(null);
   const [coinName, setCoinName] = useState(null);
@@ -67,6 +70,7 @@ export default function DonateCrypto() {
   const [network, setNetwork] = useState(null);
   const [qr, setQr] = useState(null);
 
+  // - modal type displayed depending on button click
   const [stablecoin, setStablecoin] = useState(false);
   const [noConvert, setNoConvert] = useState(false);
 
@@ -86,6 +90,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-green-500'}
           coinLogo={usdtLogo}
           onClick={() => {
+            setStablecoin(true);
+            setNoConvert(false);
             setOpen(true);
             setCoinName('USDT');
             setAddress(wallet.usdt.tron);
@@ -93,8 +99,6 @@ export default function DonateCrypto() {
             setCoinLogo(usdtLogo);
             setTicker('usdt');
             setNetwork('Tron');
-            setStablecoin(true);
-            setNoConvert(false);
           }}
         />
         <DonateButton
@@ -103,6 +107,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-blue-700'}
           coinLogo={usdcLogo}
           onClick={() => {
+            setStablecoin(true);
+            setNoConvert(false);
             setOpen(true);
             setCoinName('USDC');
             setAddress(wallet.usdc.tron);
@@ -110,8 +116,6 @@ export default function DonateCrypto() {
             setCoinLogo(usdcLogo);
             setTicker('usdc');
             setNetwork('Tron');
-            setStablecoin(true);
-            setNoConvert(false);
           }}
         />
 
@@ -121,6 +125,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-yellow-500'}
           coinLogo={bnbLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(false);
             setOpen(true);
             setCoinName('Binance');
             setAddress(wallet.bnb.bsc);
@@ -128,8 +134,6 @@ export default function DonateCrypto() {
             setCoinLogo(bnbLogo);
             setTicker('bnb');
             setNetwork('BEP20');
-            setStablecoin(false);
-            setNoConvert(false);
           }}
         />
 
@@ -139,6 +143,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-sky-500'}
           coinLogo={linkLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(false);
             setOpen(true);
             setCoinName('Link');
             setAddress(wallet.link.eth);
@@ -146,8 +152,6 @@ export default function DonateCrypto() {
             setCoinLogo(linkLogo);
             setTicker('link');
             setNetwork('Ethereum');
-            setStablecoin(false);
-            setNoConvert(false);
           }}
         />
         <DonateButton
@@ -156,6 +160,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-orange-500'}
           coinLogo={btcLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(false);
             setOpen(true);
             setCoinName('Bitcoin');
             setAddress(wallet.btc.btc);
@@ -163,8 +169,6 @@ export default function DonateCrypto() {
             setCoinLogo(btcLogo);
             setTicker('btc');
             setNetwork('Bitcoin');
-            setStablecoin(false);
-            setNoConvert(false);
           }}
         />
 
@@ -174,6 +178,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-gray-500'}
           coinLogo={ethLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(false);
             setOpen(true);
             setCoinName('Ethereum');
             setAddress(wallet.eth.eth);
@@ -181,8 +187,6 @@ export default function DonateCrypto() {
             setCoinLogo(ethLogo);
             setTicker('eth');
             setNetwork('Ethereum');
-            setStablecoin(false);
-            setNoConvert(false);
           }}
         />
         <DonateButton
@@ -191,6 +195,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-blue-900'}
           coinLogo={ltcLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(false);
             setOpen(true);
             setCoinName('Litecoin');
             setAddress(wallet.ltc.ltc);
@@ -198,8 +204,6 @@ export default function DonateCrypto() {
             setCoinLogo(ltcLogo);
             setTicker('ltc');
             setNetwork('Litecoin');
-            setStablecoin(false);
-            setNoConvert(false);
           }}
         />
       </div>
@@ -219,6 +223,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-green-500'}
           coinLogo={usdtLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('USDT');
             setAddress(wallet.usdt.tron);
@@ -226,8 +232,6 @@ export default function DonateCrypto() {
             setCoinLogo(usdtLogo);
             setTicker('uddt');
             setNetwork('TRON');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -236,6 +240,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-blue-700'}
           coinLogo={usdcLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('USDC');
             setAddress(wallet.usdc.tron);
@@ -243,8 +249,6 @@ export default function DonateCrypto() {
             setCoinLogo(usdcLogo);
             setTicker('usdc');
             setNetwork('TRON');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -253,6 +257,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-purple-500'}
           coinLogo={maticLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Matic');
             setAddress(wallet.matic.matic);
@@ -260,8 +266,6 @@ export default function DonateCrypto() {
             setCoinLogo(maticLogo);
             setTicker('matic');
             setNetwork('Polygon');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -270,6 +274,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-yellow-500'}
           coinLogo={bnbLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Binance');
             setAddress(wallet.bnb.bsc);
@@ -277,8 +283,6 @@ export default function DonateCrypto() {
             setCoinLogo(bnbLogo);
             setTicker('bnb');
             setNetwork('BEP20');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -287,6 +291,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-blue-500'}
           coinLogo={adaLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Cardano');
             setAddress(wallet.ada.ada);
@@ -294,8 +300,6 @@ export default function DonateCrypto() {
             setCoinLogo(adaLogo);
             setTicker('ada');
             setNetwork('Cardano');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -304,6 +308,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-violet-500'}
           coinLogo={solLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Solana');
             setAddress(wallet.solana.solana);
@@ -311,8 +317,6 @@ export default function DonateCrypto() {
             setCoinLogo(solLogo);
             setTicker('sol');
             setNetwork('Solana');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -321,6 +325,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-sky-500'}
           coinLogo={linkLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Link');
             setAddress(wallet.link.eth);
@@ -328,8 +334,6 @@ export default function DonateCrypto() {
             setCoinLogo(linkLogo);
             setTicker('link');
             setNetwork('Ethereum');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -338,6 +342,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-orange-500'}
           coinLogo={btcLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Bitcoin');
             setAddress(wallet.btc.btc);
@@ -345,8 +351,6 @@ export default function DonateCrypto() {
             setCoinLogo(btcLogo);
             setTicker('btc');
             setNetwork('Bitcoin');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -355,6 +359,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-gray-500'}
           coinLogo={ethLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Ethereum');
             setAddress(wallet.eth.eth);
@@ -362,8 +368,6 @@ export default function DonateCrypto() {
             setCoinLogo(ethLogo);
             setTicker('ltc');
             setNetwork('Ethereum');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -372,6 +376,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-blue-900'}
           coinLogo={ltcLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Litecoin');
             setAddress(wallet.ltc.ltc);
@@ -379,8 +385,6 @@ export default function DonateCrypto() {
             setCoinLogo(ltcLogo);
             setTicker('ltc');
             setNetwork('Litecoin');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -389,6 +393,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-gray-300'}
           coinLogo={stellaLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Stella');
             setAddress(wallet.stella.bsc);
@@ -396,8 +402,6 @@ export default function DonateCrypto() {
             setCoinLogo(stellaLogo);
             setTicker('xlm');
             setNetwork('BEP20');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -406,6 +410,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-gray-600'}
           coinLogo={xrpLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Xrp');
             setAddress(wallet.xrp.bsc);
@@ -413,8 +419,6 @@ export default function DonateCrypto() {
             setCoinLogo(xrpLogo);
             setTicker('xrp');
             setNetwork('BEP20');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -423,6 +427,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-blue-300'}
           coinLogo={vechainLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Vechain');
             setAddress(wallet.vet.vet);
@@ -430,8 +436,6 @@ export default function DonateCrypto() {
             setCoinLogo(vechainLogo);
             setTicker('vet');
             setNetwork('Vechain');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -440,6 +444,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-sky-500'}
           coinLogo={sandboxLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Sandbox');
             setAddress(wallet.sandbox.eth);
@@ -447,8 +453,6 @@ export default function DonateCrypto() {
             setCoinLogo(sandboxLogo);
             setTicker('sand');
             setNetwork('Ethereum');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -457,6 +461,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-orange-800'}
           coinLogo={shibLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Shib Inu');
             setAddress(wallet.shib.eth);
@@ -464,8 +470,6 @@ export default function DonateCrypto() {
             setCoinLogo(shibLogo);
             setTicker('shib');
             setNetwork('Ethereum');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -474,6 +478,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-indigo-700'}
           coinLogo={dotLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Polkadot');
             setAddress(wallet.polkadot.polkadot);
@@ -481,8 +487,6 @@ export default function DonateCrypto() {
             setCoinLogo(dotLogo);
             setTicker('dot');
             setNetwork('Polkadot');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -491,6 +495,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-blue-600'}
           coinLogo={nearLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Near');
             setAddress(wallet.near.near);
@@ -498,8 +504,6 @@ export default function DonateCrypto() {
             setCoinLogo(nearLogo);
             setTicker('near');
             setNetwork('BEP20');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -508,6 +512,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-orange-400'}
           coinLogo={daiLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Dai');
             setAddress(wallet.dai.bsc);
@@ -515,8 +521,6 @@ export default function DonateCrypto() {
             setCoinLogo(daiLogo);
             setTicker('dai');
             setNetwork('BEP20');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -525,6 +529,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-stone-500'}
           coinLogo={iotaLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Iota');
             setAddress(wallet.iota.iota);
@@ -532,8 +538,6 @@ export default function DonateCrypto() {
             setCoinLogo(iotaLogo);
             setTicker('iota');
             setNetwork('Iota');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -542,6 +546,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-yellow-600'}
           coinLogo={dogeLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Dogecoin');
             setAddress(wallet.doge.doge);
@@ -549,8 +555,6 @@ export default function DonateCrypto() {
             setCoinLogo(dogeLogo);
             setTicker('doge');
             setNetwork('Dogecoin');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />{' '}
         <DonateButton
@@ -559,6 +563,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-zinc-500'}
           coinLogo={cosmosLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Cosmos');
             setAddress(wallet.cosmos.bsc);
@@ -566,8 +572,6 @@ export default function DonateCrypto() {
             setCoinLogo(cosmosLogo);
             setTicker('atom');
             setNetwork('BEP20');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -576,6 +580,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-slate-900'}
           coinLogo={algoLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Algorand');
             setAddress(wallet.algo.algo);
@@ -583,8 +589,6 @@ export default function DonateCrypto() {
             setCoinLogo(algoLogo);
             setTicker('algo');
             setNetwork('Algorand');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
         <DonateButton
@@ -593,6 +597,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-violet-500'}
           coinLogo={aaveLogo}
           onClick={() => {
+            setStablecoin(false);
+            setNoConvert(true);
             setOpen(true);
             setCoinName('Aave');
             setAddress(wallet.aave.bsc);
@@ -600,8 +606,6 @@ export default function DonateCrypto() {
             setCoinLogo(aaveLogo);
             setTicker('aave');
             setNetwork('BEP20');
-            setStablecoin(false);
-            setNoConvert(true);
           }}
         />
       </div>
