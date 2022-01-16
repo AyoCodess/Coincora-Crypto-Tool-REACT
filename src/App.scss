@@ -36,9 +36,11 @@ html {
 body {
   font-family: 'DaxlinePro !important', sans-serif;
   font-weight: 300;
-  overflow-x: hidden;
   scroll-behavior: smooth !important;
   overflow-y: scroll !important;
+
+  // - stop page from dragging left to right - needs to be in both places, html and body.
+  overflow-x: hidden;
 }
 
 // - stop automatic zoom on input fields

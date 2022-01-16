@@ -312,7 +312,7 @@ export default function DonateCrypto() {
             setNoConvert(true);
             setOpen(true);
             setCoinName('Solana');
-            setAddress(wallet.solana.solana);
+            setAddress(wallet.sol.sol);
             setQr(solQrCode);
             setCoinLogo(solLogo);
             setTicker('sol');
@@ -623,8 +623,8 @@ export default function DonateCrypto() {
         <iframe
           title='How to send crypto to coincora.crypto'
           src='https://player.vimeo.com/video/665905534?h=d734b5b5a6&loop=1&byline=0&portrait=0'
-          width='365'
-          height='210'
+          width='325'
+          height='185'
           frameborder='0'
           allow='autoplay; fullscreen; picture-in-picture'
           allowfullscreen></iframe>
