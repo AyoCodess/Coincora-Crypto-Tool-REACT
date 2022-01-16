@@ -2,7 +2,7 @@ import { React } from 'react';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-function ConvertBox({
+function ConvertBoxStablecoin({
   ticker,
   setConvertValue,
   coinValue,
@@ -56,4 +56,4 @@ function ConvertBox({
   );
 }
 
-export default ConvertBox;
+export default ConvertBoxStablecoin;

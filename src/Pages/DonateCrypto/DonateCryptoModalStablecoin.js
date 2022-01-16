@@ -1,9 +1,8 @@
 import { Fragment, useRef } from 'react';
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import StandardButton from '../../components/Buttons/StandardButton';
 import StandardButtonDarkBGDonate from '../../components/Buttons/StandardButtonDarkBGDonate';
-import axios from 'axios';
 import ConvertBoxStablecoin from './components/ConvertBoxStablecoin';
 import QrBox from './components/QrBox';
 import CoinAddressBox from './components/CoinAddressBox';
@@ -22,46 +21,15 @@ export default function DonateCryptoModalStablecoin({
   qr,
   ticker,
 }) {
-  const [convertValue, setConvertValue] = useState(0);
-  const [coinValue, setCoinValue] = useState(0);
-  const [currency, setCurrency] = useState(0);
+  const [, setConvertValue] = useState(0);
+  const [coinValue] = useState(0);
+
   const [copiedAddress, setCopiedAddress] = useState({
     copied: false,
   });
   const [copiedCoinValue, setCopiedCoinValue] = useState({
     copied: false,
   });
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const apiCall = async () => {
-    try {
-      // - Calling api to get 1 unit of fiat currency in quoted coin current price.
-      const response = await axios(
-        'https://api.coingecko.com/api/v3/exchange_rates'
-      );
-      //= TODO: REMOVE OTHERS AND ADD WHAT YOU CAN USE. CREATE CRYPTO.COM WALLET
-      const data = response.data.rates;
-
-      console.log(data);
-      const { usd } = data;
-      setCurrency(usd.value);
-
-      // - Coin Exchange
-      const baseCoin = data[ticker].value;
-      const exchange = baseCoin * convertValue;
-
-      setCoinValue(() => {
-        return exchange / currency;
-      });
-    } catch (err) {
-      console.error(err.response.status);
-      console.error(err.response.data.error);
-    }
-  };
-
-  useEffect(() => {
-    apiCall();
-  }, [currency, convertValue, apiCall]);
 
   const getLink = useRef(null);
   return (
