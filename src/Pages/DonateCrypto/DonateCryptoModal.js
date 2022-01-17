@@ -42,7 +42,6 @@ export default function DonateCryptoModal({
       //= TODO: REMOVE OTHERS AND ADD WHAT YOU CAN USE. CREATE CRYPTO.COM WALLET
       const data = response.data.rates;
 
-      console.log(data);
       const { usd } = data;
       setCurrency(usd.value);
 
@@ -64,6 +63,7 @@ export default function DonateCryptoModal({
   }, [currency, convertValue, apiCall]);
 
   const getLink = useRef(null);
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -99,7 +99,9 @@ export default function DonateCryptoModal({
             leaveFrom='opacity-100 translate-y-0 sm:scale-100'
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
             {/* //- Modal container  */}
-            <div className='max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
+            <div
+              id={'mod'}
+              className='overscroll-contain max-h-[90vh] overflow-y-auto max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
               <form
                 action='https://docs.google.com/forms/u/0/d/e/1FAIpQLScTfIh7qu1Bm_UCiwnytIDETTfCoeT-6QdXobV4yN_-pP4smw/formResponse'
                 method='POST'>

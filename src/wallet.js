@@ -17,6 +17,7 @@ const wallet = {
   },
   bnb: {
     bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
+    trustWallet: 'bnb15ndf6l8h5dyluvtgrymhhj0n5jc0z88nktwlfq',
   },
   btc: {
     btc: '18maH2ZCjzoma7r35kWeabDeiZc7ab1Cao',
@@ -41,11 +42,13 @@ const wallet = {
     stella: 'GAHK7EEG2WWHVKDNT4CEQFZGKF2LGDSW2IVM4S5DP42RBW3K6BTODB4A',
     memo: '457652851',
     bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
+    trustWallet: 'GDYMKD5CZ2QX4ULK5KH475FEK3N3MIVYSKSCO6VEHIYK4ONNNGBOYKBH',
   },
   xrp: {
     xrp: 'rEb8TK3gBgk5auZkwc6sHnwrGVJH8DuaLh',
     memo: '104490257',
     bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
+    trustWallet: 'rMrgSDDFkPKAnveqQFr6FJhEcMXJcVAi9T',
   },
   vet: {
     vet: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
@@ -85,6 +88,7 @@ const wallet = {
     cosmon: 'cosmos15v50ymp6n5dn73erkqtmq0u8adpl8d3ujv2e74',
     memo: '104151990',
     bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
+    trustWallet: 'cosmos1htyk9ym9rh95axk9w2v0n8m7cs4rh2cufpy0rc',
   },
   algo: {
     algo: 'QYSZ5KLOG6H3OKG2JHNGYHRLDCPIN4R4V6FZXFPTBOMISQKA45NRZG5DPY',
@@ -92,6 +96,10 @@ const wallet = {
   aave: {
     bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
     eth: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
+  },
+  zil: {
+    zil: 'zil17pefs227eh0xnrhwc309fg3wnya2w7agcmpj2g',
+    bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
   },
 };
 

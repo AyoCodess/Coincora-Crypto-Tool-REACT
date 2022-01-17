@@ -67,7 +67,7 @@ export default function DonateCryptoModalStablecoin({
             leaveFrom='opacity-100 translate-y-0 scale-100'
             leaveTo='opacity-0 translate-y-0 scale-95'>
             {/* //- Modal container  */}
-            <div className='max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
+            <div className=' overscroll-contain max-h-[90vh] overflow-y-auto max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
               <form
                 action='https://docs.google.com/forms/u/0/d/e/1FAIpQLScTfIh7qu1Bm_UCiwnytIDETTfCoeT-6QdXobV4yN_-pP4smw/formResponse'
                 method='POST'>

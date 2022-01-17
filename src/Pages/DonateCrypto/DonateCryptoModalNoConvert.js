@@ -22,6 +22,10 @@ export default function DonateCryptoModalStablecoin({
     copied: false,
   });
 
+  const [copiedCoinValue, setCopiedCoinValue] = useState({
+    copied: false,
+  });
+
   const getLink = useRef(null);
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -58,7 +62,7 @@ export default function DonateCryptoModalStablecoin({
             leaveFrom='opacity-100 translate-y-0 scale-100'
             leaveTo='opacity-0 translate-y-0 scale-95'>
             {/* //- Modal container  */}
-            <div className='max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
+            <div className=' overscroll-contain max-h-[90vh] overflow-y-auto max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
               <form
                 action='https://docs.google.com/forms/u/0/d/e/1FAIpQLScTfIh7qu1Bm_UCiwnytIDETTfCoeT-6QdXobV4yN_-pP4smw/formResponse'
                 method='POST'>
@@ -71,6 +75,8 @@ export default function DonateCryptoModalStablecoin({
                       network={network}
                       copiedAddress={copiedAddress}
                       setCopiedAddress={setCopiedAddress}
+                      setCopiedCoinValue={setCopiedCoinValue}
+                      copiedCoinValue={copiedCoinValue}
                     />
                   </div>
                   <div className='flex flex-col justify-center'>
