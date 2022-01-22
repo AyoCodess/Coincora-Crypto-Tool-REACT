@@ -9,6 +9,7 @@ import CoinAddressBox from './components/CoinAddressBox';
 import DonateForm from './components/DonateForm';
 import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton';
 import { useQuery } from 'react-query';
+import Loading from './components/Loading';
 
 // import { Route } from 'react-router-dom';
 // import SuccessPage from '../../components/SuccessPage';
@@ -38,6 +39,8 @@ export default function DonateCryptoModal({
     copied: false,
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const apiCall = async () => {
     try {
@@ -46,17 +49,21 @@ export default function DonateCryptoModal({
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${baseCurrency}&ids=${coinNameApi}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
       );
 
+      // - set loading spinner
+      setIsLoading(true);
+
       const data = response.data;
 
       // - removes convert box if API fails
-      console.log({ response });
+
       if (response === false || response === undefined) {
         return setApiCallFail(true);
       } else {
         setApiCallFail(false);
       }
 
-      // = TODO add loading feature
+      // - turn off loading spinner
+      setIsLoading(false);
 
       if (data.length === 0) {
         return setApiCallFail(true);
@@ -124,29 +131,33 @@ export default function DonateCryptoModal({
                 method='POST'>
                 <div className=' flex flex-col lg:flex-row md:gap-5 justify-center items-center bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 '>
                   <div className='flex flex-col items-center '>
-                    <CoinAddressBox
-                      coinLogo={coinLogo}
-                      coinName={coinName}
-                      address={address}
-                      network={network}
-                      copiedAddress={copiedAddress}
-                      setCopiedAddress={setCopiedAddress}
-                      setCopiedCoinValue={setCopiedCoinValue}
-                      copiedCoinValue={copiedCoinValue}
-                    />
-                    <ConvertBox
-                      ticker={ticker}
-                      coinValue={coinValue}
-                      setConvertValue={setConvertValue}
-                      copiedCoinValue={copiedCoinValue}
-                      setCopiedCoinValue={setCopiedCoinValue}
-                      copiedAddress={copiedAddress}
-                      setCopiedAddress={setCopiedAddress}
-                      baseCurrency={baseCurrency}
-                      setBaseCurrency={setBaseCurrency}
-                      apiCallFail={apiCallFail}
-                      setApiCallFail={setApiCallFail}
-                    />
+                    {!isLoading && (
+                      <CoinAddressBox
+                        coinLogo={coinLogo}
+                        coinName={coinName}
+                        address={address}
+                        network={network}
+                        copiedAddress={copiedAddress}
+                        setCopiedAddress={setCopiedAddress}
+                        setCopiedCoinValue={setCopiedCoinValue}
+                        copiedCoinValue={copiedCoinValue}
+                      />
+                    )}
+                    {!isLoading && (
+                      <ConvertBox
+                        ticker={ticker}
+                        coinValue={coinValue}
+                        setConvertValue={setConvertValue}
+                        copiedCoinValue={copiedCoinValue}
+                        setCopiedCoinValue={setCopiedCoinValue}
+                        copiedAddress={copiedAddress}
+                        setCopiedAddress={setCopiedAddress}
+                        baseCurrency={baseCurrency}
+                        setBaseCurrency={setBaseCurrency}
+                        apiCallFail={apiCallFail}
+                        setApiCallFail={setApiCallFail}
+                      />
+                    )}
                   </div>
                   <div className='flex flex-col justify-center'>
                     <DonateForm ticker={ticker} />
@@ -155,6 +166,7 @@ export default function DonateCryptoModal({
                       QR scanner app to copy and paste our address, so you can
                       support us.
                     </p>
+                    {isLoading && <Loading />}
                     <QrBox coinName={coinName} qr={qr} />
                   </div>
                 </div>
