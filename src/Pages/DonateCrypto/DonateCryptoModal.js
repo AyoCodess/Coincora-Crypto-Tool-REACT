@@ -1,13 +1,14 @@
 import { Fragment, useRef } from 'react';
-import { React, useState, useEffect } from 'react';
+import { React, useState, useEffect, useMemo } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import StandardButton from '../../components/Buttons/StandardButton';
-import StandardButtonDarkBGDonate from '../../components/Buttons/StandardButtonDarkBGDonate';
 import axios from 'axios';
 import ConvertBox from './components/ConvertBox';
 import QrBox from './components/QrBox';
 import CoinAddressBox from './components/CoinAddressBox';
 import DonateForm from './components/DonateForm';
+import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton';
+import { useQuery } from 'react-query';
 
 // import { Route } from 'react-router-dom';
 // import SuccessPage from '../../components/SuccessPage';
@@ -15,12 +16,17 @@ import DonateForm from './components/DonateForm';
 export default function DonateCryptoModal({
   open,
   setOpen,
+  coinNameApi,
   coinName,
   coinLogo,
   network,
   address,
   qr,
   ticker,
+  baseCurrency,
+  setBaseCurrency,
+  apiCallFail,
+  setApiCallFail,
 }) {
   const [convertValue, setConvertValue] = useState(0);
   const [coinValue, setCoinValue] = useState(0);
@@ -35,32 +41,43 @@ export default function DonateCryptoModal({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const apiCall = async () => {
     try {
-      // - Calling api to get 1 unit of fiat currency in quoted coin current price.
+      // - calling api to get 1 unit of fiat currency in quoted coin current price.
       const response = await axios(
-        'https://api.coingecko.com/api/v3/exchange_rates'
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${baseCurrency}&ids=${coinNameApi}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
       );
-      //= TODO: REMOVE OTHERS AND ADD WHAT YOU CAN USE. CREATE CRYPTO.COM WALLET
-      const data = response.data.rates;
 
-      const { usd } = data;
-      setCurrency(usd.value);
+      const data = response.data;
+
+      // - removes convert box if API fails
+      console.log({ response });
+      if (response === false || response === undefined) {
+        return setApiCallFail(true);
+      } else {
+        setApiCallFail(false);
+      }
+
+      // = TODO add loading feature
+
+      if (data.length === 0) {
+        return setApiCallFail(true);
+      }
 
       // - Coin Exchange
-      const baseCoin = data[ticker].value;
-      const exchange = baseCoin * convertValue;
+      const currentPrice = data[0].current_price;
 
+      setCurrency(currentPrice);
+      const exchange = convertValue / currentPrice;
       setCoinValue(() => {
-        return exchange / currency;
+        return exchange;
       });
     } catch (err) {
-      console.error(err.response.status);
-      console.error(err.response.data.error);
+      console.log(err);
     }
   };
 
   useEffect(() => {
     apiCall();
-  }, [currency, convertValue, apiCall]);
+  }, [currency, convertValue, setApiCallFail, coinName]);
 
   const getLink = useRef(null);
 
@@ -70,7 +87,7 @@ export default function DonateCryptoModal({
         style={{ zIndex: '9000' }}
         as='div'
         className='fixed inset-0 overflow-y-auto'
-        initialFocus={getLink}
+        // initialFocus={getLink}
         onClose={() => setOpen(true)}>
         <div className='  flex items-end justify-center md:min-h-screen min-h-[70vh] pt-4 px-4 pb-20 text-center sm:block sm:p-0'>
           <Transition.Child
@@ -125,6 +142,10 @@ export default function DonateCryptoModal({
                       setCopiedCoinValue={setCopiedCoinValue}
                       copiedAddress={copiedAddress}
                       setCopiedAddress={setCopiedAddress}
+                      baseCurrency={baseCurrency}
+                      setBaseCurrency={setBaseCurrency}
+                      apiCallFail={apiCallFail}
+                      setApiCallFail={setApiCallFail}
                     />
                   </div>
                   <div className='flex flex-col justify-center'>
@@ -146,11 +167,12 @@ export default function DonateCryptoModal({
                       setOpen(false);
                     }}
                   />
-                  <StandardButtonDarkBGDonate
+                  <AlinkStandardButton
                     text={'Cancel'}
-                    color={'bg-gray-200'}
+                    color={'bg-gray-300'}
                     width={'w-32'}
-                    onClick={(e) => {
+                    onClick={() => {
+                      setOpen(false);
                       setOpen(false);
                       setCopiedAddress(false);
                       setCopiedCoinValue(false);

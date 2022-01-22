@@ -101,6 +101,17 @@ const wallet = {
     zil: 'zil17pefs227eh0xnrhwc309fg3wnya2w7agcmpj2g',
     bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
   },
+  bch: {
+    bch: '18maH2ZCjzoma7r35kWeabDeiZc7ab1Cao',
+    bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
+  },
+  avax: {
+    xchain: 'X-avax18xww80dzplkzzrv630h9hvujlq4tpyjr4rjqjv',
+    bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
+  },
+  busd: {
+    bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
+  },
 };
 
 export default wallet;

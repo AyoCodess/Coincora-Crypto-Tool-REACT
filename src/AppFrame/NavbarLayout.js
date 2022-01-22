@@ -22,10 +22,15 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import Link from '@mui/material/Link';
 import { Link as LinkR } from 'react-router-dom';
-import NavBarButton from '../../components/Buttons/NavBarButton';
-import NavBarButtonSubGrayIcon from '../../components/Buttons/NavBarButtonSubGrayIcon';
+import NavBarButton from '../components/Buttons/NavBarButton';
+import NavBarButtonSubGrayIcon from '../components/Buttons/NavBarButtonSubGrayIcon';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+// import StandardButtonReactRouter from '../components/Buttons/StandardButtonReactRouter';
+import StandardButton from '../components/Buttons/StandardButton';
+
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // optional
 
 const drawerWidth = 240;
 
@@ -152,7 +157,7 @@ function NavbarLayout(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
         }}>
-        <Toolbar>
+        <Toolbar className='flex justify-between'>
           <WidgetsIcon
             color='inherit'
             aria-label='open drawer'
@@ -171,6 +176,13 @@ function NavbarLayout(props) {
               <span style={{ fontSize: '30px' }}>Coincora</span>
             </LinkR>
           </Typography>
+          {/* <StandardButtonReactRouter text={'Log In'} to={'/'} /> */}
+          <Tippy
+            className='position top-[-37px] left-[-10px]'
+            arrow={false}
+            content={<span>Coming soon</span>}>
+            <button>Login</button>
+          </Tippy>
         </Toolbar>
       </AppBar>
       <Box

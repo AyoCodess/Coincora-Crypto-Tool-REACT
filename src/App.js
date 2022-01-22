@@ -1,7 +1,7 @@
 import './App.scss';
 import { React, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import NavbarLayout from './UI/AppFrame/NavbarLayout.js';
+import NavbarLayout from './AppFrame/NavbarLayout';
 import Newbies from './Pages/Newbies/Newbies';
 import { ThemeProvider } from '@emotion/react';
 import theme from './MUIthemeOverrides';
@@ -15,6 +15,7 @@ import CookiesBanner from './components/CookiesBanner/CookiesBanner';
 import Legal from './Pages/Legal/Legal';
 import Advice from './Pages/Advice/Advice';
 import DonateCrypto from './Pages/DonateCrypto/DonateCrypto';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   // - News banner options
@@ -44,51 +45,51 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavbarLayout>
-          <NewsBanner
-            openNews={openNews}
-            setOpenNews={setOpenNews}
-            newsLink={newsLink}
-            mobileHeadline={mobileHeadline}
-            desktopHeadline={desktopHeadline}
-          />
-          <Routes>
-            <Route path='*' exact element={<GoogleForm />}></Route>
-            <Route path='/coin-forecast' element={<CoinForecast />}></Route>
-            <Route path='/quick-compare' element={<QuickCompare />}></Route>
-            <Route path='/legal' element={<Legal />}></Route>
-            <Route path='/advice' element={<Advice />}></Route>
-            <Route path='/donate-crypto' element={<DonateCrypto />}></Route>
-
-            <Route
-              path='/feature-request-form'
-              element={<FeatureRequest />}></Route>
-            <Route
-              path='/newbies'
-              element={
-                <Newbies
-                  open={open}
-                  setOpen={setOpen}
-                  title={title}
-                  setTitle={setTitle}
-                  info={info}
-                  setInfo={setInfo}
-                  link={link}
-                  setLink={setLink}
-                />
-              }></Route>
-          </Routes>
-
-          <Footer />
-          {!doesLocalStorageExist && (
-            <CookiesBanner
-              open={openDisclaimer}
-              setOpen={setOpenDisclaimer}
-              understand={understand}
-              setUnderstand={setUnderstand}
+        <ScrollToTop>
+          <NavbarLayout>
+            <NewsBanner
+              openNews={openNews}
+              setOpenNews={setOpenNews}
+              newsLink={newsLink}
+              mobileHeadline={mobileHeadline}
+              desktopHeadline={desktopHeadline}
             />
-          )}
-        </NavbarLayout>
+            <Routes>
+              <Route path='*' exact element={<GoogleForm />}></Route>
+              <Route path='/coin-forecast' element={<CoinForecast />}></Route>
+              <Route path='/quick-compare' element={<QuickCompare />}></Route>
+              <Route path='/legal' element={<Legal />}></Route>
+              <Route path='/advice' element={<Advice />}></Route>
+              <Route path='/donate-crypto' element={<DonateCrypto />}></Route>
+              <Route
+                path='/feature-request-form'
+                element={<FeatureRequest />}></Route>
+              <Route
+                path='/newbies'
+                element={
+                  <Newbies
+                    open={open}
+                    setOpen={setOpen}
+                    title={title}
+                    setTitle={setTitle}
+                    info={info}
+                    setInfo={setInfo}
+                    link={link}
+                    setLink={setLink}
+                  />
+                }></Route>
+            </Routes>
+            <Footer />
+            {!doesLocalStorageExist && (
+              <CookiesBanner
+                open={openDisclaimer}
+                setOpen={setOpenDisclaimer}
+                understand={understand}
+                setUnderstand={setUnderstand}
+              />
+            )}
+          </NavbarLayout>
+        </ScrollToTop>
       </ThemeProvider>
     </>
   );

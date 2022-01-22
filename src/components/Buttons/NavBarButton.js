@@ -6,7 +6,7 @@ import { Link as LinkR } from 'react-router-dom';
 
 function NavBarButton({ icon, text, to, onClick }) {
   return (
-    <LinkR to={to} onClick={onClick}>
+    <LinkR style={{ cursor: 'pointer' }} to={to} onClick={onClick}>
       <Link underline={'none'} color={'none'}>
         <ListItem button>
           <ListItemIcon style={{ color: '#0753FF' }}>{icon}</ListItemIcon>

@@ -10,6 +10,7 @@ function DonateButton({
 }) {
   return (
     <button
+      style={{ cursor: 'pointer' }}
       className={`py-2 w-32 px-4 border-2 rounded-md shadow ${borderColor} ${textColorHover} `}
       onClick={onClick}>
       <div className='flex gap-2 justify-center items-center'>
