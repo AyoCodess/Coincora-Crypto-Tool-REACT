@@ -1,24 +1,23 @@
-import { Fragment, useRef } from 'react';
-import { React, useState, useEffect, useMemo } from 'react';
+import { Fragment, useRef, useEffect } from 'react';
+import { React, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import StandardButton from '../../components/Buttons/StandardButton';
-import axios from 'axios';
+
 import ConvertBox from './components/ConvertBox';
 import QrBox from './components/QrBox';
 import CoinAddressBox from './components/CoinAddressBox';
 import DonateForm from './components/DonateForm';
 import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton';
-import { useQuery } from 'react-query';
 import Loading from './components/Loading';
 
-// import { Route } from 'react-router-dom';
-// import SuccessPage from '../../components/SuccessPage';
+import axios from 'axios';
+import { useQuery } from 'react-query';
 
 export default function DonateCryptoModal({
   open,
   setOpen,
-  coinNameApi,
   coinName,
+  coinNameApi,
   coinLogo,
   network,
   address,
@@ -26,12 +25,7 @@ export default function DonateCryptoModal({
   ticker,
   baseCurrency,
   setBaseCurrency,
-  apiCallFail,
-  setApiCallFail,
 }) {
-  const [convertValue, setConvertValue] = useState(0);
-  const [coinValue, setCoinValue] = useState(0);
-  const [currency, setCurrency] = useState(0);
   const [copiedAddress, setCopiedAddress] = useState({
     copied: false,
   });
@@ -39,54 +33,49 @@ export default function DonateCryptoModal({
     copied: false,
   });
 
-  const [isLoading, setIsLoading] = useState(false);
+  const getLink = useRef(null);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const apiCall = async () => {
-    try {
-      // - calling api to get 1 unit of fiat currency in quoted coin current price.
-      const response = await axios(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${baseCurrency}&ids=${coinNameApi}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
-      );
+  // - Api data handling
+  const [apiCallFail, setApiCallFail] = useState(null);
+  const [convertValue, setConvertValue] = useState(0);
+  const [coinValue, setCoinValue] = useState(0);
+  const [currency, setCurrency] = useState(0);
 
-      // - set loading spinner
-      setIsLoading(true);
+  // - calling api to get 1 unit of fiat currency in quoted coin current price.
+  const api = async () =>
+    axios(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${baseCurrency}&ids=${coinNameApi}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
+    );
 
-      const data = response.data;
+  const { isError, isLoading, data } = useQuery([coinName], api, {
+    keepPreviousData: false,
 
-      // - removes convert box if API fails
-
-      if (response === false || response === undefined) {
-        return setApiCallFail(true);
-      } else {
+    onSuccess: (data) => {
+      setCoinValue(0);
+      if (data !== undefined) {
         setApiCallFail(false);
+      } else {
+        setApiCallFail(true);
       }
 
-      // - turn off loading spinner
-      setIsLoading(false);
-
-      if (data.length === 0) {
-        return setApiCallFail(true);
+      if (data.data[0].id === coinNameApi) {
+        setApiCallFail(false);
+      } else {
+        setApiCallFail(true);
       }
 
       // - Coin Exchange
-      const currentPrice = data[0].current_price;
-
+      const currentPrice = data.data[0].current_price;
       setCurrency(currentPrice);
       const exchange = convertValue / currentPrice;
       setCoinValue(() => {
         return exchange;
       });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    },
+  });
 
-  useEffect(() => {
-    apiCall();
-  }, [currency, convertValue, setApiCallFail, coinName]);
-
-  const getLink = useRef(null);
+  console.log({ convertValue });
+  console.log({ coinValue });
 
   return (
     <Transition.Root show={open} as={Fragment}>

@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from 'react';
+import { React, useState } from 'react';
 
 // - modals
 import DonateCryptoModal from './DonateCryptoModal.js';
@@ -71,15 +71,14 @@ export default function DonateCrypto() {
   // - modal props
   const [coinLogo, setCoinLogo] = useState(null);
   const [ticker, setTicker] = useState(null);
-  const [coinNameApi, setCoinNameApi] = useState(null);
+
   const [coinName, setCoinName] = useState(null);
   const [address, setAddress] = useState(null);
   const [network, setNetwork] = useState(null);
   const [qr, setQr] = useState(null);
+  //.API PARAMS
   const [baseCurrency, setBaseCurrency] = useState('usd');
-  //- apicall fail
-
-  const [apiCallFail, setApiCallFail] = useState(null);
+  const [coinNameApi, setCoinNameApi] = useState('bitcoin');
 
   return (
     <>
@@ -212,15 +211,14 @@ export default function DonateCrypto() {
           }}
         />
         <DonateButton
-          borderColor={'border-blue-900'}
+          borderColor={'border-blue-600'}
           text={'Litecoin'}
-          textColorHover={'hover:text-blue-900'}
+          textColorHover={'hover:text-blue-600'}
           coinLogo={ltcLogo}
           onClick={() => {
             setOpen(true);
             setCoinNameApi('litecoin');
             setCoinName('Litecoin');
-
             setAddress(wallet.ltc.ltc);
             setQr(ltcQrCode);
             setCoinLogo(ltcLogo);
@@ -401,7 +399,7 @@ export default function DonateCrypto() {
             setQr(avaxQrCode);
             setCoinLogo(avaxLogo);
             setTicker('avax');
-            setNetwork('AVAX');
+            setNetwork('AVAX - x-CHAIN');
           }}
         />{' '}
         <DonateButton
@@ -568,8 +566,6 @@ export default function DonateCrypto() {
         setOpen={setOpen}
         baseCurrency={baseCurrency}
         setBaseCurrency={setBaseCurrency}
-        apiCallFail={apiCallFail}
-        setApiCallFail={setApiCallFail}
       />
     </>
   );
