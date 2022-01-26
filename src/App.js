@@ -56,8 +56,8 @@ function App() {
             />
             <Routes>
               <Route path='*' exact element={<GoogleForm />}></Route>
-              <Route path='/coin-forecast' element={<CoinForecast />}></Route>
-              <Route path='/quick-compare' element={<QuickCompare />}></Route>
+              <Route path='/coin-predict' element={<CoinForecast />}></Route>
+              <Route path='/quick-predict' element={<QuickCompare />}></Route>
               <Route path='/legal' element={<Legal />}></Route>
               <Route path='/advice' element={<Advice />}></Route>
               <Route path='/donate-crypto' element={<DonateCrypto />}></Route>

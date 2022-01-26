@@ -62,15 +62,15 @@ function NavbarLayout(props) {
       <Toolbar />
       <List style={{ fontSize: '20px' }}>
         <NavBarButton
-          to={'/coin-forecast'}
+          to={'/coin-predict'}
           icon={<BarChartIcon />}
-          text={'Coin Forecast'}
+          text={'Coin Predict'}
           onClick={handleDrawerToggle}
         />
         <NavBarButton
-          to={'/quick-compare'}
+          to={'/quick-predict'}
           icon={<CompareArrowsIcon />}
-          text={'Quick Forecast'}
+          text={'Quick Predict'}
           onClick={handleDrawerToggle}
         />
         <NavBarButton
