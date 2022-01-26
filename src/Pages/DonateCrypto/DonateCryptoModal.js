@@ -66,16 +66,20 @@ export default function DonateCryptoModal({
 
       // - Coin Exchange
       const currentPrice = data.data[0].current_price;
-      setCurrency(currentPrice);
+      //   setCurrency(currentPrice);
       const exchange = convertValue / currentPrice;
-      setCoinValue(() => {
-        return exchange;
-      });
+
+      return exchange;
+      //   setCoinValue(() => {
+      //     return exchange;
+      //   });
     },
   });
 
   console.log({ convertValue });
   console.log({ coinValue });
+
+  console.log({ data });
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -145,6 +149,7 @@ export default function DonateCryptoModal({
                         setBaseCurrency={setBaseCurrency}
                         apiCallFail={apiCallFail}
                         setApiCallFail={setApiCallFail}
+                        // exchange={exchange}
                       />
                     )}
                   </div>

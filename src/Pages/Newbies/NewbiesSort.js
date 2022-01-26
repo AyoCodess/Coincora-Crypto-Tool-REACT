@@ -47,7 +47,7 @@ function NewbiesSort({
                   ref={null}
                 />
                 <StandardButton
-                  text={'Why'}
+                  text={'Why?'}
                   onClick={(e) => {
                     e.preventDefault();
                     setTitle(item.title);
