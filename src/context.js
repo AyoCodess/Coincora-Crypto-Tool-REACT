@@ -52,11 +52,9 @@ export function DataProvider({ children }) {
     fetchData();
   }, []);
 
-  const test = 'test';
   return (
     <DataContext.Provider
       value={{ complete, setComplete, coinName, setCoinName, data, setData }}>
-      {' '}
       {children}
     </DataContext.Provider>
   );

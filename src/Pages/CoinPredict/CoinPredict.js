@@ -11,8 +11,6 @@ function CoinForecast() {
   const { complete, setComeplete, coinName, setCoinName, data, setData } =
     useContext(DataContext);
 
-  console.log({ data });
-
   return (
     <>
       {!complete && (
