@@ -1,13 +1,18 @@
-import { React, useState } from 'react';
-import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton';
+import { React, useContext } from 'react';
+
 import StandardButtonReactRouter from '../../components/Buttons/StandardButtonReactRouter';
-import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Tooltip from '../../components/Tooltip/Tooltip';
+import DropdownList from '../../components/DropdownList/DropdownList';
+
+import DataContext from '../../context';
 
 function CoinForecast() {
-  const [complete, setComeplete] = useState(true);
-  const [coinName, setCoinName] = useState('Matic');
+  const { complete, setComeplete, coinName, setCoinName, data, setData } =
+    useContext(DataContext);
+
+  console.log({ data });
+
   return (
     <>
       {!complete && (
@@ -36,19 +41,10 @@ function CoinForecast() {
               investments you want to make or have made and predict if the coin
               can produce the returns you want.
             </p>
-
-            <button type='button' className=' '>
-              <HashLink
-                smooth
-                className=' text-white no-underline justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md bg-appBlue'
-                to={'/coin-predict#1'}>
-                Quick Compare
-              </HashLink>
-            </button>
           </div>
           <div className='flex'>
             <div className=''>
-              <div className='prose mb-5 border-t-2 border-appBlue pt-2'>
+              <div className='prose mb-5 border-t-2 border-appBlue pt-2 '>
                 <h4>Coin information</h4>
                 <p>Select the coin you want to forecast</p>
               </div>
@@ -58,12 +54,7 @@ function CoinForecast() {
                     <div className='w-[50%]  px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip message={'hey'} title={'Coin'} />
                     </div>
-                    <input
-                      type='text'
-                      name='coin'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='Select coin'
-                    />
+                    <DropdownList />
                   </div>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
@@ -74,7 +65,6 @@ function CoinForecast() {
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
@@ -85,7 +75,6 @@ function CoinForecast() {
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
@@ -96,7 +85,6 @@ function CoinForecast() {
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
@@ -111,7 +99,6 @@ function CoinForecast() {
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
@@ -134,41 +121,45 @@ function CoinForecast() {
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
                   </div>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      Average price you bought <span>{coinName}</span> at?
+                      <Tooltip
+                        message={'hey'}
+                        title={`Average price you bought ${coinName} at?`}
+                      />
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
                   </div>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      If you want to buy more <span>{coinName}</span>, how much?
+                      <Tooltip
+                        message={'hey'}
+                        title={` If you want to buy more ${coinName}, how much?`}
+                      />
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
                   </div>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      Average price you think you will buy more
-                      <span> {coinName}</span> at?
+                      <Tooltip
+                        message={'hey'}
+                        title={`Average price you think you will buy more ${coinName} at?`}
+                      />
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
@@ -177,24 +168,27 @@ function CoinForecast() {
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      What are you predicting <span>{coinName}'s</span> future
-                      price at?
+                      <Tooltip
+                        message={'hey'}
+                        title={`What are you predicting ${coinName}'s future price at?`}
+                      />
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
                   </div>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <span>{coinName}'s</span> future market cap based off your
-                      prediction
+                      <Tooltip
+                        message={'hey'}
+                        title={`${coinName}'s future market cap based off your
+                      prediction`}
+                      />
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
@@ -204,40 +198,60 @@ function CoinForecast() {
                   <h4>The Results</h4>
                   <p>
                     Do these numbers make sense? Check the table below for the
-                    details.
+                    details using as a basis Coincora's (RBM) Ratio to Bitcoins
+                    marketcap analysis.
                   </p>
+
+                  <button type='button' className=' '>
+                    <HashLink
+                      smooth
+                      className=' text-white no-underline justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md bg-appBlue'
+                      to={'/coin-predict#rbm'}>
+                      What is RBM?
+                    </HashLink>
+                  </button>
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
                   <div className='flex flex-col gap-2'>
                     <div className=' px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      {coinName}'s current market cap is <span>2%</span> of
-                      Bitcoins current market cap (RBM)
+                      <Tooltip
+                        message={'hey'}
+                        title={`${coinName}'s current market cap is 2% of
+                      Bitcoins current market cap`}
+                      />
                     </div>
                     <div className=' px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      {coinName}'s predicted market cap is <span>11%</span> of
-                      Bitcoins current market cap (RBM)
+                      <Tooltip
+                        message={'hey'}
+                        title={`${coinName}'s predicted market cap is 11% of
+                      Bitcoins current market cap`}
+                      />
                     </div>
                   </div>
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      Your profit if {coinName} went to your predicted price is
+                      <Tooltip
+                        message={'hey'}
+                        title={`Your profit if ${coinName} went to your predicted price is`}
+                      />
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
                   </div>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      Your predicted X increase is
+                      <Tooltip
+                        message={'hey'}
+                        title={`Your predicted X increase is`}
+                      />
                     </div>
                     <input
                       type='number'
-                      name=' circulating supply'
                       className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
                       placeholder='0'
                     />
@@ -261,37 +275,77 @@ function CoinForecast() {
               <b>You cannot make decisions based of the RMB alone.</b>
             </p>
           </div>
-          <div className='py-2'>
-            <div>Top 10 crypto's current RMB</div>
-            <div>Top 50 crypto's current RMB</div>
-            <div>Top 100 crypto's current RMB</div>
-            <div>Top 1000 crypto's current RMB</div>
+          <div className=' py-2 flex flex-col gap-2 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
+            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+              Top 10 crypto's current RMB
+            </div>
+            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+              Top 50 crypto's current RMB
+            </div>
+            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+              Top 100 crypto's current RMB
+            </div>
+            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+              Top 1000 crypto's current RMB
+            </div>
           </div>
 
-          <div className='py-2'>
-            <div>{coinName}'s current RBM</div>
-            <div>{coinName}'s predicted RBM</div>
+          <div className=' mt-5 py-2 flex flex-col gap-2 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
+            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+              {coinName}'s current RBM
+            </div>
+            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+              {coinName}'s predicted RBM
+            </div>
           </div>
-
-          <div>
-            <p>{coinName} predicted RBM is in the 'top 10'</p>
+          <div className='prose mt-5 border-t-2 border-appBlue pt-2'>
+            <h4>The Analysis</h4>
+            <p>{coinName}'s predicted RBM is in the 'Top 10!'</p>
+            <p className=' text-appBlue font-bold'>
+              Cryptos in the top 10 generally have...
+            </p>
+            <ol>
+              <li>Fully transparent and public team</li>
+              <li>
+                Partnerships with other crypto projects within the top 100
+                cryptos
+              </li>
+              <li>Fully transparent and public team</li>
+              <li>Fully transparent and public team</li>
+              <li>Fully transparent and public team</li>
+            </ol>
             <p>
-              Factors to consider: Cryptos in the top 10 have credible and
-              public team members, they have partnerships with other top-10 to
-              top-100 major cryptos etc...
+              Does {coinName} meet the above criteria? if not re-consider your
+              expectations and change your numbers.
+            </p>
+          </div>
+
+          <div className='prose mt-5 border-t-2 border-appBlue pt-2'>
+            <h4>1 on 1 Comparison</h4>
+          </div>
+
+          <div className='mt-2 prose'>
+            <p>
+              What do compare individual coin RBM's,{' '}
+              <b>
+                don't worry your data is saved as long as you stay within the
+                app.
+              </b>
             </p>
             <p>
-              does {coinName} meet the above criteria? if not re-consider your
-              expectations.{' '}
+              Why compare coins 1 on 1? A benefit of performing this type of
+              caparison is to compare new emerging crypto projects with the more
+              established in the same industry, to see what the potential of the
+              emerging crypto is, as long as it meets RMB ranking criteria.
             </p>
-          </div>
-
-          <div className='py-2'>
-            <div id='1'>Compare individual RMB to {coinName} and compare</div>
-            <p>It's useful two coins RMB in the sam industry</p>
-            <div>Select Coin</div> <div>current RMB %</div>
-            <div>{coinName}'s</div> <div> current RMB %</div>
-            <div>{coinName}'s</div> <div> predicted RMB %</div>
+            <button type='button' className=' '>
+              <HashLink
+                smooth
+                className=' text-white no-underline justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md bg-appBlue'
+                to={'/coin-predict#1'}>
+                Go to Quick Compare
+              </HashLink>
+            </button>
           </div>
         </>
       )}
