@@ -40,6 +40,7 @@ export function DataProvider({ children }) {
       // - all data is now in one big array
 
       let fullDataSet = dataSet1.concat(dataSet2, dataSet3, dataSet4);
+
       setData(fullDataSet);
     } catch (err) {
       console.log(err);
