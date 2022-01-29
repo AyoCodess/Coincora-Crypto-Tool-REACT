@@ -13,11 +13,11 @@ import InputTextWithDollarIcon from '../../components/InoutFields/InputTextWithD
 function CoinForecast() {
   const {
     complete,
-    setComeplete,
+
     coinName,
     setCoinName,
     data,
-    setData,
+
     selectedFromDropdown,
   } = useContext(DataContext);
 
@@ -54,7 +54,14 @@ function CoinForecast() {
     } else {
       console.log('error');
     }
-  }, [data, selectedFromDropdown, setCoinName]);
+  }, [
+    circulatingSupply,
+    currentMarketCap,
+    currentPrice,
+    data,
+    selectedFromDropdown,
+    setCoinName,
+  ]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { CheckCircleIcon, CurrencyDollarIcon } from '@heroicons/react/solid';
+import { CurrencyDollarIcon } from '@heroicons/react/solid';
 
 export default function InputTextWithDollarIcon({ value }) {
   return (

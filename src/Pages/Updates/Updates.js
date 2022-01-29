@@ -2,28 +2,24 @@ import React from 'react';
 
 function Updates() {
   return (
-    <article className='prose lg:prose-md'>
-      <h1>New Updates</h1>
-      <h2>Date: 27/01/2022</h2>
-      <p>
-        Coincora and its members, officers, directors, owners, employees, agents
-        and representatives, provide this website (the “Site”) for informational
-        purposes only. Use of and access to the Site and the information,
-        materials, services, and other content available on or through the Site
-        (“Content”) are subject to these terms of use and all applicable laws.
-      </p>
-
-      <h2>NO INVESTMENT ADVICE</h2>
-      <p>
-        The Content is for informational purposes only, you should not construe
-        any such information or other material as legal, tax, investment,
-        financial, or other advice. Nothing contained on our Site constitutes a
-        solicitation, recommendation, endorsement, or offer by Coincora or any
-        third party service provider to buy or sell any securities or other
-        financial instruments in this or in any other jurisdiction in which such
-        solicitation or offer would be unlawful under the securities laws of
-        such jurisdiction.
-      </p>
+    <article className=''>
+      <h1 className='text-3xl font-bold'>Latest Updates</h1>
+      <div className='mt-5 shadow overflow-hidden border border-gray-200 sm:rounded-lg p-4'>
+        <h2 className='text-appBlue text-xl font-bold border-b-2 border-gray-400 pb-2 max-w-max'>
+          Displaying Crypto Market Data via Dropdown - Top 1000 coins only
+        </h2>
+        <h3 className='mt-2 font-bold'>Date: 27/01/2022</h3>
+        <div className='mt-5 border-2 border-gray-200 max-w-max shadow-lg rounded-md'>
+          <iframe
+            width='325'
+            height='185'
+            src='https://www.youtube.com/embed/F1Sc7DD8VqM'
+            title='YouTube video player'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowfullscreen></iframe>
+        </div>
+      </div>
     </article>
   );
 }

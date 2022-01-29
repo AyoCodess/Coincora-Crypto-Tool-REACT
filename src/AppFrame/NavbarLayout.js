@@ -28,7 +28,6 @@ import NavBarButtonSubGrayIcon from '../components/Buttons/NavBarButtonSubGrayIc
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 // import StandardButtonReactRouter from '../components/Buttons/StandardButtonReactRouter';
-import StandardButton from '../components/Buttons/StandardButton';
 
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
