@@ -1,4 +1,4 @@
-import { createContext, React, useContext, useState, useEffect } from 'react';
+import { createContext, React, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const DataContext = createContext({});
@@ -28,7 +28,7 @@ export function DataProvider({ children }) {
   const fetchData = async () => {
     try {
       let response1 = await axios(page1);
-      let response2 = await axios(page3);
+      let response2 = await axios(page2);
       let response3 = await axios(page3);
       let response4 = await axios(page4);
 

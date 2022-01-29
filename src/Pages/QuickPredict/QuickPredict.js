@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import StandardButtonReactRouter from '../../components/Buttons/StandardButtonReactRouter';
 
 function QuickCompare({ coinName }) {
-  const [complete, setComeplete] = useState(false);
+  const [complete] = useState(false);
   return (
     <>
       {!complete && (

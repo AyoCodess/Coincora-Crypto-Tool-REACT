@@ -1,11 +1,10 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 function Tooltip({ message, title }) {
-  const [, setOpen] = useState(false);
   return (
     <>
       {' '}

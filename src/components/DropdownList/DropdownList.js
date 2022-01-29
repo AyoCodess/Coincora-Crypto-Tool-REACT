@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { useState, useContext, useRef } from 'react';
+import { useContext, useRef } from 'react';
 import useOnClickOutside from '../../UI/Footer/helperFuncs/useOnClickOutisde';
 import DataContext from '../../context';
 
@@ -48,8 +48,8 @@ export default function Example() {
                       e.target.value.toLowerCase() === coin.symbol.toLowerCase()
                     ) {
                       setSelectedFromDropdown(coin);
-                      return coin;
                     }
+                    return console.log(null); // - produces warning if i do not return anything.
                   });
                   return setSearchedFromDropdown(searchedFromDropdown);
                 }}
