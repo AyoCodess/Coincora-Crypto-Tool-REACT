@@ -1,4 +1,4 @@
-import { React, useContext } from 'react';
+import { React, useContext, useState, useEffect } from 'react';
 
 import StandardButtonReactRouter from '../../components/Buttons/StandardButtonReactRouter';
 import { HashLink } from 'react-router-hash-link';
@@ -6,10 +6,55 @@ import Tooltip from '../../components/Tooltip/Tooltip';
 import DropdownList from '../../components/DropdownList/DropdownList';
 
 import DataContext from '../../context';
+import InputTextWithCheckIcon from '../../components/InoutFields/InputTextWithCheckIcon';
+import InputWithNumGrayBoxLarge from '../../components/InoutFields/InputWithNumGrayBoxLarge';
+import InputTextWithDollarIcon from '../../components/InoutFields/InputTextWithDollarIcon';
 
 function CoinForecast() {
-  const { complete, setComeplete, coinName, setCoinName, data, setData } =
-    useContext(DataContext);
+  const {
+    complete,
+    setComeplete,
+    coinName,
+    setCoinName,
+    data,
+    setData,
+    selectedFromDropdown,
+  } = useContext(DataContext);
+
+  const [coinCurrentRBM, setCoinCurrentRMB] = useState(0);
+  const [circulatingSupply, setCirculatingSupply] = useState(null);
+  const [currentPrice, setCurrentPrice] = useState(null);
+  const [currentMarketCap, setCurrentMarketCap] = useState(null);
+
+  useEffect(() => {
+    if (selectedFromDropdown) {
+      // - setting global state for coin name
+      setCoinName(selectedFromDropdown.name);
+
+      // - calculating coin name current circulating supply
+      let sumCS = selectedFromDropdown.circulating_supply;
+      setCirculatingSupply(sumCS.toLocaleString());
+      console.log(circulatingSupply);
+
+      // - calculating coin name current price
+      let sumCP = selectedFromDropdown.current_price;
+      setCurrentPrice(sumCP.toLocaleString());
+      console.log(currentPrice);
+
+      // - calculating coin name current market cap
+      let sumCMC = selectedFromDropdown.market_cap;
+
+      console.log(sumCMC);
+      setCurrentMarketCap(sumCMC.toLocaleString());
+      console.log(currentMarketCap);
+
+      // - coin name RBM calculation
+      let sumRBM = selectedFromDropdown.market_cap / data[0].market_cap;
+      setCoinCurrentRMB(sumRBM.toLocaleString());
+    } else {
+      console.log('error');
+    }
+  }, [data, selectedFromDropdown, setCoinName]);
 
   return (
     <>
@@ -61,33 +106,27 @@ function CoinForecast() {
                         title={'Current Circulating Supply'}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    {selectedFromDropdown && (
+                      <InputTextWithCheckIcon value={circulatingSupply} />
+                    )}
                   </div>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip message={'hey'} title={' Current Price'} />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    {selectedFromDropdown && (
+                      <InputTextWithDollarIcon value={currentPrice} />
+                    )}
                   </div>
                   <div className='flex gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip message={'hey'} title={'  Current Market Cap'} />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    {selectedFromDropdown && (
+                      <InputTextWithDollarIcon value={currentMarketCap} />
+                    )}
                   </div>
-                  <div className='flex gap-2'>
+                  <div className='flex items-center gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
@@ -95,10 +134,10 @@ function CoinForecast() {
                       current market cap is`}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
+
+                    <InputWithNumGrayBoxLarge
+                      value={coinCurrentRBM}
+                      sign={'%'}
                     />
                   </div>
                 </div>

@@ -7,7 +7,7 @@ export function DataProvider({ children }) {
   // = GLOBAL API CALL - CRYPTO MARKET DATA
 
   const [complete, setComplete] = useState(true);
-  const [coinName, setCoinName] = useState('Matic');
+  const [coinName, setCoinName] = useState('Coin');
   const [data, setData] = useState(null);
 
   // - api url links to get top 1000 crypto coins.
@@ -53,9 +53,28 @@ export function DataProvider({ children }) {
     fetchData();
   }, []);
 
+  // - dropdownlist.js
+
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [selectedFromDropdown, setSelectedFromDropdown] = useState(false);
+  const [searchedFromDropdown, setSearchedFromDropdown] = useState(null);
+
   return (
     <DataContext.Provider
-      value={{ complete, setComplete, coinName, setCoinName, data, setData }}>
+      value={{
+        complete,
+        setComplete,
+        coinName,
+        setCoinName,
+        data,
+        setData,
+        openDropdown,
+        setOpenDropdown,
+        selectedFromDropdown,
+        setSelectedFromDropdown,
+        searchedFromDropdown,
+        setSearchedFromDropdown,
+      }}>
       {children}
     </DataContext.Provider>
   );

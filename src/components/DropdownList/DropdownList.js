@@ -1,26 +1,22 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState, useContext, useRef } from 'react';
+import { useState, useContext, useRef } from 'react';
 import useOnClickOutside from '../../UI/Footer/helperFuncs/useOnClickOutisde';
-import { Listbox, Transition } from '@headlessui/react';
-import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import DataContext from '../../context';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 export default function Example() {
-  const { data } = useContext(DataContext);
-
-  const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(false);
-  const [searched, setSearched] = useState(null);
+  const {
+    data,
+    openDropdown,
+    setOpenDropdown,
+    selectedFromDropdown,
+    setSelectedFromDropdown,
+    searchedFromDropdown,
+    setSearchedFromDropdown,
+  } = useContext(DataContext);
 
   const inputField = useRef();
 
-  useOnClickOutside(inputField, () => setOpen(false));
-
-  console.log(selected);
+  useOnClickOutside(inputField, () => setOpenDropdown(false));
 
   return (
     <>
@@ -31,7 +27,11 @@ export default function Example() {
               <i>
                 <span className='flex items-center'>
                   <img
-                    src={!selected ? data[0].image : selected.image}
+                    src={
+                      !selectedFromDropdown
+                        ? data[0].image
+                        : selectedFromDropdown.image
+                    }
                     alt=''
                     className='flex-shrink-0 h-6 w-6 rounded-full'
                   />
@@ -40,39 +40,37 @@ export default function Example() {
               </i>
               <input
                 onChange={(e) => {
-                  setOpen(true);
-                  let searched = data.filter((coin) => {
+                  setOpenDropdown(true);
+                  let searchedFromDropdown = data.filter((coin) => {
                     if (
                       e.target.value.toLowerCase() ===
                         coin.name.toLowerCase() ||
                       e.target.value.toLowerCase() === coin.symbol.toLowerCase()
                     ) {
-                      setSelected(coin);
+                      setSelectedFromDropdown(coin);
                       return coin;
                     }
                   });
-                  return setSearched(searched);
+                  return setSearchedFromDropdown(searchedFromDropdown);
                 }}
               />
             </div>
 
             <div className='w-full' ref={inputField}>
               <div className='mt-1 relative '>
-                {open && (
+                {openDropdown && (
                   <ul
-                    className=' overflow-scroll absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm'
-                    tabIndex='-1'
+                    className='  absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm'
                     role='listbox'>
-                    {searched.map((coin, i) => {
+                    {searchedFromDropdown.map((coin, i) => {
                       return (
                         <li
                           onClick={() => {
-                            setSelected(coin);
-                            setOpen(false);
+                            setSelectedFromDropdown(coin);
+                            setOpenDropdown(false);
                           }}
                           className='text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-appBlue hover:text-white'
-                          id='listbox-option-0'
-                          role='option'>
+                          id='listbox-option-0'>
                           <div className='flex items-center'>
                             <img
                               src={coin.image}
