@@ -20,6 +20,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
+import CachedIcon from '@mui/icons-material/Cached';
 import Link from '@mui/material/Link';
 import { Link as LinkR } from 'react-router-dom';
 import NavBarButton from '../components/Buttons/NavBarButton';
@@ -79,6 +80,12 @@ function NavbarLayout(props) {
           text={'For Newbies'}
           onClick={handleDrawerToggle}
         />
+        <NavBarButton
+          to={'/updates'}
+          icon={<CachedIcon />}
+          text={'Updates'}
+          onClick={handleDrawerToggle}
+        />
 
         {/* // - Links with have URLS only */}
         {mainNav.map((text, index) => (
@@ -117,9 +124,9 @@ function NavbarLayout(props) {
             style={{ border: '0' }}></iframe>
         </div>
         <NavBarButton
-          to={'/donate-crypto'}
+          to={'/support-me'}
           icon={<CardGiftcardIcon />}
-          text={'Donate Crypto'}
+          text={'Support Me'}
           onClick={handleDrawerToggle}
         />
         <NavBarButtonSubGrayIcon

@@ -17,6 +17,7 @@ import Advice from './Pages/Advice/Advice';
 import DonateCrypto from './Pages/DonateCrypto/DonateCrypto';
 import ScrollToTop from './ScrollToTop';
 import { DataProvider } from './context';
+import Updates from './Pages/Updates/Updates';
 
 function App() {
   // - News banner options
@@ -62,7 +63,8 @@ function App() {
                 <Route path='/quick-predict' element={<QuickCompare />}></Route>
                 <Route path='/legal' element={<Legal />}></Route>
                 <Route path='/advice' element={<Advice />}></Route>
-                <Route path='/donate-crypto' element={<DonateCrypto />}></Route>
+                <Route path='/support-me' element={<DonateCrypto />}></Route>
+                <Route path='/updates' element={<Updates />}></Route>
                 <Route
                   path='/feature-request-form'
                   element={<FeatureRequest />}></Route>
