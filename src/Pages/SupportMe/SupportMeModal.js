@@ -1,4 +1,4 @@
-import { Fragment, useRef, useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { React, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import StandardButton from '../../components/Buttons/StandardButton';
@@ -30,8 +30,6 @@ export default function SupportMeModal({
   const [copiedCoinValue, setCopiedCoinValue] = useState({
     copied: false,
   });
-
-  const getLink = useRef(null);
 
   // - Api data handling
   const [apiCallFail, setApiCallFail] = useState(null);
@@ -85,7 +83,6 @@ export default function SupportMeModal({
         style={{ zIndex: '9000' }}
         as='div'
         className='fixed inset-0 overflow-y-auto'
-        // initialFocus={getLink}
         onClose={() => setOpen(true)}>
         <div className='  flex items-end justify-center md:min-h-screen min-h-[70vh] pt-4 px-4 pb-20 text-center sm:block sm:p-0'>
           <Transition.Child
