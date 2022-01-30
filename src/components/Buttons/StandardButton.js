@@ -11,6 +11,7 @@ function StandardButton({
 }) {
   return (
     <button
+      style={{ cursor: 'pointer' }}
       type='submit'
       onClick={onClick}
       onSubmit={onSubmit}

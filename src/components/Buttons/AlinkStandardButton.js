@@ -3,6 +3,7 @@ import React from 'react';
 function AlinkStandardButton({ href, text, width, color, ref, onClick }) {
   return (
     <a
+      style={{ cursor: 'pointer', textDecoration: 'none' }}
       onClick={onClick}
       href={href}
       ref={ref}

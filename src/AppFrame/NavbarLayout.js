@@ -20,12 +20,17 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
+import CachedIcon from '@mui/icons-material/Cached';
 import Link from '@mui/material/Link';
 import { Link as LinkR } from 'react-router-dom';
-import NavBarButton from '../../components/Buttons/NavBarButton';
-import NavBarButtonSubGrayIcon from '../../components/Buttons/NavBarButtonSubGrayIcon';
+import NavBarButton from '../components/Buttons/NavBarButton';
+import NavBarButtonSubGrayIcon from '../components/Buttons/NavBarButtonSubGrayIcon';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+// import StandardButtonReactRouter from '../components/Buttons/StandardButtonReactRouter';
+
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // optional
 
 const drawerWidth = 240;
 
@@ -57,21 +62,27 @@ function NavbarLayout(props) {
       <Toolbar />
       <List style={{ fontSize: '20px' }}>
         <NavBarButton
-          to={'/coin-forecast'}
+          to={'/coin-predict'}
           icon={<BarChartIcon />}
-          text={'Coin Forecast'}
+          text={'Coin Predict'}
           onClick={handleDrawerToggle}
         />
         <NavBarButton
-          to={'/quick-compare'}
+          to={'/quick-predict'}
           icon={<CompareArrowsIcon />}
-          text={'Quick Forecast'}
+          text={'Quick Predict'}
           onClick={handleDrawerToggle}
         />
         <NavBarButton
           to={'/newbies'}
           icon={<NewReleasesIcon />}
           text={'For Newbies'}
+          onClick={handleDrawerToggle}
+        />
+        <NavBarButton
+          to={'/updates'}
+          icon={<CachedIcon />}
+          text={'Updates'}
           onClick={handleDrawerToggle}
         />
 
@@ -102,19 +113,10 @@ function NavbarLayout(props) {
       </List>
       <Divider />
       <List style={{ fontSize: '20px' }}>
-        <div className='mx-auto w-auto mb-5'>
-          <iframe
-            className='mx-auto mt-2'
-            src='https://www.github.com/sponsors/AyoCodess/button'
-            title='Sponsor AyoCodess'
-            height='35'
-            width='116'
-            style={{ border: '0' }}></iframe>
-        </div>
         <NavBarButton
-          to={'/donate-crypto'}
+          to={'/support-me'}
           icon={<CardGiftcardIcon />}
-          text={'Donate Crypto'}
+          text={'Support Me'}
           onClick={handleDrawerToggle}
         />
         <NavBarButtonSubGrayIcon
@@ -152,7 +154,7 @@ function NavbarLayout(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
         }}>
-        <Toolbar>
+        <Toolbar className='flex justify-between'>
           <WidgetsIcon
             color='inherit'
             aria-label='open drawer'
@@ -171,6 +173,13 @@ function NavbarLayout(props) {
               <span style={{ fontSize: '30px' }}>Coincora</span>
             </LinkR>
           </Typography>
+          {/* <StandardButtonReactRouter text={'Log In'} to={'/'} /> */}
+          <Tippy
+            className='position top-[-37px] left-[-10px]'
+            arrow={false}
+            content={<span>Coming soon</span>}>
+            <button>Login</button>
+          </Tippy>
         </Toolbar>
       </AppBar>
       <Box

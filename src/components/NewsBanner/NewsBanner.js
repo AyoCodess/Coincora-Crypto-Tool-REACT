@@ -23,7 +23,7 @@ export default function NewsBanner({
       leaveFrom='opacity-100'
       leaveTo='opacity-0'>
       <div className='bg-appBlue mb-5 rounded-lg shadow-md animated fadeInUp'>
-        <div className='max-w-7xl py-3 px-3 sm:px-6 lg:px-8'>
+        <div className=' py-3 px-3 sm:px-6 lg:px-8'>
           <div className='flex items-center justify-between flex-wrap'>
             <div className='w-0 flex-1 flex items-center'>
               <span className='flex p-2 rounded-lg bg-white'>

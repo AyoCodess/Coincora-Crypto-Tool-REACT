@@ -40,6 +40,56 @@ const itemData = [
     status: 'Must have',
   },
   {
+    img: 'https://i.imgur.com/Y1fBpIf.jpg',
+    title: 'Wise',
+    info: 'Crypto friendly international bank account.',
+    moreInfo:
+      '1 of the 2 recommended bank account to use for all your crypto transactions. The other bank account we recommend you get too is Revolute as a backup. ',
+    alt: 'wise logo',
+    link: 'https://wise.com/invite/iwh/ayo-olaa',
+    status: 'Must have',
+  },
+  {
+    img: 'https://i.imgur.com/gIT5TSj.jpg',
+    title: 'Revolut',
+    info: 'Crypto friendly international bank account.',
+    moreInfo:
+      '1 of the 2 recommended bank account to use for all your crypto transactions. The other bank account we recommend you get too is Wise as a backup.',
+    alt: 'Revolut logo',
+    link: 'https://revolut.com/referral/ayoi8wid!DEC1AR',
+    status: 'Must have',
+  },
+  {
+    img: 'https://i.imgur.com/GhU78Su.jpg',
+    title: 'Kucoin Exchange',
+    info: 'Find new and promising crypto projects.',
+    moreInfo:
+      'Kucoin is infamous for launching coins that go on to do great things, many coins that launch first on Kucoin, eventually end up on Binance.',
+    alt: 'kucoin',
+    link: 'https://www.kucoin.plus/land/register/r/22raNy7',
+    status: 'Must have',
+  },
+  {
+    img: 'https://i.imgur.com/oIH4RFJ.jpg',
+    title: 'Gate.io Exchange',
+    info: 'An alternative crypto exchange.',
+    moreInfo:
+      'Gate.io is great exchange for emerging crypto projects to be found.',
+    alt: 'Gate.io logo',
+    link: 'https://www.gate.io/signup/3636092',
+    status: 'Must have',
+  },
+  {
+    img: 'https://i.imgur.com/Dfa887p.jpg',
+    title: 'Ascend Exchange',
+    info: 'An alternative crypto exchange.',
+    moreInfo:
+      'Ascend is great exchange for emerging crypto projects to be found.',
+    alt: 'AscendEX logo',
+    link: 'https://m.a3dex.com/en/register?inviteCode=BULFXHU9',
+    status: 'Must have',
+  },
+  {
     img: 'https://i.imgur.com/CS1mnYp.jpg',
     title: 'Celsius',
     info: 'Earn up to 17% a year on all your crypto.',
@@ -49,20 +99,11 @@ const itemData = [
     link: 'https://celsiusnetwork.app.link/111453048f',
     status: 'Optional',
   },
-  {
-    img: 'https://i.imgur.com/GhU78Su.jpg',
-    title: 'Kucoin Exchange',
-    info: 'Find new and promising crypto projects',
-    moreInfo:
-      'Kucoin is infamous for launching coins that go on to do great things, many coins that launch first on Kucoin, eventually end up on Binance.',
-    alt: 'kucoin',
-    link: 'https://www.kucoin.plus/land/register/r/22raNy7',
-    status: 'Must have',
-  },
+
   {
     img: 'https://i.imgur.com/euUl5sQ.jpg',
     title: 'Token Sniffer',
-    info: 'Quickly detect and avoid scam coins',
+    info: 'Quickly detect and avoid scam coins.',
     moreInfo:
       'This tool helps you detect scam coins before you invest. You simply supply the coin address and the app will auto-generate a useful report about the coins integrity.',
     alt: 'token sniffer',
@@ -72,40 +113,31 @@ const itemData = [
   {
     img: 'https://i.imgur.com/SYvQtd9.jpg',
     title: 'Trust Wallet',
-    info: 'Store all your crypto in one place',
+    info: 'Store all your crypto in one place.',
     moreInfo:
       'An off exchange multi-wallet. You have total control over your crypto.',
     alt: 'trust wallet logo',
     link: 'hhttps://trustwallet.com/',
     status: 'Optional',
   },
-  {
-    img: 'https://i.imgur.com/Y1fBpIf.jpg',
-    title: 'Wise',
-    info: 'Crypto friendly international bank account',
-    moreInfo:
-      '1 of the 2 recommended bank account to use for all your crypto transactions. The other bank account we recommend you get too is Revolute as a backup. ',
-    alt: 'wise logo',
-    link: 'https://wise.com/invite/iwh/ayo-olaa',
-    status: 'Optional',
-  },
-  {
-    img: 'https://i.imgur.com/gIT5TSj.jpg',
-    title: 'Revolut',
-    info: 'Crypto friendly international bank account',
-    moreInfo:
-      '1 of the 2 recommended bank account to use for all your crypto transactions. The other bank account we recommend you get too is Wise as a backup.',
-    alt: 'Revolut logo',
-    link: 'https://revolut.com/referral/ayoi8wid!DEC1AR',
-    status: 'Optional',
-  },
+
   {
     img: 'https://i.imgur.com/UGOrmbq.jpg',
     title: 'Crypto Panic',
-    info: 'The best curated crypto news app',
-    moreInfo: 'Our recommend and central hub for breaking crypto news',
+    info: 'The best curated crypto news app.',
+    moreInfo: 'Our recommend and central hub for breaking crypto news.',
     alt: 'Crypto Panic logo',
     link: 'https://cryptopanic.com/',
+    status: 'Optional',
+  },
+  {
+    img: 'https://i.imgur.com/aW5NBhP.jpg',
+    title: 'Coin Market Calender',
+    info: 'No.1 crypto event calender.',
+    moreInfo:
+      'We use this to track major events happening in crypto, this calender along with other tools can help with buy/sell signals.',
+    alt: 'Coin Market Cal logo.',
+    link: 'https://coinmarketcal.com/',
     status: 'Optional',
   },
 ];

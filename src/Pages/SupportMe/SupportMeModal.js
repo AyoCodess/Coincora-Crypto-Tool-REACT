@@ -1,29 +1,29 @@
-import { Fragment, useRef } from 'react';
+import { Fragment, useEffect } from 'react';
 import { React, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import StandardButton from '../../components/Buttons/StandardButton';
-import StandardButtonDarkBGDonate from '../../components/Buttons/StandardButtonDarkBGDonate';
-import ConvertBoxStablecoin from './components/ConvertBoxStablecoin';
+
+import ConvertBox from './components/ConvertBox';
 import QrBox from './components/QrBox';
 import CoinAddressBox from './components/CoinAddressBox';
 import DonateForm from './components/DonateForm';
+import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton';
 
-// import { Route } from 'react-router-dom';
-// import SuccessPage from '../../components/SuccessPage';
+import axios from 'axios';
 
-export default function DonateCryptoModalStablecoin({
+export default function SupportMeModal({
   open,
   setOpen,
   coinName,
+  coinNameApi,
   coinLogo,
   network,
   address,
   qr,
   ticker,
+  baseCurrency,
+  setBaseCurrency,
 }) {
-  const [, setConvertValue] = useState(0);
-  const [coinValue] = useState(0);
-
   const [copiedAddress, setCopiedAddress] = useState({
     copied: false,
   });
@@ -31,16 +31,60 @@ export default function DonateCryptoModalStablecoin({
     copied: false,
   });
 
-  const getLink = useRef(null);
+  // - Api data handling
+  const [apiCallFail, setApiCallFail] = useState(null);
+  const [convertValue, setConvertValue] = useState(0);
+  const [coinValue, setCoinValue] = useState(0);
+  const [currency, setCurrency] = useState(0);
+
+  // - calling api to get 1 unit of fiat currency in quoted coin current price.
+
+  let url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${baseCurrency}&ids=${coinNameApi}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const convertApi = async () => {
+    try {
+      const data = await axios(url);
+
+      if (data) {
+        if (data.data.length === 0) {
+          console.log('true');
+          setApiCallFail(true);
+        } else {
+          console.log(data);
+          setApiCallFail(false);
+
+          // - Coin Exchange
+
+          const currentPrice = data.data[0].current_price;
+          setCurrency(currentPrice);
+          const exchange = convertValue / currentPrice;
+
+          setCoinValue(() => {
+            return exchange;
+          });
+        }
+      } else {
+        setApiCallFail(true);
+      }
+    } catch (err) {
+      console.log(err);
+      setApiCallFail(true);
+    }
+  };
+
+  useEffect(() => {
+    convertApi();
+  }, [coinValue, currency, coinNameApi, convertApi]);
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         style={{ zIndex: '9000' }}
         as='div'
-        className='fixed inset-0 overflow-y-auto overflow-x-hidden'
-        initialFocus={getLink}
+        className='fixed inset-0 overflow-y-auto'
         onClose={() => setOpen(true)}>
-        <div className='  md:min-w-[90%] mx-auto flex items-end md:block  justify-center  p-4 text-center sm:p-0'>
+        <div className='  flex items-end justify-center md:min-h-screen min-h-[70vh] pt-4 px-4 pb-20 text-center sm:block sm:p-0'>
           <Transition.Child
             as={Fragment}
             enter='ease-out duration-300'
@@ -61,13 +105,15 @@ export default function DonateCryptoModalStablecoin({
           <Transition.Child
             as={Fragment}
             enter='ease-out duration-300'
-            enterFrom='opacity-0  translate-y-0 scale-95'
-            enterTo='opacity-100 translate-y-0 scale-100'
+            enterFrom='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
+            enterTo='opacity-100 translate-y-0 sm:scale-100'
             leave='ease-in duration-200'
-            leaveFrom='opacity-100 translate-y-0 scale-100'
-            leaveTo='opacity-0 translate-y-0 scale-95'>
+            leaveFrom='opacity-100 translate-y-0 sm:scale-100'
+            leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
             {/* //- Modal container  */}
-            <div className='max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
+            <div
+              id={'mod'}
+              className='overscroll-contain max-h-[90vh] overflow-y-auto max-w-[90%] mx-auto sm:my-8 sm:align-middle inline-block align-bottom bg-white rounded-lg text-left shadow-xl transform transition-all '>
               <form
                 action='https://docs.google.com/forms/u/0/d/e/1FAIpQLScTfIh7qu1Bm_UCiwnytIDETTfCoeT-6QdXobV4yN_-pP4smw/formResponse'
                 method='POST'>
@@ -83,15 +129,22 @@ export default function DonateCryptoModalStablecoin({
                       setCopiedCoinValue={setCopiedCoinValue}
                       copiedCoinValue={copiedCoinValue}
                     />
-                    <ConvertBoxStablecoin
-                      ticker={ticker}
-                      coinValue={coinValue}
-                      setConvertValue={setConvertValue}
-                      copiedCoinValue={copiedCoinValue}
-                      setCopiedCoinValue={setCopiedCoinValue}
-                      copiedAddress={copiedAddress}
-                      setCopiedAddress={setCopiedAddress}
-                    />
+                    {!apiCallFail && (
+                      <ConvertBox
+                        ticker={ticker}
+                        coinValue={coinValue}
+                        setConvertValue={setConvertValue}
+                        copiedCoinValue={copiedCoinValue}
+                        setCopiedCoinValue={setCopiedCoinValue}
+                        copiedAddress={copiedAddress}
+                        setCopiedAddress={setCopiedAddress}
+                        baseCurrency={baseCurrency}
+                        setBaseCurrency={setBaseCurrency}
+                        apiCallFail={apiCallFail}
+                        setApiCallFail={setApiCallFail}
+                        // exchange={exchange}
+                      />
+                    )}
                   </div>
                   <div className='flex flex-col justify-center'>
                     <DonateForm ticker={ticker} />
@@ -100,6 +153,7 @@ export default function DonateCryptoModalStablecoin({
                       QR scanner app to copy and paste our address, so you can
                       support us.
                     </p>
+
                     <QrBox coinName={coinName} qr={qr} />
                   </div>
                 </div>
@@ -112,11 +166,12 @@ export default function DonateCryptoModalStablecoin({
                       setOpen(false);
                     }}
                   />
-                  <StandardButtonDarkBGDonate
+                  <AlinkStandardButton
                     text={'Cancel'}
-                    color={'bg-gray-200'}
+                    color={'bg-gray-300'}
                     width={'w-32'}
-                    onClick={(e) => {
+                    onClick={() => {
+                      setOpen(false);
                       setOpen(false);
                       setCopiedAddress(false);
                       setCopiedCoinValue(false);

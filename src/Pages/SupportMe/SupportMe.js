@@ -1,7 +1,8 @@
 import { React, useState } from 'react';
 
-import DonateCryptoModal from './DonateCryptoModal.js';
-import DonateCryptoModalStablecoin from './DonateCryptoModalStablecoin';
+// - modals
+import SupportMeModal from './SupportMeModal.js';
+
 //-qr codes
 import ethQrCode from '../../assets/qr-code-images/eth-qr-code.png';
 import btcQrCode from '../../assets/qr-code-images/btc-qr-code.png';
@@ -26,6 +27,9 @@ import dogeQrCode from '../../assets/qr-code-images/doge-qr-code.png';
 import cosmosQrCode from '../../assets/qr-code-images/cosmos-qr-code.png';
 import algoQrCode from '../../assets/qr-code-images/algo-qr-code.png';
 import aaveQrCode from '../../assets/qr-code-images/aave-qr-code.png';
+import avaxQrCode from '../../assets/qr-code-images/avax-qr-code.png';
+import bchQrCode from '../../assets/qr-code-images/bch-qr-code.png';
+import busdQrCode from '../../assets/qr-code-images/busd-qr-code.png';
 
 //-coin logos
 import btcLogo from '../../assets/coinLogos/bitcoin-btc-logo.png';
@@ -51,12 +55,20 @@ import dogeLogo from '../../assets/coinLogos/dogecoin-doge-logo.png';
 import cosmosLogo from '../../assets/coinLogos/cosmos-atom-logo.png';
 import algoLogo from '../../assets/coinLogos/algorand-algo-logo.png';
 import aaveLogo from '../../assets/coinLogos/aave-aave-logo.png';
+import avaxLogo from '../../assets/coinLogos/avalanche-avax-logo.png';
+import bchLogo from '../../assets/coinLogos/bitcoin-cash-bch-logo.png';
+import busdLogo from '../../assets/coinLogos/binance-usd-busd-logo.png';
+
+import paypal from '../../assets/other/paypal.png';
+import coffee from '../../assets/other/coffe.jpeg';
+import linktree from '../../assets/other/linktree.webp';
+import github from '../../assets/other/github.jpeg';
 
 import DonateButton from '../../components/Buttons/DonateButton.js';
 import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton.js';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import wallet from '../../wallet.js';
-import DonateCryptoModalNoConvert from '../DonateCrypto/DonateCryptoModalNoConvert';
+import Link from '@mui/material/Link';
 
 export default function DonateCrypto() {
   // - modal open/close
@@ -65,23 +77,31 @@ export default function DonateCrypto() {
   // - modal props
   const [coinLogo, setCoinLogo] = useState(null);
   const [ticker, setTicker] = useState(null);
+
   const [coinName, setCoinName] = useState(null);
   const [address, setAddress] = useState(null);
   const [network, setNetwork] = useState(null);
   const [qr, setQr] = useState(null);
-
-  // - modal type displayed depending on button click
-  const [stablecoin, setStablecoin] = useState(false);
-  const [noConvert, setNoConvert] = useState(false);
+  //.API PARAMS
+  const [baseCurrency, setBaseCurrency] = useState('usd');
+  const [coinNameApi, setCoinNameApi] = useState('bitcoin');
 
   return (
     <>
-      <div className='text-3xl font-bold mt-10'>
-        Support us with Crypto Currency
+      <div className='text-3xl font-bold '>Support me with Crypto Currency</div>
+      <div className='text-xl font-bold mt-3 '>
+        You can also send Crypto Currency to&nbsp;
+        <span className=' inline-block text-2xl text-appBlue border-b-4 pb-2 border-appBlue '>
+          Coincora.crypto
+        </span>
       </div>
       <div className='text-xl  mt-5'>
-        Click below and get the crypto currency <b>$</b> dollar amount you wish
-        to support us with below.
+        Click below and get the crypto currency{' '}
+        <b className='font-bold text-appBlue'>$</b> dollar amount you wish to
+        support me with below.
+      </div>
+      <div className='text-xl font-bold mt-5'>
+        I accept the following Crypto Currencies...
       </div>
       <div className='flex flex-wrap gap-3 mt-5'>
         <DonateButton
@@ -90,10 +110,9 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-green-500'}
           coinLogo={usdtLogo}
           onClick={() => {
-            setStablecoin(true);
-            setNoConvert(false);
             setOpen(true);
-            setCoinName('USDT');
+            setCoinNameApi('tether');
+            setCoinName('Tether');
             setAddress(wallet.usdt.tron);
             setQr(usdtQrCode);
             setCoinLogo(usdtLogo);
@@ -107,9 +126,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-blue-700'}
           coinLogo={usdcLogo}
           onClick={() => {
-            setStablecoin(true);
-            setNoConvert(false);
             setOpen(true);
+            setCoinNameApi('usd-coin');
             setCoinName('USDC');
             setAddress(wallet.usdc.tron);
             setQr(usdcQrCode);
@@ -118,17 +136,31 @@ export default function DonateCrypto() {
             setNetwork('Tron');
           }}
         />
-
+        <DonateButton
+          borderColor={'border-yellow-500'}
+          text={'BUSD'}
+          textColorHover={'hover:text-yellow-500'}
+          coinLogo={busdLogo}
+          onClick={() => {
+            setOpen(true);
+            setCoinNameApi('binance-usd');
+            setCoinName('BUSD');
+            setAddress(wallet.busd.bsc);
+            setQr(busdQrCode);
+            setCoinLogo(busdLogo);
+            setTicker('busd');
+            setNetwork('BEP20');
+          }}
+        />
         <DonateButton
           borderColor={'border-yellow-500'}
           text={'BNB'}
           textColorHover={'hover:text-yellow-500'}
           coinLogo={bnbLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(false);
             setOpen(true);
-            setCoinName('Binance');
+            setCoinNameApi('binancecoin');
+            setCoinName('BNB');
             setAddress(wallet.bnb.bsc);
             setQr(bnbQrCode);
             setCoinLogo(bnbLogo);
@@ -136,16 +168,14 @@ export default function DonateCrypto() {
             setNetwork('BEP20');
           }}
         />
-
         <DonateButton
           borderColor={'border-sky-500'}
           text={'Link'}
           textColorHover={'hover:text-sky-500'}
           coinLogo={linkLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(false);
             setOpen(true);
+            setCoinNameApi('chainlink');
             setCoinName('Link');
             setAddress(wallet.link.eth);
             setQr(linkQrCode);
@@ -160,9 +190,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-orange-500'}
           coinLogo={btcLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(false);
             setOpen(true);
+            setCoinNameApi('bitcoin');
             setCoinName('Bitcoin');
             setAddress(wallet.btc.btc);
             setQr(btcQrCode);
@@ -171,16 +200,14 @@ export default function DonateCrypto() {
             setNetwork('Bitcoin');
           }}
         />
-
         <DonateButton
           borderColor={'border-gray-500'}
           text={'Ethereum'}
           textColorHover={'hover:text-gray-500'}
           coinLogo={ethLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(false);
             setOpen(true);
+            setCoinNameApi('ethereum');
             setCoinName('Ethereum');
             setAddress(wallet.eth.eth);
             setQr(ethQrCode);
@@ -190,14 +217,13 @@ export default function DonateCrypto() {
           }}
         />
         <DonateButton
-          borderColor={'border-blue-900'}
+          borderColor={'border-blue-600'}
           text={'Litecoin'}
-          textColorHover={'hover:text-blue-900'}
+          textColorHover={'hover:text-blue-600'}
           coinLogo={ltcLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(false);
             setOpen(true);
+            setCoinNameApi('litecoin');
             setCoinName('Litecoin');
             setAddress(wallet.ltc.ltc);
             setQr(ltcQrCode);
@@ -206,60 +232,14 @@ export default function DonateCrypto() {
             setNetwork('Litecoin');
           }}
         />
-      </div>
-      <div className='text-3xl font-bold mt-10'>
-        Send Crypto Currency{' '}
-        <span className=' inline-block text-3xl text-appBlue border-b-4 pb-2 border-appBlue '>
-          Coincora.crypto
-        </span>
-      </div>
-      <div className='text-xl  mt-5'>
-        We accept the following Crypto Currencies...
-      </div>
-      <div className='flex flex-wrap gap-3 mt-5'>
-        <DonateButton
-          borderColor={'border-green-500'}
-          text={'USDT'}
-          textColorHover={'hover:text-green-500'}
-          coinLogo={usdtLogo}
-          onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
-            setOpen(true);
-            setCoinName('USDT');
-            setAddress(wallet.usdt.tron);
-            setQr(usdtQrCode);
-            setCoinLogo(usdtLogo);
-            setTicker('uddt');
-            setNetwork('TRON');
-          }}
-        />
-        <DonateButton
-          borderColor={'border-blue-700'}
-          text={'USDC'}
-          textColorHover={'hover:text-blue-700'}
-          coinLogo={usdcLogo}
-          onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
-            setOpen(true);
-            setCoinName('USDC');
-            setAddress(wallet.usdc.tron);
-            setQr(usdcQrCode);
-            setCoinLogo(usdcLogo);
-            setTicker('usdc');
-            setNetwork('TRON');
-          }}
-        />
         <DonateButton
           borderColor={'border-purple-500'}
           text={'Matic'}
           textColorHover={'hover:text-purple-500'}
           coinLogo={maticLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('matic-network');
             setCoinName('Matic');
             setAddress(wallet.matic.matic);
             setQr(maticQrCode);
@@ -269,31 +249,13 @@ export default function DonateCrypto() {
           }}
         />
         <DonateButton
-          borderColor={'border-yellow-500'}
-          text={'BNB'}
-          textColorHover={'hover:text-yellow-500'}
-          coinLogo={bnbLogo}
-          onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
-            setOpen(true);
-            setCoinName('Binance');
-            setAddress(wallet.bnb.bsc);
-            setQr(bnbQrCode);
-            setCoinLogo(bnbLogo);
-            setTicker('bnb');
-            setNetwork('BEP20');
-          }}
-        />
-        <DonateButton
           borderColor={'border-blue-500'}
           text={'Cardano'}
           textColorHover={'hover:text-blue-500'}
           coinLogo={adaLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('cardano');
             setCoinName('Cardano');
             setAddress(wallet.ada.ada);
             setQr(adaQrCode);
@@ -308,9 +270,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-violet-500'}
           coinLogo={solLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('solana');
             setCoinName('Solana');
             setAddress(wallet.sol.sol);
             setQr(solQrCode);
@@ -320,88 +281,19 @@ export default function DonateCrypto() {
           }}
         />
         <DonateButton
-          borderColor={'border-sky-500'}
-          text={'Link'}
-          textColorHover={'hover:text-sky-500'}
-          coinLogo={linkLogo}
-          onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
-            setOpen(true);
-            setCoinName('Link');
-            setAddress(wallet.link.eth);
-            setQr(linkQrCode);
-            setCoinLogo(linkLogo);
-            setTicker('link');
-            setNetwork('Ethereum');
-          }}
-        />
-        <DonateButton
-          borderColor={'border-orange-500'}
-          text={'Bitcoin'}
-          textColorHover={'hover:text-orange-500'}
-          coinLogo={btcLogo}
-          onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
-            setOpen(true);
-            setCoinName('Bitcoin');
-            setAddress(wallet.btc.btc);
-            setQr(btcQrCode);
-            setCoinLogo(btcLogo);
-            setTicker('btc');
-            setNetwork('Bitcoin');
-          }}
-        />
-        <DonateButton
-          borderColor={'border-gray-500'}
-          text={'Ethereum'}
-          textColorHover={'hover:text-gray-500'}
-          coinLogo={ethLogo}
-          onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
-            setOpen(true);
-            setCoinName('Ethereum');
-            setAddress(wallet.eth.eth);
-            setQr(ethQrCode);
-            setCoinLogo(ethLogo);
-            setTicker('ltc');
-            setNetwork('Ethereum');
-          }}
-        />
-        <DonateButton
-          borderColor={'border-blue-900'}
-          text={'Litecoin'}
-          textColorHover={'hover:text-blue-900'}
-          coinLogo={ltcLogo}
-          onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
-            setOpen(true);
-            setCoinName('Litecoin');
-            setAddress(wallet.ltc.ltc);
-            setQr(ltcQrCode);
-            setCoinLogo(ltcLogo);
-            setTicker('ltc');
-            setNetwork('Litecoin');
-          }}
-        />
-        <DonateButton
           borderColor={'border-gray-300'}
-          text={'Stella'}
+          text={'Stellar'}
           textColorHover={'hover:text-gray-300'}
           coinLogo={stellaLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
-            setCoinName('Stella');
-            setAddress(wallet.stella.bsc);
+            setCoinNameApi('stellar');
+            setCoinName('Stellar');
+            setAddress(wallet.stella.trustWallet);
             setQr(stellaQrCode);
             setCoinLogo(stellaLogo);
             setTicker('xlm');
-            setNetwork('BEP20');
+            setNetwork('Stellar');
           }}
         />
         <DonateButton
@@ -410,15 +302,30 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-gray-600'}
           coinLogo={xrpLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('ripple');
             setCoinName('Xrp');
-            setAddress(wallet.xrp.bsc);
+            setAddress(wallet.xrp.trustWallet);
             setQr(xrpQrCode);
             setCoinLogo(xrpLogo);
             setTicker('xrp');
-            setNetwork('BEP20');
+            setNetwork('XRP');
+          }}
+        />
+        <DonateButton
+          borderColor={'border-green-600'}
+          text={'BCH'}
+          textColorHover={'hover:text-green-600'}
+          coinLogo={bchLogo}
+          onClick={() => {
+            setOpen(true);
+            setCoinNameApi('bitcoin-cash');
+            setCoinName('Bitcoin Cash');
+            setAddress(wallet.bch.bch);
+            setQr(bchQrCode);
+            setCoinLogo(bchLogo);
+            setTicker('bch');
+            setNetwork('BCH');
           }}
         />
         <DonateButton
@@ -427,9 +334,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-blue-300'}
           coinLogo={vechainLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('vechain');
             setCoinName('Vechain');
             setAddress(wallet.vet.vet);
             setQr(vechainQrCode);
@@ -444,9 +350,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-sky-500'}
           coinLogo={sandboxLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('the-sandbox');
             setCoinName('Sandbox');
             setAddress(wallet.sandbox.eth);
             setQr(sandboxQrCode);
@@ -457,14 +362,13 @@ export default function DonateCrypto() {
         />
         <DonateButton
           borderColor={'border-orange-800'}
-          text={'Shib'}
+          text={'Shib-Inu'}
           textColorHover={'hover:text-orange-800'}
           coinLogo={shibLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
-            setCoinName('Shib Inu');
+            setCoinNameApi('shiba-inu');
+            setCoinName('Shiba Inu');
             setAddress(wallet.shib.eth);
             setQr(shibQrCode);
             setCoinLogo(shibLogo);
@@ -478,9 +382,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-indigo-700'}
           coinLogo={dotLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('polkadot');
             setCoinName('Polkadot');
             setAddress(wallet.polkadot.polkadot);
             setQr(dotQrCode);
@@ -490,16 +393,31 @@ export default function DonateCrypto() {
           }}
         />
         <DonateButton
+          borderColor={'border-red-600'}
+          text={'Avax'}
+          textColorHover={'hover:text-red-600'}
+          coinLogo={avaxLogo}
+          onClick={() => {
+            setOpen(true);
+            setCoinNameApi('avalanche-2');
+            setCoinName('Avalanche');
+            setAddress(wallet.avax.xchain);
+            setQr(avaxQrCode);
+            setCoinLogo(avaxLogo);
+            setTicker('avax');
+            setNetwork('AVAX - x-CHAIN');
+          }}
+        />{' '}
+        <DonateButton
           borderColor={'border-blue-600'}
           text={'Near'}
           textColorHover={'hover:text-blue-600'}
           coinLogo={nearLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('near');
             setCoinName('Near');
-            setAddress(wallet.near.near);
+            setAddress(wallet.near.bsc);
             setQr(nearQrCode);
             setCoinLogo(nearLogo);
             setTicker('near');
@@ -512,9 +430,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-orange-400'}
           coinLogo={daiLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('dai');
             setCoinName('Dai');
             setAddress(wallet.dai.bsc);
             setQr(daiQrCode);
@@ -529,9 +446,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-stone-500'}
           coinLogo={iotaLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('iota');
             setCoinName('Iota');
             setAddress(wallet.iota.iota);
             setQr(iotaQrCode);
@@ -546,9 +462,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-yellow-600'}
           coinLogo={dogeLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('dogecoin');
             setCoinName('Dogecoin');
             setAddress(wallet.doge.doge);
             setQr(dogeQrCode);
@@ -563,15 +478,14 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-zinc-500'}
           coinLogo={cosmosLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
-            setCoinName('Cosmos');
-            setAddress(wallet.cosmos.bsc);
+            setCoinNameApi('cosmos');
+            setCoinName('ATOM');
+            setAddress(wallet.cosmos.trustWallet);
             setQr(cosmosQrCode);
             setCoinLogo(cosmosLogo);
             setTicker('atom');
-            setNetwork('BEP20');
+            setNetwork('Cosmos');
           }}
         />
         <DonateButton
@@ -580,9 +494,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-slate-900'}
           coinLogo={algoLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('algorand');
             setCoinName('Algorand');
             setAddress(wallet.algo.algo);
             setQr(algoQrCode);
@@ -597,9 +510,8 @@ export default function DonateCrypto() {
           textColorHover={'hover:text-violet-500'}
           coinLogo={aaveLogo}
           onClick={() => {
-            setStablecoin(false);
-            setNoConvert(true);
             setOpen(true);
+            setCoinNameApi('aave');
             setCoinName('Aave');
             setAddress(wallet.aave.bsc);
             setQr(aaveQrCode);
@@ -609,11 +521,11 @@ export default function DonateCrypto() {
           }}
         />
       </div>
+
       <div className='flex text-3xl font-bold mt-10 gap-2 items-center'>
         <div className=''>Quick How To Video</div>
         <FlashOnIcon style={{ fill: '#0753FF' }} />
       </div>
-
       <div
         className=' max-w-max rounded-md mt-5'
         style={{
@@ -625,12 +537,11 @@ export default function DonateCrypto() {
           src='https://player.vimeo.com/video/665905534?h=d734b5b5a6&loop=1&byline=0&portrait=0'
           width='325'
           height='185'
-          frameborder='0'
+          frameBorder='0'
           allow='autoplay; fullscreen; picture-in-picture'
-          allowfullscreen></iframe>
+          allowFullScreen></iframe>
       </div>
       <script src='https://player.vimeo.com/api/player.js'></script>
-
       <div className='text-xl  mt-10'>
         View apps and wallets that support sending crypto to coincora.crypto
         <b> coincora.crypto</b>, it's as easy as sending an email!
@@ -642,7 +553,6 @@ export default function DonateCrypto() {
           text={'View Apps/Wallets'}
         />
       </div>
-
       <div className='mt-5'>
         <AlinkStandardButton
           href={'https://unstoppabledomains.com/?ref=242feee7bb4b439'}
@@ -650,45 +560,89 @@ export default function DonateCrypto() {
           text={'Get your own .crypto wallet!'}
         />
       </div>
-
-      {!stablecoin && !noConvert && (
-        <DonateCryptoModal
-          coinLogo={coinLogo}
-          coinName={coinName}
-          address={address}
-          network={network}
-          qr={qr}
-          ticker={ticker}
-          open={open}
-          setOpen={setOpen}
-        />
-      )}
-
-      {stablecoin && !noConvert && (
-        <DonateCryptoModalStablecoin
-          coinLogo={coinLogo}
-          coinName={coinName}
-          address={address}
-          network={network}
-          qr={qr}
-          ticker={ticker}
-          open={open}
-          setOpen={setOpen}
-        />
-      )}
-
-      {noConvert && !stablecoin && (
-        <DonateCryptoModalNoConvert
-          coinLogo={coinLogo}
-          coinName={coinName}
-          address={address}
-          network={network}
-          qr={qr}
-          ticker={ticker}
-          open={open}
-          setOpen={setOpen}
-        />
-      )}
+      <div className='text-3xl font-bold mt-10 '>
+        Support me with Fiat Currency
+      </div>
+      <div className='flex flex-col gap-2'>
+        <div className='text-xl font-bold mt-3 '>
+          Click the button below, there's no long form, you can support me in
+          just couple clicks.
+        </div>
+        <div className='mt-5 flex flex-col sm:flex-row gap-2'>
+          <Link
+            href='https://www.paypal.com/donate/?business=VCJPM8B8JADKU&currency_code=USD'
+            target='_blank'
+            rel='noreferrer'
+            type='submit'
+            style={{ cursor: 'pointer' }}
+            className='inline-block  py-2 w-80 px-4 border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            <div className='flex flex-col gap-2 justify-center items-center '>
+              <img src={paypal} alt='coin logo' className='w-96' />
+            </div>
+          </Link>
+          <Link
+            href='https://www.buymeacoffee.com/Ayocodes'
+            target='_blank'
+            rel='noreferrer'
+            type='submit'
+            style={{ cursor: 'pointer' }}
+            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            <div className='flex flex-col gap-2 justify-center items-center '>
+              <img src={coffee} alt='coin logo' className='w-96' />
+            </div>
+          </Link>
+          <Link
+            href='https://github.com/sponsors/AyoCodess?o=esb'
+            target='_blank'
+            rel='noreferrer'
+            type='submit'
+            style={{ cursor: 'pointer' }}
+            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            <div className='flex flex-col gap-2 justify-center items-center bg-black'>
+              <img src={github} alt='coin logo' className='w-[79%] ' />
+            </div>
+          </Link>
+        </div>
+      </div>
+      <div className='text-3xl font-bold mt-10 '>More about me</div>
+      <div className='flex flex-col gap-2'>
+        <div className='text-xl font-bold mt-3 '>
+          Visit my <span className='text-green-500'>Linktree🌲 </span>URL to
+          view all my{' '}
+          <span className='text-appBlue'>resume, portfolio, blog </span>
+          among other links.
+        </div>
+        <div className='mt-5 flex flex-col sm:flex-row gap-2'>
+          <Link
+            href='https://www.paypal.com/donate/?business=VCJPM8B8JADKU&currency_code=USD'
+            target='_blank'
+            rel='noreferrer'
+            type='submit'
+            style={{ cursor: 'pointer' }}
+            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            <div className='flex flex-col gap-2 justify-center items-center '>
+              <img
+                src={linktree}
+                alt='coin logo'
+                className='w-96 object-cover'
+              />
+            </div>
+          </Link>
+        </div>
+      </div>
+      <SupportMeModal
+        coinLogo={coinLogo}
+        coinName={coinName}
+        coinNameApi={coinNameApi}
+        address={address}
+        network={network}
+        qr={qr}
+        ticker={ticker}
+        open={open}
+        setOpen={setOpen}
+        baseCurrency={baseCurrency}
+        setBaseCurrency={setBaseCurrency}
+      />
     </>
   );
 }

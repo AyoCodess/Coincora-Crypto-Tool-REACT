@@ -1,20 +1,23 @@
 import './App.scss';
 import { React, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import NavbarLayout from './UI/AppFrame/NavbarLayout.js';
+import NavbarLayout from './AppFrame/NavbarLayout';
 import Newbies from './Pages/Newbies/Newbies';
 import { ThemeProvider } from '@emotion/react';
 import theme from './MUIthemeOverrides';
 import Footer from './UI/Footer/Footer';
 import GoogleForm from './Pages/GoogleForm/GoogleForm';
-import CoinForecast from './Pages/CoinForecast/CoinForecast';
+import CoinForecast from './Pages/CoinPredict/CoinPredict';
 import FeatureRequest from './Pages/FeatureRequest/FeatureRequest';
-import QuickCompare from './Pages/QuickCompare/QuickCompare';
+import QuickCompare from './Pages/QuickPredict/QuickPredict';
 import NewsBanner from './components/NewsBanner/NewsBanner';
 import CookiesBanner from './components/CookiesBanner/CookiesBanner';
 import Legal from './Pages/Legal/Legal';
 import Advice from './Pages/Advice/Advice';
-import DonateCrypto from './Pages/DonateCrypto/DonateCrypto';
+import SupportMe from './Pages/SupportMe/SupportMe';
+import ScrollToTop from './ScrollToTop';
+import { DataProvider } from './context';
+import Updates from './Pages/Updates/Updates';
 
 function App() {
   // - News banner options
@@ -44,51 +47,54 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavbarLayout>
-          <NewsBanner
-            openNews={openNews}
-            setOpenNews={setOpenNews}
-            newsLink={newsLink}
-            mobileHeadline={mobileHeadline}
-            desktopHeadline={desktopHeadline}
-          />
-          <Routes>
-            <Route path='*' exact element={<GoogleForm />}></Route>
-            <Route path='/coin-forecast' element={<CoinForecast />}></Route>
-            <Route path='/quick-compare' element={<QuickCompare />}></Route>
-            <Route path='/legal' element={<Legal />}></Route>
-            <Route path='/advice' element={<Advice />}></Route>
-            <Route path='/donate-crypto' element={<DonateCrypto />}></Route>
-
-            <Route
-              path='/feature-request-form'
-              element={<FeatureRequest />}></Route>
-            <Route
-              path='/newbies'
-              element={
-                <Newbies
-                  open={open}
-                  setOpen={setOpen}
-                  title={title}
-                  setTitle={setTitle}
-                  info={info}
-                  setInfo={setInfo}
-                  link={link}
-                  setLink={setLink}
+        <ScrollToTop>
+          <DataProvider>
+            <NavbarLayout>
+              <NewsBanner
+                openNews={openNews}
+                setOpenNews={setOpenNews}
+                newsLink={newsLink}
+                mobileHeadline={mobileHeadline}
+                desktopHeadline={desktopHeadline}
+              />
+              <Routes>
+                <Route path='*' exact element={<GoogleForm />}></Route>
+                <Route path='/coin-predict' element={<CoinForecast />}></Route>
+                <Route path='/quick-predict' element={<QuickCompare />}></Route>
+                <Route path='/legal' element={<Legal />}></Route>
+                <Route path='/advice' element={<Advice />}></Route>
+                <Route path='/support-me' element={<SupportMe />}></Route>
+                <Route path='/updates' element={<Updates />}></Route>
+                <Route
+                  path='/feature-request-form'
+                  element={<FeatureRequest />}></Route>
+                <Route
+                  path='/newbies'
+                  element={
+                    <Newbies
+                      open={open}
+                      setOpen={setOpen}
+                      title={title}
+                      setTitle={setTitle}
+                      info={info}
+                      setInfo={setInfo}
+                      link={link}
+                      setLink={setLink}
+                    />
+                  }></Route>
+              </Routes>
+              <Footer />
+              {!doesLocalStorageExist && (
+                <CookiesBanner
+                  open={openDisclaimer}
+                  setOpen={setOpenDisclaimer}
+                  understand={understand}
+                  setUnderstand={setUnderstand}
                 />
-              }></Route>
-          </Routes>
-
-          <Footer />
-          {!doesLocalStorageExist && (
-            <CookiesBanner
-              open={openDisclaimer}
-              setOpen={setOpenDisclaimer}
-              understand={understand}
-              setUnderstand={setUnderstand}
-            />
-          )}
-        </NavbarLayout>
+              )}
+            </NavbarLayout>
+          </DataProvider>
+        </ScrollToTop>
       </ThemeProvider>
     </>
   );

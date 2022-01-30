@@ -2,7 +2,7 @@ import React from 'react';
 
 function Legal() {
   return (
-    <article className='prose lg:prose-md mt-9'>
+    <article className='prose lg:prose-md'>
       <h1>Legal Disclaimer</h1>
       <h2>TERMS AND CONDITIONS</h2>
       <p>
