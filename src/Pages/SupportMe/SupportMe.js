@@ -575,8 +575,8 @@ export default function DonateCrypto() {
             rel='noreferrer'
             type='submit'
             style={{ cursor: 'pointer' }}
-            className='inline-block  py-2 w-80 px-4 border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
-            <div className='flex flex-col gap-2 justify-center items-center '>
+            className='inline-block  py-2 w-80 px-4 border-2 rounded-md shadow-lg hover:text-appBlue '>
+            <div className='flex flex-col gap-2 justify-center items-center hover:bg-gray-100 transition-all duration-500 ease-in-out '>
               <img src={paypal} alt='coin logo' className='w-96' />
             </div>
           </Link>
@@ -586,9 +586,13 @@ export default function DonateCrypto() {
             rel='noreferrer'
             type='submit'
             style={{ cursor: 'pointer' }}
-            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue '>
             <div className='flex flex-col gap-2 justify-center items-center '>
-              <img src={coffee} alt='coin logo' className='w-96' />
+              <img
+                src={coffee}
+                alt='coin logo'
+                className='w-96 hover:bg-gray-100 transition-all duration-500 ease-in-out'
+              />
             </div>
           </Link>
           <Link
@@ -597,9 +601,13 @@ export default function DonateCrypto() {
             rel='noreferrer'
             type='submit'
             style={{ cursor: 'pointer' }}
-            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue '>
             <div className='flex flex-col gap-2 justify-center items-center bg-black'>
-              <img src={github} alt='coin logo' className='w-[79%] ' />
+              <img
+                src={github}
+                alt='coin logo'
+                className='w-[79%] hover:bg-gray-100 transition-all duration-500 ease-in-out'
+              />
             </div>
           </Link>
         </div>
