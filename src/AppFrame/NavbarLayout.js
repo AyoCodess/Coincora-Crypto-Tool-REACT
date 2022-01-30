@@ -113,15 +113,6 @@ function NavbarLayout(props) {
       </List>
       <Divider />
       <List style={{ fontSize: '20px' }}>
-        <div className='mx-auto w-auto mb-5'>
-          <iframe
-            className='mx-auto mt-2'
-            src='https://www.github.com/sponsors/AyoCodess/button'
-            title='Sponsor AyoCodess'
-            height='35'
-            width='116'
-            style={{ border: '0' }}></iframe>
-        </div>
         <NavBarButton
           to={'/support-me'}
           icon={<CardGiftcardIcon />}
