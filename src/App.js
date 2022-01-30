@@ -14,7 +14,7 @@ import NewsBanner from './components/NewsBanner/NewsBanner';
 import CookiesBanner from './components/CookiesBanner/CookiesBanner';
 import Legal from './Pages/Legal/Legal';
 import Advice from './Pages/Advice/Advice';
-import DonateCrypto from './Pages/DonateCrypto/DonateCrypto';
+import SupportMe from './Pages/SupportMe/SupportMe';
 import ScrollToTop from './ScrollToTop';
 import { DataProvider } from './context';
 import Updates from './Pages/Updates/Updates';
@@ -63,7 +63,7 @@ function App() {
                 <Route path='/quick-predict' element={<QuickCompare />}></Route>
                 <Route path='/legal' element={<Legal />}></Route>
                 <Route path='/advice' element={<Advice />}></Route>
-                <Route path='/support-me' element={<DonateCrypto />}></Route>
+                <Route path='/support-me' element={<SupportMe />}></Route>
                 <Route path='/updates' element={<Updates />}></Route>
                 <Route
                   path='/feature-request-form'

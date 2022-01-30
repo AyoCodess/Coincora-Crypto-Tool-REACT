@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 
 // - modals
-import DonateCryptoModal from './DonateCryptoModal.js';
+import SupportMeModal from './SupportMeModal.js';
 
 //-qr codes
 import ethQrCode from '../../assets/qr-code-images/eth-qr-code.png';
@@ -153,7 +153,7 @@ export default function DonateCrypto() {
           coinLogo={bnbLogo}
           onClick={() => {
             setOpen(true);
-            setCoinNameApi('binance-coin');
+            setCoinNameApi('binancecoin');
             setCoinName('BNB');
             setAddress(wallet.bnb.bsc);
             setQr(bnbQrCode);
@@ -554,7 +554,7 @@ export default function DonateCrypto() {
           text={'Get your own .crypto wallet!'}
         />
       </div>
-      <DonateCryptoModal
+      <SupportMeModal
         coinLogo={coinLogo}
         coinName={coinName}
         coinNameApi={coinNameApi}

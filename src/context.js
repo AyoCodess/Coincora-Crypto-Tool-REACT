@@ -6,9 +6,10 @@ const DataContext = createContext({});
 export function DataProvider({ children }) {
   // = GLOBAL API CALL - CRYPTO MARKET DATA
 
-  const [complete, setComplete] = useState(true);
+  const [complete, setComplete] = useState(false);
   const [coinName, setCoinName] = useState('Coin');
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   // - api url links to get top 1000 crypto coins.
 
@@ -74,6 +75,8 @@ export function DataProvider({ children }) {
         setSelectedFromDropdown,
         searchedFromDropdown,
         setSearchedFromDropdown,
+        isLoading,
+        setIsLoading,
       }}>
       {children}
     </DataContext.Provider>

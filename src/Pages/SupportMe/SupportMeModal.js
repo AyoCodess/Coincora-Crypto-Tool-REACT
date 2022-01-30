@@ -8,12 +8,10 @@ import QrBox from './components/QrBox';
 import CoinAddressBox from './components/CoinAddressBox';
 import DonateForm from './components/DonateForm';
 import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton';
-import Loading from './components/Loading';
 
 import axios from 'axios';
-import { useQuery } from 'react-query';
 
-export default function DonateCryptoModal({
+export default function SupportMeModal({
   open,
   setOpen,
   coinName,
@@ -42,44 +40,44 @@ export default function DonateCryptoModal({
   const [currency, setCurrency] = useState(0);
 
   // - calling api to get 1 unit of fiat currency in quoted coin current price.
-  const api = async () =>
-    axios(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${baseCurrency}&ids=${coinNameApi}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
-    );
 
-  const { isError, isLoading, data } = useQuery([coinName], api, {
-    keepPreviousData: false,
+  let url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${baseCurrency}&ids=${coinNameApi}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
 
-    onSuccess: (data) => {
-      setCoinValue(0);
-      if (data !== undefined) {
-        setApiCallFail(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const convertApi = async () => {
+    try {
+      const data = await axios(url);
+
+      if (data) {
+        if (data.data.length === 0) {
+          console.log('true');
+          setApiCallFail(true);
+        } else {
+          console.log(data);
+          setApiCallFail(false);
+
+          // - Coin Exchange
+
+          const currentPrice = data.data[0].current_price;
+          setCurrency(currentPrice);
+          const exchange = convertValue / currentPrice;
+
+          setCoinValue(() => {
+            return exchange;
+          });
+        }
       } else {
         setApiCallFail(true);
       }
+    } catch (err) {
+      console.log(err);
+      setApiCallFail(true);
+    }
+  };
 
-      if (data.data[0].id === coinNameApi) {
-        setApiCallFail(false);
-      } else {
-        setApiCallFail(true);
-      }
-
-      // - Coin Exchange
-      const currentPrice = data.data[0].current_price;
-      //   setCurrency(currentPrice);
-      const exchange = convertValue / currentPrice;
-
-      return exchange;
-      //   setCoinValue(() => {
-      //     return exchange;
-      //   });
-    },
-  });
-
-  console.log({ convertValue });
-  console.log({ coinValue });
-
-  console.log({ data });
+  useEffect(() => {
+    convertApi();
+  }, [coinValue, currency, coinNameApi, convertApi]);
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -124,19 +122,17 @@ export default function DonateCryptoModal({
                 method='POST'>
                 <div className=' flex flex-col lg:flex-row md:gap-5 justify-center items-center bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 '>
                   <div className='flex flex-col items-center '>
-                    {!isLoading && (
-                      <CoinAddressBox
-                        coinLogo={coinLogo}
-                        coinName={coinName}
-                        address={address}
-                        network={network}
-                        copiedAddress={copiedAddress}
-                        setCopiedAddress={setCopiedAddress}
-                        setCopiedCoinValue={setCopiedCoinValue}
-                        copiedCoinValue={copiedCoinValue}
-                      />
-                    )}
-                    {!isLoading && (
+                    <CoinAddressBox
+                      coinLogo={coinLogo}
+                      coinName={coinName}
+                      address={address}
+                      network={network}
+                      copiedAddress={copiedAddress}
+                      setCopiedAddress={setCopiedAddress}
+                      setCopiedCoinValue={setCopiedCoinValue}
+                      copiedCoinValue={copiedCoinValue}
+                    />
+                    {!apiCallFail && (
                       <ConvertBox
                         ticker={ticker}
                         coinValue={coinValue}
@@ -160,7 +156,7 @@ export default function DonateCryptoModal({
                       QR scanner app to copy and paste our address, so you can
                       support us.
                     </p>
-                    {isLoading && <Loading />}
+
                     <QrBox coinName={coinName} qr={qr} />
                   </div>
                 </div>
