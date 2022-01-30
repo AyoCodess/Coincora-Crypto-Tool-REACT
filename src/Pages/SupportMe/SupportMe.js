@@ -59,10 +59,16 @@ import avaxLogo from '../../assets/coinLogos/avalanche-avax-logo.png';
 import bchLogo from '../../assets/coinLogos/bitcoin-cash-bch-logo.png';
 import busdLogo from '../../assets/coinLogos/binance-usd-busd-logo.png';
 
+import paypal from '../../assets/other/paypal.png';
+import coffee from '../../assets/other/coffe.jpeg';
+import linktree from '../../assets/other/linktree.webp';
+import github from '../../assets/other/github.jpeg';
+
 import DonateButton from '../../components/Buttons/DonateButton.js';
 import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton.js';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import wallet from '../../wallet.js';
+import Link from '@mui/material/Link';
 
 export default function DonateCrypto() {
   // - modal open/close
@@ -82,7 +88,7 @@ export default function DonateCrypto() {
 
   return (
     <>
-      <div className='text-3xl font-bold'>Support us with Crypto Currency</div>
+      <div className='text-3xl font-bold '>Support me with Crypto Currency</div>
       <div className='text-xl font-bold mt-3 '>
         You can also send Crypto Currency to&nbsp;
         <span className=' inline-block text-2xl text-appBlue border-b-4 pb-2 border-appBlue '>
@@ -92,10 +98,10 @@ export default function DonateCrypto() {
       <div className='text-xl  mt-5'>
         Click below and get the crypto currency{' '}
         <b className='font-bold text-appBlue'>$</b> dollar amount you wish to
-        support us with below.
+        support me with below.
       </div>
       <div className='text-xl font-bold mt-5'>
-        We accept the following Crypto Currencies...
+        I accept the following Crypto Currencies...
       </div>
       <div className='flex flex-wrap gap-3 mt-5'>
         <DonateButton
@@ -553,6 +559,76 @@ export default function DonateCrypto() {
           color={'bg-green-500'}
           text={'Get your own .crypto wallet!'}
         />
+      </div>
+      <div className='text-3xl font-bold mt-10 '>
+        Support me with Fiat Currency
+      </div>
+      <div className='flex flex-col gap-2'>
+        <div className='text-xl font-bold mt-3 '>
+          Click the button below, there's no long form, you can support me in
+          just couple clicks.
+        </div>
+        <div className='mt-5 flex flex-col sm:flex-row gap-2'>
+          <Link
+            href='https://www.paypal.com/donate/?business=VCJPM8B8JADKU&currency_code=USD'
+            target='_blank'
+            rel='noreferrer'
+            type='submit'
+            style={{ cursor: 'pointer' }}
+            className='inline-block  py-2 w-80 px-4 border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            <div className='flex flex-col gap-2 justify-center items-center '>
+              <img src={paypal} alt='coin logo' className='w-96' />
+            </div>
+          </Link>
+          <Link
+            href='https://www.buymeacoffee.com/Ayocodes'
+            target='_blank'
+            rel='noreferrer'
+            type='submit'
+            style={{ cursor: 'pointer' }}
+            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            <div className='flex flex-col gap-2 justify-center items-center '>
+              <img src={coffee} alt='coin logo' className='w-96' />
+            </div>
+          </Link>
+          <Link
+            href='https://github.com/sponsors/AyoCodess?o=esb'
+            target='_blank'
+            rel='noreferrer'
+            type='submit'
+            style={{ cursor: 'pointer' }}
+            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            <div className='flex flex-col gap-2 justify-center items-center bg-black'>
+              <img src={github} alt='coin logo' className='w-[79%] ' />
+            </div>
+          </Link>
+        </div>
+      </div>
+      <div className='text-3xl font-bold mt-10 '>More about me</div>
+      <div className='flex flex-col gap-2'>
+        <div className='text-xl font-bold mt-3 '>
+          Visit my <span className='text-green-500'>Linktree🌲 </span>URL to
+          view all my{' '}
+          <span className='text-appBlue'>resume, portfolio, blog </span>
+          among other links.
+        </div>
+        <div className='mt-5 flex flex-col sm:flex-row gap-2'>
+          <Link
+            href='https://www.paypal.com/donate/?business=VCJPM8B8JADKU&currency_code=USD'
+            target='_blank'
+            rel='noreferrer'
+            type='submit'
+            style={{ cursor: 'pointer' }}
+            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
+            <div className='flex flex-col gap-2 justify-center items-center '>
+              <img
+                src={linktree}
+                alt='coin logo'
+                className='w-96 object-cover'
+              />
+            </div>
+          </Link>
+        </div>
       </div>
       <SupportMeModal
         coinLogo={coinLogo}
