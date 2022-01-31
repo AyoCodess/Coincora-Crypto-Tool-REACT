@@ -46,14 +46,10 @@ function NavbarLayout(props) {
 
   // - Nav Layout
 
-  const mainNav = ['About', 'Telegram', 'Contact'];
-  const mainNavIcons = [<GroupsIcon />, <TelegramIcon />, <MailIcon />];
-  const mainNavLinks = [
-    'https://github.com/sponsors/AyoCodess?o=esb',
-    'https://t.me/coincora',
-    'mailto:ayo@ayoadesanya.com',
-  ];
-  const targetBlank = ['_blank', '_blank', '_blank'];
+  const mainNav = ['Telegram', 'Contact'];
+  const mainNavIcons = [<TelegramIcon />, <GroupsIcon />, <MailIcon />];
+  const mainNavLinks = ['https://t.me/coincora', 'mailto:ayo@ayoadesanya.com'];
+  const targetBlank = ['_blank', '_blank'];
 
   const subNav = [];
   const subNavIcons = [];
@@ -85,6 +81,12 @@ function NavbarLayout(props) {
           to={'/updates'}
           icon={<CachedIcon />}
           text={'Updates'}
+          onClick={handleDrawerToggle}
+        />
+        <NavBarButton
+          to={'/mission'}
+          icon={<GroupsIcon />}
+          text={'Mission'}
           onClick={handleDrawerToggle}
         />
 
