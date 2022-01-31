@@ -32,6 +32,8 @@ import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
 
+import btcFavicon from '../assets/other/btc-favicon7.jpeg';
+
 const drawerWidth = 240;
 
 function NavbarLayout(props) {
@@ -155,14 +157,17 @@ function NavbarLayout(props) {
           ml: { sm: `${drawerWidth}px` },
         }}>
         <Toolbar className='flex justify-between'>
-          <WidgetsIcon
+          <Box
+            component='img'
+            sx={{ mr: 2, height: 30, display: { sm: 'none' } }}
+            alt='Your logo.'
+            src={btcFavicon}
             color='inherit'
             aria-label='open drawer'
             edge='start'
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}>
-            <MenuIcon />
-          </WidgetsIcon>
+          />
+
           <Typography
             className='hover:text-gray-400 transition ease-in-out duration-700'
             variant='h5'

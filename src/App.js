@@ -18,6 +18,7 @@ import SupportMe from './Pages/SupportMe/SupportMe';
 import ScrollToTop from './ScrollToTop';
 import { DataProvider } from './context';
 import Updates from './Pages/Updates/Updates';
+import Todo from './Pages/Todo/Todo.js';
 
 function App() {
   // - News banner options
@@ -65,6 +66,7 @@ function App() {
                 <Route path='/advice' element={<Advice />}></Route>
                 <Route path='/support-me' element={<SupportMe />}></Route>
                 <Route path='/updates' element={<Updates />}></Route>
+                <Route path='/todo' element={<Todo />}></Route>
                 <Route
                   path='/feature-request-form'
                   element={<FeatureRequest />}></Route>

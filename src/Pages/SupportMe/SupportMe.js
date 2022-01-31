@@ -59,10 +59,10 @@ import avaxLogo from '../../assets/coinLogos/avalanche-avax-logo.png';
 import bchLogo from '../../assets/coinLogos/bitcoin-cash-bch-logo.png';
 import busdLogo from '../../assets/coinLogos/binance-usd-busd-logo.png';
 
-import paypal from '../../assets/other/paypal.png';
-import coffee from '../../assets/other/coffe.jpeg';
-import linktree from '../../assets/other/linktree.webp';
-import github from '../../assets/other/github.jpeg';
+import paypal from '../../assets/other/paypal.jpg';
+import coffee from '../../assets/other/coffee.jpg';
+import linktree from '../../assets/other/linktree.jpeg';
+import github from '../../assets/other/github.jpg';
 
 import DonateButton from '../../components/Buttons/DonateButton.js';
 import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton.js';
@@ -97,7 +97,7 @@ export default function DonateCrypto() {
       </div>
       <div className='text-xl  mt-5'>
         Click below and get the crypto currency{' '}
-        <b className='font-bold text-appBlue'>$</b> dollar amount you wish to
+        <b className='font-bold text-appBlue'>$ Dollar</b> amount you wish to
         support me with below.
       </div>
       <div className='text-xl font-bold mt-5'>
@@ -575,9 +575,13 @@ export default function DonateCrypto() {
             rel='noreferrer'
             type='submit'
             style={{ cursor: 'pointer' }}
-            className='inline-block  py-2 w-80 px-4 border-2 rounded-md shadow-lg hover:text-appBlue '>
-            <div className='flex flex-col gap-2 justify-center items-center hover:bg-gray-100 transition-all duration-500 ease-in-out '>
-              <img src={paypal} alt='coin logo' className='w-96' />
+            className='inline-block   w-80  hover:text-appBlue '>
+            <div className='flex flex-col gap-2 justify-center items-center  '>
+              <img
+                src={paypal}
+                alt='coin logo'
+                className=' border-2 rounded-md shadow-lg hover:bg-gray-100 transition-all duration-500 ease-in-out'
+              />
             </div>
           </Link>
           <Link
@@ -586,12 +590,12 @@ export default function DonateCrypto() {
             rel='noreferrer'
             type='submit'
             style={{ cursor: 'pointer' }}
-            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue '>
+            className='inline-block   w-80   hover:text-appBlue '>
             <div className='flex flex-col gap-2 justify-center items-center '>
               <img
                 src={coffee}
                 alt='coin logo'
-                className='w-96 hover:bg-gray-100 transition-all duration-500 ease-in-out'
+                className='border-2 rounded-md shadow-lg hover:bg-gray-100 transition-all duration-500 ease-in-out'
               />
             </div>
           </Link>
@@ -601,12 +605,12 @@ export default function DonateCrypto() {
             rel='noreferrer'
             type='submit'
             style={{ cursor: 'pointer' }}
-            className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue '>
-            <div className='flex flex-col gap-2 justify-center items-center bg-black'>
+            className='inline-block   w-80  hover:text-appBlue '>
+            <div className='flex flex-col gap-2 justify-center items-center  '>
               <img
                 src={github}
                 alt='coin logo'
-                className='w-[79%] hover:bg-gray-100 transition-all duration-500 ease-in-out'
+                className=' border-2 rounded-md shadow-lg hover:bg-gray-100 transition-all duration-500 ease-in-out'
               />
             </div>
           </Link>
@@ -616,8 +620,7 @@ export default function DonateCrypto() {
       <div className='flex flex-col gap-2'>
         <div className='text-xl font-bold mt-3 '>
           Visit my <span className='text-green-500'>Linktree🌲 </span>URL to
-          view all my{' '}
-          <span className='text-appBlue'>resume, portfolio, blog </span>
+          view my <span className='text-appBlue'>resume, portfolio, blog </span>
           among other links.
         </div>
         <div className='mt-5 flex flex-col sm:flex-row gap-2'>
@@ -629,11 +632,7 @@ export default function DonateCrypto() {
             style={{ cursor: 'pointer' }}
             className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
             <div className='flex flex-col gap-2 justify-center items-center '>
-              <img
-                src={linktree}
-                alt='coin logo'
-                className='w-96 object-cover'
-              />
+              <img src={linktree} alt='coin logo' className='' />
             </div>
           </Link>
         </div>
