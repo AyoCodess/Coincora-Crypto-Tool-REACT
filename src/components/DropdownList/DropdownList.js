@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { useContext, useRef } from 'react';
+import { useContext, useRef, React } from 'react';
 import useOnClickOutside from '../../UI/Footer/helperFuncs/useOnClickOutisde';
 import DataContext from '../../context';
 

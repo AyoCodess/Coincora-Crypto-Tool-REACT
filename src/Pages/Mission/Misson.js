@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Mission() {
   return (
     <article className=' prose prose-md'>
