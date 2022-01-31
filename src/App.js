@@ -19,6 +19,7 @@ import ScrollToTop from './ScrollToTop';
 import { DataProvider } from './context';
 import Updates from './Pages/Updates/Updates';
 import Todo from './Pages/Todo/Todo.js';
+import Mission from './Pages/Mission/Misson';
 
 function App() {
   // - News banner options
@@ -62,6 +63,7 @@ function App() {
                 <Route path='*' exact element={<GoogleForm />}></Route>
                 <Route path='/coin-predict' element={<CoinForecast />}></Route>
                 <Route path='/quick-predict' element={<QuickCompare />}></Route>
+                <Route path='/mission' element={<Mission />}></Route>
                 <Route path='/legal' element={<Legal />}></Route>
                 <Route path='/advice' element={<Advice />}></Route>
                 <Route path='/support-me' element={<SupportMe />}></Route>
