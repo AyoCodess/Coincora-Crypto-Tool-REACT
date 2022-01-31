@@ -39,6 +39,7 @@ export default function Example() {
                 <span className='ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'></span>
               </i>
               <input
+                className='pt-1'
                 onChange={(e) => {
                   setOpenDropdown(true);
                   let searchedFromDropdown = data.filter((coin) => {

@@ -8,7 +8,7 @@ function Tooltip({ message, title }) {
   return (
     <>
       {' '}
-      <Tippy arrow={true} content={<span>{message}</span>}>
+      <Tippy arrow={true} content={<span className='text-lg'>{message}</span>}>
         <div className='flex items-center  max-w-max text-left font-medium text-gray- bg-gray-50'>
           {title}
           <div className='ml-2'>

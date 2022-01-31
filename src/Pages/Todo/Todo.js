@@ -9,6 +9,10 @@ export default function Todo() {
           Convert page which will allow users to calculate usd value into any
           crypto currency via a dropdown menu.
         </li>
+        <li>
+          Add blue check icon in coin predict input field when information is
+          entered.
+        </li>
       </ol>
     </article>
   );

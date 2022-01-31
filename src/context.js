@@ -6,7 +6,7 @@ const DataContext = createContext({});
 export function DataProvider({ children }) {
   // = GLOBAL API CALL - CRYPTO MARKET DATA
 
-  const [complete, setComplete] = useState(false);
+  const [complete, setComplete] = useState(true);
   const [coinName, setCoinName] = useState('Coin');
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);

@@ -7,8 +7,11 @@ import DropdownList from '../../components/DropdownList/DropdownList';
 
 import DataContext from '../../context';
 import InputTextWithCheckIcon from '../../components/InoutFields/InputTextWithCheckIcon';
+import InputTextWithNoIcon from '../../components/InoutFields/InputTextWithNoIcon';
+import InputTextWithNoIconOnChange from '../../components/InoutFields/InputTextWithNoIconOnChange';
 import InputWithNumGrayBoxLarge from '../../components/InoutFields/InputWithNumGrayBoxLarge';
 import InputTextWithDollarIcon from '../../components/InoutFields/InputTextWithDollarIcon';
+import InputTextWithDollarIconOnChange from '../../components/InoutFields/InputTextWithDollarIconOnChange';
 
 function CoinForecast() {
   const {
@@ -22,9 +25,23 @@ function CoinForecast() {
   } = useContext(DataContext);
 
   const [coinCurrentRBM, setCoinCurrentRMB] = useState(0);
+  const [coinCurrentRBMnumber, setCoinCurrentRMBnumber] = useState(0);
+
   const [circulatingSupply, setCirculatingSupply] = useState(null);
+  const [circulatingSupplyNumber, setCirculatingSupplyNumber] = useState(null);
+
   const [currentPrice, setCurrentPrice] = useState(null);
+  const [currentPriceNumber, setCurrentPriceNumber] = useState(null);
+
   const [currentMarketCap, setCurrentMarketCap] = useState(null);
+  const [currentMarketCapNumber, setCurrentMarketCapNumber] = useState(null);
+
+  const [avgPriceBought, setAvgPriceBought] = useState(null);
+  const [avgFuturePriceBought, setAvgFuturePriceBought] = useState(null);
+  const [totalAmountOwned, setTotalAmountOwned] = useState(null);
+  const [buyMore, setBuyMore] = useState(null);
+  const [predictedPrice, setPredictedPrice] = useState(null);
+  const [predictedMarketcap, setPredictedMarketcap] = useState(null);
 
   useEffect(() => {
     if (selectedFromDropdown) {
@@ -33,35 +50,60 @@ function CoinForecast() {
 
       // - calculating coin name current circulating supply
       let sumCS = selectedFromDropdown.circulating_supply;
+      setCirculatingSupplyNumber(sumCS);
       setCirculatingSupply(sumCS.toLocaleString());
-      console.log(circulatingSupply);
 
       // - calculating coin name current price
       let sumCP = selectedFromDropdown.current_price;
+      setCurrentPriceNumber(sumCP);
       setCurrentPrice(sumCP.toLocaleString());
-      console.log(currentPrice);
 
       // - calculating coin name current market cap
       let sumCMC = selectedFromDropdown.market_cap;
 
       console.log(sumCMC);
+      setCurrentMarketCapNumber(sumCMC);
       setCurrentMarketCap(sumCMC.toLocaleString());
-      console.log(currentMarketCap);
 
       // - coin name RBM calculation
-      let sumRBM = selectedFromDropdown.market_cap / data[0].market_cap;
-      setCoinCurrentRMB(sumRBM.toLocaleString());
+      let sumRBM = (selectedFromDropdown.market_cap / data[0].market_cap) * 100;
+      let sumRBM2 = sumRBM.toFixed(1);
+      setCoinCurrentRMBnumber(sumRBM);
+      setCoinCurrentRMB(sumRBM2.toLocaleString());
+
+      if (
+        currentMarketCapNumber &&
+        currentPriceNumber &&
+        circulatingSupplyNumber &&
+        predictedPrice
+      ) {
+        const futureMarketcap = circulatingSupplyNumber * predictedPrice;
+
+        console.log({ futureMarketcap });
+
+        setPredictedMarketcap(futureMarketcap.toLocaleString());
+      } else {
+        return console.log('no info');
+      }
     } else {
       console.log('error');
     }
   }, [
     circulatingSupply,
+    circulatingSupplyNumber,
     currentMarketCap,
+    currentMarketCapNumber,
     currentPrice,
+    currentPriceNumber,
     data,
+    predictedPrice,
     selectedFromDropdown,
     setCoinName,
   ]);
+
+  console.log({ currentMarketCapNumber });
+  console.log({ currentPriceNumber });
+  console.log({ predictedPrice });
 
   return (
     <>
@@ -106,21 +148,21 @@ function CoinForecast() {
               can produce the returns you want.
             </p>
           </div>
-          <div className='flex'>
+          <div className='flex '>
             <div className=''>
               <div className='prose mb-5 border-t-2 border-appBlue pt-2 '>
                 <h4>Coin information</h4>
                 <p>Select the coin you want to forecast</p>
               </div>
-              <div className='flex flex-col gap-4'>
+              <div className='flex flex-col gap-4 lg:min-w-[700px]'>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg '>
-                  <div className='flex gap-2 '>
+                  <div className='flex gap-2 items-center '>
                     <div className='w-[50%]  px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip message={'hey'} title={'Coin'} />
                     </div>
                     <DropdownList />
                   </div>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
@@ -131,7 +173,7 @@ function CoinForecast() {
                       <InputTextWithCheckIcon value={circulatingSupply} />
                     )}
                   </div>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip message={'hey'} title={' Current Price'} />
                     </div>
@@ -139,7 +181,7 @@ function CoinForecast() {
                       <InputTextWithDollarIcon value={currentPrice} />
                     )}
                   </div>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip message={'hey'} title={'  Current Market Cap'} />
                     </div>
@@ -150,9 +192,8 @@ function CoinForecast() {
                   <div className='flex items-center gap-2'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
-                        message={'hey'}
-                        title={`${coinName}'s current market cap size in % of Bitcoins
-                      current market cap is`}
+                        message={`${coinName}'s market cap in % of Bitcoins current market cap.`}
+                        title={`${coinName}'s current RBM `}
                       />
                     </div>
 
@@ -169,75 +210,85 @@ function CoinForecast() {
                   </p>
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center '>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
-                        title={`What's the total Amount of ${coinName} you
+                        title={`Total Amount of ${coinName} you
                       own?`}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    {selectedFromDropdown && (
+                      <InputTextWithNoIconOnChange
+                        onChange={(e) => {
+                          setTotalAmountOwned(e.target.valueAsNumber);
+                        }}
+                      />
+                    )}
                   </div>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center '>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
                         title={`Average price you bought ${coinName} at?`}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    {selectedFromDropdown && (
+                      <InputTextWithDollarIconOnChange
+                        onChange={(e) => {
+                          setAvgPriceBought(e.target.valueAsNumber);
+                        }}
+                      />
+                    )}
                   </div>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center '>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
-                        title={` If you want to buy more ${coinName}, how much?`}
+                        title={` If you want to buy more ${coinName}, how much (Units)?`}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    {selectedFromDropdown && (
+                      <InputTextWithNoIconOnChange
+                        onChange={(e) => {
+                          setBuyMore(e.target.valueAsNumber);
+                        }}
+                      />
+                    )}
                   </div>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
                         title={`Average price you think you will buy more ${coinName} at?`}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    {selectedFromDropdown && (
+                      <InputTextWithDollarIconOnChange
+                        onChange={(e) => {
+                          setAvgFuturePriceBought(e.target.valueAsNumber);
+                        }}
+                      />
+                    )}
                   </div>
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
                         title={`What are you predicting ${coinName}'s future price at?`}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    {selectedFromDropdown && (
+                      <InputTextWithDollarIconOnChange
+                        onChange={(e) => {
+                          setPredictedPrice(e.target.valueAsNumber);
+                        }}
+                      />
+                    )}
                   </div>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
@@ -245,11 +296,9 @@ function CoinForecast() {
                       prediction`}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    {selectedFromDropdown && (
+                      <InputTextWithDollarIcon value={predictedMarketcap} />
+                    )}
                   </div>
                 </div>
                 <div className='prose  mt-5 border-t-2 border-appBlue pt-2'>
@@ -288,7 +337,7 @@ function CoinForecast() {
                   </div>
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
@@ -301,7 +350,7 @@ function CoinForecast() {
                       placeholder='0'
                     />
                   </div>
-                  <div className='flex gap-2'>
+                  <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
