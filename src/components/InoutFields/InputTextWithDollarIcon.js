@@ -1,4 +1,5 @@
 import { CurrencyDollarIcon } from '@heroicons/react/solid';
+import React from 'react';
 
 export default function InputTextWithDollarIcon({ value }) {
   return (
