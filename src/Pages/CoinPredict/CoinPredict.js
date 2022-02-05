@@ -16,11 +16,10 @@ import InputTextWithDollarIconOnChange from '../../components/InoutFields/InputT
 function CoinForecast() {
   const {
     complete,
-
     coinName,
     setCoinName,
     data,
-
+    setData,
     selectedFromDropdown,
   } = useContext(DataContext);
 
@@ -43,10 +42,18 @@ function CoinForecast() {
   const [predictedPrice, setPredictedPrice] = useState(null);
   const [predictedMarketcap, setPredictedMarketcap] = useState(null);
 
+  console.log({ circulatingSupply });
+
   useEffect(() => {
     if (selectedFromDropdown) {
       // - setting global state for coin name
-      setCoinName(selectedFromDropdown.name);
+
+      // - handles if input field is an empty string
+      if (coinName === '') {
+        setCoinName('Coin');
+      } else {
+        setCoinName(selectedFromDropdown.name);
+      }
 
       // - calculating coin name current circulating supply
       let sumCS = selectedFromDropdown.circulating_supply;
@@ -101,9 +108,7 @@ function CoinForecast() {
     setCoinName,
   ]);
 
-  console.log({ currentMarketCapNumber });
-  console.log({ currentPriceNumber });
-  console.log({ predictedPrice });
+  console.log({ selectedFromDropdown });
 
   return (
     <>
@@ -160,7 +165,7 @@ function CoinForecast() {
                     <div className='w-[50%]  px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip message={'hey'} title={'Coin'} />
                     </div>
-                    <DropdownList />
+                    <DropdownList setData={setData} />
                   </div>
                   <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>

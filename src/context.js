@@ -42,7 +42,26 @@ export function DataProvider({ children }) {
 
       let fullDataSet = dataSet1.concat(dataSet2, dataSet3, dataSet4);
 
-      setData(fullDataSet);
+      // - adds an empty coin so filter can simulate 'resetting' form fields
+      let emptyCoin = [
+        {
+          circulating_supply: '',
+          current_price: '',
+          id: '',
+          image:
+            'https://assets.coingecko.com/coins/images/22173/large/circle-black-256.png?1641173160',
+          market_cap: '',
+          max_supply: '',
+          name: '',
+          symbol: '',
+        },
+      ];
+
+      let newFullSetData = fullDataSet.concat(emptyCoin);
+
+      console.log({ newFullSetData });
+
+      setData(newFullSetData);
     } catch (err) {
       console.log(err);
     }
