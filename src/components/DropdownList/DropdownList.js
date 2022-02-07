@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useContext, useRef, React } from 'react';
 import useOnClickOutside from '../../UI/Footer/helperFuncs/useOnClickOutisde';
-import DataContext from '../../context';
+import DataContext from '../../Context/context';
 import StandardButtonTypeButton from '../Buttons/StandardButtonTypeButton';
 
 export default function Example() {

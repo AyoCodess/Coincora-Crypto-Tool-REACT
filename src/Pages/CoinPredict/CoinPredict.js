@@ -5,7 +5,7 @@ import { HashLink } from 'react-router-hash-link';
 import Tooltip from '../../components/Tooltip/Tooltip';
 import DropdownList from '../../components/DropdownList/DropdownList';
 
-import DataContext from '../../context';
+import DataContext from '../../Context/context';
 import InputTextWithCheckIcon from '../../components/InoutFields/InputTextWithCheckIcon';
 import InputTextWithNoIcon from '../../components/InoutFields/InputTextWithNoIcon';
 import InputTextWithNoIconOnChange from '../../components/InoutFields/InputTextWithNoIconOnChange';
@@ -42,16 +42,14 @@ function CoinForecast() {
   const [predictedPrice, setPredictedPrice] = useState(null);
   const [predictedMarketcap, setPredictedMarketcap] = useState(null);
 
-  console.log({ circulatingSupply });
-
   useEffect(() => {
     if (selectedFromDropdown) {
       // - setting global state for coin name
+      setCoinName(selectedFromDropdown.name);
 
-      // - handles if input field is an empty string
+      // - reassigns coin name if input field is an empty string.
       if (coinName === '') {
-        setCoinName('Coin');
-      } else {
+        selectedFromDropdown.name = 'Coin';
         setCoinName(selectedFromDropdown.name);
       }
 
@@ -86,18 +84,15 @@ function CoinForecast() {
       ) {
         const futureMarketcap = circulatingSupplyNumber * predictedPrice;
 
-        console.log({ futureMarketcap });
-
         setPredictedMarketcap(futureMarketcap.toLocaleString());
       } else {
-        return console.log('no info');
       }
     } else {
-      console.log('error');
     }
   }, [
     circulatingSupply,
     circulatingSupplyNumber,
+    coinName,
     currentMarketCap,
     currentMarketCapNumber,
     currentPrice,

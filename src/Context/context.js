@@ -1,5 +1,6 @@
 import { createContext, React, useState, useEffect } from 'react';
 import axios from 'axios';
+import silverCoin from '../assets/other/silvercoin.png';
 
 const DataContext = createContext({});
 
@@ -48,8 +49,7 @@ export function DataProvider({ children }) {
           circulating_supply: '',
           current_price: '',
           id: '',
-          image:
-            'https://assets.coingecko.com/coins/images/22173/large/circle-black-256.png?1641173160',
+          image: silverCoin,
           market_cap: '',
           max_supply: '',
           name: '',

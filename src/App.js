@@ -16,7 +16,7 @@ import Legal from './Pages/Legal/Legal';
 import Advice from './Pages/Advice/Advice';
 import SupportMe from './Pages/SupportMe/SupportMe';
 import ScrollToTop from './ScrollToTop';
-import { DataProvider } from './context';
+import { DataProvider } from './Context/context';
 import Updates from './Pages/Updates/Updates';
 import Todo from './Pages/Todo/Todo.js';
 import Mission from './Pages/Mission/Misson';
