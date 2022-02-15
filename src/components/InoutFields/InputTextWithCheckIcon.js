@@ -5,6 +5,7 @@ export default function InputTextWithCheckIcon({ value }) {
   return (
     <div className='relative rounded-md shadow-sm h-full w-1/2'>
       <input
+        min={0}
         value={value}
         type='text'
         name='account-number'

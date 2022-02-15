@@ -21,6 +21,8 @@ function CoinForecast() {
     data,
     setData,
     selectedFromDropdown,
+    btcMarketcapFormatted,
+    btcMarketcapNumber,
   } = useContext(DataContext);
 
   const [coinCurrentRBM, setCoinCurrentRMB] = useState(0);
@@ -35,12 +37,22 @@ function CoinForecast() {
   const [currentMarketCap, setCurrentMarketCap] = useState(null);
   const [currentMarketCapNumber, setCurrentMarketCapNumber] = useState(null);
 
+  const [coinRBM, setCoinRBM] = useState(null);
+  const [coinRBMNumber, setCoinRBMNumber] = useState(null);
+
   const [avgPriceBought, setAvgPriceBought] = useState(null);
   const [avgFuturePriceBought, setAvgFuturePriceBought] = useState(null);
   const [totalAmountOwned, setTotalAmountOwned] = useState(null);
   const [buyMore, setBuyMore] = useState(null);
   const [predictedPrice, setPredictedPrice] = useState(null);
   const [predictedMarketcap, setPredictedMarketcap] = useState(null);
+
+  const [coinPredictedRBM, setCoinPredictedRBM] = useState('0.00');
+
+  // -  current selected coins RBM
+
+  //   setCoinRBMNumber((currentMarketCapNumber / btcMarketcapNumber) * 100);
+  //   setCoinRBM(coinRBMNumber.toFixed(2));
 
   useEffect(() => {
     if (selectedFromDropdown) {
@@ -66,7 +78,6 @@ function CoinForecast() {
       // - calculating coin name current market cap
       let sumCMC = selectedFromDropdown.market_cap;
 
-      console.log(sumCMC);
       setCurrentMarketCapNumber(sumCMC);
       setCurrentMarketCap(sumCMC.toLocaleString());
 
@@ -84,12 +95,36 @@ function CoinForecast() {
       ) {
         const futureMarketcap = circulatingSupplyNumber * predictedPrice;
 
+        // -  current selected coin's PREDICTED RBM
+        let coinPredictedRBMNumber =
+          (futureMarketcap / btcMarketcapNumber) * 100;
+
+        let coinPredictedRBM = coinPredictedRBMNumber.toFixed(2);
+
+        setCoinPredictedRBM(coinPredictedRBM);
+
         setPredictedMarketcap(futureMarketcap.toLocaleString());
-      } else {
+
+        // - current selected coin's RBM
+        setCoinRBMNumber((currentMarketCapNumber / btcMarketcapNumber) * 100);
+        setCoinRBM(coinCurrentRBMnumber.toFixed(2));
       }
-    } else {
+
+      //-rest fields
+
+      console.log({ predictedPrice });
+
+      if (predictedPrice === 0 || Number.isNaN(predictedPrice)) {
+        console.log('predicted price reset');
+        setCoinPredictedRBM('0.00');
+        setCoinRBM('0.00');
+        setPredictedMarketcap('');
+        setCoinCurrentRMB('');
+        setCurrentMarketCap('');
+      }
     }
   }, [
+    btcMarketcapNumber,
     circulatingSupply,
     circulatingSupplyNumber,
     coinName,
@@ -102,8 +137,6 @@ function CoinForecast() {
     selectedFromDropdown,
     setCoinName,
   ]);
-
-  console.log({ selectedFromDropdown });
 
   return (
     <>
@@ -282,6 +315,7 @@ function CoinForecast() {
                     </div>
                     {selectedFromDropdown && (
                       <InputTextWithDollarIconOnChange
+                        value={predictedPrice}
                         onChange={(e) => {
                           setPredictedPrice(e.target.valueAsNumber);
                         }}
@@ -320,19 +354,27 @@ function CoinForecast() {
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
                   <div className='flex flex-col gap-2'>
-                    <div className=' px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`${coinName}'s current market cap is 2% of
-                      Bitcoins current market cap`}
-                      />
+                    <div className=' flex px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                      <span>
+                        {coinName}'s current market cap is
+                        <span className='font-bold text-xl text-appBlue'>
+                          {' '}
+                          {coinRBM}%
+                        </span>{' '}
+                        of Bitcoins current market cap`
+                      </span>
+                      <Tooltip message={'hey'} />
                     </div>
-                    <div className=' px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`${coinName}'s predicted market cap is 11% of
-                      Bitcoins current market cap`}
-                      />
+                    <div className=' flex px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                      <span>
+                        {coinName}'s predicted market cap is
+                        <span className='font-bold text-xl text-appBlue'>
+                          {' '}
+                          {coinPredictedRBM}%
+                        </span>{' '}
+                        of Bitcoins current market cap`
+                      </span>
+                      <Tooltip message={'hey'} />
                     </div>
                   </div>
                 </div>

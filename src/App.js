@@ -1,5 +1,5 @@
 import './App.scss';
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NavbarLayout from './AppFrame/NavbarLayout';
 import Newbies from './Pages/Newbies/Newbies';
@@ -20,6 +20,8 @@ import { DataProvider } from './Context/context';
 import Updates from './Pages/Updates/Updates';
 import Todo from './Pages/Todo/Todo.js';
 import Mission from './Pages/Mission/Misson';
+
+import ReactGA from 'react-ga';
 
 function App() {
   // - News banner options
@@ -45,6 +47,15 @@ function App() {
     localStorage.removeItem('understand');
     setUnderstand(false);
   }
+
+  const setGA = () => {
+    ReactGA.initialize('UA-172956970-6');
+    ReactGA.pageview('Init page view');
+  };
+
+  useEffect(() => {
+    setGA();
+  }, []);
 
   return (
     <>

@@ -11,6 +11,7 @@ export default function InputTextWithDollarIcon({ value, onChange }) {
         />
       </div>
       <input
+        min={0}
         onChange={onChange}
         value={value}
         type='number'

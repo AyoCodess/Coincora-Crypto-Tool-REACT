@@ -21,8 +21,6 @@ export default function Example() {
 
   useOnClickOutside(inputField, () => setOpenDropdown(false));
 
-  console.log(data);
-
   return (
     <>
       {data && (

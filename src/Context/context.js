@@ -11,6 +11,8 @@ export function DataProvider({ children }) {
   const [coinName, setCoinName] = useState('Coin');
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [btcMarketcapFormatted, setBtcMarketcapFormatted] = useState(null);
+  const [btcMarketcapNumber, setBtcMarketcapNumber] = useState(null);
 
   // - api url links to get top 1000 crypto coins.
 
@@ -59,9 +61,13 @@ export function DataProvider({ children }) {
 
       let newFullSetData = fullDataSet.concat(emptyCoin);
 
-      console.log({ newFullSetData });
-
       setData(newFullSetData);
+
+      setBtcMarketcapNumber(newFullSetData[0].market_cap);
+
+      if (btcMarketcapNumber) {
+        setBtcMarketcapFormatted(btcMarketcapNumber.toLocaleString());
+      }
     } catch (err) {
       console.log(err);
     }
@@ -82,6 +88,8 @@ export function DataProvider({ children }) {
   return (
     <DataContext.Provider
       value={{
+        btcMarketcapFormatted,
+        btcMarketcapNumber,
         complete,
         setComplete,
         coinName,
