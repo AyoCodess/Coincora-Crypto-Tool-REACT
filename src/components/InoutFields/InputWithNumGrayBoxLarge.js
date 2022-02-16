@@ -4,6 +4,7 @@ export default function InputWithNumGrayBoxLarge({ value, sign }) {
     <div className='w-1/2'>
       <div className=' flex rounded-md shadow-sm '>
         <input
+          readOnly
           min={0}
           value={value}
           type='number'

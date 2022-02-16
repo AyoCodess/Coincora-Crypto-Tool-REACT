@@ -12,6 +12,8 @@ import InputTextWithNoIconOnChange from '../../components/InoutFields/InputTextW
 import InputWithNumGrayBoxLarge from '../../components/InoutFields/InputWithNumGrayBoxLarge';
 import InputTextWithDollarIcon from '../../components/InoutFields/InputTextWithDollarIcon';
 import InputTextWithDollarIconOnChange from '../../components/InoutFields/InputTextWithDollarIconOnChange';
+import { set } from 'react-ga';
+import InputTextWithDollarIconReadOnly from '../../components/InoutFields/InputTextWithDollarIconReadOnly';
 
 function CoinForecast() {
   const {
@@ -37,17 +39,21 @@ function CoinForecast() {
   const [currentMarketCap, setCurrentMarketCap] = useState(null);
   const [currentMarketCapNumber, setCurrentMarketCapNumber] = useState(null);
 
-  const [coinRBM, setCoinRBM] = useState(null);
+  const [coinRBM, setCoinRBM] = useState('0.00');
   const [coinRBMNumber, setCoinRBMNumber] = useState(null);
 
-  const [avgPriceBought, setAvgPriceBought] = useState(null);
-  const [avgFuturePriceBought, setAvgFuturePriceBought] = useState(null);
-  const [totalAmountOwned, setTotalAmountOwned] = useState(null);
-  const [buyMore, setBuyMore] = useState(null);
-  const [predictedPrice, setPredictedPrice] = useState(null);
-  const [predictedMarketcap, setPredictedMarketcap] = useState(null);
-
   const [coinPredictedRBM, setCoinPredictedRBM] = useState('0.00');
+
+  // - user coin data
+  const [totalAmountOwned, setTotalAmountOwned] = useState(0);
+  const [avgPriceBought, setAvgPriceBought] = useState(0);
+  const [previousProfit, setPreviousProfit] = useState(0);
+  const [buyMore, setBuyMore] = useState(0);
+  const [avgFuturePriceBought, setAvgFuturePriceBought] = useState(0);
+  const [predictedPrice, setPredictedPrice] = useState(0);
+  const [predictedMarketcap, setPredictedMarketcap] = useState(0);
+
+  const [profit, setProfit] = useState('');
 
   // -  current selected coins RBM
 
@@ -110,23 +116,74 @@ function CoinForecast() {
         setCoinRBM(coinCurrentRBMnumber.toFixed(2));
       }
 
-      //-rest fields
-
-      console.log({ predictedPrice });
+      //- reset your prediction fields
 
       if (predictedPrice === 0 || Number.isNaN(predictedPrice)) {
         console.log('predicted price reset');
         setCoinPredictedRBM('0.00');
         setCoinRBM('0.00');
         setPredictedMarketcap('');
-        setCoinCurrentRMB('');
-        setCurrentMarketCap('');
+      }
+
+      //- calculating profit
+
+      let previousCoinsBoughtTotalCost = totalAmountOwned * avgPriceBought;
+      let futureCoinsBoughtTotalCost = buyMore * avgFuturePriceBought;
+
+      console.log({ buyMore });
+
+      //= NEED TO FORCE IMPUT FIELD TO 0 WHEN EMTY, FIND A FUNCTION.
+
+      if (totalAmountOwned && buyMore) {
+        let prediction =
+          (totalAmountOwned + buyMore) * predictedPrice +
+          previousProfit -
+          previousCoinsBoughtTotalCost -
+          futureCoinsBoughtTotalCost;
+
+        console.log({ previousCoinsBoughtTotalCost });
+        console.log({ futureCoinsBoughtTotalCost });
+        console.log({ prediction });
+
+        setProfit(prediction);
+      }
+
+      if (totalAmountOwned && Number.isNaN(buyMore)) {
+        console.log('buy more is nan');
+        let prediction =
+          totalAmountOwned * predictedPrice +
+          previousProfit -
+          previousCoinsBoughtTotalCost;
+
+        console.log({ previousCoinsBoughtTotalCost });
+
+        console.log({ prediction });
+
+        setProfit(prediction);
+      }
+
+      if (buyMore && Number.isNaN(totalAmountOwned)) {
+        console.log('total amount owened is nan');
+        let prediction =
+          buyMore * predictedPrice +
+          previousProfit -
+          futureCoinsBoughtTotalCost;
+
+        console.log({ previousCoinsBoughtTotalCost });
+
+        console.log({ prediction });
+
+        setProfit(prediction);
       }
     }
   }, [
+    avgFuturePriceBought,
+    avgPriceBought,
     btcMarketcapNumber,
+    buyMore,
     circulatingSupply,
     circulatingSupplyNumber,
+    coinCurrentRBMnumber,
     coinName,
     currentMarketCap,
     currentMarketCapNumber,
@@ -134,8 +191,10 @@ function CoinForecast() {
     currentPriceNumber,
     data,
     predictedPrice,
+    previousProfit,
     selectedFromDropdown,
     setCoinName,
+    totalAmountOwned,
   ]);
 
   return (
@@ -211,7 +270,7 @@ function CoinForecast() {
                       <Tooltip message={'hey'} title={' Current Price'} />
                     </div>
                     {selectedFromDropdown && (
-                      <InputTextWithDollarIcon value={currentPrice} />
+                      <InputTextWithDollarIconReadOnly value={currentPrice} />
                     )}
                   </div>
                   <div className='flex gap-2 items-center'>
@@ -219,7 +278,9 @@ function CoinForecast() {
                       <Tooltip message={'hey'} title={'  Current Market Cap'} />
                     </div>
                     {selectedFromDropdown && (
-                      <InputTextWithDollarIcon value={currentMarketCap} />
+                      <InputTextWithDollarIconReadOnly
+                        value={currentMarketCap}
+                      />
                     )}
                   </div>
                   <div className='flex items-center gap-2'>
@@ -270,6 +331,21 @@ function CoinForecast() {
                       <InputTextWithDollarIconOnChange
                         onChange={(e) => {
                           setAvgPriceBought(e.target.valueAsNumber);
+                        }}
+                      />
+                    )}
+                  </div>
+                  <div className='flex gap-2 items-center '>
+                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                      <Tooltip
+                        message={'hey'}
+                        title={`How much profit have you made on ${coinName} so far?`}
+                      />
+                    </div>
+                    {selectedFromDropdown && (
+                      <InputTextWithDollarIconOnChange
+                        onChange={(e) => {
+                          setPreviousProfit(e.target.valueAsNumber);
                         }}
                       />
                     )}
@@ -331,7 +407,9 @@ function CoinForecast() {
                       />
                     </div>
                     {selectedFromDropdown && (
-                      <InputTextWithDollarIcon value={predictedMarketcap} />
+                      <InputTextWithDollarIconReadOnly
+                        value={predictedMarketcap}
+                      />
                     )}
                   </div>
                 </div>
@@ -386,11 +464,7 @@ function CoinForecast() {
                         title={`Your profit if ${coinName} went to your predicted price is`}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    <InputTextWithDollarIconReadOnly value={profit} />
                   </div>
                   <div className='flex gap-2 items-center'>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
