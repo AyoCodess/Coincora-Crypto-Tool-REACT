@@ -7,6 +7,7 @@ export default function InputTextWithCheckIcon({ value }) {
       <input
         readOnly
         min={0}
+        onWheel={(e) => e.target.blur()}
         value={value}
         type='text'
         name='account-number'

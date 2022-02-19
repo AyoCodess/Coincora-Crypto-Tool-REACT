@@ -73,6 +73,7 @@ export function DataProvider({ children }) {
     }
   };
 
+  console.log({ data });
   //- calling and updating the api based on user input changes
 
   useEffect(() => {

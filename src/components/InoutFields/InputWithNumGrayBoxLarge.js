@@ -6,6 +6,7 @@ export default function InputWithNumGrayBoxLarge({ value, sign }) {
         <input
           readOnly
           min={0}
+          onWheel={(e) => e.target.blur()}
           value={value}
           type='number'
           className='h-[4.5rem] font-bold text-appBlue text-3xl flex-1 px-3 py-2 rounded-none rounded-r-md focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300'

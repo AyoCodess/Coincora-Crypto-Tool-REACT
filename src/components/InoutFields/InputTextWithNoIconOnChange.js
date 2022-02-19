@@ -6,6 +6,7 @@ export default function InputTextWithCheckIcon({ value, onChange }) {
     <div className='relative rounded-md shadow-sm h-full w-1/2'>
       <input
         min={0}
+        onWheel={(e) => e.target.blur()}
         onChange={onChange}
         value={value}
         type='number'

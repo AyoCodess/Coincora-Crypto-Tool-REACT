@@ -14,6 +14,7 @@ import InputTextWithDollarIcon from '../../components/InoutFields/InputTextWithD
 import InputTextWithDollarIconOnChange from '../../components/InoutFields/InputTextWithDollarIconOnChange';
 import { set } from 'react-ga';
 import InputTextWithDollarIconReadOnly from '../../components/InoutFields/InputTextWithDollarIconReadOnly';
+import InputTextTimesProfit from '../../components/InoutFields/InputTextTimesProfit';
 
 function CoinForecast() {
   const {
@@ -54,6 +55,14 @@ function CoinForecast() {
   const [predictedMarketcap, setPredictedMarketcap] = useState(0);
 
   const [profit, setProfit] = useState('');
+  const [xTimesProfit, setXTimesProfit] = useState('');
+
+  // - crypto currency RBM's
+
+  const [top10CryptoRBM, setTop10CryptoRBM] = useState('');
+  const [top50CryptoRBM, setTop50CryptoRBM] = useState('');
+  const [top100CryptoRBM, setTop100CryptoRBM] = useState('');
+  const [top1000CryptoRBM, setTop1000CryptoRBM] = useState('');
 
   // -  current selected coins RBM
 
@@ -130,10 +139,6 @@ function CoinForecast() {
       let previousCoinsBoughtTotalCost = totalAmountOwned * avgPriceBought;
       let futureCoinsBoughtTotalCost = buyMore * avgFuturePriceBought;
 
-      console.log({ buyMore });
-
-      //= NEED TO FORCE IMPUT FIELD TO 0 WHEN EMTY, FIND A FUNCTION.
-
       if (totalAmountOwned && buyMore) {
         let prediction =
           (totalAmountOwned + buyMore) * predictedPrice +
@@ -141,39 +146,43 @@ function CoinForecast() {
           previousCoinsBoughtTotalCost -
           futureCoinsBoughtTotalCost;
 
-        console.log({ previousCoinsBoughtTotalCost });
-        console.log({ futureCoinsBoughtTotalCost });
-        console.log({ prediction });
-
         setProfit(prediction);
       }
 
       if (totalAmountOwned && Number.isNaN(buyMore)) {
-        console.log('buy more is nan');
         let prediction =
           totalAmountOwned * predictedPrice +
           previousProfit -
           previousCoinsBoughtTotalCost;
 
-        console.log({ previousCoinsBoughtTotalCost });
-
-        console.log({ prediction });
-
         setProfit(prediction);
       }
 
       if (buyMore && Number.isNaN(totalAmountOwned)) {
-        console.log('total amount owened is nan');
         let prediction =
           buyMore * predictedPrice +
           previousProfit -
           futureCoinsBoughtTotalCost;
 
-        console.log({ previousCoinsBoughtTotalCost });
-
-        console.log({ prediction });
-
         setProfit(prediction);
+      }
+
+      // - X times profit increase
+      if (
+        (totalAmountOwned && avgPriceBought) ||
+        (buyMore && avgFuturePriceBought)
+      ) {
+        const owned = totalAmountOwned + buyMore;
+
+        let finalProfit =
+          (totalAmountOwned + buyMore) * predictedPrice +
+          previousProfit -
+          previousCoinsBoughtTotalCost -
+          futureCoinsBoughtTotalCost;
+
+        const result = finalProfit / owned;
+
+        setXTimesProfit(result.toFixed(2));
       }
     }
   }, [
@@ -195,6 +204,7 @@ function CoinForecast() {
     selectedFromDropdown,
     setCoinName,
     totalAmountOwned,
+    xTimesProfit,
   ]);
 
   return (
@@ -315,7 +325,11 @@ function CoinForecast() {
                     {selectedFromDropdown && (
                       <InputTextWithNoIconOnChange
                         onChange={(e) => {
-                          setTotalAmountOwned(e.target.valueAsNumber);
+                          if (e.target.value === '') {
+                            return 0;
+                          } else {
+                            setTotalAmountOwned(e.target.valueAsNumber);
+                          }
                         }}
                       />
                     )}
@@ -330,7 +344,11 @@ function CoinForecast() {
                     {selectedFromDropdown && (
                       <InputTextWithDollarIconOnChange
                         onChange={(e) => {
-                          setAvgPriceBought(e.target.valueAsNumber);
+                          if (e.target.value === '') {
+                            return 0;
+                          } else {
+                            setAvgPriceBought(e.target.valueAsNumber);
+                          }
                         }}
                       />
                     )}
@@ -339,13 +357,17 @@ function CoinForecast() {
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
-                        title={`How much profit have you made on ${coinName} so far?`}
+                        title={`How much profit or loss have you made on ${coinName} so far?`}
                       />
                     </div>
                     {selectedFromDropdown && (
                       <InputTextWithDollarIconOnChange
                         onChange={(e) => {
-                          setPreviousProfit(e.target.valueAsNumber);
+                          if (e.target.value === '') {
+                            return 0;
+                          } else {
+                            setPreviousProfit(e.target.valueAsNumber);
+                          }
                         }}
                       />
                     )}
@@ -360,7 +382,11 @@ function CoinForecast() {
                     {selectedFromDropdown && (
                       <InputTextWithNoIconOnChange
                         onChange={(e) => {
-                          setBuyMore(e.target.valueAsNumber);
+                          if (e.target.value === '') {
+                            return 0;
+                          } else {
+                            setBuyMore(e.target.valueAsNumber);
+                          }
                         }}
                       />
                     )}
@@ -375,7 +401,11 @@ function CoinForecast() {
                     {selectedFromDropdown && (
                       <InputTextWithDollarIconOnChange
                         onChange={(e) => {
-                          setAvgFuturePriceBought(e.target.valueAsNumber);
+                          if (e.target.value === '') {
+                            return 0;
+                          } else {
+                            setAvgFuturePriceBought(e.target.valueAsNumber);
+                          }
                         }}
                       />
                     )}
@@ -393,7 +423,11 @@ function CoinForecast() {
                       <InputTextWithDollarIconOnChange
                         value={predictedPrice}
                         onChange={(e) => {
-                          setPredictedPrice(e.target.valueAsNumber);
+                          if (e.target.value === '') {
+                            return 0;
+                          } else {
+                            setPredictedPrice(e.target.valueAsNumber);
+                          }
                         }}
                       />
                     )}
@@ -473,11 +507,7 @@ function CoinForecast() {
                         title={`Your predicted X increase is`}
                       />
                     </div>
-                    <input
-                      type='number'
-                      className=' w-[50%] shadow-sm focus:ring-sky-500 focus:border-sky-500  sm:text-sm border-gray-300 rounded-md'
-                      placeholder='0'
-                    />
+                    <InputTextTimesProfit value={xTimesProfit} />
                   </div>
                 </div>
               </div>

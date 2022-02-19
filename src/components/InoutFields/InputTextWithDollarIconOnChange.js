@@ -11,8 +11,8 @@ export default function InputTextWithDollarIcon({ value, onChange }) {
         />
       </div>
       <input
-        min={0}
         onChange={onChange}
+        onWheel={(e) => e.target.blur()}
         value={value}
         type='number'
         className=' pb-1 ml-6 h-[2.5rem] focus:ring-indigo-500 focus:border-indigo-500 block w-[90%] pr-10 sm:text-sm border-gray-300 rounded-md'
