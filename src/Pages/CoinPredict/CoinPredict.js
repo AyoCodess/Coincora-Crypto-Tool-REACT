@@ -10,6 +10,7 @@ import InputTextWithCheckIcon from '../../components/InoutFields/InputTextWithCh
 import InputTextWithNoIcon from '../../components/InoutFields/InputTextWithNoIcon';
 import InputTextWithNoIconOnChange from '../../components/InoutFields/InputTextWithNoIconOnChange';
 import InputWithNumGrayBoxLarge from '../../components/InoutFields/InputWithNumGrayBoxLarge';
+import InputWithNumGrayBoxSmall from '../../components/InoutFields/InputWithNumGrayBoxSmall';
 import InputTextWithDollarIcon from '../../components/InoutFields/InputTextWithDollarIcon';
 import InputTextWithDollarIconOnChange from '../../components/InoutFields/InputTextWithDollarIconOnChange';
 import { set } from 'react-ga';
@@ -45,30 +46,103 @@ function CoinForecast() {
 
   const [coinPredictedRBM, setCoinPredictedRBM] = useState('0.00');
 
+  // - crypto currency RBM's
+
+  const [top10CryptoRBM, setTop10CryptoRBM] = useState(null);
+  const [top50CryptoRBM, setTop50CryptoRBM] = useState(null);
+  const [top100CryptoRBM, setTop100CryptoRBM] = useState(null);
+  const [top500CryptoRBM, setTop500CryptoRBM] = useState(null);
+  const [top1000CryptoRBM, setTop1000CryptoRBM] = useState(null);
+
   // - user coin data
   const [totalAmountOwned, setTotalAmountOwned] = useState(0);
   const [avgPriceBought, setAvgPriceBought] = useState(0);
   const [previousProfit, setPreviousProfit] = useState(0);
   const [buyMore, setBuyMore] = useState(0);
   const [avgFuturePriceBought, setAvgFuturePriceBought] = useState(0);
-  const [predictedPrice, setPredictedPrice] = useState(0);
+  const [predictedPrice, setPredictedPrice] = useState(null);
   const [predictedMarketcap, setPredictedMarketcap] = useState(0);
 
   const [profit, setProfit] = useState('');
   const [xTimesProfit, setXTimesProfit] = useState('');
 
-  // - crypto currency RBM's
+  // - crypto RBM calculations
+  useEffect(() => {
+    if (btcMarketcapNumber) {
+      const top10 = data.slice(1, 11);
+      const top50 = data.slice(1, 51);
+      const top100 = data.slice(1, 101);
+      const top500 = data.slice(1, 501);
+      const top1000 = data.slice(1, 1000);
 
-  const [top10CryptoRBM, setTop10CryptoRBM] = useState('');
-  const [top50CryptoRBM, setTop50CryptoRBM] = useState('');
-  const [top100CryptoRBM, setTop100CryptoRBM] = useState('');
-  const [top1000CryptoRBM, setTop1000CryptoRBM] = useState('');
+      const top10Array = top10.map((d, i) => {
+        return d.market_cap;
+      });
+      const top50Array = top50.map((d, i) => {
+        return d.market_cap;
+      });
+      const top100Array = top100.map((d, i) => {
+        return d.market_cap;
+      });
+      const top500Array = top500.map((d, i) => {
+        return d.market_cap;
+      });
 
-  // -  current selected coins RBM
+      const top1000Array = top1000.map((d, i) => {
+        return d.market_cap;
+      });
 
-  //   setCoinRBMNumber((currentMarketCapNumber / btcMarketcapNumber) * 100);
-  //   setCoinRBM(coinRBMNumber.toFixed(2));
+      const top10RBMNumber = top10Array.reduce((previous, current) => {
+        return previous + current;
+      }, 0);
 
+      const top50RBMNumber = top50Array.reduce((previous, current) => {
+        return previous + current;
+      }, 0);
+
+      const top100RBMNumber = top100Array.reduce((previous, current) => {
+        return previous + current;
+      }, 0);
+
+      const top500RBMNumber = top500Array.reduce((previous, current) => {
+        return previous + current;
+      }, 0);
+
+      const top1000RBMNumber = top1000Array.reduce((previous, current) => {
+        return previous + current;
+      }, 0);
+
+      let top10Avg = top10RBMNumber / 10;
+      const real10 = (top10Avg / btcMarketcapNumber) * 100;
+      let top50Avg = top50RBMNumber / 50;
+      const real50 = (top50Avg / btcMarketcapNumber) * 100;
+      let top100Avg = top100RBMNumber / 100;
+      const real100 = (top100Avg / btcMarketcapNumber) * 100;
+      let top500Avg = top500RBMNumber / 500;
+      const real500 = (top500Avg / btcMarketcapNumber) * 100;
+      let top1000Avg = top1000RBMNumber / 1000;
+      const real1000 = (top1000Avg / btcMarketcapNumber) * 100;
+
+      console.log({ top10RBMNumber });
+      console.log({ top10Avg });
+      console.log({ btcMarketcapNumber });
+      console.log({ real10 });
+
+      setTop10CryptoRBM(real10.toFixed(2));
+      setTop50CryptoRBM(real50.toFixed(2));
+      setTop100CryptoRBM(real100.toFixed(2));
+      setTop500CryptoRBM(real500.toFixed(2));
+      setTop1000CryptoRBM(real1000.toFixed(2));
+
+      // console.log(top10);
+      // console.log(top50);
+      // console.log(top100);
+      // console.log(top500);
+      // console.log(top1000);
+    }
+  }, [btcMarketcapNumber, data]);
+
+  // - form
   useEffect(() => {
     if (selectedFromDropdown) {
       // - setting global state for coin name
@@ -272,7 +346,10 @@ function CoinForecast() {
                       />
                     </div>
                     {selectedFromDropdown && (
-                      <InputTextWithCheckIcon value={circulatingSupply} />
+                      <InputTextWithCheckIcon
+                        value={circulatingSupply}
+                        sign={'%'}
+                      />
                     )}
                   </div>
                   <div className='flex gap-2 items-center'>
@@ -528,25 +605,75 @@ function CoinForecast() {
               <b>You cannot make decisions based of the RMB alone.</b>
             </p>
           </div>
-          <div className=' py-2 flex flex-col gap-2 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-              Top 10 crypto's current RMB
+          <div className=' flex flex-col  shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
+            <div className='flex items-center'>
+              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                <Tooltip
+                  message={`Top 10 crypto's current RMB`}
+                  title={`Top 10 crypto's current RMB`}
+                />
+              </div>
+              <InputWithNumGrayBoxSmall value={top10CryptoRBM} />
             </div>
-            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-              Top 50 crypto's current RMB
+            <div className='flex items-center '>
+              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                <Tooltip
+                  message={`Top 50 crypto's current RMB`}
+                  title={`Top 50 crypto's current RMB`}
+                />
+              </div>
+              <InputWithNumGrayBoxSmall value={top50CryptoRBM} />
             </div>
-            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-              Top 100 crypto's current RMB
+            <div className='flex items-center'>
+              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                <Tooltip
+                  message={`Top 100 crypto's current RMB`}
+                  title={`Top 100 crypto's current RMB`}
+                />
+              </div>
+              <InputWithNumGrayBoxSmall value={top100CryptoRBM} />
             </div>
-            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-              Top 1000 crypto's current RMB
+            <div className='flex items-center'>
+              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                <Tooltip
+                  message={`Top 500 crypto's current RMB`}
+                  title={`Top 500 crypto's current RMB`}
+                />
+              </div>
+              <InputWithNumGrayBoxSmall value={top500CryptoRBM} />
+            </div>
+            <div className='flex items-center'>
+              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                <Tooltip
+                  message={`Top 1000 crypto's current RMB`}
+                  title={`Top 1000 crypto's current RMB`}
+                />
+              </div>
+              <InputWithNumGrayBoxSmall value={top1000CryptoRBM} />
+            </div>
+            <div className='flex items-center  border-t-4 '>
+              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                <Tooltip
+                  message={`${coinName}'s market cap in % of Bitcoins current market cap.`}
+                  title={`${coinName}'s current RBM `}
+                />
+              </div>
+
+              <InputWithNumGrayBoxSmall value={coinCurrentRBM} />
+            </div>
+            <div className='flex items-center '>
+              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                <Tooltip
+                  message={`${coinName}'s market cap in % of Bitcoins current market cap.`}
+                  title={`${coinName}'s Predicted RBM `}
+                />
+              </div>
+
+              <InputWithNumGrayBoxSmall value={coinPredictedRBM} />
             </div>
           </div>
 
           <div className=' mt-5 py-2 flex flex-col gap-2 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-              {coinName}'s current RBM
-            </div>
             <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
               {coinName}'s predicted RBM
             </div>

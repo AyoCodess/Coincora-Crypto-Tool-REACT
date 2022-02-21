@@ -1,18 +1,61 @@
 import React from 'react';
+import StandardButtonReactRouter from '../../components/Buttons/StandardButtonReactRouter';
 
 export default function Todo() {
   return (
-    <article className=' prose prose-md'>
-      <h2>Planned Features</h2>
+    <article className=' prose prose-md max-w-full xl:max-w-6xl'>
+      <div className='flex justify-between items-center mb-10 pb-5 border-b border-slate-400'>
+        <span className='text-2xl font-bold'>Planned Features</span>
+        <StandardButtonReactRouter text={'Back'} to={'/updates'} />
+      </div>
+      <h3>Major Features</h3>
       <ol>
-        <li>
-          Convert page which will allow users to calculate usd value into any
-          crypto currency via a dropdown menu.
-        </li>
-        <li>
-          Add blue check icon in coin predict input field when information is
-          entered.
-        </li>
+        <div className='flex gap-10 justify-between items-center py-2 border-b pb-3 border-slate-400'>
+          <li className='w-[75%]'>
+            <p>
+              Display bitcoin's market cap as a moving average over 1 ,3, 5 and
+              10 year periods. This will allow users to better assess how crypto
+              currencies move against bitcoin's marketcap based on time-based
+              RBM.
+            </p>
+            <p>
+              Users will be able to pick time-frames from a drop down menu, make
+              predictions based within a time-frame and they will see a
+              forecasted bitcoin market cap based on historical market data.
+            </p>
+          </li>
+          <span className='inline-block w-40 text-center bg-violet-500 p-1 font-bold rounded-md text-white'>
+            Need sponsorship
+          </span>
+        </div>
+        <div className='flex gap-10 justify-between items-center py-2 border-b pb-3 border-slate-400'>
+          <li className='w-[75%]'>Coin verification database.</li>
+          <span className='inline-block w-40 text-center bg-violet-500 p-1 font-bold rounded-md text-white'>
+            Need sponsorship
+          </span>
+        </div>
+      </ol>
+      <h3>Minor Features</h3>
+      <ol>
+        <div className='flex gap-10 justify-between items-center py-2 border-b pb-3 border-slate-400'>
+          <li className='w-[75%]'>
+            Convert page which will allow users to calculate usd value into any
+            crypto currency via a dropdown menu.
+          </li>
+          <span className=' inline-block w-40 text-center bg-orange-500 p-1 font-bold rounded-md text-white'>
+            planned
+          </span>
+        </div>
+
+        <div className='flex gap-10 justify-between items-center py-2 border-b pb-3 border-slate-400'>
+          <li className='w-[75%]'>
+            Add blue check icon in coin predict input field when information is
+            entered.
+          </li>
+          <span className=' inline-block w-40 text-center bg-orange-500 p-1 font-bold rounded-md text-white'>
+            planned
+          </span>
+        </div>
       </ol>
     </article>
   );

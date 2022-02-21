@@ -14,6 +14,12 @@ export function DataProvider({ children }) {
   const [btcMarketcapFormatted, setBtcMarketcapFormatted] = useState(null);
   const [btcMarketcapNumber, setBtcMarketcapNumber] = useState(null);
 
+  // - dropdownlist.js
+
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [selectedFromDropdown, setSelectedFromDropdown] = useState(false);
+  const [searchedFromDropdown, setSearchedFromDropdown] = useState(null);
+
   // - api url links to get top 1000 crypto coins.
 
   const page1 =
@@ -73,18 +79,13 @@ export function DataProvider({ children }) {
     }
   };
 
-  console.log({ data });
   //- calling and updating the api based on user input changes
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  // - dropdownlist.js
-
-  const [openDropdown, setOpenDropdown] = useState(false);
-  const [selectedFromDropdown, setSelectedFromDropdown] = useState(false);
-  const [searchedFromDropdown, setSearchedFromDropdown] = useState(null);
+  // - RBM Calculations
 
   return (
     <DataContext.Provider
