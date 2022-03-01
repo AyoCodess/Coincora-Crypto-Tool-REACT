@@ -24,6 +24,8 @@ import Mission from './Pages/Mission/Misson';
 import ReactGA from 'react-ga';
 import KnowledgeBase from './Pages/KnowledgeBase';
 import WhatIsRBM from './Pages/KnowledgeBase/Articles/Pages/WhatIsRBM.';
+import GoFundMe from './Pages/KnowledgeBase/Articles/Pages/GoFundMe';
+import TheCommunity from './Pages/KnowledgeBase/Articles/Pages/TheCommunity';
 
 function App() {
   // - News banner options
@@ -76,7 +78,7 @@ function App() {
                 <Route path='*' exact element={<GoogleForm />}></Route>
                 <Route path='/coin-predict' element={<CoinForecast />}></Route>
                 <Route path='/quick-predict' element={<QuickCompare />}></Route>
-                <Route path='/mission' element={<Mission />}></Route>
+                <Route path='/mission' element={<GoFundMe />}></Route>
                 <Route path='/legal' element={<Legal />}></Route>
                 <Route path='/advice' element={<Advice />}></Route>
                 <Route path='/support-me' element={<SupportMe />}></Route>
@@ -105,6 +107,12 @@ function App() {
                 <Route
                   path='/knowledge-base/what-is-RBM'
                   element={<WhatIsRBM />}></Route>
+                <Route
+                  path='/knowledge-base/GoFundMe'
+                  element={<GoFundMe />}></Route>
+                <Route
+                  path='/knowledge-base/TheCommunity'
+                  element={<TheCommunity />}></Route>
               </Routes>
               <Footer />
               {!doesLocalStorageExist && (

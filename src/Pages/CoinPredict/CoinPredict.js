@@ -27,6 +27,12 @@ function CoinForecast() {
     selectedFromDropdown,
     btcMarketcapFormatted,
     btcMarketcapNumber,
+    top10CryptoRBM,
+    top50CryptoRBM,
+    top100CryptoRBM,
+    top500CryptoRBM,
+    top1000CryptoRBM,
+    ethRBM,
   } = useContext(DataContext);
 
   const [coinCurrentRBM, setCoinCurrentRMB] = useState(0);
@@ -46,14 +52,6 @@ function CoinForecast() {
 
   const [coinPredictedRBM, setCoinPredictedRBM] = useState('0.00');
 
-  // - crypto currency RBM's
-
-  const [top10CryptoRBM, setTop10CryptoRBM] = useState(null);
-  const [top50CryptoRBM, setTop50CryptoRBM] = useState(null);
-  const [top100CryptoRBM, setTop100CryptoRBM] = useState(null);
-  const [top500CryptoRBM, setTop500CryptoRBM] = useState(null);
-  const [top1000CryptoRBM, setTop1000CryptoRBM] = useState(null);
-
   // - user coin data
   const [totalAmountOwned, setTotalAmountOwned] = useState(0);
   const [avgPriceBought, setAvgPriceBought] = useState(0);
@@ -65,82 +63,6 @@ function CoinForecast() {
 
   const [profit, setProfit] = useState('');
   const [xTimesProfit, setXTimesProfit] = useState('');
-
-  // - crypto RBM calculations
-  useEffect(() => {
-    if (btcMarketcapNumber) {
-      const top10 = data.slice(1, 11);
-      const top50 = data.slice(1, 51);
-      const top100 = data.slice(1, 101);
-      const top500 = data.slice(1, 501);
-      const top1000 = data.slice(1, 1000);
-
-      const top10Array = top10.map((d, i) => {
-        return d.market_cap;
-      });
-      const top50Array = top50.map((d, i) => {
-        return d.market_cap;
-      });
-      const top100Array = top100.map((d, i) => {
-        return d.market_cap;
-      });
-      const top500Array = top500.map((d, i) => {
-        return d.market_cap;
-      });
-
-      const top1000Array = top1000.map((d, i) => {
-        return d.market_cap;
-      });
-
-      const top10RBMNumber = top10Array.reduce((previous, current) => {
-        return previous + current;
-      }, 0);
-
-      const top50RBMNumber = top50Array.reduce((previous, current) => {
-        return previous + current;
-      }, 0);
-
-      const top100RBMNumber = top100Array.reduce((previous, current) => {
-        return previous + current;
-      }, 0);
-
-      const top500RBMNumber = top500Array.reduce((previous, current) => {
-        return previous + current;
-      }, 0);
-
-      const top1000RBMNumber = top1000Array.reduce((previous, current) => {
-        return previous + current;
-      }, 0);
-
-      let top10Avg = top10RBMNumber / 10;
-      const real10 = (top10Avg / btcMarketcapNumber) * 100;
-      let top50Avg = top50RBMNumber / 50;
-      const real50 = (top50Avg / btcMarketcapNumber) * 100;
-      let top100Avg = top100RBMNumber / 100;
-      const real100 = (top100Avg / btcMarketcapNumber) * 100;
-      let top500Avg = top500RBMNumber / 500;
-      const real500 = (top500Avg / btcMarketcapNumber) * 100;
-      let top1000Avg = top1000RBMNumber / 1000;
-      const real1000 = (top1000Avg / btcMarketcapNumber) * 100;
-
-      console.log({ top10RBMNumber });
-      console.log({ top10Avg });
-      console.log({ btcMarketcapNumber });
-      console.log({ real10 });
-
-      setTop10CryptoRBM(real10.toFixed(2));
-      setTop50CryptoRBM(real50.toFixed(2));
-      setTop100CryptoRBM(real100.toFixed(2));
-      setTop500CryptoRBM(real500.toFixed(2));
-      setTop1000CryptoRBM(real1000.toFixed(2));
-
-      // console.log(top10);
-      // console.log(top50);
-      // console.log(top100);
-      // console.log(top500);
-      // console.log(top1000);
-    }
-  }, [btcMarketcapNumber, data]);
 
   // - form
   useEffect(() => {
@@ -650,6 +572,12 @@ function CoinForecast() {
                 />
               </div>
               <InputWithNumGrayBoxSmall value={top1000CryptoRBM} />
+            </div>
+            <div className='flex items-center'>
+              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                <Tooltip message={`Ethereum's RBM`} title={`Ethereum's RBM `} />
+              </div>
+              <InputWithNumGrayBoxSmall value={ethRBM} />
             </div>
             <div className='flex items-center  border-t-4 '>
               <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>

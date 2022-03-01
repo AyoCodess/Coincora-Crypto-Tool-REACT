@@ -1,80 +1,147 @@
+import { useContext } from 'react';
+import DataContext from '../../../../Context/context';
+
 export default function WhatIsRBM() {
+  const {
+    top10CryptoRBM,
+    top50CryptoRBM,
+    top100CryptoRBM,
+    top500CryptoRBM,
+    top1000CryptoRBM,
+    ethRBM,
+  } = useContext(DataContext);
+
   return (
-    <div className='relative bg-white'>
-      <div className='lg:absolute lg:inset-0'>
-        <div className='lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/3'>
-          <img
-            className='h-56 w-full object-cover lg:absolute lg:h-full'
-            src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80'
-            alt=''
-          />
+    <>
+      <div className='relative bg-white'>
+        <div className='lg:absolute lg:inset-0'>
+          <div className='lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/3'>
+            <img
+              className='h-56 w-full object-cover lg:absolute lg:h-full'
+              src='https://i.imgur.com/BY3pgOT.jpg'
+              alt=''
+            />
+          </div>
         </div>
-      </div>
-      <div className='relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-3'>
-        <div className='lg:col-start-2 lg:col-end-4 lg:pl-8'>
-          <div className='text-base max-w-prose mx-auto lg:max-w-6xl lg:ml-auto lg:mr-0'>
-            <h2 className='leading-6 text-indigo-600 font-semibold tracking-wide uppercase'>
-              Work with us
-            </h2>
-            <h3 className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              Our Process
-            </h3>
-            <p className='mt-8 text-lg text-gray-500'>
-              Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum
-              urna sed consectetur neque tristique pellentesque. Blandit amet,
-              sed aenean erat arcu morbi.
-            </p>
-            <div className='mt-5 prose prose-indigo text-gray-500'>
-              <p>
-                Sollicitudin tristique eros erat odio sed vitae, consequat
-                turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros
-                eu viverra donec ut volutpat donec laoreet quam urna.
+        <div className='relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-3'>
+          <div className='lg:col-start-2 lg:col-end-4 lg:pl-8'>
+            <div className='text-base max-w-prose mx-auto lg:max-w-6xl lg:ml-auto lg:mr-0'>
+              <h2 className='leading-6 text-indigo-600 font-semibold tracking-wide uppercase'>
+                Work with us
+              </h2>
+              <h3 className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
+                What is RBM
+              </h3>
+              <p className='mt-8 text-lg text-gray-500'>
+                Sagittis scelerisque nulla cursus in enim consectetur quam.
+                Dictum urna sed consectetur neque tristique pellentesque.
+                Blandit amet, sed aenean erat arcu morbi.
               </p>
-              <p>
-                Bibendum eu nulla feugiat justo, elit adipiscing. Ut tristique
-                sit nisi lorem pulvinar. Urna, laoreet fusce nibh leo. Dictum et
-                et et sit. Faucibus sed non gravida lectus dignissim imperdiet
-                a.
-              </p>
-              <p>
-                Dictum magnis risus phasellus vitae quam morbi. Quis lorem lorem
-                arcu, metus, egestas netus cursus. In.
-              </p>
-              <ul role='list'>
-                <li>Quis elit egestas venenatis mattis dignissim.</li>
-                <li>
-                  Cras cras lobortis vitae vivamus ultricies facilisis tempus.
-                </li>
-                <li>Orci in sit morbi dignissim metus diam arcu pretium.</li>
-              </ul>
-              <p>
-                Rhoncus nisl, libero egestas diam fermentum dui. At quis
-                tincidunt vel ultricies. Vulputate aliquet velit faucibus
-                semper. Pellentesque in venenatis vestibulum consectetur nibh
-                id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim
-                fermentum lacus in. Viverra.
-              </p>
-              <h3>How we’re different</h3>
-              <p>
-                Tincidunt integer commodo, cursus etiam aliquam neque, et.
-                Consectetur pretium in volutpat, diam. Montes, magna cursus
-                nulla feugiat dignissim id lobortis amet. Laoreet sem est
-                phasellus eu proin massa, lectus. Diam rutrum posuere donec
-                ultricies non morbi. Mi a platea auctor mi.
-              </p>
-              <p>
-                Mauris ullamcorper imperdiet nec egestas mi quis quam ante
-                vulputate. Vel faucibus adipiscing lacus, eget. Nunc fermentum
-                id tellus donec. Ut metus odio sit sit varius non nunc orci. Eu,
-                mi neque, ornare suspendisse amet, nibh. Facilisi volutpat
-                lectus id sapien dis mauris rhoncus. Est rhoncus, interdum
-                imperdiet ac eros, diam mauris, tortor. Risus id sit molestie
-                magna.
-              </p>
+              <div className='mt-5 prose prose-indigo text-gray-500'>
+                <p>
+                  Sollicitudin tristique eros erat odio sed vitae, consequat
+                  turpis elementum. Lorem nibh vel, eget pretium arcu vitae.
+                  Eros eu viverra donec ut volutpat donec laoreet quam urna.
+                </p>
+                <p>
+                  Bibendum eu nulla feugiat justo, elit adipiscing. Ut tristique
+                  sit nisi lorem pulvinar. Urna, laoreet fusce nibh leo. Dictum
+                  et et et sit. Faucibus sed non gravida lectus dignissim
+                  imperdiet a.
+                </p>
+                <p>
+                  Dictum magnis risus phasellus vitae quam morbi. Quis lorem
+                  lorem arcu, metus, egestas netus cursus. In.
+                </p>
+                <ul role='list'>
+                  <li>Quis elit egestas venenatis mattis dignissim.</li>
+                  <li>
+                    Cras cras lobortis vitae vivamus ultricies facilisis tempus.
+                  </li>
+                  <li>Orci in sit morbi dignissim metus diam arcu pretium.</li>
+                </ul>
+                <p>
+                  Rhoncus nisl, libero egestas diam fermentum dui. At quis
+                  tincidunt vel ultricies. Vulputate aliquet velit faucibus
+                  semper. Pellentesque in venenatis vestibulum consectetur nibh
+                  id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi
+                  enim fermentum lacus in. Viverra.
+                </p>
+                <h3>How we’re different</h3>
+
+                <div
+                  style={{
+                    boxShadow: 'rgba(17, 12, 46, 0.10) 0px 10px 40px 0px',
+                  }}
+                  className=' bg-white rounded-lg p-4 flex flex-col'>
+                  <div className='text-2xl text-black font-bold mb-4 border-b border-slate-300 pb-4'>
+                    Crypto Market Average RBM's
+                  </div>
+                  <div className='mb-4'>
+                    <div className='text-2xl font-bold text-appBlue mb-2'>
+                      Top 10 Crypto RBM
+                    </div>
+                    <div className='text-2xl text-black'>{top10CryptoRBM}%</div>
+                  </div>
+                  <div className='mb-4'>
+                    <div className='text-2xl font-bold text-appBlue mb-2'>
+                      Top 50 Crypto RBM
+                    </div>
+                    <div className='text-2xl text-black'>{top50CryptoRBM}%</div>
+                  </div>
+                  <div className='mb-4'>
+                    <div className='text-2xl font-bold text-appBlue mb-2'>
+                      Top 100 Crypto RBM
+                    </div>
+                    <div className='text-2xl text-black'>
+                      {top100CryptoRBM}%
+                    </div>
+                  </div>
+                  <div className='mb-4'>
+                    <div className='text-2xl font-bold text-appBlue mb-2'>
+                      Top 500 Crypto RBM
+                    </div>
+                    <div className='text-2xl text-black'>
+                      {top500CryptoRBM}%
+                    </div>
+                  </div>
+                  <div className='mb-4'>
+                    <div className='text-2xl font-bold text-appBlue mb-2'>
+                      Top 1000 Crypto RBM
+                    </div>
+                    <div className='text-2xl text-black'>
+                      {top1000CryptoRBM}%
+                    </div>
+                  </div>
+                  <div className='mb-4'>
+                    <div className='text-2xl font-bold text-appBlue mb-2 border-t-2 pt-3 border-slate-200'>
+                      Ethereum RBM
+                    </div>
+                    <div className='text-2xl text-black'>{ethRBM}%</div>
+                  </div>
+                </div>
+
+                <p>
+                  Tincidunt integer commodo, cursus etiam aliquam neque, et.
+                  Consectetur pretium in volutpat, diam. Montes, magna cursus
+                  nulla feugiat dignissim id lobortis amet. Laoreet sem est
+                  phasellus eu proin massa, lectus. Diam rutrum posuere donec
+                  ultricies non morbi. Mi a platea auctor mi.
+                </p>
+                <p>
+                  Mauris ullamcorper imperdiet nec egestas mi quis quam ante
+                  vulputate. Vel faucibus adipiscing lacus, eget. Nunc fermentum
+                  id tellus donec. Ut metus odio sit sit varius non nunc orci.
+                  Eu, mi neque, ornare suspendisse amet, nibh. Facilisi volutpat
+                  lectus id sapien dis mauris rhoncus. Est rhoncus, interdum
+                  imperdiet ac eros, diam mauris, tortor. Risus id sit molestie
+                  magna.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

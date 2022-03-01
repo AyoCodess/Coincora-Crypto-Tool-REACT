@@ -89,24 +89,6 @@ function NavbarLayout(props) {
           onClick={handleDrawerToggle}
         />
 
-        {/* // - Links with have URLS only */}
-        {mainNav.map((text, index) => (
-          <Link
-            underline={'none'}
-            href={`${mainNavLinks[index]}`}
-            target={targetBlank[index]}
-            rel='noopener'
-            color={'none'}
-            key={index}>
-            <ListItem button>
-              <ListItemIcon style={{ color: '#0753FF' }}>
-                {mainNavIcons[index]}
-              </ListItemIcon>
-              <span className='font-medium'>{text}</span>
-            </ListItem>
-          </Link>
-        ))}
-
         <NavBarButton
           to={'/feature-request-form'}
           icon={<AddCircleOutlineIcon />}
@@ -128,6 +110,23 @@ function NavbarLayout(props) {
           text={'Support Me'}
           onClick={handleDrawerToggle}
         />
+        {/* // - Links with have URLS only */}
+        {mainNav.map((text, index) => (
+          <Link
+            underline={'none'}
+            href={`${mainNavLinks[index]}`}
+            target={targetBlank[index]}
+            rel='noopener'
+            color={'none'}
+            key={index}>
+            <ListItem button>
+              <ListItemIcon style={{ color: '#0753FF' }}>
+                {mainNavIcons[index]}
+              </ListItemIcon>
+              <span className='font-medium'>{text}</span>
+            </ListItem>
+          </Link>
+        ))}
         <NavBarButtonSubGrayIcon
           to={'/legal'}
           icon={<LocalPoliceIcon />}
