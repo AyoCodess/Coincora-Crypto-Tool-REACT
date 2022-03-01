@@ -22,6 +22,8 @@ import Todo from './Pages/Todo/Todo.js';
 import Mission from './Pages/Mission/Misson';
 
 import ReactGA from 'react-ga';
+import KnowledgeBase from './Pages/KnowledgeBase';
+import WhatIsRBM from './Pages/KnowledgeBase/Articles/Pages/WhatIsRBM.';
 
 function App() {
   // - News banner options
@@ -97,6 +99,12 @@ function App() {
                       setLink={setLink}
                     />
                   }></Route>
+                <Route
+                  path='/knowledge-base'
+                  element={<KnowledgeBase />}></Route>
+                <Route
+                  path='/knowledge-base/what-is-RBM'
+                  element={<WhatIsRBM />}></Route>
               </Routes>
               <Footer />
               {!doesLocalStorageExist && (

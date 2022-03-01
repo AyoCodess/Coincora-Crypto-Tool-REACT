@@ -25,6 +25,7 @@ import NavBarButton from '../components/Buttons/NavBarButton';
 import NavBarButtonSubGrayIcon from '../components/Buttons/NavBarButtonSubGrayIcon';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 // import StandardButtonReactRouter from '../components/Buttons/StandardButtonReactRouter';
 
 import Tippy from '@tippyjs/react';
@@ -110,6 +111,12 @@ function NavbarLayout(props) {
           to={'/feature-request-form'}
           icon={<AddCircleOutlineIcon />}
           text={'Feature Request'}
+          onClick={handleDrawerToggle}
+        />
+        <NavBarButton
+          to={'/knowledge-base'}
+          icon={<PsychologyIcon />}
+          text={'Knowledge Base'}
           onClick={handleDrawerToggle}
         />
       </List>
