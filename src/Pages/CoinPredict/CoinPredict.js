@@ -16,6 +16,7 @@ import InputTextWithDollarIconOnChange from '../../components/InoutFields/InputT
 import { set } from 'react-ga';
 import InputTextWithDollarIconReadOnly from '../../components/InoutFields/InputTextWithDollarIconReadOnly';
 import InputTextTimesProfit from '../../components/InoutFields/InputTextTimesProfit';
+import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton';
 
 function CoinForecast() {
   const {
@@ -242,7 +243,7 @@ function CoinForecast() {
             <h3 className='text-appBlue'>Coin Predict</h3>
             <p>
               Set investment return targets based on current or potential
-              investments you want to make or have made and predict if the coin
+              investments you want to make or have made + predict if the coin
               can produce the returns you want.
             </p>
           </div>
@@ -448,20 +449,16 @@ function CoinForecast() {
                 </div>
                 <div className='prose  mt-5 border-t-2 border-appBlue pt-2'>
                   <h4>The Results</h4>
-                  <p>
-                    Do these numbers make sense? Check the table below for the
-                    details using as a basis Coincora's (RBM) Ratio to Bitcoins
-                    marketcap analysis.
-                  </p>
+                  <p>Here it is, behold your forecast results.</p>
 
-                  <button type='button' className=' '>
-                    <HashLink
-                      smooth
-                      className=' text-white no-underline justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md bg-appBlue'
-                      to={'/coin-predict#rbm'}>
-                      What is RBM?
-                    </HashLink>
-                  </button>
+                  <AlinkStandardButton
+                    text={'What is RBM'}
+                    href={
+                      'https://www.beta.coincora.com/knowledge-base/what-is-RBM'
+                    }
+                    width={'w-32'}
+                    color={'bg-appBlue'}
+                  />
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
                   <div className='flex flex-col gap-2'>
@@ -472,7 +469,7 @@ function CoinForecast() {
                           {' '}
                           {coinRBM}%
                         </span>{' '}
-                        of Bitcoins current market cap`
+                        of Bitcoins current market cap (RBM)
                       </span>
                       <Tooltip message={'hey'} />
                     </div>
@@ -483,7 +480,7 @@ function CoinForecast() {
                           {' '}
                           {coinPredictedRBM}%
                         </span>{' '}
-                        of Bitcoins current market cap`
+                        of Bitcoins current market cap (RBM)
                       </span>
                       <Tooltip message={'hey'} />
                     </div>
@@ -514,18 +511,7 @@ function CoinForecast() {
           </div>
           <div className='prose  my-5'>
             <h3 className='text-appBlue'>Assessment of your prediction</h3>
-            <p>
-              <b>Is your prediction realistic?</b> Remember if you wait long
-              enough anything is possible. So it's best you have time-frame in
-              mind when looking a these numbers.
-            </p>
-
-            <p>
-              Bitcoins price/marketcap still dictates what alt-coins behave.
-              This why we use the <b>RBM</b> as just another tool to help us
-              make better longtime investing decisions.{' '}
-              <b>You cannot make decisions based of the RMB alone.</b>
-            </p>
+            <p>Check out your prediction assessment below.</p>
           </div>
           <div className=' flex flex-col  shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
             <div className='flex items-center'>
@@ -607,8 +593,13 @@ function CoinForecast() {
             </div>
           </div>
           <div className='prose mt-5 border-t-2 border-appBlue pt-2'>
-            <h4>The Analysis</h4>
-            <p>{coinName}'s predicted RBM is in the 'Top 10!'</p>
+            <h4>The Analysis - Coming Soon</h4>
+            <p>
+              This section will tell you where {coinName}'s predicted RBM could
+              objectively mean and what you need to consider to asses if your
+              prediction is feasible or not.
+            </p>
+            {/* <p>{coinName}'s predicted RBM is in the 'Top 10!'</p>
             <p className=' text-appBlue font-bold'>
               Cryptos in the top 10 generally have...
             </p>
@@ -625,35 +616,26 @@ function CoinForecast() {
             <p>
               Does {coinName} meet the above criteria? if not re-consider your
               expectations and change your numbers.
-            </p>
+            </p> */}
           </div>
 
           <div className='prose mt-5 border-t-2 border-appBlue pt-2'>
-            <h4>1 on 1 Comparison</h4>
+            <h4>Quick Predict - Coming Soon</h4>
           </div>
 
           <div className='mt-2 prose'>
             <p>
-              What do compare individual coin RBM's,{' '}
-              <b>
-                don't worry your data is saved as long as you stay within the
-                app.
-              </b>
+              This tool compares your favorite crypto projects. <br />
+              Note: one way to perform a comparison is to check new emerging
+              crypto projects against established ones. Allowing you to better
+              assess the new coin’s potential.
             </p>
-            <p>
-              Why compare coins 1 on 1? A benefit of performing this type of
-              caparison is to compare new emerging crypto projects with the more
-              established in the same industry, to see what the potential of the
-              emerging crypto is, as long as it meets RMB ranking criteria.
-            </p>
-            <button type='button' className=' '>
-              <HashLink
-                smooth
-                className=' text-white no-underline justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md bg-appBlue'
-                to={'/coin-predict#1'}>
-                Go to Quick Compare
-              </HashLink>
-            </button>
+            <AlinkStandardButton
+              text={'Quick Predict'}
+              href={'https://www.beta.coincora.com/quick-predict'}
+              width={'w-32'}
+              color={'bg-appBlue'}
+            />
           </div>
         </>
       )}
