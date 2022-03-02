@@ -595,8 +595,8 @@ function CoinForecast() {
           <div className='prose mt-5 border-t-2 border-appBlue pt-2'>
             <h4>The Analysis - Coming Soon</h4>
             <p>
-              This section will tell you where {coinName}'s predicted RBM could
-              objectively mean and what you need to consider to asses if your
+              This section will tell you what {coinName}'s predicted RBM could
+              objectively mean, and what you need to consider to asses if your
               prediction is feasible or not.
             </p>
             {/* <p>{coinName}'s predicted RBM is in the 'Top 10!'</p>
@@ -624,8 +624,8 @@ function CoinForecast() {
           </div>
 
           <div className='mt-2 prose'>
+            <p>This tool compares your favorite crypto projects.</p>
             <p>
-              This tool compares your favorite crypto projects. <br />
               Note: one way to perform a comparison is to check new emerging
               crypto projects against established ones. Allowing you to better
               assess the new coin’s potential.
