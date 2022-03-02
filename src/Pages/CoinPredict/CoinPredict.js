@@ -412,7 +412,7 @@ function CoinForecast() {
                   </div>
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-                  <div className='flex gap-2 items-center'>
+                  <div className='flex gap-2 items-center border-2 '>
                     <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
                       <Tooltip
                         message={'hey'}
@@ -587,11 +587,6 @@ function CoinForecast() {
             </div>
           </div>
 
-          <div className=' mt-5 py-2 flex flex-col gap-2 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-            <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-              {coinName}'s predicted RBM
-            </div>
-          </div>
           <div className='prose mt-5 border-t-2 border-appBlue pt-2'>
             <h4>The Analysis - Coming Soon</h4>
             <p>
