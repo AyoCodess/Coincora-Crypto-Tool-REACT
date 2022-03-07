@@ -14,18 +14,18 @@ export default function WhatIsRBM() {
   return (
     <>
       <div className='relative bg-white'>
-        <div className='lg:absolute lg:inset-0'>
-          <div className='lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/3'>
+        <div className='t-0'>
+          <div className='t-y-0'>
             <img
-              className='h-56 w-full object-cover lg:absolute lg:h-full'
+              className='h-56 w-full xl:w-[50%] mx-auto  object-cover'
               src='https://i.imgur.com/BY3pgOT.jpg'
               alt=''
             />
           </div>
         </div>
-        <div className='relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-3'>
-          <div className='lg:col-start-2 lg:col-end-4 lg:pl-8'>
-            <div className='text-base max-w-prose mx-auto lg:max-w-6xl lg:ml-auto lg:mr-0'>
+        <div className='relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6'>
+          <div className=' '>
+            <div className='text-base xl:w-[50%] mx-auto w-6xl uto '>
               <h2 className='leading-6 text-indigo-600 font-semibold tracking-wide uppercase'>
                 Help Guide
               </h2>
@@ -36,7 +36,7 @@ export default function WhatIsRBM() {
               <div className='mt-5 prose prose-blue prose-xl text-black'>
                 <div className='p-2 border-2 border-gray-200 rounded-md '>
                   <div className='text-xl font-bold p-4'>Crypto Dictionary</div>
-                  <ul role='list'>
+                  <ul role='list' className='pl-0'>
                     <li>
                       <span className='font-bold'>Market cap</span> = the total
                       amount of money invested into a coin from retail and
@@ -100,7 +100,7 @@ export default function WhatIsRBM() {
                   style={{
                     boxShadow: 'rgba(17, 12, 46, 0.10) 0px 10px 40px 0px',
                   }}
-                  className=' bg-white rounded-lg p-4 flex flex-col mt-5'>
+                  className=' bg-white rounded-flex flex-col mt-5 p-4'>
                   <div className=' text-black font-bold mb-4 border-b border-slate-300 pb-4'>
                     Crypto Market Average RBM's as of Today
                   </div>
@@ -173,7 +173,7 @@ export default function WhatIsRBM() {
                     {' '}
                     Random coin Fundamentals
                   </div>
-                  <ul role='list' className='list-none'>
+                  <ul role='list' className='list-none pl-0'>
                     <li>
                       <span className='font-bold  text-red-500'>
                         Ref Flag -{' '}
@@ -264,7 +264,7 @@ export default function WhatIsRBM() {
                     {' '}
                     Crytek coin Fundamentals
                   </div>
-                  <ul role='list' className='list-none'>
+                  <ul role='list' className='list-none pl-0'>
                     <li>
                       <span className='font-bold  text-green-500'>
                         Green Flag -{' '}
