@@ -13,7 +13,7 @@ export default function TheCommunity() {
       <div className='relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-3'>
         <div className='lg:col-start-2 lg:col-end-4 lg:pl-8'>
           <div className='text-base max-w-prose mx-auto lg:max-w-6xl lg:ml-auto lg:mr-0'>
-            <h2 className='leading-6 text-indigo-600 font-semibold tracking-wide uppercase'>
+            <h2 className='leading-6 text-appBlue font-semibold tracking-wide uppercase'>
               Work with us
             </h2>
             <h3 className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>

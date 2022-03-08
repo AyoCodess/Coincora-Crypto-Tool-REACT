@@ -1,3 +1,5 @@
+import { HashLink } from 'react-router-hash-link';
+
 export default function GoFundMe() {
   return (
     <>
@@ -13,15 +15,69 @@ export default function GoFundMe() {
         </div>
         <div className='relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6'>
           <div className=' '>
-            <div className='text-base xl:w-[50%] mx-auto w-6xl uto '>
-              <h2 className='leading-6 text-indigo-600 font-semibold tracking-wide uppercase'>
+            <div className='text-base xl:w-[50%] mx-auto w-6xl'>
+              <h2 className='leading-6 text-appBlue font-semibold tracking-wide uppercase'>
                 Project Support
               </h2>
-              <h3 className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
+              <h3 className='mt-4 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
                 I need your support to make this project what it's meant to be
               </h3>
 
-              <div className='mt-5 prose prose-blue prose-xl text-black'>
+              <ol className='flex flex-col my-4 gap-2 p-4 text-xl font-bold border-2 border-gray-200 rounded-md max-w-max'>
+                <h3 className='text-2xl py-3'>Contents</h3>
+                <HashLink smooth to='/knowledge-base/GoFundMe#myStory'>
+                  <li className='hover:text-appBlue transition ease-in '>
+                    1. My Story
+                  </li>
+                </HashLink>
+                <HashLink smooth to='/knowledge-base/GoFundMe#codingForGood'>
+                  <li className='hover:text-appBlue transition ease-in '>
+                    2. What is #codingForGood
+                  </li>
+                </HashLink>
+                <HashLink smooth to='/knowledge-base/GoFundMe#whatIsCoincora'>
+                  <li className='hover:text-appBlue transition ease-in '>
+                    3. What is Coincora
+                  </li>
+                </HashLink>
+                <HashLink
+                  smooth
+                  to='/knowledge-base/GoFundMe#whyImBuildingCoincora'>
+                  <li className='hover:text-appBlue transition ease-in '>
+                    4. Why I'm Building Coincora
+                  </li>
+                </HashLink>
+                <HashLink smooth to='/knowledge-base/GoFundMe#whoIsCoincoraFor'>
+                  <li className='hover:text-appBlue transition ease-in '>
+                    5. Who is Coincora For
+                  </li>
+                </HashLink>
+                <HashLink
+                  smooth
+                  to='/knowledge-base/GoFundMe#coincoraCoreFeatures'>
+                  <li className='hover:text-appBlue transition ease-in '>
+                    6. Coincora Core Features
+                  </li>
+                </HashLink>
+                <HashLink
+                  smooth
+                  to='/knowledge-base/GoFundMe#whereIsCoincoraGoing'>
+                  <li className='hover:text-appBlue transition ease-in '>
+                    7. Where is Coincora Going
+                  </li>
+                </HashLink>
+                <HashLink
+                  smooth
+                  to='/knowledge-base/GoFundMe#whyDoINeedSupport'>
+                  <li className='hover:text-appBlue transition ease-in '>
+                    8. Why do I need Support?
+                  </li>
+                </HashLink>
+              </ol>
+
+              <div
+                id='myStory'
+                className='mt-5 prose prose-blue prose-xl text-black'>
                 <p>
                   Originally from London, I am currently based in Sweden with my
                   partner - who’s a psychosomatic therapist by trade.{' '}
@@ -90,9 +146,11 @@ export default function GoFundMe() {
                   This is a log of all the hours I put into my education leading
                   up to my first paid internship as a React Developer.{' '}
                 </p>
-                I also have a blog documenting the first six months of my
-                journey here. Though I’ve spent less time on it lately as I'm
-                too occupied doing ‘the actual work.’
+                <p>
+                  I also have a blog documenting the first six months of my
+                  journey here. Though I’ve spent less time on it lately as I'm
+                  too occupied doing ‘the actual work.’
+                </p>
                 <p>
                   Not gonna lie; as much as I enjoy my coding journey, it's been
                   extremely challenging to pursue projects that embody the
@@ -116,7 +174,7 @@ export default function GoFundMe() {
                 <p>
                   If this resonates with you so far, read on for more details.
                 </p>
-                <h2>What is #codingForGood</h2>
+                <h2 id='codingForGood'>What is #codingForGood</h2>
                 <p>
                   The “coding for good” hashtag refers to projects centered
                   around making technology accessible in ways that help
@@ -126,7 +184,7 @@ export default function GoFundMe() {
                   Think solutions that aim to bring balance, health, and harmony
                   to the planet and humanity.{' '}
                 </p>
-                <h2>What is Coincora</h2>
+                <h2 id='whatIsCoincora'>What is Coincora</h2>
                 <p>
                   Coincora is a coin forecasting tool and information hub for
                   traversing the crypto market safely and securely.{' '}
@@ -146,7 +204,7 @@ export default function GoFundMe() {
                   aren’t highly sophisticated in crypto. Which, let’s be honest,
                   is most of us.{' '}
                 </p>
-                <h2>Why I'm building Coincora</h2>
+                <h2 id='whyImBuildingCoincora'>Why I'm building Coincora</h2>
                 <p>
                   Like many crypto early adopters, I and countless others have
                   been ruthlessly scammed.{' '}
@@ -165,9 +223,11 @@ export default function GoFundMe() {
                   Around 0.0001% of all crypto investors who fell for this trick
                   may have landed safely on the moon.{' '}
                 </p>
-                While the rest of us, the 99.999%, didn't even take off. We’re
-                still down here licking our wounds from all the money and
-                opportunities lost.
+                <p>
+                  While the rest of us, the 99.999%, didn't even take off. We’re
+                  still down here licking our wounds from all the money and
+                  opportunities lost.
+                </p>
                 <p>
                   Some of us lost everything we had, including our trust in the
                   integrity of the crypto space as a whole.
@@ -208,7 +268,7 @@ export default function GoFundMe() {
                   some, if not all, pitfalls and scams we early adopters had to
                   endure.
                 </p>
-                <h2>Who is Coincora for</h2>
+                <h2 id='whoIsCoincoraFor'>Who is Coincora for</h2>
                 <p>
                   The average crypto investor wants to secure their own and
                   their family's financial future.{' '}
@@ -232,7 +292,7 @@ export default function GoFundMe() {
                   only concerned with answering the three core questions that
                   the average crypto investor wants answers to.{' '}
                 </p>
-                <ol className='pl-0'>
+                <ol className='pl-0 font-bold text-red-500'>
                   <li>Is the coin I'm investing into a scam?</li>
                   <li>Can the coin I’m interested in make me money?</li>
                   <li>How can I protect myself from losing money in crypto?</li>
@@ -242,7 +302,7 @@ export default function GoFundMe() {
                   fast.’ Hence, all the above is delivered simply and
                   user-friendly on a clear interface.{' '}
                 </p>
-                <h2>Coincora core features</h2>
+                <h2 id='coincoraCoreFeatures'>Coincora core features</h2>
                 <p>
                   Main feature: Coin Predict - Set investment return targets
                   based on current or potential investments you want to make or
@@ -254,13 +314,13 @@ export default function GoFundMe() {
                   bitcoin market cap ratio + industry and play out different
                   scenarios to gauge what your wisest move is.
                 </p>
-                <h2>Where is Coincora going</h2>
+                <h2 id='whereIsCoincoraGoing'>Where is Coincora going</h2>
                 <p>
                   Coincora aims to be an interactive, invaluable hub of relevant
                   tools and information for the average crypto investor, aiding
                   wise crypto decision making.{' '}
                 </p>
-                <h2>Why do I need support?</h2>
+                <h2 id='whyDoINeedSupport'>Why do I need support?</h2>
                 <p>
                   Currently, I work full-time as a React Web Developer intern
                   for a health software company based in London.{' '}
@@ -299,8 +359,15 @@ export default function GoFundMe() {
                   If you’ve read this far, I’d like to thank you from the bottom
                   of my passionate heart for your time and support.{' '}
                 </p>
-                <p>Let’s build our wealth together,</p>
-                <p>Ayo</p>
+                <p className='font-bold'>
+                  Let’s build our wealth together,
+                  <br />
+                  <span
+                    className='font-bold
+                '>
+                    Ayo
+                  </span>
+                </p>
               </div>
             </div>
           </div>

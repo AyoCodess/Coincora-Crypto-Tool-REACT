@@ -29,7 +29,7 @@ export default function WhatIsRBM() {
               <h2 className='leading-6 text-indigo-600 font-semibold tracking-wide uppercase'>
                 Help Guide
               </h2>
-              <h3 className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
+              <h3 className='mt-4 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
                 What’s ‘RBM’ and the ‘Fundamentals’?
               </h3>
 
