@@ -17,7 +17,7 @@ function KnowledgeBase() {
             Please subscribe to our blog and get the latest information.
           </p>
         </div>
-        <div className='mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-2 xl:grid-cols-3 lg:max-w-none'>
+        <div className='mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-2 xl:grid-cols-2 lg:max-w-none'>
           {posts.map((post) => (
             <div
               key={post.title}
