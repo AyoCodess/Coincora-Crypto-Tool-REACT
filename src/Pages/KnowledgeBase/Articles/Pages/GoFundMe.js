@@ -22,250 +22,285 @@ export default function GoFundMe() {
               </h3>
 
               <div className='mt-5 prose prose-blue prose-xl text-black'>
-                <div className='p-2 border-2 border-gray-200 rounded-md '>
-                  <div className='text-xl font-bold p-4'>Crypto Dictionary</div>
-                  <ul role='list' className='pl-0'>
-                    <li>
-                      <span className='font-bold'>Market cap</span> = the total
-                      amount of money invested into a coin from retail and
-                      institutional investors
-                    </li>
-                    <li>
-                      <sapn className='font-bold'>RBM</sapn> = stands for Ratio
-                      to Bitcoin’s Market cap
-                    </li>
-                    <li>
-                      <span className='font-bold'>Altcoins</span> = short for
-                      “alternative coins” meaning cryptocurrencies other than
-                      Bitcoin
-                    </li>
-                  </ul>
-                </div>
                 <p>
-                  Bitcoin, since the inception of crypto, has led all other
-                  crypto coins.{' '}
-                </p>
-                <p>In simple terms, if Bitcoin goes up, so do altcoins. </p>
-                <p>
-                  The same dynamic is true for the opposite direction. If
-                  Bitcoin goes down, altcoins drop just as fast, if not faster.
+                  Originally from London, I am currently based in Sweden with my
+                  partner - who’s a psychosomatic therapist by trade.{' '}
                 </p>
                 <p>
-                  This is why it’s useful to understand Bitcoin’s market cap and
-                  how its behaviour influences the rest of the crypto market as
-                  a whole.
+                  To cut a long but inspiring story short (hit me up if you want
+                  to hear the non-abridged version), I have a speech impediment.
+                  A medium to severe (depending on the situation)
+                  stutter/stammer.
                 </p>
                 <p>
-                  An altcoin’s current market cap size in relation to bitcoin’s
-                  - coupled with its ‘fundamentals’ - should influence how,
-                  when, and what amount you choose to invest.
-                </p>
-                <div className='text-xl font-bold p-4'> The Fundamentals</div>
-                <p>
-                  Fundamentals are what hold a crypto project together. They
-                  help you estimate the authenticity and objective value of a
-                  coin by looking at a wide range of factors.
+                  For most of my life, it debilitated me personally and
+                  professionally. Almost leading me to the point of no return in
+                  December 2016.{' '}
                 </p>
                 <p>
-                  In Coincora’s opinion, investing in crypto should be primarily
-                  based on the fundamentals of the coin
-                </p>
-                <div className='text-xl font-bold p-4'>
-                  {' '}
-                  How is this useful to me?
-                </div>
-                <p>
-                  The RBM can be a useful tool (depending on your investment
-                  strategy) to help you assess if a coin is a worthwhile
-                  investment.{' '}
+                  Thankfully, I found a way out of that and now help run a
+                  charity supporting people who suffer from stuttering called
+                  Stop Holding Back.
                 </p>
                 <p>
-                  RBM is particularly useful for long-term investment decisions:
-                  investments that look at crypto from a 3 to 10-year scope.
-                </p>
-
-                <p
-                  className=' text-2xl mt-10
-                 font-bold'>
-                  Examples
-                </p>
-                <p className='text-2xl font-bold  text-appBlue'>
-                  {' '}
-                  How NOT to use RBM
-                </p>
-                <p className='italic text-2xl'>In another universe…</p>
-                <p>
-                  <b> Bitcoin’s market cap is $1,000,000</b>
-                  <br />
-                  <b> Random Coin’s market cap is $10,000</b>
-                </p>
-                <div className='p-2 border-2 border-gray-200 rounded-md '>
-                  <div className='text-xl font-bold p-4'>
-                    {' '}
-                    Random coin Fundamentals
-                  </div>
-                  <ul role='list' className='list-none pl-0'>
-                    <li>
-                      <span className='font-bold  text-red-500'>
-                        Ref Flag -{' '}
-                      </span>{' '}
-                      Anonymous team
-                    </li>
-                    <li>
-                      <sapn className='font-bold text-red-500'>
-                        Red Flag -{' '}
-                      </sapn>{' '}
-                      Seeming pressure to buy now from all angles.
-                    </li>
-                    <li>
-                      <span className='font-bold text-red-500'>
-                        Red Flag -{' '}
-                      </span>{' '}
-                      Unrealistic Promises at launch and overselling.
-                    </li>
-                    <li>
-                      <span className='font-bold text-red-500'>
-                        Red Flag -{' '}
-                      </span>{' '}
-                      Aggressive YouTube or Telegram Accounts.
-                    </li>
-                    <li>
-                      <span className='font-bold text-red-500'>
-                        Red Flag -{' '}
-                      </span>{' '}
-                      Aggressive free giveaway of coins at pre-launch.
-                    </li>
-                    <li>
-                      <span className='font-bold text-red-500'>
-                        Red Flag -{' '}
-                      </span>{' '}
-                      Has been in an unsustainable uptrend in price in the last
-                      few weeks or even days.
-                    </li>
-                    <li>
-                      <span className='font-bold text-yellow-500'>
-                        Yellow Flag -{' '}
-                      </span>{' '}
-                      Only 3 months old.
-                    </li>
-                  </ul>
-                </div>
-                <p className='text-xl font-bold px-4 mt-10 '>Assessment </p>
-
-                <p>
-                  Based on the RBM alone this looks extremely promising at face
-                  value and suggests it has a lot of room to grow and could be a
-                  lucrative investment.
+                  In May 2020, I quit a relatively good-paying job as a train
+                  signal technician and left my friends and family behind - for
+                  a shot at love with someone I met online who lived in Sweden.{' '}
                 </p>
                 <p>
-                  But if we take into consideration its fundamentals, we get a
-                  vastly different picture.
+                  All in the middle of Brexit and ehrm, a global pandemic. I
+                  know, I know, some of you will think I’m crazy for it 😁
+                  (spoiler, despite some hurdles, it did work out in the end).
                 </p>
                 <p>
-                  There could be a whole host of potential other red and yellow
-                  flags, especially with a name like “random coin”.
+                  Speaking of hurdles, there I was, in a foreign country where I
+                  couldn't speak the language, and my previous job skills
+                  weren’t readily applicable.{' '}
                 </p>
                 <p>
-                  Always ensure you DYOR (do your own research) and consult
-                  experts or people with crypto experience you trust before you
-                  make investment decisions.
-                </p>
-                <p>RBM should never be used in isolation. </p>
-                <p className='font-bold'>
-                  Use Coin Predict in Coincora to assess a coin's fundamentals
-                  along with the RBM to help you assess any coin from our
-                  current list.
-                </p>
-                <p className='text-2xl font-bold mt-10 text-appBlue'>
-                  {' '}
-                  How NOT to use RBM
-                </p>
-                <p className='italic text-2xl'>In another universe…</p>
-                <p>
-                  <b> Bitcoin’s market cap is $1,000,000</b>
-                  <br />
-                  <b> Crytek's market cap is $40,000</b>
-                </p>
-                <div className='p-2 border-2 border-gray-200 rounded-md '>
-                  <div className='text-xl font-bold p-4'>
-                    {' '}
-                    Crytek coin Fundamentals
-                  </div>
-                  <ul role='list' className='list-none pl-0'>
-                    <li>
-                      <span className='font-bold  text-green-500'>
-                        Green Flag -{' '}
-                      </span>{' '}
-                      Crytek coin has been around for 18 months and is active.
-                    </li>
-                    <li>
-                      <sapn className='font-bold text-green-500'>
-                        Green Flag -{' '}
-                      </sapn>{' '}
-                      The team is public and relatively accessible online.
-                    </li>
-                    <li>
-                      <span className='font-bold text-green-500'>
-                        Green Flag -{' '}
-                      </span>{' '}
-                      They have partnerships and ties with some top 100 crypto
-                      projects.
-                    </li>
-                    <li>
-                      <span className='font-bold text-green-500'>
-                        Green Flag -{' '}
-                      </span>{' '}
-                      They solve a unique problem and are 1 of only 3 projects
-                      trying to solve the same problem.
-                    </li>
-                    <li>
-                      <span className='font-bold text-green-500'>
-                        Green Flag -{' '}
-                      </span>{' '}
-                      They are the 2nd most popular of the three, with some
-                      institutional investors showing some interest.
-                    </li>
-                    <li>
-                      <span className='font-bold text-green-500'>
-                        Green Flag -{' '}
-                      </span>{' '}
-                      They have a working beta product.
-                    </li>
-                  </ul>
-                </div>
-                <p className='text-xl font-bold mt-10 px-4 '>Assessment </p>
-                <p>
-                  <b>Crytek's RBM is 4%.</b> Comparing it to our crypto market
-                  RBM reference list, it sits somewhere between the top 10 to 50
-                  crypto rankings.
-                </p>
-
-                <p>
-                  This indicates Crytek is possibly established and is
-                  potentially a relatively safer investment than other projects
-                  with a smaller RBM's, especially when taking into
-                  consideration its fundamentals.
+                  In this messy uncertainty, I was forced to try and reconnect
+                  with my true desires and figure out what I wanted to do in
+                  life.
                 </p>
                 <p>
-                  When it comes to using coin predict to asses the Crytek's
-                  future potential, Crytek's current RBM will help you create
-                  more realistic predictions depending on your time frames.
+                  After a lot of banging my head against a wall and a few mild
+                  anxiety attacks, I began remembering my passion for coding.
                 </p>
                 <p>
-                  Crytek has very strong fundamentals which indicate a less
-                  risker opportunity. With strong fundamentals and an RBM with
-                  still room to room to grow, it seems promising.
+                  The idea of using technology to create something that never
+                  existed before intrinsically motivated me like nothing else.{' '}
                 </p>
-
-                <p> Can it become a network? DYOR.</p>
-
                 <p>
-                  Coincora helps you make a quick & effective initial assessment
-                  of cryptocurrencies depending on your investment strategy.
+                  To me, coding has always felt like a sort of alchemy: the
+                  process of turning an abstract vision in my head into
+                  something tangible and valuable that makes a difference.{' '}
                 </p>
-                <p className='font-bold'>
-                  Check out Coin predict to assess your Crypto picks.
+                <p>
+                  As I said yes to this career path, I realised it's like a
+                  superpower that was always available to me. I only had to
+                  commit, do the work, and claim it. So I did (or attempting to,
+                  haha).
                 </p>
+                <p>
+                  In March 2021, I took the plunge and went 'all in' on coding.
+                  I taught myself how to code to a level where I could build
+                  interactive websites and basic web apps. Check this out!
+                </p>
+                <p>
+                  This is a log of all the hours I put into my education leading
+                  up to my first paid internship as a React Developer.{' '}
+                </p>
+                I also have a blog documenting the first six months of my
+                journey here. Though I’ve spent less time on it lately as I'm
+                too occupied doing ‘the actual work.’
+                <p>
+                  Not gonna lie; as much as I enjoy my coding journey, it's been
+                  extremely challenging to pursue projects that embody the
+                  message of #codingForGood without a steady income.{' '}
+                </p>
+                <p>
+                  I'm super excited about where I'm heading with coding, but I’m
+                  at a place where the vision is too great for me to implement
+                  all on my own. That’s where you come in, friend.
+                </p>
+                <p>
+                  See, I’ve invested a lot of time and energy in creating a
+                  solution that saves people from getting scammed when dealing
+                  with the currencies of our future: crypto.
+                </p>
+                <p>
+                  This project is coming together beautifully, and with the
+                  proper support, I know it has the power to protect people and
+                  their money in significant ways.{' '}
+                </p>
+                <p>
+                  If this resonates with you so far, read on for more details.
+                </p>
+                <h2>What is #codingForGood</h2>
+                <p>
+                  The “coding for good” hashtag refers to projects centered
+                  around making technology accessible in ways that help
+                  communities prosper.
+                </p>
+                <p>
+                  Think solutions that aim to bring balance, health, and harmony
+                  to the planet and humanity.{' '}
+                </p>
+                <h2>What is Coincora</h2>
+                <p>
+                  Coincora is a coin forecasting tool and information hub for
+                  traversing the crypto market safely and securely.{' '}
+                </p>
+                <p>
+                  It allows you to compare and analyse the crypto market quickly
+                  and objectively to help facilitate wiser investments.
+                </p>
+                <p>
+                  Simplicity is the central core value at play here. Coincora
+                  strips away the techy complexity that leaves you feeling
+                  perplexed, and instead offers a seamless and intuitive user
+                  experience.
+                </p>
+                <p>
+                  I’m building this game-changing platform for investors who
+                  aren’t highly sophisticated in crypto. Which, let’s be honest,
+                  is most of us.{' '}
+                </p>
+                <h2>Why I'm building Coincora</h2>
+                <p>
+                  Like many crypto early adopters, I and countless others have
+                  been ruthlessly scammed.{' '}
+                </p>
+                <p>
+                  Sadly, our minds got hijacked by all kinds of charismatic
+                  influencers. They promised we’d “get to the moon” if we
+                  invested $500 in X coin and “turn it into $100,000 before ‘the
+                  crash’”.{' '}
+                </p>
+                <p>
+                  If that doesn’t sound too familiar to you, you’re either very
+                  lucky or brand new to crypto.{' '}
+                </p>
+                <p>
+                  Around 0.0001% of all crypto investors who fell for this trick
+                  may have landed safely on the moon.{' '}
+                </p>
+                While the rest of us, the 99.999%, didn't even take off. We’re
+                still down here licking our wounds from all the money and
+                opportunities lost.
+                <p>
+                  Some of us lost everything we had, including our trust in the
+                  integrity of the crypto space as a whole.
+                </p>
+                <p>
+                  Leaving us so traumatised by the experience that we’re scared
+                  to ever return to crypto.{' '}
+                </p>
+                <p>
+                  From this hurt place, it would be easy to assume that all of
+                  crypto is a scam. But I assure you, it’s not.{' '}
+                </p>
+                <p>
+                  The core social tech contribution of crypto, in my view, is to
+                  bank the unbanked (borrowed from cardano){' '}
+                </p>
+                <p>
+                  Allowing every person on this planet with an internet
+                  connection an equal opportunity to better their quality of
+                  life by participating in decentralised finance.{' '}
+                </p>
+                <p>
+                  Giving us the ability to send, receive, earn and invest money
+                  on an even playing field.{' '}
+                </p>
+                <p>
+                  Crypto doesn’t mind where you’re from or what gender,
+                  educational level, or race you are - it’s inherently
+                  inclusive. How’s that for a refreshing change?!
+                </p>
+                <p>
+                  I'm building this project primarily so newcomers can have a
+                  safe and enjoyable experience when interacting with crypto for
+                  the first time.{' '}
+                </p>
+                <p>
+                  In the hopes that it will restore some trust + help them avoid
+                  some, if not all, pitfalls and scams we early adopters had to
+                  endure.
+                </p>
+                <h2>Who is Coincora for</h2>
+                <p>
+                  The average crypto investor wants to secure their own and
+                  their family's financial future.{' '}
+                </p>
+                <p>
+                  They typically don’t have the energy or time to study crypto
+                  back to front.{' '}
+                </p>
+                <p>
+                  Their lack of knowledge makes them vulnerable to poor
+                  investment choices in a super young, volatile, and largely
+                  unregulated market. These unwise choices are all but
+                  avoidable.{' '}
+                </p>
+                <p>
+                  There are many crypto analysis tools out there and blogs
+                  offering pathways into crypto investing.{' '}
+                </p>
+                <p>
+                  Coincora app aims to join this wealth of information but is
+                  only concerned with answering the three core questions that
+                  the average crypto investor wants answers to.{' '}
+                </p>
+                <ol className='pl-0'>
+                  <li>Is the coin I'm investing into a scam?</li>
+                  <li>Can the coin I’m interested in make me money?</li>
+                  <li>How can I protect myself from losing money in crypto?</li>
+                </ol>
+                <p>
+                  I’m building the app on the ethos of ‘getting to the point,
+                  fast.’ Hence, all the above is delivered simply and
+                  user-friendly on a clear interface.{' '}
+                </p>
+                <h2>Coincora core features</h2>
+                <p>
+                  Main feature: Coin Predict - Set investment return targets
+                  based on current or potential investments you want to make or
+                  have made, and predict if the coin can produce the returns you
+                  want.{' '}
+                </p>
+                <p>
+                  Quick Predict - Compare coins based on their market cap or
+                  bitcoin market cap ratio + industry and play out different
+                  scenarios to gauge what your wisest move is.
+                </p>
+                <h2>Where is Coincora going</h2>
+                <p>
+                  Coincora aims to be an interactive, invaluable hub of relevant
+                  tools and information for the average crypto investor, aiding
+                  wise crypto decision making.{' '}
+                </p>
+                <h2>Why do I need support?</h2>
+                <p>
+                  Currently, I work full-time as a React Web Developer intern
+                  for a health software company based in London.{' '}
+                </p>
+                <p>
+                  Their ethics and the projects they pursue align with my
+                  #codeForGood ethos. They’re bringing about real social impact
+                  through the healthcare software they build, supporting
+                  hospitals and patient care services across the board.{' '}
+                </p>
+                <p>
+                  As an intern, my earnings aren’t enough to support myself. So
+                  instead of looking for other jobs to supplement my income, I’m
+                  committed to birthing Coincora and helping protect people from
+                  being financially burned by crypto.{' '}
+                </p>
+                <p>
+                  With this, I aim to keep them safely and happily engaged in
+                  the currency of our future.
+                </p>
+                <p>
+                  Having been involved in crypto since 2018, I suffered some
+                  devastating losses due to ignorance, greed, and lack of
+                  knowledge.{' '}
+                </p>
+                <p>
+                  I now know that it doesn’t have to be this way for newbies,
+                  and I wish this kind of resource were available when I needed
+                  it the most.{' '}
+                </p>
+                <p>
+                  Crypto investing can be safe and fruitful. Coincora is here to
+                  make sure of that.{' '}
+                </p>
+                <p>
+                  If you’ve read this far, I’d like to thank you from the bottom
+                  of my passionate heart for your time and support.{' '}
+                </p>
+                <p>Let’s build our wealth together,</p>
+                <p>Ayo</p>
               </div>
             </div>
           </div>
