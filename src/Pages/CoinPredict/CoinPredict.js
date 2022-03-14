@@ -65,6 +65,13 @@ function CoinForecast() {
   const [profit, setProfit] = useState('');
   const [xTimesProfit, setXTimesProfit] = useState('');
 
+  // - form questions logic
+
+  const [doYouOwnAnyCoin, setDoYouOwnAnyCoin] = useState(false);
+  const [doYouWantToBuyMoreCoin, setDoYouWantToBuyMoreCoin] = useState(false);
+
+  console.log({ doYouWantToBuyMoreCoin });
+
   // - form
   useEffect(() => {
     if (selectedFromDropdown) {
@@ -314,102 +321,206 @@ function CoinForecast() {
                   </p>
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-                  <div className='flex gap-2 items-center '>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`Total Amount of ${coinName} you
-                      own?`}
-                      />
-                    </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithNoIconOnChange
-                        onChange={(e) => {
-                          if (e.target.value === '') {
-                            return 0;
-                          } else {
-                            setTotalAmountOwned(e.target.valueAsNumber);
-                          }
-                        }}
-                      />
-                    )}
+                  <div>
+                    <label className='text-base font-medium text-gray-900'>
+                      {`Do you own any ${coinName}?`}
+                    </label>
+                    <p className='text-sm leading-5 text-gray-500'>
+                      The form will update automatically
+                    </p>
+                    <fieldset className='mt-4'>
+                      <div className='space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10'>
+                        <div key={'yesMore'} className='flex items-center'>
+                          <input
+                            onChange={() => {
+                              setDoYouOwnAnyCoin(true);
+                            }}
+                            id={'yesMore'}
+                            name='notification-method'
+                            type='radio'
+                            className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                          />
+                          <label
+                            htmlFor={'yesMore'}
+                            className='ml-3 block text-sm font-medium text-gray-700'>
+                            Yes
+                          </label>
+                        </div>
+                        <div key={'noMore'} className='flex items-center'>
+                          <input
+                            onChange={() => {
+                              setDoYouOwnAnyCoin(false);
+                            }}
+                            id={'noMore'}
+                            name='notification-method'
+                            type='radio'
+                            defaultChecked={doYouOwnAnyCoin === false}
+                            className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                          />
+                          <label
+                            htmlFor={'noMore'}
+                            className='ml-3 block text-sm font-medium text-gray-700'>
+                            No
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
                   </div>
-                  <div className='flex gap-2 items-center '>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`Average price you bought ${coinName} at?`}
-                      />
+
+                  {doYouOwnAnyCoin && (
+                    <div>
+                      <div className='flex gap-2 items-center mt-5 '>
+                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                          <Tooltip
+                            message={'hey'}
+                            title={`Total Amount of ${coinName} you
+                          own?`}
+                          />
+                        </div>
+                        {selectedFromDropdown && (
+                          <InputTextWithNoIconOnChange
+                            onChange={(e) => {
+                              if (e.target.value === '') {
+                                return 0;
+                              } else {
+                                setTotalAmountOwned(e.target.valueAsNumber);
+                              }
+                            }}
+                          />
+                        )}
+                      </div>
+                      <div className='flex gap-2 items-center '>
+                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                          <Tooltip
+                            message={'hey'}
+                            title={`Average price you bought ${coinName} at?`}
+                          />
+                        </div>
+                        {selectedFromDropdown && (
+                          <InputTextWithDollarIconOnChange
+                            onChange={(e) => {
+                              if (e.target.value === '') {
+                                return 0;
+                              } else {
+                                setAvgPriceBought(e.target.valueAsNumber);
+                              }
+                            }}
+                          />
+                        )}
+                      </div>
+                      <div className='flex gap-2 items-center '>
+                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                          <Tooltip
+                            message={'hey'}
+                            title={`How much profit or loss have you made on ${coinName} so far?`}
+                          />
+                        </div>
+                        {selectedFromDropdown && (
+                          <InputTextWithDollarIconOnChange
+                            onChange={(e) => {
+                              if (e.target.value === '') {
+                                return 0;
+                              } else {
+                                setPreviousProfit(e.target.valueAsNumber);
+                              }
+                            }}
+                          />
+                        )}
+                      </div>
                     </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithDollarIconOnChange
-                        onChange={(e) => {
-                          if (e.target.value === '') {
-                            return 0;
-                          } else {
-                            setAvgPriceBought(e.target.valueAsNumber);
-                          }
-                        }}
-                      />
-                    )}
-                  </div>
-                  <div className='flex gap-2 items-center '>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`How much profit or loss have you made on ${coinName} so far?`}
-                      />
+                  )}
+
+                  {doYouOwnAnyCoin && (
+                    <div className='mt-4'>
+                      <label className='text-base font-medium text-gray-900'>
+                        {`Are you going to buy any more ${coinName}?`}
+                      </label>
+                      <p className='text-sm leading-5 text-gray-500'>
+                        The form will update automatically
+                      </p>
+
+                      <fieldset className='mt-4'>
+                        <div className='space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10'>
+                          <div key={'yes'} className='flex items-center'>
+                            <input
+                              onChange={() => {
+                                setDoYouWantToBuyMoreCoin(true);
+                              }}
+                              id={'yesMore'}
+                              name='more'
+                              type='radio'
+                              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                            />
+                            <label
+                              htmlFor={'yesMore'}
+                              className='ml-3 block text-sm font-medium text-gray-700'>
+                              Yes
+                            </label>
+                          </div>
+                          <div key={'noMore'} className='flex items-center'>
+                            <input
+                              onChange={() => {
+                                setDoYouWantToBuyMoreCoin(false);
+                              }}
+                              id={'noMore'}
+                              name='more'
+                              type='radio'
+                              defaultChecked={doYouWantToBuyMoreCoin === false}
+                              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                            />
+                            <label
+                              htmlFor={'noMore'}
+                              className='ml-3 block text-sm font-medium text-gray-700'>
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
                     </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithDollarIconOnChange
-                        onChange={(e) => {
-                          if (e.target.value === '') {
-                            return 0;
-                          } else {
-                            setPreviousProfit(e.target.valueAsNumber);
-                          }
-                        }}
-                      />
-                    )}
-                  </div>
-                  <div className='flex gap-2 items-center '>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={` If you want to buy more ${coinName}, how much (Units)?`}
-                      />
+                  )}
+
+                  {doYouWantToBuyMoreCoin && (
+                    <div>
+                      <div className='flex gap-2 items-center mt-4'>
+                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                          <Tooltip
+                            message={'hey'}
+                            title={` If you want to buy more ${coinName}, how much (Units)?`}
+                          />
+                        </div>
+                        {selectedFromDropdown && (
+                          <InputTextWithNoIconOnChange
+                            onChange={(e) => {
+                              if (e.target.value === '') {
+                                return 0;
+                              } else {
+                                setBuyMore(e.target.valueAsNumber);
+                              }
+                            }}
+                          />
+                        )}
+                      </div>
+                      <div className='flex gap-2 items-center'>
+                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
+                          <Tooltip
+                            message={'hey'}
+                            title={`Average price you think you will buy more ${coinName} at?`}
+                          />
+                        </div>
+                        {selectedFromDropdown && (
+                          <InputTextWithDollarIconOnChange
+                            onChange={(e) => {
+                              if (e.target.value === '') {
+                                return 0;
+                              } else {
+                                setAvgFuturePriceBought(e.target.valueAsNumber);
+                              }
+                            }}
+                          />
+                        )}
+                      </div>
                     </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithNoIconOnChange
-                        onChange={(e) => {
-                          if (e.target.value === '') {
-                            return 0;
-                          } else {
-                            setBuyMore(e.target.valueAsNumber);
-                          }
-                        }}
-                      />
-                    )}
-                  </div>
-                  <div className='flex gap-2 items-center'>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`Average price you think you will buy more ${coinName} at?`}
-                      />
-                    </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithDollarIconOnChange
-                        onChange={(e) => {
-                          if (e.target.value === '') {
-                            return 0;
-                          } else {
-                            setAvgFuturePriceBought(e.target.valueAsNumber);
-                          }
-                        }}
-                      />
-                    )}
-                  </div>
+                  )}
                 </div>
                 <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
                   <div className='flex gap-2 items-center border-2 '>
