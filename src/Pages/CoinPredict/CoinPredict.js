@@ -350,6 +350,7 @@ function CoinForecast() {
                           <input
                             onChange={() => {
                               setDoYouOwnAnyCoin(false);
+                              setDoYouWantToBuyMoreCoin(false);
                             }}
                             id={'noMore'}
                             name='notification-method'
