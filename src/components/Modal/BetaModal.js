@@ -62,8 +62,13 @@ export default function BetaModal() {
                     Version Beta: V.05 | Release: 18/3/22
                   </Dialog.Title>
                   <div className='mt-2'>
+                    <p>
+                      <b>
+                        Please use a DESKTOP to view the this page optimally.
+                      </b>
+                    </p>
                     <p className='text-sm text-gray-500'>
-                      Coin predict is constantly being updated. Everything
+                      . Coin predict is constantly being updated. Everything
                       within this page is subject to change and is in early
                       stage development. If you have any issues or feedback
                       contact me directly.
