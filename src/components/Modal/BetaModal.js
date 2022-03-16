@@ -63,11 +63,9 @@ export default function BetaModal() {
                   </Dialog.Title>
                   <div className='mt-2'>
                     <p>
-                      <b>
-                        Please use a DESKTOP to view the this page optimally.
-                      </b>
+                      <b>Please use a DESKTOP to view the page optimally.</b>
                     </p>
-                    <p className='text-sm text-gray-500'>
+                    <p className='text-sm text-gray-500 font-semibold mt-2'>
                       Coin predict is constantly being updated. Everything
                       within this page is subject to change and is in early
                       stage development. If you have any issues or feedback
@@ -81,7 +79,7 @@ export default function BetaModal() {
                   type='button'
                   className='w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-500 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 sm:ml-3 sm:w-auto sm:text-sm'
                   onClick={() => setOpenBetaModal(false)}>
-                  I Understand
+                  Got It!
                 </button>
                 {/* <button
                   type='button'

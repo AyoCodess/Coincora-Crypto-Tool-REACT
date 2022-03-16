@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,AAAC,CACd,UAAU,CAAE,IAAI,CACjB,AAED,AAAA,QAAQ,AAAC,CACP,gBAAgB,CAAE,GAAG,CACrB,KAAK,CAAE,KAAK,CACb",
+    "sources": [
+        "../../src/AppFrame/NavbarLayout.scss"
+    ],
+    "names": [],
+    "file": "NavbarLayout.min.css"
+}
