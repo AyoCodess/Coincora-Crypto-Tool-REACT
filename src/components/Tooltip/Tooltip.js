@@ -9,7 +9,7 @@ function Tooltip({ message, title, button }) {
   return (
     <>
       {' '}
-      <div className='flex justify-between'>
+      <div className='flex flex-col gap-2  justify-between'>
         <Tippy
           arrow={true}
           content={<span className='text-lg'>{message}</span>}>
