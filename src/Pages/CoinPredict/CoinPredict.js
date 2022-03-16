@@ -10,6 +10,9 @@ import YourPrediction from '../../components/CoinPredictForm/YourPrediction';
 import YourResults from '../../components/CoinPredictForm/YourResults';
 import YourAssessment from '../../components/CoinPredictForm/YourAssessment';
 import CoinInformation from '../../components/CoinPredictForm/CoinInformation';
+import Modal from '../../components/Modal/Modal';
+import GeneralModal from '../../components/Modal/BetaModal';
+import BetaModal from '../../components/Modal/BetaModal';
 
 function CoinForecast() {
   const {
@@ -26,6 +29,8 @@ function CoinForecast() {
     top500CryptoRBM,
     top1000CryptoRBM,
     ethRBM,
+    open,
+    setOpen,
   } = useContext(DataContext);
 
   const [coinCurrentRBM, setCoinCurrentRMB] = useState(0);
@@ -235,6 +240,7 @@ function CoinForecast() {
 
       {complete && (
         <>
+          <BetaModal />
           <div className='prose mb-5'>
             <h3 className='text-appBlue'>Coin Predict</h3>
             <p>

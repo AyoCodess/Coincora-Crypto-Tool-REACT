@@ -33,7 +33,7 @@ function App() {
   let mobileHeadline = 'Beta v.1 release - Announcement soon';
   let desktopHeadline =
     "Big news! We're excited to release Beta v.1 of the app very soon.";
-  // - Modal Logic
+  // - Modal Logic for newbies
   const [open, setOpen] = useState(false);
   const [openNews, setOpenNews] = useState(true);
   const [openDisclaimer, setOpenDisclaimer] = useState(true);
@@ -76,7 +76,11 @@ function App() {
               />
               <Routes>
                 <Route path='*' exact element={<GoogleForm />}></Route>
-                <Route path='/coin-predict' element={<CoinForecast />}></Route>
+                <Route
+                  path='/coin-predict'
+                  element={
+                    <CoinForecast open={open} setOpen={setOpen} />
+                  }></Route>
                 <Route path='/quick-predict' element={<QuickCompare />}></Route>
                 <Route path='/mission' element={<GoFundMe />}></Route>
                 <Route path='/legal' element={<Legal />}></Route>
