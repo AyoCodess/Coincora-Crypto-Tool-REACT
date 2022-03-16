@@ -43,7 +43,7 @@ function GoogleForm() {
           </div>
         </form>
         <p className='w-full text-center text-3xl mt-10 text-gray-300 hover:text-gray-500 transition ease-in-out duration-700'>
-          Predict. Profit. Conquer
+          Lowering risk and ambiguity in crypto-investing
         </p>
       </div>
     </>
