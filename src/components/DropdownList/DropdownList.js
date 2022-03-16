@@ -44,6 +44,7 @@ export default function Example() {
               <input
                 type='text'
                 className='pt-1'
+                placeholder='search "btc" or "bitcoin"'
                 onChange={(e) => {
                   setOpenDropdown(true);
 

@@ -16,7 +16,7 @@ function CoinInformation({
   return (
     <>
       <div className='prose  border-t-2 border-appBlue pt-2 '>
-        <h4>Coin information</h4>
+        <h4>Coin Information</h4>
         <p>Select the coin you want to forecast</p>
       </div>
       <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg '>

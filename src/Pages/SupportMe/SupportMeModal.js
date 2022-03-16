@@ -48,10 +48,8 @@ export default function SupportMeModal({
 
       if (data) {
         if (data.data.length === 0) {
-          console.log('true');
           setApiCallFail(true);
         } else {
-          console.log(data);
           setApiCallFail(false);
 
           // - Coin Exchange

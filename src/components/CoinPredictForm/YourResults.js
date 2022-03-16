@@ -22,7 +22,7 @@ function YourResults({
           color={'bg-appBlue'}
         />
       </div>
-      <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
+      <div className='flex flex-col mt-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
         <div className='flex flex-col gap-2'>
           <div className=' flex px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
             <span>

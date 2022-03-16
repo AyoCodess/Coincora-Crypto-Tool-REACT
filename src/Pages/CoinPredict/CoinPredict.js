@@ -122,7 +122,6 @@ function CoinForecast() {
       //- reset your prediction fields
 
       if (predictedPrice === 0 || Number.isNaN(predictedPrice)) {
-        console.log('predicted price reset');
         setCoinPredictedRBM('0.00');
         setCoinRBM('0.00');
         setPredictedMarketcap('');
@@ -236,7 +235,7 @@ function CoinForecast() {
 
       {complete && (
         <>
-          <div className='prose  mb-5'>
+          <div className='prose mb-5'>
             <h3 className='text-appBlue'>Coin Predict</h3>
             <p>
               Set investment return targets based on current or potential
@@ -244,7 +243,7 @@ function CoinForecast() {
               can produce the returns you want.
             </p>
           </div>
-          <div className='flex '>
+          <div className='flex'>
             <div className='flex flex-col gap-4 lg:min-w-[700px]'>
               <CoinInformation
                 setData={setData}

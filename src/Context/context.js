@@ -162,22 +162,11 @@ export function DataProvider({ children }) {
       let top1000Avg = top1000RBMNumber / 1000;
       const real1000 = (top1000Avg / btcMarketcapNumber) * 100;
 
-      console.log({ top10RBMNumber });
-      console.log({ top10Avg });
-      console.log({ btcMarketcapNumber });
-      console.log({ real10 });
-
       setTop10CryptoRBM(real10.toFixed(2));
       setTop50CryptoRBM(real50.toFixed(2));
       setTop100CryptoRBM(real100.toFixed(2));
       setTop500CryptoRBM(real500.toFixed(2));
       setTop1000CryptoRBM(real1000.toFixed(2));
-
-      // console.log(top10);
-      // console.log(top50);
-      // console.log(top100);
-      // console.log(top500);
-      // console.log(top1000);
     }
   }, [btcMarketcapNumber, data]);
 
