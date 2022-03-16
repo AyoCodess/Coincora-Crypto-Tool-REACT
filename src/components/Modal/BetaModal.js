@@ -68,7 +68,7 @@ export default function BetaModal() {
                       </b>
                     </p>
                     <p className='text-sm text-gray-500'>
-                      . Coin predict is constantly being updated. Everything
+                      Coin predict is constantly being updated. Everything
                       within this page is subject to change and is in early
                       stage development. If you have any issues or feedback
                       contact me directly.
