@@ -16,7 +16,7 @@ const posts = [
     },
   },
   {
-    title: 'GoFundMe - I need your help!',
+    title: 'Protect crypto-investors from getting scammed!',
     href: '/knowledge-base/GoFundMe',
     category: { name: 'Article', href: '#' },
     description:

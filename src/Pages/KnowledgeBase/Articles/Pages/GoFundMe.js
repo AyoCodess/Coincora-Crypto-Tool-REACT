@@ -1,4 +1,5 @@
 import { HashLink } from 'react-router-hash-link';
+import SupportMeSection from '../../../SupportMe/SupportMeSection';
 
 export default function GoFundMe() {
   return (
@@ -20,64 +21,95 @@ export default function GoFundMe() {
                 Project Support
               </h2>
               <h3 className='mt-4 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-                I need your support to make this project what it's meant to be
+                Protect crypto-investors from getting scammed
               </h3>
 
               <ol className='flex flex-col my-4 gap-2 p-4 text-xl font-bold border-2 border-gray-200 rounded-md max-w-max'>
                 <h3 className='text-2xl py-3'>Contents</h3>
+                <HashLink smooth to='/knowledge-base/GoFundMe#theGist'>
+                  <li className='hover:text-appBlue transition ease-in '>
+                    1. My Gist
+                  </li>
+                </HashLink>
                 <HashLink smooth to='/knowledge-base/GoFundMe#myStory'>
                   <li className='hover:text-appBlue transition ease-in '>
-                    1. My Story
+                    2. My Story
                   </li>
                 </HashLink>
                 <HashLink smooth to='/knowledge-base/GoFundMe#codingForGood'>
                   <li className='hover:text-appBlue transition ease-in '>
-                    2. What is #codingForGood
+                    3. What is #codingForGood
                   </li>
                 </HashLink>
                 <HashLink smooth to='/knowledge-base/GoFundMe#whatIsCoincora'>
                   <li className='hover:text-appBlue transition ease-in '>
-                    3. What is Coincora
+                    4. What is Coincora
                   </li>
                 </HashLink>
                 <HashLink
                   smooth
                   to='/knowledge-base/GoFundMe#whyImBuildingCoincora'>
                   <li className='hover:text-appBlue transition ease-in '>
-                    4. Why I'm Building Coincora
+                    5. Why I'm Building Coincora
                   </li>
                 </HashLink>
                 <HashLink smooth to='/knowledge-base/GoFundMe#whoIsCoincoraFor'>
                   <li className='hover:text-appBlue transition ease-in '>
-                    5. Who is Coincora For
+                    6. Who is Coincora For
                   </li>
                 </HashLink>
                 <HashLink
                   smooth
                   to='/knowledge-base/GoFundMe#coincoraCoreFeatures'>
                   <li className='hover:text-appBlue transition ease-in '>
-                    6. Coincora Core Features
+                    7. Coincora Core Features
                   </li>
                 </HashLink>
                 <HashLink
                   smooth
                   to='/knowledge-base/GoFundMe#whereIsCoincoraGoing'>
                   <li className='hover:text-appBlue transition ease-in '>
-                    7. Where is Coincora Going
+                    8. Where is Coincora Going
                   </li>
                 </HashLink>
                 <HashLink
                   smooth
                   to='/knowledge-base/GoFundMe#whyDoINeedSupport'>
                   <li className='hover:text-appBlue transition ease-in '>
-                    8. Why do I need Support?
+                    9. Why do I need Support?
                   </li>
                 </HashLink>
               </ol>
+              <div className='mt-10 prose prose-blue prose-xl text-black'>
+                <h3 id='theGist'>The Gist</h3>
+                <p>
+                  According to a survey by CNBC, 1 in 10 people are investing
+                  into crypto. That’s a whole lotta brave people taking risks.
+                  Unfortunately for many, opportunities aren’t void of scams.
+                </p>
+                <p>
+                  Blockchain data firm Chainalysis “2022 Crypto Crime Report”
+                  findings show that cryptocurrency crime had a record-breaking
+                  year in 2021. With scammers devouring $14 billion worth of
+                  crypto.
+                </p>
+                <p>
+                  That’s affecting real people with real lives, families and
+                  dreams. I know this because I was one of them.
+                </p>
+                <p>
+                  Because I couldn’t stand seeing more people suffer at the
+                  hands of unethical crypto scammers, I went all-in on creating
+                  an app that aims to empower and protect investors by lowering
+                  risk and ambiguity - with a reliable investment tool and
+                  relevant education.
+                </p>
+                <h2>
+                  Coincora: Lowering risk and ambiguity in crypto-investing
+                </h2>
 
-              <div
-                id='myStory'
-                className='mt-5 prose prose-blue prose-xl text-black'>
+                <h3 id='myStory'>Who's Ayo</h3>
+
                 <p>
                   Originally from London, I am currently based in Sweden with my
                   partner - who’s a psychosomatic therapist by trade.{' '}
@@ -153,8 +185,8 @@ export default function GoFundMe() {
                 </p>
                 <p>
                   Not gonna lie; as much as I enjoy my coding journey, it's been
-                  extremely challenging to pursue projects that embody the
-                  message of #codingForGood without a steady income.{' '}
+                  challenging to pursue projects that embody the message of
+                  #codingForGood without a steady income.
                 </p>
                 <p>
                   I'm super excited about where I'm heading with coding, but I’m
@@ -174,7 +206,7 @@ export default function GoFundMe() {
                 <p>
                   If this resonates with you so far, read on for more details.
                 </p>
-                <h2 id='codingForGood'>What is #codingForGood</h2>
+                <h3 id='codingForGood'>What is #codingForGood</h3>
                 <p>
                   The “coding for good” hashtag refers to projects centered
                   around making technology accessible in ways that help
@@ -184,7 +216,7 @@ export default function GoFundMe() {
                   Think solutions that aim to bring balance, health, and harmony
                   to the planet and humanity.{' '}
                 </p>
-                <h2 id='whatIsCoincora'>What is Coincora</h2>
+                <h3 id='whatIsCoincora'>What is Coincora</h3>
                 <p>
                   Coincora is a coin forecasting tool and information hub for
                   traversing the crypto market safely and securely.{' '}
@@ -204,7 +236,7 @@ export default function GoFundMe() {
                   aren’t highly sophisticated in crypto. Which, let’s be honest,
                   is most of us.{' '}
                 </p>
-                <h2 id='whyImBuildingCoincora'>Why I'm building Coincora</h2>
+                <h3 id='whyImBuildingCoincora'>Why I'm building Coincora</h3>
                 <p>
                   Like many crypto early adopters, I and countless others have
                   been ruthlessly scammed.{' '}
@@ -268,7 +300,7 @@ export default function GoFundMe() {
                   some, if not all, pitfalls and scams we early adopters had to
                   endure.
                 </p>
-                <h2 id='whoIsCoincoraFor'>Who is Coincora for</h2>
+                <h3 id='whoIsCoincoraFor'>Who is Coincora for</h3>
                 <p>
                   The average crypto investor wants to secure their own and
                   their family's financial future.{' '}
@@ -302,7 +334,7 @@ export default function GoFundMe() {
                   fast.’ Hence, all the above is delivered simply and
                   user-friendly on a clear interface.{' '}
                 </p>
-                <h2 id='coincoraCoreFeatures'>Coincora core features</h2>
+                <h3 id='coincoraCoreFeatures'>Coincora core features</h3>
                 <p>
                   Main feature: Coin Predict - Set investment return targets
                   based on current or potential investments you want to make or
@@ -314,16 +346,16 @@ export default function GoFundMe() {
                   bitcoin market cap ratio + industry and play out different
                   scenarios to gauge what your wisest move is.
                 </p>
-                <h2 id='whereIsCoincoraGoing'>Where is Coincora going</h2>
+                <h3 id='whereIsCoincoraGoing'>Where is Coincora going</h3>
                 <p>
                   Coincora aims to be an interactive, invaluable hub of relevant
                   tools and information for the average crypto investor, aiding
                   wise crypto decision making.{' '}
                 </p>
-                <h2 id='whyDoINeedSupport'>Why do I need support?</h2>
+                <h3 id='whyDoINeedSupport'>Why do I need support?</h3>
                 <p>
                   Currently, I work full-time as a React Web Developer intern
-                  for a health software company based in London.{' '}
+                  for a health-tech company based in London.
                 </p>
                 <p>
                   Their ethics and the projects they pursue align with my
@@ -352,23 +384,20 @@ export default function GoFundMe() {
                   it the most.{' '}
                 </p>
                 <p>
-                  Crypto investing can be safe and fruitful. Coincora is here to
-                  make sure of that.{' '}
+                  Crypto investing can be less risky and fruitful. Coincora is
+                  here to make sure of that.
                 </p>
                 <p>
                   If you’ve read this far, I’d like to thank you from the bottom
                   of my passionate heart for your time and support.{' '}
                 </p>
-                <p className='font-bold'>
+                <p>
                   Let’s build our wealth together,
                   <br />
-                  <span
-                    className='font-bold
-                '>
-                    Ayo
-                  </span>
+                  <span>Ayo</span>
                 </p>
               </div>
+              <SupportMeSection />
             </div>
           </div>
         </div>
