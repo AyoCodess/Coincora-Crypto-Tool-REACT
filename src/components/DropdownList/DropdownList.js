@@ -43,8 +43,8 @@ export default function Example() {
               </i>
               <input
                 type='text'
-                className='pt-1'
-                placeholder='search "btc" or "bitcoin"'
+                className='pt-1 w-full'
+                placeholder='e.g search "btc" or "bitcoin"'
                 onChange={(e) => {
                   setOpenDropdown(true);
 
@@ -61,14 +61,6 @@ export default function Example() {
                   return setSearchedFromDropdown(searchedFromDropdown);
                 }}
               />
-              {/* <div className='ml-6'>
-                <StandardButtonTypeButton
-                  text={'Reset'}
-                  onClick={(e) => {
-                    setCoinName('Coin');
-                  }}
-                />
-              </div> */}
             </div>
 
             <div className='w-full' ref={inputField}>
@@ -120,7 +112,9 @@ export default function Example() {
           </div>
         </>
       )}
-      {!data && <div>Loading list...</div>}
+      {!data && (
+        <div className='text-appBlue font-semibold'>Loading list...</div>
+      )}
     </>
   );
 }
