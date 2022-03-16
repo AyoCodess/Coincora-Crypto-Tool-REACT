@@ -1,6 +1,14 @@
 import React from 'react';
 
-function AlinkStandardButton({ href, text, width, color, ref, onClick }) {
+function AlinkStandardButton({
+  href,
+  text,
+  width,
+  height,
+  color,
+  ref,
+  onClick,
+}) {
   return (
     <a
       style={{ cursor: 'pointer', textDecoration: 'none' }}
@@ -8,7 +16,7 @@ function AlinkStandardButton({ href, text, width, color, ref, onClick }) {
       href={href}
       ref={ref}
       target='_blank'
-      className={`${color} ${width} font-medium text-center justify-center py-2 px-4 border border-transparent shadow-sm text-lg rounded-md text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-500`}
+      className={`${color} ${width} font-medium text-center justify-center py-2 px-4 border border-transparent shadow-sm text-lg rounded-md text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-500 ${height}`}
       rel='noreferrer'>
       {text}
     </a>

@@ -15,12 +15,12 @@ function YourResults({
       <div className='prose  mt-5 border-t-2 border-appBlue pt-2'>
         <h4>The Results</h4>
         <p>Here it is, behold your forecast results.</p>
-        <AlinkStandardButton
+        {/* <AlinkStandardButton
           text={'What is RBM'}
           href={'https://www.beta.coincora.com/knowledge-base/what-is-RBM'}
           width={'w-32'}
           color={'bg-appBlue'}
-        />
+        /> */}
       </div>
       <div className='flex flex-col mt-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
         <div className='flex flex-col gap-2'>

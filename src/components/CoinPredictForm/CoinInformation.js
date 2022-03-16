@@ -3,6 +3,7 @@ import DropdownList from '../DropdownList/DropdownList';
 import InputTextWithCheckIcon from '../InoutFields/InputTextWithCheckIcon';
 import InputTextWithDollarIconReadOnly from '../InoutFields/InputTextWithDollarIconReadOnly';
 import InputWithNumGrayBoxLarge from '../InoutFields/InputWithNumGrayBoxLarge';
+import AlinkStandardButton from '../Buttons/AlinkStandardButton';
 
 function CoinInformation({
   setData,
@@ -55,6 +56,7 @@ function CoinInformation({
             <Tooltip
               message={`${coinName}'s market cap in % of Bitcoins current market cap.`}
               title={`${coinName}'s current RBM `}
+              button={true}
             />
           </div>
 
