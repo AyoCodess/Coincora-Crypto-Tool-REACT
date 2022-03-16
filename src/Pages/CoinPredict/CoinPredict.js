@@ -1,22 +1,15 @@
 import { React, useContext, useState, useEffect } from 'react';
 
 import StandardButtonReactRouter from '../../components/Buttons/StandardButtonReactRouter';
-import { HashLink } from 'react-router-hash-link';
-import Tooltip from '../../components/Tooltip/Tooltip';
-import DropdownList from '../../components/DropdownList/DropdownList';
 
 import DataContext from '../../Context/context';
-import InputTextWithCheckIcon from '../../components/InoutFields/InputTextWithCheckIcon';
-import InputTextWithNoIcon from '../../components/InoutFields/InputTextWithNoIcon';
-import InputTextWithNoIconOnChange from '../../components/InoutFields/InputTextWithNoIconOnChange';
-import InputWithNumGrayBoxLarge from '../../components/InoutFields/InputWithNumGrayBoxLarge';
-import InputWithNumGrayBoxSmall from '../../components/InoutFields/InputWithNumGrayBoxSmall';
-import InputTextWithDollarIcon from '../../components/InoutFields/InputTextWithDollarIcon';
-import InputTextWithDollarIconOnChange from '../../components/InoutFields/InputTextWithDollarIconOnChange';
-import { set } from 'react-ga';
-import InputTextWithDollarIconReadOnly from '../../components/InoutFields/InputTextWithDollarIconReadOnly';
-import InputTextTimesProfit from '../../components/InoutFields/InputTextTimesProfit';
-import AlinkStandardButton from '../../components/Buttons/AlinkStandardButton';
+
+import Analysis from '../../components/CoinPredictForm/Analysis';
+import QuickPredictArea from '../../components/CoinPredictForm/QuickPredictArea';
+import YourPrediction from '../../components/CoinPredictForm/YourPrediction';
+import YourResults from '../../components/CoinPredictForm/YourResults';
+import YourAssessment from '../../components/CoinPredictForm/YourAssessment';
+import CoinInformation from '../../components/CoinPredictForm/CoinInformation';
 
 function CoinForecast() {
   const {
@@ -26,7 +19,6 @@ function CoinForecast() {
     data,
     setData,
     selectedFromDropdown,
-    btcMarketcapFormatted,
     btcMarketcapNumber,
     top10CryptoRBM,
     top50CryptoRBM,
@@ -69,8 +61,6 @@ function CoinForecast() {
 
   const [doYouOwnAnyCoin, setDoYouOwnAnyCoin] = useState(false);
   const [doYouWantToBuyMoreCoin, setDoYouWantToBuyMoreCoin] = useState(false);
-
-  console.log({ doYouWantToBuyMoreCoin });
 
   // - form
   useEffect(() => {
@@ -255,495 +245,55 @@ function CoinForecast() {
             </p>
           </div>
           <div className='flex '>
-            <div className=''>
-              <div className='prose mb-5 border-t-2 border-appBlue pt-2 '>
-                <h4>Coin information</h4>
-                <p>Select the coin you want to forecast</p>
-              </div>
-              <div className='flex flex-col gap-4 lg:min-w-[700px]'>
-                <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg '>
-                  <div className='flex gap-2 items-center '>
-                    <div className='w-[50%]  px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip message={'hey'} title={'Coin'} />
-                    </div>
-                    <DropdownList setData={setData} />
-                  </div>
-                  <div className='flex gap-2 items-center'>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={'Current Circulating Supply'}
-                      />
-                    </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithCheckIcon
-                        value={circulatingSupply}
-                        sign={'%'}
-                      />
-                    )}
-                  </div>
-                  <div className='flex gap-2 items-center'>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip message={'hey'} title={' Current Price'} />
-                    </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithDollarIconReadOnly value={currentPrice} />
-                    )}
-                  </div>
-                  <div className='flex gap-2 items-center'>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip message={'hey'} title={'  Current Market Cap'} />
-                    </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithDollarIconReadOnly
-                        value={currentMarketCap}
-                      />
-                    )}
-                  </div>
-                  <div className='flex items-center gap-2'>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={`${coinName}'s market cap in % of Bitcoins current market cap.`}
-                        title={`${coinName}'s current RBM `}
-                      />
-                    </div>
+            <div className='flex flex-col gap-4 lg:min-w-[700px]'>
+              <CoinInformation
+                setData={setData}
+                selectedFromDropdown={selectedFromDropdown}
+                circulatingSupply={circulatingSupply}
+                currentPrice={currentPrice}
+                currentMarketCap={currentMarketCap}
+                coinName={coinName}
+                coinCurrentRBM={coinCurrentRBM}
+              />
+              <YourPrediction
+                coinName={coinName}
+                doYouOwnAnyCoin={doYouOwnAnyCoin}
+                setDoYouOwnAnyCoin={setDoYouOwnAnyCoin}
+                setDoYouWantToBuyMoreCoin={setDoYouWantToBuyMoreCoin}
+                selectedFromDropdown={selectedFromDropdown}
+                setTotalAmountOwned={setTotalAmountOwned}
+                setAvgPriceBought={setAvgPriceBought}
+                setPreviousProfit={setPreviousProfit}
+                doYouWantToBuyMoreCoin={doYouWantToBuyMoreCoin}
+                setBuyMore={setBuyMore}
+                setAvgFuturePriceBought={setAvgFuturePriceBought}
+                predictedPrice={predictedPrice}
+                setPredictedPrice={setPredictedPrice}
+                predictedMarketcap={predictedMarketcap}
+              />
 
-                    <InputWithNumGrayBoxLarge
-                      value={coinCurrentRBM}
-                      sign={'%'}
-                    />
-                  </div>
-                </div>
-                <div className='prose  mt-5 border-t-2 border-appBlue pt-2'>
-                  <h4>Your Prediction</h4>
-                  <p>
-                    Plug in numbers that make sense in your investing strategy.
-                  </p>
-                </div>
-                <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-                  <div>
-                    <label className='text-base font-medium text-gray-900'>
-                      {`Do you own any ${coinName}?`}
-                    </label>
-                    <p className='text-sm leading-5 text-gray-500'>
-                      The form will update automatically
-                    </p>
-                    <fieldset className='mt-4'>
-                      <div className='space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10'>
-                        <div key={'yesMore'} className='flex items-center'>
-                          <input
-                            onChange={() => {
-                              setDoYouOwnAnyCoin(true);
-                            }}
-                            id={'yesMore'}
-                            name='notification-method'
-                            type='radio'
-                            className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
-                          />
-                          <label
-                            htmlFor={'yesMore'}
-                            className='ml-3 block text-sm font-medium text-gray-700'>
-                            Yes
-                          </label>
-                        </div>
-                        <div key={'noMore'} className='flex items-center'>
-                          <input
-                            onChange={() => {
-                              setDoYouOwnAnyCoin(false);
-                              setDoYouWantToBuyMoreCoin(false);
-                            }}
-                            id={'noMore'}
-                            name='notification-method'
-                            type='radio'
-                            defaultChecked={doYouOwnAnyCoin === false}
-                            className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
-                          />
-                          <label
-                            htmlFor={'noMore'}
-                            className='ml-3 block text-sm font-medium text-gray-700'>
-                            No
-                          </label>
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
-
-                  {doYouOwnAnyCoin && (
-                    <div>
-                      <div className='flex gap-2 items-center mt-5 '>
-                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                          <Tooltip
-                            message={'hey'}
-                            title={`Total Amount of ${coinName} you
-                          own?`}
-                          />
-                        </div>
-                        {selectedFromDropdown && (
-                          <InputTextWithNoIconOnChange
-                            onChange={(e) => {
-                              if (e.target.value === '') {
-                                return 0;
-                              } else {
-                                setTotalAmountOwned(e.target.valueAsNumber);
-                              }
-                            }}
-                          />
-                        )}
-                      </div>
-                      <div className='flex gap-2 items-center '>
-                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                          <Tooltip
-                            message={'hey'}
-                            title={`Average price you bought ${coinName} at?`}
-                          />
-                        </div>
-                        {selectedFromDropdown && (
-                          <InputTextWithDollarIconOnChange
-                            onChange={(e) => {
-                              if (e.target.value === '') {
-                                return 0;
-                              } else {
-                                setAvgPriceBought(e.target.valueAsNumber);
-                              }
-                            }}
-                          />
-                        )}
-                      </div>
-                      <div className='flex gap-2 items-center '>
-                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                          <Tooltip
-                            message={'hey'}
-                            title={`How much profit or loss have you made on ${coinName} so far?`}
-                          />
-                        </div>
-                        {selectedFromDropdown && (
-                          <InputTextWithDollarIconOnChange
-                            onChange={(e) => {
-                              if (e.target.value === '') {
-                                return 0;
-                              } else {
-                                setPreviousProfit(e.target.valueAsNumber);
-                              }
-                            }}
-                          />
-                        )}
-                      </div>
-                    </div>
-                  )}
-
-                  {doYouOwnAnyCoin && (
-                    <div className='mt-4'>
-                      <label className='text-base font-medium text-gray-900'>
-                        {`Are you going to buy any more ${coinName}?`}
-                      </label>
-                      <p className='text-sm leading-5 text-gray-500'>
-                        The form will update automatically
-                      </p>
-
-                      <fieldset className='mt-4'>
-                        <div className='space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10'>
-                          <div key={'yes'} className='flex items-center'>
-                            <input
-                              onChange={() => {
-                                setDoYouWantToBuyMoreCoin(true);
-                              }}
-                              id={'yesMore'}
-                              name='more'
-                              type='radio'
-                              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
-                            />
-                            <label
-                              htmlFor={'yesMore'}
-                              className='ml-3 block text-sm font-medium text-gray-700'>
-                              Yes
-                            </label>
-                          </div>
-                          <div key={'noMore'} className='flex items-center'>
-                            <input
-                              onChange={() => {
-                                setDoYouWantToBuyMoreCoin(false);
-                              }}
-                              id={'noMore'}
-                              name='more'
-                              type='radio'
-                              defaultChecked={doYouWantToBuyMoreCoin === false}
-                              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
-                            />
-                            <label
-                              htmlFor={'noMore'}
-                              className='ml-3 block text-sm font-medium text-gray-700'>
-                              No
-                            </label>
-                          </div>
-                        </div>
-                      </fieldset>
-                    </div>
-                  )}
-
-                  {doYouWantToBuyMoreCoin && (
-                    <div>
-                      <div className='flex gap-2 items-center mt-4'>
-                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                          <Tooltip
-                            message={'hey'}
-                            title={` If you want to buy more ${coinName}, how much (Units)?`}
-                          />
-                        </div>
-                        {selectedFromDropdown && (
-                          <InputTextWithNoIconOnChange
-                            onChange={(e) => {
-                              if (e.target.value === '') {
-                                return 0;
-                              } else {
-                                setBuyMore(e.target.valueAsNumber);
-                              }
-                            }}
-                          />
-                        )}
-                      </div>
-                      <div className='flex gap-2 items-center'>
-                        <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                          <Tooltip
-                            message={'hey'}
-                            title={`Average price you think you will buy more ${coinName} at?`}
-                          />
-                        </div>
-                        {selectedFromDropdown && (
-                          <InputTextWithDollarIconOnChange
-                            onChange={(e) => {
-                              if (e.target.value === '') {
-                                return 0;
-                              } else {
-                                setAvgFuturePriceBought(e.target.valueAsNumber);
-                              }
-                            }}
-                          />
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-                  <div className='flex gap-2 items-center border-2 '>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`What are you predicting ${coinName}'s future price at?`}
-                      />
-                    </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithDollarIconOnChange
-                        value={predictedPrice}
-                        onChange={(e) => {
-                          if (e.target.value === '') {
-                            return 0;
-                          } else {
-                            setPredictedPrice(e.target.valueAsNumber);
-                          }
-                        }}
-                      />
-                    )}
-                  </div>
-                  <div className='flex gap-2 items-center'>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`${coinName}'s future market cap based off your
-                      prediction`}
-                      />
-                    </div>
-                    {selectedFromDropdown && (
-                      <InputTextWithDollarIconReadOnly
-                        value={predictedMarketcap}
-                      />
-                    )}
-                  </div>
-                </div>
-                <div className='prose  mt-5 border-t-2 border-appBlue pt-2'>
-                  <h4>The Results</h4>
-                  <p>Here it is, behold your forecast results.</p>
-
-                  <AlinkStandardButton
-                    text={'What is RBM'}
-                    href={
-                      'https://www.beta.coincora.com/knowledge-base/what-is-RBM'
-                    }
-                    width={'w-32'}
-                    color={'bg-appBlue'}
-                  />
-                </div>
-                <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-                  <div className='flex flex-col gap-2'>
-                    <div className=' flex px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <span>
-                        {coinName}'s current market cap is
-                        <span className='font-bold text-xl text-appBlue'>
-                          {' '}
-                          {coinRBM}%
-                        </span>{' '}
-                        of Bitcoins current market cap (RBM)
-                      </span>
-                      <Tooltip message={'hey'} />
-                    </div>
-                    <div className=' flex px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <span>
-                        {coinName}'s predicted market cap is
-                        <span className='font-bold text-xl text-appBlue'>
-                          {' '}
-                          {coinPredictedRBM}%
-                        </span>{' '}
-                        of Bitcoins current market cap (RBM)
-                      </span>
-                      <Tooltip message={'hey'} />
-                    </div>
-                  </div>
-                </div>
-                <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-                  <div className='flex gap-2 items-center'>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`Your profit if ${coinName} went to your predicted price is`}
-                      />
-                    </div>
-                    <InputTextWithDollarIconReadOnly value={profit} />
-                  </div>
-                  <div className='flex gap-2 items-center'>
-                    <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                      <Tooltip
-                        message={'hey'}
-                        title={`Your predicted X increase is`}
-                      />
-                    </div>
-                    <InputTextTimesProfit value={xTimesProfit} />
-                  </div>
-                </div>
-              </div>
+              <YourResults
+                coinName={coinName}
+                coinRBM={coinRBM}
+                coinPredictedRBM={coinPredictedRBM}
+                profit={[profit]}
+                xTimesProfit={xTimesProfit}
+              />
             </div>
           </div>
-          <div className='prose  my-5'>
-            <h3 className='text-appBlue'>Assessment of your prediction</h3>
-            <p>Check out your prediction assessment below.</p>
-          </div>
-          <div className=' flex flex-col  shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-            <div className='flex items-center'>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
-                  message={`Top 10 crypto's current RMB`}
-                  title={`Top 10 crypto's current RMB`}
-                />
-              </div>
-              <InputWithNumGrayBoxSmall value={top10CryptoRBM} />
-            </div>
-            <div className='flex items-center '>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
-                  message={`Top 50 crypto's current RMB`}
-                  title={`Top 50 crypto's current RMB`}
-                />
-              </div>
-              <InputWithNumGrayBoxSmall value={top50CryptoRBM} />
-            </div>
-            <div className='flex items-center'>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
-                  message={`Top 100 crypto's current RMB`}
-                  title={`Top 100 crypto's current RMB`}
-                />
-              </div>
-              <InputWithNumGrayBoxSmall value={top100CryptoRBM} />
-            </div>
-            <div className='flex items-center'>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
-                  message={`Top 500 crypto's current RMB`}
-                  title={`Top 500 crypto's current RMB`}
-                />
-              </div>
-              <InputWithNumGrayBoxSmall value={top500CryptoRBM} />
-            </div>
-            <div className='flex items-center'>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
-                  message={`Top 1000 crypto's current RMB`}
-                  title={`Top 1000 crypto's current RMB`}
-                />
-              </div>
-              <InputWithNumGrayBoxSmall value={top1000CryptoRBM} />
-            </div>
-            <div className='flex items-center'>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip message={`Ethereum's RBM`} title={`Ethereum's RBM `} />
-              </div>
-              <InputWithNumGrayBoxSmall value={ethRBM} />
-            </div>
-            <div className='flex items-center  border-t-4 '>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
-                  message={`${coinName}'s market cap in % of Bitcoins current market cap.`}
-                  title={`${coinName}'s current RBM `}
-                />
-              </div>
-
-              <InputWithNumGrayBoxSmall value={coinCurrentRBM} />
-            </div>
-            <div className='flex items-center '>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
-                  message={`${coinName}'s market cap in % of Bitcoins current market cap.`}
-                  title={`${coinName}'s Predicted RBM `}
-                />
-              </div>
-
-              <InputWithNumGrayBoxSmall value={coinPredictedRBM} />
-            </div>
-          </div>
-
-          <div className='prose mt-5 border-t-2 border-appBlue pt-2'>
-            <h4>The Analysis - Coming Soon</h4>
-            <p>
-              This section will tell you what {coinName}'s predicted RBM could
-              objectively mean, and what you need to consider to asses if your
-              prediction is feasible or not.
-            </p>
-            {/* <p>{coinName}'s predicted RBM is in the 'Top 10!'</p>
-            <p className=' text-appBlue font-bold'>
-              Cryptos in the top 10 generally have...
-            </p>
-            <ol>
-              <li>Fully transparent and public team</li>
-              <li>
-                Partnerships with other crypto projects within the top 100
-                cryptos
-              </li>
-              <li>Fully transparent and public team</li>
-              <li>Fully transparent and public team</li>
-              <li>Fully transparent and public team</li>
-            </ol>
-            <p>
-              Does {coinName} meet the above criteria? if not re-consider your
-              expectations and change your numbers.
-            </p> */}
-          </div>
-
-          <div className='prose mt-5 border-t-2 border-appBlue pt-2'>
-            <h4>Quick Predict - Coming Soon</h4>
-          </div>
-
-          <div className='mt-2 prose'>
-            <p>This tool compares your favorite crypto projects.</p>
-            <p>
-              Note: one way to perform a comparison is to check new emerging
-              crypto projects against established ones. Allowing you to better
-              assess the new coin’s potential.
-            </p>
-            <AlinkStandardButton
-              text={'Quick Predict'}
-              href={'https://www.beta.coincora.com/quick-predict'}
-              width={'w-32'}
-              color={'bg-appBlue'}
-            />
-          </div>
+          <YourAssessment
+            top10CryptoRBM={top10CryptoRBM}
+            top50CryptoRBM={top50CryptoRBM}
+            top100CryptoRBM={top100CryptoRBM}
+            top500CryptoRBM={top500CryptoRBM}
+            top1000CryptoRBM={top1000CryptoRBM}
+            ethRBM={ethRBM}
+            coinName={coinName}
+            coinCurrentRBM={coinCurrentRBM}
+            coinPredictedRBM={coinPredictedRBM}
+          />
+          <Analysis coinName={coinName} />
+          <QuickPredictArea />
         </>
       )}
     </>
