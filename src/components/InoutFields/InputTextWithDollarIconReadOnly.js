@@ -1,7 +1,7 @@
 import { CurrencyDollarIcon } from '@heroicons/react/solid';
 import React from 'react';
 
-export default function InputTextWithDollarIcon({ value }) {
+export default function InputTextWithDollarIconReadOnly({ value }) {
   return (
     <div className='flex relative rounded-md shadow-sm h-full w-1/2'>
       <div className='absolute inset-y-0 pr-3 flex items-center pointer-events-none'>
@@ -11,6 +11,7 @@ export default function InputTextWithDollarIcon({ value }) {
         />
       </div>
       <input
+        readOnly
         min={0}
         onWheel={(e) => e.target.blur()}
         value={value}

@@ -25,6 +25,7 @@ import NavBarButton from '../components/Buttons/NavBarButton';
 import NavBarButtonSubGrayIcon from '../components/Buttons/NavBarButtonSubGrayIcon';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 // import StandardButtonReactRouter from '../components/Buttons/StandardButtonReactRouter';
 
 import Tippy from '@tippyjs/react';
@@ -88,6 +89,27 @@ function NavbarLayout(props) {
           onClick={handleDrawerToggle}
         />
 
+        <NavBarButton
+          to={'/feature-request-form'}
+          icon={<AddCircleOutlineIcon />}
+          text={'Feature Request'}
+          onClick={handleDrawerToggle}
+        />
+        <NavBarButton
+          to={'/knowledge-base'}
+          icon={<PsychologyIcon />}
+          text={'Knowledge Base'}
+          onClick={handleDrawerToggle}
+        />
+      </List>
+      <Divider />
+      <List style={{ fontSize: '20px' }}>
+        <NavBarButton
+          to={'/support-me'}
+          icon={<CardGiftcardIcon />}
+          text={'Support Me'}
+          onClick={handleDrawerToggle}
+        />
         {/* // - Links with have URLS only */}
         {mainNav.map((text, index) => (
           <Link
@@ -105,22 +127,6 @@ function NavbarLayout(props) {
             </ListItem>
           </Link>
         ))}
-
-        <NavBarButton
-          to={'/feature-request-form'}
-          icon={<AddCircleOutlineIcon />}
-          text={'Feature Request'}
-          onClick={handleDrawerToggle}
-        />
-      </List>
-      <Divider />
-      <List style={{ fontSize: '20px' }}>
-        <NavBarButton
-          to={'/support-me'}
-          icon={<CardGiftcardIcon />}
-          text={'Support Me'}
-          onClick={handleDrawerToggle}
-        />
         <NavBarButtonSubGrayIcon
           to={'/legal'}
           icon={<LocalPoliceIcon />}

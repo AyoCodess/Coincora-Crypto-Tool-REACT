@@ -1,0 +1,21 @@
+import { XIcon } from '@heroicons/react/solid';
+import React from 'react';
+
+export default function InputTextTimesProfit({ value }) {
+  return (
+    <div className='flex relative rounded-md shadow-sm h-full w-1/2'>
+      <div className='absolute inset-y-0 pr-3  flex items-center pointer-events-none'>
+        <XIcon className='h-6 w-5 text-green-500  ' aria-hidden='true' />
+      </div>
+      <input
+        readOnly
+        min={0}
+        onWheel={(e) => e.target.blur()}
+        value={value}
+        type='text'
+        className=' pb-1 ml-6 h-[2.5rem] text-2xl font-bold text-green-500 focus:ring-indigo-500 focus:border-indigo-500 block w-[90%] pr-10 sm:text-sm border-gray-300 rounded-md'
+        placeholder='000,000'
+      />
+    </div>
+  );
+}
