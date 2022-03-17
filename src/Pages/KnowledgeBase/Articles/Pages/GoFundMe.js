@@ -83,12 +83,25 @@ export default function GoFundMe() {
               <div className='mt-10 prose prose-blue prose-xl text-black'>
                 <h3 id='theGist'>The Gist</h3>
                 <p>
-                  According to a survey by CNBC, 1 in 10 people are investing
-                  into crypto. That’s a whole lotta brave people taking risks.
-                  Unfortunately for many, opportunities aren’t void of scams.
+                  According to a{' '}
+                  <a
+                    href='https://www.cnbc.com/amp/2021/08/24/1-in-10-people-invest-in-cryptocurrencies-many-for-ease-of-trading.html'
+                    rel='noreferrer'
+                    target='_blank'>
+                    survey
+                  </a>{' '}
+                  by CNBC, 1 in 10 people are investing into crypto. That’s a
+                  whole lotta brave people taking risks. Unfortunately for many,
+                  opportunities aren’t void of scams.
                 </p>
                 <p>
-                  Blockchain data firm Chainalysis “2022 Crypto Crime Report”
+                  Blockchain data firm Chainalysis{' '}
+                  <a
+                    href='https://blog.chainalysis.com/reports/2022-crypto-crime-report-introduction/'
+                    rel='noreferrer'
+                    target='_blank'>
+                    “2022 Crypto Crime Report”
+                  </a>
                   findings show that cryptocurrency crime had a record-breaking
                   year in 2021. With scammers devouring $14 billion worth of
                   crypto.
@@ -175,13 +188,27 @@ export default function GoFundMe() {
                   interactive websites and basic web apps. Check this out!
                 </p>
                 <p>
-                  This is a log of all the hours I put into my education leading
-                  up to my first paid internship as a React Developer.{' '}
+                  This is a{' '}
+                  <a
+                    href='https://docs.google.com/spreadsheets/d/1vAZXm3rE-hDKNywl3A-YNhdKJL4E1hdIUToIXUD267k/edit?usp=sharing'
+                    rel='noreferrer'
+                    target='_blank'>
+                    log
+                  </a>{' '}
+                  of all the hours I put into my education leading up to my
+                  first paid internship as a React Developer.{' '}
                 </p>
                 <p>
-                  I also have a blog documenting the first six months of my
-                  journey here. Though I’ve spent less time on it lately as I'm
-                  too occupied doing ‘the actual work.’
+                  I also have a{' '}
+                  <a
+                    href='https://blog.ayoadesanya.com/'
+                    rel='noreferrer'
+                    target='_blank'>
+                    blog
+                  </a>{' '}
+                  documenting the first six months of my journey here. Though
+                  I’ve spent less time on it lately as I'm too occupied doing
+                  ‘the actual work.’
                 </p>
                 <p>
                   Not gonna lie; as much as I enjoy my coding journey, it's been
