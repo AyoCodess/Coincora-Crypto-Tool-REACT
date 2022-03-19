@@ -2,6 +2,7 @@ import './App.scss';
 import { React, useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NavbarLayout from './AppFrame/NavbarLayout';
+import Dashboard from './AppFrame/Dashboard';
 import Newbies from './Pages/Newbies/Newbies';
 import { ThemeProvider } from '@emotion/react';
 import theme from './MUIthemeOverrides';
@@ -26,17 +27,13 @@ import KnowledgeBase from './Pages/KnowledgeBase';
 import WhatIsRBM from './Pages/KnowledgeBase/Articles/Pages/WhatIsRBM.';
 import GoFundMe from './Pages/KnowledgeBase/Articles/Pages/GoFundMe';
 import TheCommunity from './Pages/KnowledgeBase/Articles/Pages/TheCommunity';
+import PageBackground from './AppFrame/PageBackground';
 
 function App() {
-  // - News banner options
-  let newsLink = '/';
-  let mobileHeadline = 'Beta v.1 release - Announcement soon';
-  let desktopHeadline =
-    "Big news! We're excited to release Beta v.1 of the app very soon.";
+  const [openDisclaimer, setOpenDisclaimer] = useState(true);
+
   // - Modal Logic for newbies
   const [open, setOpen] = useState(false);
-  const [openNews, setOpenNews] = useState(true);
-  const [openDisclaimer, setOpenDisclaimer] = useState(true);
   const [title, setTitle] = useState('title');
   const [info, setInfo] = useState('info');
   const [link, setLink] = useState('link');
@@ -61,12 +58,66 @@ function App() {
     setGA();
   }, []);
 
+  const [currentPage, setCurrentPage] = useState('googleForm');
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <ScrollToTop>
           <DataProvider>
-            <NavbarLayout>
+            <div>
+              <Dashboard />
+              <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' v>
+                <Routes>
+                  <Route path='*' exact element={<GoogleForm />}></Route>
+                  <Route
+                    path='/coin-predict'
+                    element={
+                      <CoinForecast open={open} setOpen={setOpen} />
+                    }></Route>
+                  <Route
+                    path='/quick-predict'
+                    element={<QuickCompare />}></Route>
+                  <Route path='/mission' element={<GoFundMe />}></Route>
+                  <Route path='/legal' element={<Legal />}></Route>
+                  <Route path='/advice' element={<Advice />}></Route>
+                  <Route path='/support-me' element={<SupportMe />}></Route>
+                  <Route path='/updates' element={<Updates />}></Route>
+                  <Route path='/todo' element={<Todo />}></Route>
+                  <Route
+                    path='/feature-request-form'
+                    element={<FeatureRequest />}></Route>
+                  <Route
+                    path='/newbies'
+                    element={
+                      <Newbies
+                        open={open}
+                        setOpen={setOpen}
+                        title={title}
+                        setTitle={setTitle}
+                        info={info}
+                        setInfo={setInfo}
+                        link={link}
+                        setLink={setLink}
+                      />
+                    }></Route>
+                  <Route
+                    path='/knowledge-base'
+                    element={<KnowledgeBase />}></Route>
+                  <Route
+                    path='/knowledge-base/what-is-RBM'
+                    element={<WhatIsRBM />}></Route>
+                  <Route
+                    path='/knowledge-base/GoFundMe'
+                    element={<GoFundMe />}></Route>
+                  <Route
+                    path='/knowledge-base/TheCommunity'
+                    element={<TheCommunity />}></Route>
+                </Routes>
+              </div>
+            </div>
+
+            {/* <NavbarLayout>
               <NewsBanner
                 openNews={openNews}
                 setOpenNews={setOpenNews}
@@ -127,7 +178,7 @@ function App() {
                   setUnderstand={setUnderstand}
                 />
               )}
-            </NavbarLayout>
+            </NavbarLayout> */}
           </DataProvider>
         </ScrollToTop>
       </ThemeProvider>
