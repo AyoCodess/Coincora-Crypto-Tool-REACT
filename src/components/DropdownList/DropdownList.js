@@ -3,6 +3,7 @@ import { useContext, useRef, React } from 'react';
 import useOnClickOutside from '../../UI/Footer/helperFuncs/useOnClickOutisde';
 import DataContext from '../../Context/context';
 import StandardButtonTypeButton from '../Buttons/StandardButtonTypeButton';
+import CoinLogoDisplay from '../CoinPredictForm/CoinLogoDisplay';
 
 export default function Example() {
   const {
@@ -26,28 +27,20 @@ export default function Example() {
       {data && (
         <>
           <div className='flex flex-col w-1/2'>
-            <div className=' flex items-center gap-2 relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'>
-              <i>
-                <span className='flex items-center w-6'>
-                  <img
-                    src={
-                      !selectedFromDropdown
-                        ? data[0].image
-                        : selectedFromDropdown.image
-                    }
-                    alt=''
-                    className='flex-shrink-0 h-6 w-6 rounded-full'
-                  />
-                </span>
-                <span className='ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'></span>
-              </i>
+            <div className='flex items-center gap-2'>
+              <CoinLogoDisplay
+                height={'h-8'}
+                width={'w-8'}
+                data={data}
+                selectedFromDropdown={selectedFromDropdown}
+              />
+
               <input
                 type='text'
-                className='pt-1 w-full'
+                className='p-2  border-[0.1rem] text-left w-full bg-transparent placeholder-white  focus:ring-1 focus:ring-orange-500 focus:border-orange-500   '
                 placeholder='e.g search "btc" or "bitcoin"'
                 onChange={(e) => {
                   setOpenDropdown(true);
-
                   let searchedFromDropdown = data.filter((coin) => {
                     if (
                       e.target.value.toLowerCase() ===
@@ -63,7 +56,7 @@ export default function Example() {
               />
             </div>
 
-            <div className='w-full' ref={inputField}>
+            {/* <div className='w-full' ref={inputField}>
               <div className='mt-1 relative '>
                 {openDropdown && (
                   <ul
@@ -108,13 +101,11 @@ export default function Example() {
                   </ul>
                 )}
               </div>
-            </div>
+            </div> */}
           </div>
         </>
       )}
-      {!data && (
-        <div className='text-appBlue font-semibold'>Loading list...</div>
-      )}
+      {!data && <div className='text-white font-semibold'>Loading list...</div>}
     </>
   );
 }

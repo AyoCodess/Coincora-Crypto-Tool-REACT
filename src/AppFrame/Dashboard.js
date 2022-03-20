@@ -1,46 +1,44 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import NewsBanner from '../components/NewsBanner/NewsBanner';
 import btcFavicon from '../assets/other/btc-favicon8.png';
 import SubMenu from './Submenu';
 
-// - Pages
-import GoogleForm from '../Pages/GoogleForm/GoogleForm';
-import Newbies from '../Pages/Newbies/Newbies';
-
 const user = {
-  name: 'Tom Cook',
+  name: 'Ayo Adesanya',
   email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  imageUrl: 'https://i.imgur.com/bqAMGCx.jpg',
 };
 const navigation = [
-  { name: 'Coin Predict', href: '#', current: true },
-  { name: 'For Newbies', href: '#', current: false },
-  { name: 'Mission', href: '#', current: false },
+  { name: 'Coin Predict', to: '/coin-predict', current: false },
+  { name: 'For Newbies', to: '/newbies', current: false },
+  { name: 'Mission', to: '/mission', current: false },
 ];
+
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Your Profile', to: '#' },
+  { name: 'Settings', to: '#' },
+  { name: 'Sign out', to: '#' },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Dashboard({ currentPage }) {
+export default function Dashboard() {
   // - News banner options
   let newsLink = '/';
   let mobileHeadline = 'Beta v.1 release - Announcement soon';
   let desktopHeadline =
-    "Big news! We're excited to release Beta v.1 of the app very soon.";
+    "We're excited to release Beta v.1 of the app very soon.";
   const [openNews, setOpenNews] = useState(true);
 
-  console.log({ currentPage });
+  // - update active link in navigation
+  const [navigationList, setNavigationList] = useState(navigation);
+
   return (
     <>
       <Disclosure as='nav' className='bg-appBlue'>
@@ -50,18 +48,21 @@ export default function Dashboard({ currentPage }) {
               <div className='flex items-center justify-between h-16'>
                 <div className='flex items-center'>
                   <div className='flex-shrink-0'>
-                    <img
-                      className='h-10 w-10'
-                      src={btcFavicon}
-                      alt='Workflow'
-                    />
+                    <Link to='/'>
+                      <img
+                        className='h-10 w-10'
+                        src={btcFavicon}
+                        alt='Workflow'
+                      />
+                    </Link>
                   </div>
                   <div className='hidden md:block'>
                     <div className='ml-10 flex items-baseline space-x-4'>
-                      {navigation.map((item) => (
-                        <a
+                      {navigation.map((item, i) => (
+                        <Link
+                          onClick={() => {}}
                           key={item.name}
-                          href={item.href}
+                          to={item.to}
                           className={classNames(
                             item.current
                               ? 'bg-indigo-700 text-white '
@@ -70,7 +71,7 @@ export default function Dashboard({ currentPage }) {
                           )}
                           aria-current={item.current ? 'page' : undefined}>
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                       <SubMenu button={'Support'} />
                     </div>
@@ -105,7 +106,7 @@ export default function Dashboard({ currentPage }) {
                         leave='transition ease-in duration-75'
                         leaveFrom='transform opacity-100 scale-100'
                         leaveTo='transform opacity-0 scale-95'>
-                        <Menu.Items className='origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'>
+                        <Menu.Items className='z-10 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'>
                           {userNavigation.map((item) => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (

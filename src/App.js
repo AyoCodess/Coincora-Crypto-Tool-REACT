@@ -58,8 +58,6 @@ function App() {
     setGA();
   }, []);
 
-  const [currentPage, setCurrentPage] = useState('googleForm');
-
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -67,53 +65,121 @@ function App() {
           <DataProvider>
             <div>
               <Dashboard />
-              <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' v>
-                <Routes>
-                  <Route path='*' exact element={<GoogleForm />}></Route>
-                  <Route
-                    path='/coin-predict'
-                    element={
-                      <CoinForecast open={open} setOpen={setOpen} />
-                    }></Route>
-                  <Route
-                    path='/quick-predict'
-                    element={<QuickCompare />}></Route>
-                  <Route path='/mission' element={<GoFundMe />}></Route>
-                  <Route path='/legal' element={<Legal />}></Route>
-                  <Route path='/advice' element={<Advice />}></Route>
-                  <Route path='/support-me' element={<SupportMe />}></Route>
-                  <Route path='/updates' element={<Updates />}></Route>
-                  <Route path='/todo' element={<Todo />}></Route>
-                  <Route
-                    path='/feature-request-form'
-                    element={<FeatureRequest />}></Route>
-                  <Route
-                    path='/newbies'
-                    element={
-                      <Newbies
-                        open={open}
-                        setOpen={setOpen}
-                        title={title}
-                        setTitle={setTitle}
-                        info={info}
-                        setInfo={setInfo}
-                        link={link}
-                        setLink={setLink}
-                      />
-                    }></Route>
-                  <Route
-                    path='/knowledge-base'
-                    element={<KnowledgeBase />}></Route>
-                  <Route
-                    path='/knowledge-base/what-is-RBM'
-                    element={<WhatIsRBM />}></Route>
-                  <Route
-                    path='/knowledge-base/GoFundMe'
-                    element={<GoFundMe />}></Route>
-                  <Route
-                    path='/knowledge-base/TheCommunity'
-                    element={<TheCommunity />}></Route>
-                </Routes>
+              {/* // - background art */}
+              <div className='bg-white px-4 overflow-hidden sm:px-6 lg:px-8'>
+                <div className='relative max-w-7xl mx-auto'>
+                  <svg
+                    className='absolute left-full transform translate-x-1/2'
+                    width={404}
+                    height={404}
+                    fill='none'
+                    viewBox='0 0 404 404'
+                    aria-hidden='true'>
+                    <defs>
+                      <pattern
+                        id='85737c0e-0916-41d7-917f-596dc7edfa27'
+                        x={0}
+                        y={0}
+                        width={20}
+                        height={20}
+                        patternUnits='userSpaceOnUse'>
+                        <rect
+                          x={0}
+                          y={0}
+                          width={4}
+                          height={4}
+                          className='text-gray-200'
+                          fill='currentColor'
+                        />
+                      </pattern>
+                    </defs>
+                    <rect
+                      width={404}
+                      height={404}
+                      fill='url(#85737c0e-0916-41d7-917f-596dc7edfa27)'
+                    />
+                  </svg>
+                  <svg
+                    className='absolute right-full bottom-0 transform -translate-x-1/2'
+                    width={404}
+                    height={404}
+                    fill='none'
+                    viewBox='0 0 404 404'
+                    aria-hidden='true'>
+                    <defs>
+                      <pattern
+                        id='85737c0e-0916-41d7-917f-596dc7edfa27'
+                        x={0}
+                        y={0}
+                        width={20}
+                        height={20}
+                        patternUnits='userSpaceOnUse'>
+                        <rect
+                          x={0}
+                          y={0}
+                          width={4}
+                          height={4}
+                          className='text-gray-200'
+                          fill='currentColor'
+                        />
+                      </pattern>
+                    </defs>
+                    <rect
+                      width={404}
+                      height={404}
+                      fill='url(#85737c0e-0916-41d7-917f-596dc7edfa27)'
+                    />
+                  </svg>
+                  {/* // - background art ends */}
+                  <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' v>
+                    <Routes>
+                      <Route path='*' exact element={<GoogleForm />}></Route>
+                      <Route
+                        path='/coin-predict'
+                        element={
+                          <CoinForecast open={open} setOpen={setOpen} />
+                        }></Route>
+                      <Route
+                        path='/quick-predict'
+                        element={<QuickCompare />}></Route>
+                      <Route path='/mission' element={<GoFundMe />}></Route>
+                      <Route path='/legal' element={<Legal />}></Route>
+                      <Route path='/advice' element={<Advice />}></Route>
+                      <Route path='/support-me' element={<SupportMe />}></Route>
+                      <Route path='/updates' element={<Updates />}></Route>
+                      <Route path='/todo' element={<Todo />}></Route>
+                      <Route
+                        path='/feature-request'
+                        element={<FeatureRequest />}></Route>
+                      <Route
+                        path='/newbies'
+                        element={
+                          <Newbies
+                            open={open}
+                            setOpen={setOpen}
+                            title={title}
+                            setTitle={setTitle}
+                            info={info}
+                            setInfo={setInfo}
+                            link={link}
+                            setLink={setLink}
+                          />
+                        }></Route>
+                      <Route
+                        path='/knowledge-base'
+                        element={<KnowledgeBase />}></Route>
+                      <Route
+                        path='/knowledge-base/what-is-RBM'
+                        element={<WhatIsRBM />}></Route>
+                      <Route
+                        path='/knowledge-base/GoFundMe'
+                        element={<GoFundMe />}></Route>
+                      <Route
+                        path='/knowledge-base/TheCommunity'
+                        element={<TheCommunity />}></Route>
+                    </Routes>
+                  </div>
+                </div>
               </div>
             </div>
 

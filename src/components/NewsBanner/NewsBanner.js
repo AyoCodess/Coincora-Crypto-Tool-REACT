@@ -44,9 +44,9 @@ export default function NewsBanner({
                 <StandardButtonDarkBG
                   onClick={() => setOpenNews(false)}
                   text={'Learn More'}
-                  textColor={'text-appBlue'}
+                  textColor={'text-gray-50'}
                   textSize={'text-base'}
-                  color={'bg-white'}
+                  color={'bg-appBlue'}
                   width={'w-full'}>
                   Learn more
                 </StandardButtonDarkBG>

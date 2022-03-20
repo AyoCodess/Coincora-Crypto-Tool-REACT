@@ -252,6 +252,7 @@ function CoinForecast() {
           <div className='flex'>
             <div className='flex flex-col gap-4 lg:min-w-[700px]'>
               <CoinInformation
+                data={data}
                 setData={setData}
                 selectedFromDropdown={selectedFromDropdown}
                 circulatingSupply={circulatingSupply}
@@ -262,6 +263,7 @@ function CoinForecast() {
               />
               <YourPrediction
                 coinName={coinName}
+                setData={setData}
                 doYouOwnAnyCoin={doYouOwnAnyCoin}
                 setDoYouOwnAnyCoin={setDoYouOwnAnyCoin}
                 setDoYouWantToBuyMoreCoin={setDoYouWantToBuyMoreCoin}
