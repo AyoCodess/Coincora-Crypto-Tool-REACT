@@ -211,6 +211,7 @@ function CoinForecast() {
   //   console.log({ previousProfit });
   //   console.log({ buyMore });
   //   console.log({ avgFuturePriceBought });
+  // - test
 
   return (
     <>
