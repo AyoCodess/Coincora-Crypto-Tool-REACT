@@ -22,15 +22,13 @@ export default function Example() {
 
   useOnClickOutside(inputField, () => setOpenDropdown(false));
 
-  console.log({ searchedFromDropdown });
-
   const [event, setEvent] = useState(null);
 
   return (
     <>
       {data && (
         <>
-          <div className='flex flex-col w-1/2'>
+          <div className='flex flex-col w-full sm:w-1/2'>
             <div className='flex items-center gap-2'>
               <CoinLogoDisplay
                 height={'h-8'}
@@ -46,6 +44,11 @@ export default function Example() {
                 onChange={(e) => {
                   setEvent(e.target.value);
                   setOpenDropdown(false);
+
+                  data.filter((coin) => {
+                    if (coin.symbol === 'opct') console.log(coin);
+                    return coin;
+                  });
 
                   let searchedFromDropdown = data.filter((coin) => {
                     if (

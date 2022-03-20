@@ -97,7 +97,8 @@ function CoinForecast() {
 
       // - coin name RBM calculation
       let sumRBM = (selectedFromDropdown.market_cap / data[0].market_cap) * 100;
-      let sumRBM2 = sumRBM.toFixed(1);
+      console.log({ coinCurrentRBM });
+      let sumRBM2 = sumRBM.toFixed(4);
       setCoinCurrentRMBnumber(sumRBM);
       setCoinCurrentRMB(sumRBM2.toLocaleString());
 
@@ -216,66 +217,64 @@ function CoinForecast() {
       {complete && (
         <>
           <BetaModal />
-          <div className='prose mb-5'>
-            <h3 className='text-appBlue'>Coin Predict</h3>
-            <p>
-              Set investment return targets based on current or potential
-              investments you want to make or have made + predict if the coin
-              can produce the returns you want.
-            </p>
-          </div>
-          <div className='flex'>
-            <div className='flex flex-col gap-4 lg:min-w-[700px]'>
-              <CoinInformation
-                data={data}
-                setData={setData}
-                selectedFromDropdown={selectedFromDropdown}
-                circulatingSupply={circulatingSupply}
-                currentPrice={currentPrice}
-                currentMarketCap={currentMarketCap}
-                coinName={coinName}
-                coinCurrentRBM={coinCurrentRBM}
-              />
-              <YourPrediction
-                coinName={coinName}
-                setData={setData}
-                doYouOwnAnyCoin={doYouOwnAnyCoin}
-                setDoYouOwnAnyCoin={setDoYouOwnAnyCoin}
-                setDoYouWantToBuyMoreCoin={setDoYouWantToBuyMoreCoin}
-                selectedFromDropdown={selectedFromDropdown}
-                setTotalAmountOwned={setTotalAmountOwned}
-                setAvgPriceBought={setAvgPriceBought}
-                setPreviousProfit={setPreviousProfit}
-                doYouWantToBuyMoreCoin={doYouWantToBuyMoreCoin}
-                setBuyMore={setBuyMore}
-                setAvgFuturePriceBought={setAvgFuturePriceBought}
-                predictedPrice={predictedPrice}
-                setPredictedPrice={setPredictedPrice}
-                predictedMarketcap={predictedMarketcap}
-              />
 
-              <YourResults
-                coinName={coinName}
-                coinRBM={coinRBM}
-                coinPredictedRBM={coinPredictedRBM}
-                profit={[profit]}
-                xTimesProfit={xTimesProfit}
-              />
+          <div className='flex flex-col gap-4 max-w-5xl mx-auto'>
+            <div className='mb-5'>
+              <h3 className='text-appBlue'>Coin Predict</h3>
+              <p>
+                Set investment return targets based on current or potential
+                investments you want to make or have made + predict if the coin
+                can produce the returns you want.
+              </p>
             </div>
+            <CoinInformation
+              data={data}
+              setData={setData}
+              selectedFromDropdown={selectedFromDropdown}
+              circulatingSupply={circulatingSupply}
+              currentPrice={currentPrice}
+              currentMarketCap={currentMarketCap}
+              coinName={coinName}
+              coinCurrentRBM={coinCurrentRBM}
+            />
+            <YourPrediction
+              coinName={coinName}
+              setData={setData}
+              doYouOwnAnyCoin={doYouOwnAnyCoin}
+              setDoYouOwnAnyCoin={setDoYouOwnAnyCoin}
+              setDoYouWantToBuyMoreCoin={setDoYouWantToBuyMoreCoin}
+              selectedFromDropdown={selectedFromDropdown}
+              setTotalAmountOwned={setTotalAmountOwned}
+              setAvgPriceBought={setAvgPriceBought}
+              setPreviousProfit={setPreviousProfit}
+              doYouWantToBuyMoreCoin={doYouWantToBuyMoreCoin}
+              setBuyMore={setBuyMore}
+              setAvgFuturePriceBought={setAvgFuturePriceBought}
+              predictedPrice={predictedPrice}
+              setPredictedPrice={setPredictedPrice}
+              predictedMarketcap={predictedMarketcap}
+            />
+            <YourResults
+              coinName={coinName}
+              coinRBM={coinRBM}
+              coinPredictedRBM={coinPredictedRBM}
+              profit={[profit]}
+              xTimesProfit={xTimesProfit}
+            />
+            <YourAssessment
+              top10CryptoRBM={top10CryptoRBM}
+              top50CryptoRBM={top50CryptoRBM}
+              top100CryptoRBM={top100CryptoRBM}
+              top500CryptoRBM={top500CryptoRBM}
+              top1000CryptoRBM={top1000CryptoRBM}
+              ethRBM={ethRBM}
+              coinName={coinName}
+              coinCurrentRBM={coinCurrentRBM}
+              coinPredictedRBM={coinPredictedRBM}
+            />
+            <Analysis coinName={coinName} />
+            <QuickPredictArea />
           </div>
-          <YourAssessment
-            top10CryptoRBM={top10CryptoRBM}
-            top50CryptoRBM={top50CryptoRBM}
-            top100CryptoRBM={top100CryptoRBM}
-            top500CryptoRBM={top500CryptoRBM}
-            top1000CryptoRBM={top1000CryptoRBM}
-            ethRBM={ethRBM}
-            coinName={coinName}
-            coinCurrentRBM={coinCurrentRBM}
-            coinPredictedRBM={coinPredictedRBM}
-          />
-          <Analysis coinName={coinName} />
-          <QuickPredictArea />
         </>
       )}
     </>

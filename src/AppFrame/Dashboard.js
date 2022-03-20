@@ -36,9 +36,6 @@ export default function Dashboard() {
     "We're excited to release Beta v.1 of the app very soon.";
   const [openNews, setOpenNews] = useState(true);
 
-  // - update active link in navigation
-  const [navigationList, setNavigationList] = useState(navigation);
-
   return (
     <>
       <Disclosure as='nav' className='bg-appBlue'>
@@ -83,11 +80,15 @@ export default function Dashboard() {
                       type='button'
                       className='p-1 bg-indigo-600 rounded-full text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white'>
                       <span className='sr-only'>View notifications</span>
-                      <BellIcon className='h-6 w-6' aria-hidden='true' />
+                      <BellIcon
+                        className='h-6 w-6'
+                        aria-hidden='true'
+                        onClick={() => setOpenNews(true)}
+                      />
                     </button>
 
-                    {/* Profile dropdown */}
-                    <Menu as='div' className='ml-3 relative'>
+                    {/* // -  Desktop Profile dropdown  */}
+                    {/* <Menu as='div' className='ml-3 relative'>
                       <div>
                         <Menu.Button className='max-w-xs bg-indigo-600 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white'>
                           <span className='sr-only'>Open user menu</span>
@@ -110,24 +111,24 @@ export default function Dashboard() {
                           {userNavigation.map((item) => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (
-                                <a
-                                  href={item.href}
+                                <Link
+                                  href={item.to}
                                   className={classNames(
                                     active ? 'bg-gray-100' : '',
                                     'block px-4 py-2 text-sm text-gray-700'
                                   )}>
                                   {item.name}
-                                </a>
+                                </Link>
                               )}
                             </Menu.Item>
                           ))}
                         </Menu.Items>
                       </Transition>
-                    </Menu>
+                    </Menu> */}
                   </div>
                 </div>
                 <div className='-mr-2 flex md:hidden'>
-                  {/* Mobile menu button */}
+                  {/* // - Mobile menu button  */}
                   <Disclosure.Button className='bg-indigo-600 inline-flex items-center justify-center p-2 rounded-md text-indigo-200 hover:text-white hover:bg-indigo-500 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white'>
                     <span className='sr-only'>Open main menu</span>
                     {open ? (
@@ -143,23 +144,42 @@ export default function Dashboard() {
             <Disclosure.Panel className='md:hidden'>
               <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3'>
                 {navigation.map((item) => (
-                  <Disclosure.Button
-                    key={item.name}
-                    as='a'
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? 'bg-indigo-700 text-white'
-                        : 'text-white hover:bg-indigo-500 hover:bg-opacity-75',
-                      'block px-3 py-2 rounded-md text-base font-medium'
-                    )}
-                    aria-current={item.current ? 'page' : undefined}>
-                    {item.name}
-                  </Disclosure.Button>
+                  <Link to={item.to}>
+                    <Disclosure.Button
+                      key={item.name}
+                      as={'button'}
+                      href={item.to}
+                      className={classNames(
+                        item.current
+                          ? 'bg-indigo-700 text-white'
+                          : 'text-white hover:bg-indigo-500 hover:bg-opacity-75',
+                        'block px-3 py-2 rounded-md text-base font-medium'
+                      )}
+                      aria-current={item.current ? 'page' : undefined}>
+                      {item.name}
+                    </Disclosure.Button>
+                  </Link>
                 ))}
+
                 <SubMenu button={'Support'} />
+
+                <div className='flex w-full justify-end'>
+                  <button
+                    type='button'
+                    className='  mr-3 inline-block p-1 bg-indigo-600 rounded-full text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white'>
+                    <span className='sr-only'>View notifications</span>
+                    <BellIcon
+                      className='h-6 w-6'
+                      aria-hidden='true'
+                      onClick={() => setOpenNews(true)}
+                    />
+                  </button>
+                </div>
+
+                <div lassName='pt-4 pb-3 border border-indigo-700 w-full'></div>
               </div>
-              <div className='pt-4 pb-3 border-t border-indigo-700'>
+
+              {/* <div className='pt-4 pb-3 border-t border-indigo-700'>
                 <div className='flex items-center px-5'>
                   <div className='flex-shrink-0'>
                     <img
@@ -194,7 +214,7 @@ export default function Dashboard() {
                     </Disclosure.Button>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </Disclosure.Panel>
           </>
         )}
