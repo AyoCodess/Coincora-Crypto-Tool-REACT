@@ -224,7 +224,7 @@ function CoinForecast() {
               <p>
                 Set investment return targets based on current or potential
                 investments you want to make or have made + predict if the coin
-                can produce the returns you want
+                can produce the returns you want.
               </p>
             </div>
             <CoinInformation
