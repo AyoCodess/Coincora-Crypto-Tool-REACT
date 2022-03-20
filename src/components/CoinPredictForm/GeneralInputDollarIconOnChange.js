@@ -1,7 +1,12 @@
 import { CheckCircleIcon } from '@heroicons/react/solid';
 import { CurrencyDollarIcon } from '@heroicons/react/solid';
 import Tooltip from '../Tooltip/Tooltip';
-export default function GeneralInputDollarIcon({ title, message, value }) {
+export default function GeneralInputDollarIconOnChange({
+  title,
+  message,
+  value,
+  onChange,
+}) {
   return (
     <div>
       <label
@@ -17,8 +22,8 @@ export default function GeneralInputDollarIcon({ title, message, value }) {
           />
         </div>
         <input
-          type='text'
-          readOnly
+          type='number'
+          onChange={onChange}
           min={0}
           value={value}
           onWheel={(e) => e.target.blur()}

@@ -36,22 +36,22 @@ function CoinInformation({
       <SectionContainer>
         <GeneralInput
           message={'hey'}
-          name={'Circulating Supply'}
+          title={'Circulating Supply'}
           value={circulatingSupply}
         />
         <GeneralInputDollarIcon
           message={'hey'}
-          name={'Coin Price'}
+          title={'Coin Price'}
           value={currentPrice}
         />
         <GeneralInputDollarIcon
           message={'hey'}
-          name={'Current Marketcap'}
+          title={'Current Marketcap'}
           value={currentMarketCap}
         />
         <GeneralInputPercentageIcon
           message={'hey'}
-          name={`${coinName}'s Current RBM`}
+          title={`${coinName}'s Current RBM`}
           value={coinCurrentRBM}
         />
       </SectionContainer>

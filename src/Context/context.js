@@ -8,7 +8,7 @@ export function DataProvider({ children }) {
   // = GLOBAL API CALL - CRYPTO MARKET DATA
 
   const [complete, setComplete] = useState(true);
-  const [coinName, setCoinName] = useState('Coin');
+  const [coinName, setCoinName] = useState('Selected Coin');
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [btcMarketcapFormatted, setBtcMarketcapFormatted] = useState(null);

@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function YesNoToggle({ text, state, setState, otherSetState }) {
+export default function YesNoToggle({ text, state, setState }) {
   return (
     <>
       <div>

@@ -75,7 +75,7 @@ function CoinForecast() {
 
       // - reassigns coin name if input field is an empty string.
       if (coinName === '') {
-        selectedFromDropdown.name = 'Coin';
+        selectedFromDropdown.name = 'Selected Coin';
         setCoinName(selectedFromDropdown.name);
       }
 
@@ -205,39 +205,14 @@ function CoinForecast() {
     xTimesProfit,
   ]);
 
+  console.log({ totalAmountOwned });
+  console.log({ avgPriceBought });
+  console.log({ previousProfit });
+  console.log({ buyMore });
+  console.log({ avgFuturePriceBought });
+
   return (
     <>
-      {!complete && (
-        <div>
-          <div className='prose'>
-            <p>
-              Coming soon. Join our waiting list to be one of the very first to
-              test out this new feature when it's available.
-            </p>
-            <p>
-              Coincora is a tool that will help you assess your crypto
-              investment expectations objectively.
-            </p>
-            <p>
-              Helping you avoid getting pulled into hype that may create a
-              situation where you're over exposed to the volatility of the
-              market.
-              <span className='text-red-500 font-bold'>
-                Moreover, it will help you avoid scams.
-              </span>
-            </p>
-          </div>
-          <div className='my-6'>
-            <StandardButtonReactRouter
-              to={'/'}
-              text={'Join the waiting list'}
-              width={'w-[250px]'}
-              color={'bg-appBlue'}
-            />
-          </div>
-        </div>
-      )}
-
       {complete && (
         <>
           <BetaModal />
