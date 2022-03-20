@@ -75,7 +75,7 @@ function CoinForecast() {
 
       // - reassigns coin name if input field is an empty string.
       if (coinName === '') {
-        selectedFromDropdown.name = 'Selected Coin';
+        selectedFromDropdown.name = 'Select Coin';
         setCoinName(selectedFromDropdown.name);
       }
 
@@ -205,11 +205,11 @@ function CoinForecast() {
     xTimesProfit,
   ]);
 
-  console.log({ totalAmountOwned });
-  console.log({ avgPriceBought });
-  console.log({ previousProfit });
-  console.log({ buyMore });
-  console.log({ avgFuturePriceBought });
+  //   console.log({ totalAmountOwned });
+  //   console.log({ avgPriceBought });
+  //   console.log({ previousProfit });
+  //   console.log({ buyMore });
+  //   console.log({ avgFuturePriceBought });
 
   return (
     <>
