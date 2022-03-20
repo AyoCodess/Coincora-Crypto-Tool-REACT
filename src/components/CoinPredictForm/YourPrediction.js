@@ -1,9 +1,9 @@
-import YesNoDoYouOwnAnyCoin from './YesNoDoYouOwnAnyCoin';
-import YesNoDoYouWantToBuyMoreCoin from './YesNoDoYouWantToBuyMoreCoin';
-import Tooltip from '../Tooltip/Tooltip';
-import InputTextWithNoIconOnChange from '../InoutFields/InputTextWithNoIconOnChange';
-import InputTextWithDollarIconOnChange from '../InoutFields/InputTextWithDollarIconOnChange';
-import InputTextWithDollarIconReadOnly from '../InoutFields/InputTextWithDollarIconReadOnly';
+import CoinPredictHeading from './CoinPredictHeading';
+import SectionContainer from './SectionContainer';
+import YesNoToggle from './YesNoToggle.js';
+import GeneralInputNoIconOnChange from './GeneralInputNoIconOnChange';
+import GeneralInputDollarIconOnChange from './GeneralInputDollarIconOnChange';
+import GeneralInputDollarIcon from './GeneralInputDollarIcon';
 
 function YourPrediction({
   coinName,
@@ -17,35 +17,66 @@ function YourPrediction({
   doYouWantToBuyMoreCoin,
   setBuyMore,
   setAvgFuturePriceBought,
-  predictedPrice,
   setPredictedPrice,
   predictedMarketcap,
+  setData,
 }) {
   return (
-    <div>
-      <div className='prose  mt-5 border-t-2 border-appBlue pt-2'>
-        <h4>Your Prediction</h4>
-        <p>Plug in numbers that make sense in your investing strategy.</p>
-      </div>
-      <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-        <YesNoDoYouOwnAnyCoin
-          coinName={coinName}
-          doYouOwnAnyCoin={doYouOwnAnyCoin}
-          setDoYouOwnAnyCoin={setDoYouOwnAnyCoin}
-          setDoYouWantToBuyMoreCoin={setDoYouWantToBuyMoreCoin}
+    <>
+      <CoinPredictHeading
+        setData={setData}
+        title={'Your Prediction'}
+        subHeading={
+          'Plug in numbers that make sense in your investing strategy.'
+        }
+        search={false}
+      />
+
+      {!selectedFromDropdown && (
+        <p className='mx-auto text-lg font-semibold text-center'>
+          Please select a coin via the
+          <br /> search to enable all features.
+        </p>
+      )}
+      <SectionContainer>
+        <GeneralInputDollarIconOnChange
+          message={'hey'}
+          title={`What are you predicting ${coinName}'s future price at?`}
+          onChange={(e) => {
+            if (e.target.value === '') {
+              return 0;
+            } else {
+              setPredictedPrice(e.target.valueAsNumber);
+            }
+          }}
         />
+        <GeneralInputDollarIcon
+          message={'hey'}
+          title={`${coinName}'s future market cap based off your
+                          prediction`}
+          value={predictedMarketcap}
+        />
+      </SectionContainer>
+
+      <SectionContainer>
+        <YesNoToggle
+          text={`Do you own any ${coinName}?`}
+          state={doYouOwnAnyCoin}
+          setState={setDoYouOwnAnyCoin}
+        />
+        {!selectedFromDropdown && (
+          <p className='mx-auto text-lg font-semibold text-center '>
+            Please select a coin via the search.
+          </p>
+        )}
+
         {doYouOwnAnyCoin && (
-          <div>
-            <div className='flex gap-2 items-center mt-5 '>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
+          <>
+            {selectedFromDropdown && (
+              <>
+                <GeneralInputNoIconOnChange
+                  title={`Total Amount of ${coinName} you own?`}
                   message={'hey'}
-                  title={`Total Amount of ${coinName} you
-                              own?`}
-                />
-              </div>
-              {selectedFromDropdown && (
-                <InputTextWithNoIconOnChange
                   onChange={(e) => {
                     if (e.target.value === '') {
                       return 0;
@@ -54,17 +85,9 @@ function YourPrediction({
                     }
                   }}
                 />
-              )}
-            </div>
-            <div className='flex gap-2 items-center '>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
-                  message={'hey'}
+                <GeneralInputDollarIconOnChange
                   title={`Average price you bought ${coinName} at?`}
-                />
-              </div>
-              {selectedFromDropdown && (
-                <InputTextWithDollarIconOnChange
+                  message={'hey'}
                   onChange={(e) => {
                     if (e.target.value === '') {
                       return 0;
@@ -73,17 +96,9 @@ function YourPrediction({
                     }
                   }}
                 />
-              )}
-            </div>
-            <div className='flex gap-2 items-center '>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
+                <GeneralInputDollarIconOnChange
                   message={'hey'}
                   title={`How much profit or loss have you made on ${coinName} so far?`}
-                />
-              </div>
-              {selectedFromDropdown && (
-                <InputTextWithDollarIconOnChange
                   onChange={(e) => {
                     if (e.target.value === '') {
                       return 0;
@@ -92,28 +107,28 @@ function YourPrediction({
                     }
                   }}
                 />
-              )}
-            </div>
-          </div>
+              </>
+            )}
+
+            <YesNoToggle
+              text={`Are you going to buy anymore ${coinName}?`}
+              state={doYouWantToBuyMoreCoin}
+              setState={setDoYouWantToBuyMoreCoin}
+            />
+            {!selectedFromDropdown && (
+              <p className='mx-auto text-lg font-semibold text-center '>
+                Please select a coin via the search.
+              </p>
+            )}
+          </>
         )}
-        {doYouOwnAnyCoin && (
-          <YesNoDoYouWantToBuyMoreCoin
-            coinName={coinName}
-            setDoYouWantToBuyMoreCoin={setDoYouWantToBuyMoreCoin}
-            doYouWantToBuyMoreCoin={doYouWantToBuyMoreCoin}
-          />
-        )}
-        {doYouWantToBuyMoreCoin && (
-          <div>
-            <div className='flex gap-2 items-center mt-4'>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
+        {doYouWantToBuyMoreCoin && doYouOwnAnyCoin && (
+          <>
+            {selectedFromDropdown && (
+              <>
+                <GeneralInputNoIconOnChange
                   message={'hey'}
                   title={` If you want to buy more ${coinName}, how much (Units)?`}
-                />
-              </div>
-              {selectedFromDropdown && (
-                <InputTextWithNoIconOnChange
                   onChange={(e) => {
                     if (e.target.value === '') {
                       return 0;
@@ -122,17 +137,9 @@ function YourPrediction({
                     }
                   }}
                 />
-              )}
-            </div>
-            <div className='flex gap-2 items-center'>
-              <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-                <Tooltip
+                <GeneralInputDollarIconOnChange
                   message={'hey'}
                   title={`Average price you think you will buy more ${coinName} at?`}
-                />
-              </div>
-              {selectedFromDropdown && (
-                <InputTextWithDollarIconOnChange
                   onChange={(e) => {
                     if (e.target.value === '') {
                       return 0;
@@ -141,46 +148,12 @@ function YourPrediction({
                     }
                   }}
                 />
-              )}
-            </div>
-          </div>
+              </>
+            )}
+          </>
         )}
-      </div>
-      <div className='flex flex-col shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
-        <div className='flex gap-2 items-center border-2 '>
-          <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-            <Tooltip
-              message={'hey'}
-              title={`What are you predicting ${coinName}'s future price at?`}
-            />
-          </div>
-          {selectedFromDropdown && (
-            <InputTextWithDollarIconOnChange
-              value={predictedPrice}
-              onChange={(e) => {
-                if (e.target.value === '') {
-                  return 0;
-                } else {
-                  setPredictedPrice(e.target.valueAsNumber);
-                }
-              }}
-            />
-          )}
-        </div>
-        <div className='flex gap-2 items-center'>
-          <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
-            <Tooltip
-              message={'hey'}
-              title={`${coinName}'s future market cap based off your
-                          prediction`}
-            />
-          </div>
-          {selectedFromDropdown && (
-            <InputTextWithDollarIconReadOnly value={predictedMarketcap} />
-          )}
-        </div>
-      </div>
-    </div>
+      </SectionContainer>
+    </>
   );
 }
 

@@ -5,7 +5,7 @@ function yesNoDoYouOwnAnyCoin({
   doYouOwnAnyCoin,
 }) {
   return (
-    <di className='mb-4 mt-4'>
+    <div className='mb-4 mt-4'>
       <label className='text-base font-medium text-gray-900'>
         {`Do you own any ${coinName}?`}
       </label>
@@ -50,7 +50,7 @@ function yesNoDoYouOwnAnyCoin({
           </div>
         </div>
       </fieldset>
-    </di>
+    </div>
   );
 }
 

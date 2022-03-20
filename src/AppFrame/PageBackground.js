@@ -22,7 +22,7 @@ function PageBackground({ component }) {
                 y={0}
                 width={4}
                 height={4}
-                className='text-gray-200'
+                className='text-gray-500'
                 fill='currentColor'
               />
             </pattern>
@@ -53,7 +53,7 @@ function PageBackground({ component }) {
                 y={0}
                 width={4}
                 height={4}
-                className='text-gray-200'
+                className='text-gray-500'
                 fill='currentColor'
               />
             </pattern>
@@ -64,7 +64,7 @@ function PageBackground({ component }) {
             fill='url(#85737c0e-0916-41d7-917f-596dc7edfa27)'
           />
         </svg>
-        {component}
+        game
       </div>
     </div>
   );

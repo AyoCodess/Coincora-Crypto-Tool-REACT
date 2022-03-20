@@ -17,7 +17,7 @@ export default function WhatIsRBM() {
         <div className='t-0'>
           <div className='t-y-0'>
             <img
-              className='h-56 w-full xl:w-[50%] mx-auto  object-cover'
+              className='h-56 w-full w-max-7xl mx-auto  object-cover'
               src='https://i.imgur.com/BY3pgOT.jpg'
               alt=''
             />
@@ -25,7 +25,7 @@ export default function WhatIsRBM() {
         </div>
         <div className='relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6'>
           <div className=' '>
-            <div className='text-base xl:w-[50%] mx-auto w-6xl uto '>
+            <div className='text-base flex flex-col mx-auto max-w-5xl   '>
               <h2 className='leading-6 text-indigo-600 font-semibold tracking-wide uppercase'>
                 Help Guide
               </h2>
@@ -33,7 +33,7 @@ export default function WhatIsRBM() {
                 What’s ‘RBM’ and the ‘Fundamentals’?
               </h3>
 
-              <div className='mt-5 prose prose-blue prose-xl text-black'>
+              <div className='mt-5 prose prose-blue prose-xl flex flex-col mx-auto max-w-5xl text-black'>
                 <div className='p-2 border-2 border-gray-200 rounded-md '>
                   <div className='text-xl font-bold p-4'>Crypto Dictionary</div>
                   <ul role='list' className='pl-0'>
