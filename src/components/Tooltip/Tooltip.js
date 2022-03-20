@@ -4,6 +4,7 @@ import AlinkStandardButton from '../Buttons/AlinkStandardButton';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import { padding } from '@mui/system';
 
 function Tooltip({ message, title, button }) {
   return (
@@ -13,10 +14,16 @@ function Tooltip({ message, title, button }) {
         <Tippy
           arrow={true}
           content={<span className='text-lg'>{message}</span>}>
-          <div className='flex items-center  max-w-max text-left font-medium text-gray- bg-gray-50'>
+          <div className='flex items-center max-w-max text-left font-medium '>
             {title}
-            <div className='ml-2'>
-              <InfoOutlinedIcon style={{ color: 'blue', fontSize: '1rem' }} />
+            <div className='ml-2 pb-[0.1rem]'>
+              <InfoOutlinedIcon
+                style={{
+                  color: 'white',
+                  fontSize: '1.2rem',
+                  padding: '1px 0px 1px 0px',
+                }}
+              />
             </div>
           </div>
         </Tippy>
