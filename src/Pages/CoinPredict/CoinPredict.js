@@ -205,6 +205,8 @@ function CoinForecast() {
     xTimesProfit,
   ]);
 
+  //test
+
   return (
     <>
       {!complete && (
