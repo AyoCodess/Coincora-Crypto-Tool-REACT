@@ -18,11 +18,11 @@ export default function GeneralInputPercentageIcon({ title, message, value }) {
           onWheel={(e) => e.target.blur()}
           name='name'
           id='name'
-          className=' font-boldblock w-full p-0 text-white placeholder-white bg-transparent focus:ring-0 sm:text-sm border-white border-[0.1rem] rounded-md px-3 py-2'
+          className=' font-bold block w-full p-0 text-appBlue placeholder-appBlue bg-white focus:ring-0 sm:text-sm border-white border-[0.1rem] rounded-md px-3 py-2'
           placeholder='000,000'
         />
         <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
-          <span className='h-5 w-5 text-white font-bold' aria-hidden='true'>
+          <span className='h-5 w-5 text-appBlue font-bold' aria-hidden='true'>
             %
           </span>
         </div>

@@ -39,7 +39,7 @@ export default function Example() {
 
               <input
                 type='text'
-                className='p-2  border-[0.1rem] text-left w-full bg-transparent placeholder-white  focus:ring-1 focus:ring-orange-500 focus:border-orange-500   '
+                className='p-2  border-[0.1rem] text-left w-full bg-transparent placeholder-white focus:ring-1 focus:ring-orange-500 focus:border-orange-500   '
                 placeholder='e.g search "btc" or "bitcoin"'
                 onChange={(e) => {
                   setEvent(e.target.value);

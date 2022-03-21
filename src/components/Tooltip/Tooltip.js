@@ -6,7 +6,7 @@ import 'tippy.js/dist/tippy.css';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { padding } from '@mui/system';
 
-function Tooltip({ message, title, button }) {
+function Tooltip({ message, title, button, textColor }) {
   return (
     <>
       {' '}
@@ -14,7 +14,8 @@ function Tooltip({ message, title, button }) {
         <Tippy
           arrow={true}
           content={<span className='text-lg'>{message}</span>}>
-          <div className='flex items-center max-w-max text-left font-medium '>
+          <div
+            className={`flex items-center max-w-max text-left font-medium ${textColor}`}>
             {title}
             <div className='ml-2 pb-[0.1rem]'>
               <InfoOutlinedIcon

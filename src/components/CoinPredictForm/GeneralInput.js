@@ -18,11 +18,14 @@ export default function GeneralInput({ title, message, value }) {
           onWheel={(e) => e.target.blur()}
           title='title'
           id='title'
-          className='block w-full p-0 text-white placeholder-white bg-transparent focus:ring-0 sm:text-sm border-white border-[0.1rem] rounded-md px-3 py-2'
+          className='block w-full p-0 text-appBlue placeholder-appBlue bg-white focus:ring-0 sm:text-sm border-white border-[0.1rem] rounded-md px-3 py-2'
           placeholder='000,000'
         />
         <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
-          <CheckCircleIcon className='h-5 w-5 text-white' aria-hidden='true' />
+          <CheckCircleIcon
+            className='h-5 w-5 text-appBlue'
+            aria-hidden='true'
+          />
         </div>
       </div>
     </div>

@@ -23,9 +23,9 @@ function GoogleForm() {
         <form
           action='https://docs.google.com/forms/u/0/d/e/1FAIpQLSfOljMM0BkFLBFikUm8X1Sdq3-TwJpyTtZbzmpDc1TMoo1FSQ/formResponse'
           method='POST'>
-          <div className=' flex justify-center lg:pt-5 lg:w-[500px] lg:h-[500px] rounded-full boxShadow border-2 border-gray-200'>
+          <div className=' flex justify-center pt-5 w-[500px] h-[500px] rounded-full boxShadow border-2 border-gray-200'>
             <div className='flex flex-col justify-center items-center gap-5 p-10'>
-              <label className=' lg:text-7xl  text-3xl text-center w-60 lg:w-96 mt-5  hover:text-gray-400 text-appBlue transition ease-in-out duration-700 '>
+              <label className=' text-7xl text-center w-96 mt-5  hover:text-gray-400 text-appBlue transition ease-in-out duration-700 '>
                 Enter Email
               </label>
               <div className='rounded-full border-2 border-blue-300 border-solid '>
@@ -33,7 +33,7 @@ function GoogleForm() {
                   type='email'
                   required
                   name='emailAddress'
-                  className=' lg:w-80 w-48 h-10  lg:text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
+                  className=' w-80 h-10  text-2xl rounded-full textFieldGoogleForm placeholder p-5 text-center  hover:border-sky-300 focus:outline-sky-300 border-appBlue border-2'
                   placeholder='join our BETA V.1 waiting list'
                 />
               </div>
