@@ -60,10 +60,10 @@ function GoogleForm() {
       {/*
       // -mobile */}
       <div className='relative  md:hidden bg-white pt-16 sm:pt-24 '>
-        <div className='mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8'>
+        <div className='mx-auto max-w-md px-2 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8'>
           <div className='mt-12'>
             <div className='pt-6'>
-              <div className='flow-root rounded-lg bg-gray-50 px-6 pb-8'>
+              <div className='flow-root rounded-lg bg-gray-50 px-6 pb-4'>
                 <div className='-mt-10'>
                   <div>
                     <img
@@ -72,7 +72,7 @@ function GoogleForm() {
                       className='inline-flex items-center justify-center rounded-md  mb-5 p-3 shadow-lg'
                     />
                   </div>
-                  <p className='mt-2 text-2xl tracking-tight text-gray-500 sm:text-4xl'>
+                  <p className='mt-2 text-xl tracking-tight text-gray-500 sm:text-4xl'>
                     Lowering risk and ambiguity in crypto-investing
                   </p>
 
@@ -87,7 +87,7 @@ function GoogleForm() {
           </div>
         </div>
       </div>
-      <div className=' md:hidden mt-10 flex flex-col justify-center items-center gap-5 '>
+      <div className=' md:hidden mt-4 flex flex-col justify-center items-center gap-5 '>
         {/* <label className='text-center w-60 xl:w-96 mt-5  hover:text-gray-400 text-appBlue transition ease-in-out duration-700 '>
           Enter Email
         </label> */}
