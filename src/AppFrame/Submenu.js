@@ -16,35 +16,33 @@ import { Link } from 'react-router-dom';
 const solutions = [
   {
     name: 'Support Me',
-    description:
-      'Get a better understanding of where your traffic is coming from.',
+    description: 'Support my work directly.',
     to: '/support-me',
     icon: ChartBarIcon,
   },
   {
     name: 'Knowledge Base',
-    description: 'Speak directly to your customers in a more meaningful way.',
+    description: 'Confused? This will help.',
     to: '/knowledge-base',
     icon: CursorClickIcon,
   },
   {
     name: 'Updates',
-    description: "Your customers' data will be safe and secure.",
+    description: 'The Latest and planned feature updates.',
     to: '/updates',
-    icon: ShieldCheckIcon,
+    icon: RefreshIcon,
   },
   {
     name: 'Feature Request',
-    description: "Connect with third-party tools that you're already using.",
+    description: 'Got an idea for the app? Share it!',
     to: '/feature-request',
     icon: ViewGridIcon,
   },
   {
     name: 'Legal',
-    description:
-      'Build strategic funnels that will drive your customers to convert',
+    description: 'The important formalities.',
     to: '/legal',
-    icon: RefreshIcon,
+    icon: ShieldCheckIcon,
   },
 ];
 const callsToAction = [
@@ -59,7 +57,7 @@ function classNames(...classes) {
 export default function SubMenu({ button }) {
   return (
     <Popover className='relative'>
-      {({ open }) => (
+      {({ open, close }) => (
         <>
           <Popover.Button
             className={classNames(
@@ -93,6 +91,9 @@ export default function SubMenu({ button }) {
                  px-5 py-6 sm:gap-8 sm:p-8'>
                   {solutions.map((item) => (
                     <Link
+                      onClick={() => {
+                        close();
+                      }}
                       key={item.name}
                       to={item.to}
                       className='-m-3 p-3 flex items-start rounded-lg hover:bg-orange-500 transition ease-in-out duration-150'>
