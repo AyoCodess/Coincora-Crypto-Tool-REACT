@@ -39,7 +39,7 @@ export default function Dashboard() {
   return (
     <>
       <Disclosure as='nav' className='bg-appBlue'>
-        {({ open }) => (
+        {({ open, close }) => (
           <>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
               <div className='flex items-center justify-between h-16'>
@@ -57,7 +57,6 @@ export default function Dashboard() {
                     <div className='ml-10 flex items-baseline space-x-4'>
                       {navigation.map((item, i) => (
                         <Link
-                          onClick={() => {}}
                           key={item.name}
                           to={item.to}
                           className={classNames(
@@ -141,6 +140,7 @@ export default function Dashboard() {
               </div>
             </div>
 
+            {/* // - mobile menu */}
             <Disclosure.Panel className='md:hidden'>
               <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3'>
                 {navigation.map((item) => (
@@ -161,7 +161,7 @@ export default function Dashboard() {
                   </Link>
                 ))}
 
-                <SubMenu button={'Support'} />
+                <SubMenu button={'Support'} closeMain={close} />
 
                 <div className='flex w-full justify-end'>
                   <button

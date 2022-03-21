@@ -54,7 +54,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function SubMenu({ button }) {
+export default function SubMenu({ button, closeMain }) {
   return (
     <Popover className='relative'>
       {({ open, close }) => (
@@ -93,6 +93,7 @@ export default function SubMenu({ button }) {
                     <Link
                       onClick={() => {
                         close();
+                        closeMain();
                       }}
                       key={item.name}
                       to={item.to}
@@ -116,6 +117,9 @@ export default function SubMenu({ button }) {
                   {callsToAction.map((item) => (
                     <div key={item.name} className='flow-root'>
                       <a
+                        onClick={() => {
+                          close();
+                        }}
                         href={item.href}
                         target='_blank'
                         rel='noopener noreferrer'
