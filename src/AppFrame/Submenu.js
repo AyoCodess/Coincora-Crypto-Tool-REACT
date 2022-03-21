@@ -88,7 +88,9 @@ export default function SubMenu({ button }) {
             leaveTo='opacity-0 translate-y-1'>
             <Popover.Panel className='absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 sm:mt-6 px-2 w-screen max-w-md sm:px-0'>
               <div className='rounded-lg shadow-lg ring-1 ring-orange ring-opacity-5 overflow-hidden'>
-                <div className='relative grid gap-6 bg-appBlue px-5 py-6 sm:gap-8 sm:p-8'>
+                <div
+                  className='relative grid gap-6 bg-appBlue
+                 px-5 py-6 sm:gap-8 sm:p-8'>
                   {solutions.map((item) => (
                     <Link
                       key={item.name}
