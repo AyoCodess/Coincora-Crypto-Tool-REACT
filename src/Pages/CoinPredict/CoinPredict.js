@@ -211,7 +211,6 @@ function CoinForecast() {
   //   console.log({ previousProfit });
   //   console.log({ buyMore });
   //   console.log({ avgFuturePriceBought });
-  // - test
 
   return (
     <>
@@ -221,8 +220,8 @@ function CoinForecast() {
 
           <div className='flex flex-col gap-4 max-w-5xl mx-auto'>
             <div className='mb-5'>
-              <h3 className='text-appBlue'>Coin Predict</h3>
-              <p>
+              <h3 className='text-appBlue text-3xl font-bold '>Coin Predict</h3>
+              <p className='mt-4 text-xl'>
                 Set investment return targets based on current or potential
                 investments you want to make or have made + predict if the coin
                 can produce the returns you want.
@@ -259,7 +258,7 @@ function CoinForecast() {
               coinName={coinName}
               coinRBM={coinRBM}
               coinPredictedRBM={coinPredictedRBM}
-              profit={[profit]}
+              profit={profit}
               xTimesProfit={xTimesProfit}
             />
             <YourAssessment

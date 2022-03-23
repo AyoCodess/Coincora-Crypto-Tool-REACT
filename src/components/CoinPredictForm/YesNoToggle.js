@@ -10,7 +10,7 @@ export default function YesNoToggle({ text, state, setState }) {
   return (
     <>
       <div>
-        <p className='text-base mb-2 font-medium text-white'>{text}</p>
+        <p className='text-base mb-2 font-medium text-gray-600'>{text}</p>
         <Switch
           checked={state}
           onChange={setState}

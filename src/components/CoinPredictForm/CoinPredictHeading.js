@@ -4,7 +4,7 @@ import DropdownList from '../DropdownList/DropdownList';
 function CoinPredictHeading({ title, subHeading, setData, search }) {
   return (
     <div
-      className='border-2 px-4 pb-4 pt-20 gradient text-white coinShadow'
+      className='border-2 px-4 pb-4 pt-20 gradient text-white shadow-md coinShadow'
       style={{
         borderRadius: '0% 100% 0% 100% / 100% 17% 83% 0% ',
       }}>
