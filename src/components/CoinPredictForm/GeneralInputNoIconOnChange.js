@@ -10,7 +10,7 @@ export default function GeneralInputNoIconOnChange({
       <label
         htmlFor={title}
         className='block text-lg font-medium text-white-700'>
-        <Tooltip message={message} title={title} />
+        <Tooltip message={message} title={title} textColor={'text-gray-600'} />
       </label>
 
       <div className='mt-1 relative rounded-md shadow-sm '>
@@ -22,7 +22,7 @@ export default function GeneralInputNoIconOnChange({
           onWheel={(e) => e.target.blur()}
           name='name'
           id='name'
-          className='block w-full p-0 text-white placeholder-appBlue bg-white focus:ring-0 sm:text-sm border-white border-[0.1rem] rounded-md px-3 py-2'
+          className='block w-full p-0 text-gray-500  placeholder-appBlue bg-white focus:ring-0 sm:text-sm border-gray-200  border-[0.1rem] rounded-md px-3 py-2'
           placeholder='000,000'
         />
       </div>

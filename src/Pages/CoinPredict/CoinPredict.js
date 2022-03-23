@@ -211,7 +211,6 @@ function CoinForecast() {
   //   console.log({ previousProfit });
   //   console.log({ buyMore });
   //   console.log({ avgFuturePriceBought });
-  // - test
 
   return (
     <>
@@ -259,7 +258,7 @@ function CoinForecast() {
               coinName={coinName}
               coinRBM={coinRBM}
               coinPredictedRBM={coinPredictedRBM}
-              profit={[profit]}
+              profit={profit}
               xTimesProfit={xTimesProfit}
             />
             <YourAssessment

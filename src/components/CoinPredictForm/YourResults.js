@@ -4,7 +4,7 @@ import InputTextTimesProfit from '../InoutFields/InputTextTimesProfit';
 import CoinPredictHeading from './CoinPredictHeading';
 import SectionContainerBlue from './SectionContainerBlue';
 import SectionContainerWhite from './SectionContainerWhite';
-import CoinPriceStats from './CoinPriceStats';
+import CoinPriceStat from './CoinPriceStat';
 
 function YourResults({
   coinName,
@@ -47,22 +47,19 @@ function YourResults({
           <Tooltip message={'hey'} />
         </div>
       </SectionContainerBlue>
-      {/* <SectionContainerWhite>
-        <Tooltip
-          message={'hey'}
-          title={`Your profit if ${coinName} went to your predicted price is`}
-          textColor={'text-appBlue'}
+      <div className='mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
+        <CoinPriceStat
+          stat={profit}
+          title={'Your profit if Select Coin went to your predicted price is'}
+          sign2={'$'}
         />
-        <InputTextWithDollarIconReadOnly value={profit} />
-
-        <Tooltip
-          message={'hey'}
-          title={`Your predicted X increase is`}
-          textColor={'text-appBlue'}
+        <CoinPriceStat
+          stat={xTimesProfit}
+          title={'Your predicted X increase is'}
+          sign={'x'}
+          textColor={'text-green-400'}
         />
-        <InputTextTimesProfit value={xTimesProfit} />
-      </SectionContainerWhite> */}
-      <CoinPriceStats profit={profit} xTimesProfit={xTimesProfit} />
+      </div>
     </div>
   );
 }
