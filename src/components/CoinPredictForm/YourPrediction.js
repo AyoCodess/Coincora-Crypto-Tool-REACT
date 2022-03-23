@@ -65,7 +65,7 @@ function YourPrediction({
           setState={setDoYouOwnAnyCoin}
         />
         {!selectedFromDropdown && (
-          <p className='mx-auto text-lg font-semibold text-center '>
+          <p className='mx-auto text-lg text-black font-semibold text-center '>
             Please select a coin via the search.
           </p>
         )}
@@ -76,6 +76,7 @@ function YourPrediction({
               <>
                 <GeneralInputNoIconOnChange
                   title={`Total Amount of ${coinName} you own?`}
+                  type={'number'}
                   message={'hey'}
                   onChange={(e) => {
                     if (e.target.value === '') {
@@ -116,7 +117,7 @@ function YourPrediction({
               setState={setDoYouWantToBuyMoreCoin}
             />
             {!selectedFromDropdown && (
-              <p className='mx-auto text-lg font-semibold text-center '>
+              <p className='mx-auto text-lg text-black font-semibold text-center '>
                 Please select a coin via the search.
               </p>
             )}

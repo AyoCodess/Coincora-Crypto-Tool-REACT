@@ -206,11 +206,11 @@ function CoinForecast() {
     xTimesProfit,
   ]);
 
-  //   console.log({ totalAmountOwned });
-  //   console.log({ avgPriceBought });
-  //   console.log({ previousProfit });
-  //   console.log({ buyMore });
-  //   console.log({ avgFuturePriceBought });
+  console.log({ totalAmountOwned });
+  console.log({ avgPriceBought });
+  console.log({ previousProfit });
+  console.log({ buyMore });
+  console.log({ avgFuturePriceBought });
 
   return (
     <>

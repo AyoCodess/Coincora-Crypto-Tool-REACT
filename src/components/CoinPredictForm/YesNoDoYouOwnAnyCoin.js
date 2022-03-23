@@ -22,11 +22,11 @@ function yesNoDoYouOwnAnyCoin({
               id={'yesMore'}
               name='notification-method'
               type='radio'
-              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+              className='focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300'
             />
             <label
               htmlFor={'yesMore'}
-              className='ml-3 block text-sm font-medium text-gray-700'>
+              className='ml-3 block text-sm font-medium text-appBlue'>
               Yes
             </label>
           </div>
@@ -40,7 +40,7 @@ function yesNoDoYouOwnAnyCoin({
               name='notification-method'
               type='radio'
               defaultChecked={doYouOwnAnyCoin === false}
-              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+              className='focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300'
             />
             <label
               htmlFor={'noMore'}

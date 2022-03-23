@@ -19,45 +19,34 @@ function YourResults({
         title={'The Results'}
         subHeading={'Here it is, behold your forecast results.'}
       />
-      <SectionContainerBlue>
-        <div className='flex items-center'>
-          <div>
-            <span>
-              {coinName}'s current market cap is
-              <span className='font-bold text-xl text-white'>
-                {' '}
-                {coinRBM}%&nbsp;
-              </span>
-              of Bitcoins current market cap (RBM)
-            </span>
-          </div>
-          <Tooltip message={'hey'} />
-        </div>
-        <div className='flex items-center'>
-          <div>
-            <span>
-              {coinName}'s predicted market cap is
-              <span className='font-bold text-xl text-white'>
-                {' '}
-                {coinPredictedRBM}%&nbsp;
-              </span>
-              of Bitcoins current market cap (RBM)
-            </span>
-          </div>
-          <Tooltip message={'hey'} />
-        </div>
-      </SectionContainerBlue>
       <div className='mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
         <CoinPriceStat
+          stat={coinRBM}
+          title={`${coinName}'s current marketcap RBM`}
+          sign={'%'}
+          tooltipIconColor={'blue'}
+        />
+        <CoinPriceStat
+          stat={coinPredictedRBM}
+          title={`${coinName}'s predicted marketcap RBM`}
+          sign={'%'}
+          tooltipIconColor={'blue'}
+        />
+      </div>
+      <div className=' mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
+        <hr className='sm:hidden  my-1 w-2/3 mx-auto border-t-2  bg-gray-200' />
+        <CoinPriceStat
           stat={profit}
-          title={`Your profit if ${coinName} went to your predicted price is`}
+          title={`Your profit if ${coinName} went to predicted price`}
           sign2={'$'}
+          tooltipIconColor={'blue'}
         />
         <CoinPriceStat
           stat={xTimesProfit}
-          title={'Your predicted X increase is'}
+          title={'Your predicted X increase'}
           sign={'x'}
           textColor={'text-green-400'}
+          tooltipIconColor={'blue'}
         />
       </div>
     </div>
