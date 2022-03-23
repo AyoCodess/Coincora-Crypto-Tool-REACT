@@ -21,6 +21,7 @@ function YourPrediction({
   predictedMarketcap,
   setData,
 }) {
+  console.log({ selectedFromDropdown });
   return (
     <>
       <CoinPredictHeading
@@ -63,6 +64,7 @@ function YourPrediction({
           text={`Do you own any ${coinName}?`}
           state={doYouOwnAnyCoin}
           setState={setDoYouOwnAnyCoin}
+          disabled={selectedFromDropdown}
         />
         {!selectedFromDropdown && (
           <p className='mx-auto text-lg text-black font-semibold text-center '>
