@@ -10,6 +10,7 @@ import {
 
 import DataContext from '../../Context/context';
 import { useContext } from 'react';
+import Tooltip from '../Tooltip/Tooltip';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -22,11 +23,20 @@ export default function CoinPriceStat({
   sign2,
   textColor,
   title,
+  message,
+  tooltipIconColor,
 }) {
   const { data, selectedFromDropdown } = useContext(DataContext);
   return (
     <div>
-      <p className='text-lg font-semibold'>{title}</p>
+      <Tooltip
+        message={(message = 'hey')}
+        title={title}
+        button={false}
+        textColor={null}
+        customTextClasses={'text-lg font-semibold'}
+        tooltipIconColor={tooltipIconColor}
+      />
       <div className='mt-2 relative bg-white  px-4   sm:px-6 shadow rounded-lg overflow-hidden'>
         <dt>
           <div className='absolute rounded-md '>
@@ -51,7 +61,10 @@ export default function CoinPriceStat({
         <dd className='ml-16 py-6 flex sm:py-7'>
           <p className='text-2xl font-semibold text-gray-900 pal'>
             <div>
-              {!stat || stat === undefined || stat === '' ? (
+              {!stat ||
+              stat === undefined ||
+              stat === '' ||
+              typeof stat === 'string' ? (
                 <p className={` text-black ${textColor}`}>
                   {sign2} 0.00 {sign}
                 </p>

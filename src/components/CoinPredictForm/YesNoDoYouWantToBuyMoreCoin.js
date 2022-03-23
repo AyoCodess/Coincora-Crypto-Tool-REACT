@@ -22,7 +22,7 @@ function YesNoDoYouWantToBuyMoreCoin({
               id={'yesMore'}
               name='more'
               type='radio'
-              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+              className='focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300'
             />
             <label
               htmlFor={'yesMore'}
@@ -39,7 +39,7 @@ function YesNoDoYouWantToBuyMoreCoin({
               name='more'
               type='radio'
               defaultChecked={doYouWantToBuyMoreCoin === false}
-              className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+              className='focus:ring-appBlue h-4 w-4 text-appBlue border-gray-300'
             />
             <label
               htmlFor={'noMore'}
