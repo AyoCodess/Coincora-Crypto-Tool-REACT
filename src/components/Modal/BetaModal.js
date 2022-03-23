@@ -39,8 +39,8 @@ export default function BetaModal() {
             leaveFrom='opacity-100 translate-y-0 sm:scale-100'
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
             <div className='relative inline-block align-middle bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all  sm:my-8 sm:align-middle sm:max-w-sm md:max-w-lg sm:w-full sm:p-6'>
-              <div className=' sm:block absolute top-0 right-0 pt-4 pr-4'></div>
-              <div className='sm:flex flex-col sm:items-start'>
+              <div className=' block absolute top-0 right-0 pt-4 pr-4'></div>
+              <div className='flex flex-col items-start'>
                 <div className='flex items-center gap-5'>
                   <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-orange-100 sm:mx-0 sm:h-10 sm:w-10'>
                     <ExclamationIcon
@@ -54,7 +54,7 @@ export default function BetaModal() {
                     Version Beta: V.05 | Release: 18/3/22
                   </Dialog.Title>
                 </div>
-                <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
+                <div className='mt-3  sm:mt-0 sm:ml-4 text-left'>
                   <div className='mt-6'>
                     <p className='text-lg text-black font-semibold mt-2'>
                       Coin predict is constantly being updated. Everything

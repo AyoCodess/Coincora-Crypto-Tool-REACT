@@ -50,7 +50,7 @@ function YourResults({
       <div className='mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
         <CoinPriceStat
           stat={profit}
-          title={'Your profit if Select Coin went to your predicted price is'}
+          title={`Your profit if ${coinName} went to your predicted price is`}
           sign2={'$'}
         />
         <CoinPriceStat
