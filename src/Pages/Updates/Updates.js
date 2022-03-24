@@ -13,36 +13,42 @@ function Updates() {
           to={'/todo'}
         />
       </div>
-      <div className='mt-5 shadow overflow-hidden border border-gray-200 sm:rounded-lg p-4'>
-        <h2 className='text-appBlue text-xl font-bold border-b-2 border-gray-400 pb-2 max-w-max'>
-          Building My startup - Update 1
-        </h2>
-        <h3 className='mt-2 font-bold'>Date: 27/01/2022</h3>
-        <div className='mt-5 border-2 border-gray-200 max-w-max shadow-lg rounded-md'>
-          <iframe
-            width='325'
-            height='185'
-            src='https://www.youtube.com/embed/Mv-p3n_k1LM'
-            title='YouTube video player'
-            frameborder='0'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowfullscreen></iframe>
+      <div className='flex flex-wrap gap-6 items-start'>
+        <div className='mt-5 w-96 h-[22rem] shadow overflow-hidden border  border-gray-200 sm:rounded-lg p-6'>
+          <div className='h-[5rem]'>
+            <h2 className='text-appBlue text-xl font-bold max-w-max'>
+              Building My startup - Update 1
+            </h2>
+            <h3 className='mt-2 font-bold'>Date: 27/01/2022</h3>
+          </div>
+          <div className='mt-5 border-2 border-gray-200 max-w-max shadow-lg rounded-md'>
+            <iframe
+              width='325'
+              height='185'
+              src='https://www.youtube.com/embed/Mv-p3n_k1LM'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowfullscreen></iframe>
+          </div>
         </div>
-      </div>
-      <div className='mt-5 shadow overflow-hidden border border-gray-200 sm:rounded-lg p-4'>
-        <h2 className='text-appBlue text-xl font-bold border-b-2 border-gray-400 pb-2 max-w-max'>
-          Displaying Crypto Market Data via Dropdown - Top 1000 coins only
-        </h2>
-        <h3 className='mt-2 font-bold'>Date: 27/01/2022</h3>
-        <div className='mt-5 border-2 border-gray-200 max-w-max shadow-lg rounded-md'>
-          <iframe
-            width='325'
-            height='185'
-            src='https://www.youtube.com/embed/F1Sc7DD8VqM'
-            title='YouTube video player'
-            frameborder='0'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowfullscreen></iframe>
+        <div className='mt-5 w-96 h-[22rem] shadow overflow-hidden border border-gray-200 sm:rounded-lg p-6'>
+          <div className='h-[5rem]'>
+            <h2 className='text-appBlue text-xl font-bold  max-w-max'>
+              Displaying Crypto Market Data via Dropdown - Top 1000 coins only
+            </h2>
+            <h3 className='mt-2 font-bold'>Date: 27/01/2022</h3>
+          </div>
+          <div className='mt-5 border-2 border-gray-200 max-w-max shadow-lg rounded-md'>
+            <iframe
+              width='325'
+              height='185'
+              src='https://www.youtube.com/embed/F1Sc7DD8VqM'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </article>
