@@ -24,7 +24,7 @@ function CoinInformationDisplay({
         <Tooltip message={message} title={title} textColor={'text-gray-600'} />
       </label>
       <div className='text-black p-1 border border-gray-200 shadow rounded-md bg-white'>
-        <div className='flex gap-2 items-center px-2'>
+        <div className='flex gap-2 items-center px-1'>
           {coinLogo && (
             <CoinLogoDisplay
               selectedFromDropdown={selectedFromDropdown}
@@ -35,7 +35,7 @@ function CoinInformationDisplay({
           )}
           {!coinLogo && icon === 'dollarIcon' && (
             <CurrencyDollarIcon
-              className='h-5 w-5 text-appBlue'
+              className='h-5 w-5 text-appBlue mx-2'
               aria-hidden='true'
             />
           )}

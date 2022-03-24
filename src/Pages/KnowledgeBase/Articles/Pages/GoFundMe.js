@@ -83,7 +83,7 @@ export default function GoFundMe() {
                   </HashLink>
                 </ol>
               </div>
-              <div className='flex flex-col mx-auto mt-10 prose prose-blue prose-xl max-w-5xl text-black'>
+              <div className='  mt-10 prose prose-lg lg:prose-xl max-w-5xl text-black'>
                 <h3 id='theGist'>The Gist</h3>
                 <p>
                   According to a{' '}

@@ -80,10 +80,15 @@ function YourPrediction({
               <>
                 {selectedFromDropdown && (
                   <>
-                    <GeneralInputNoIconOnChange
+                    <CoinInformationDisplayOnChange
+                      selectedFromDropdown={selectedFromDropdown}
+                      data={data}
+                      sign2={null}
                       title={`Total Amount of ${coinName} you own?`}
-                      type={'number'}
                       message={'hey'}
+                      icon={null}
+                      coinLogo={true}
+                      inputType={'number'}
                       onChange={(e) => {
                         if (e.target.value === '') {
                           return 0;
@@ -92,9 +97,16 @@ function YourPrediction({
                         }
                       }}
                     />
-                    <GeneralInputDollarIconOnChange
+
+                    <CoinInformationDisplayOnChange
+                      selectedFromDropdown={selectedFromDropdown}
+                      data={data}
+                      sign2={null}
                       title={`Average price you bought ${coinName} at?`}
                       message={'hey'}
+                      coinLogo={null}
+                      icon={'dollarIcon'}
+                      inputType={'number'}
                       onChange={(e) => {
                         if (e.target.value === '') {
                           return 0;
@@ -103,9 +115,16 @@ function YourPrediction({
                         }
                       }}
                     />
-                    <GeneralInputDollarIconOnChange
-                      message={'hey'}
+
+                    <CoinInformationDisplayOnChange
+                      selectedFromDropdown={selectedFromDropdown}
+                      data={data}
+                      sign2={null}
                       title={`How much profit or loss have you made on ${coinName} so far?`}
+                      message={'hey'}
+                      coinLogo={null}
+                      icon={'dollarIcon'}
+                      inputType={'number'}
                       onChange={(e) => {
                         if (e.target.value === '') {
                           return 0;
@@ -122,20 +141,21 @@ function YourPrediction({
                   state={doYouWantToBuyMoreCoin}
                   setState={setDoYouWantToBuyMoreCoin}
                 />
-                {!selectedFromDropdown && (
-                  <p className='mx-auto text-lg text-black font-semibold text-center '>
-                    Please select a coin via the search.
-                  </p>
-                )}
               </>
             )}
             {doYouWantToBuyMoreCoin && doYouOwnAnyCoin && (
               <>
                 {selectedFromDropdown && (
                   <>
-                    <GeneralInputNoIconOnChange
-                      message={'hey'}
+                    <CoinInformationDisplayOnChange
+                      selectedFromDropdown={selectedFromDropdown}
+                      data={data}
+                      sign2={null}
                       title={` If you want to buy more ${coinName}, how much (Units)?`}
+                      message={'hey'}
+                      coinLogo={true}
+                      icon={null}
+                      inputType={'number'}
                       onChange={(e) => {
                         if (e.target.value === '') {
                           return 0;
@@ -144,14 +164,21 @@ function YourPrediction({
                         }
                       }}
                     />
-                    <GeneralInputDollarIconOnChange
-                      message={'hey'}
+
+                    <CoinInformationDisplayOnChange
+                      selectedFromDropdown={selectedFromDropdown}
+                      data={data}
+                      sign2={null}
                       title={`Average price you think you will buy more ${coinName} at?`}
+                      message={'hey'}
+                      coinLogo={null}
+                      icon={'dollarIcon'}
+                      inputType={'number'}
                       onChange={(e) => {
                         if (e.target.value === '') {
                           return 0;
                         } else {
-                          setAvgFuturePriceBought(e.target.valueAsNumber);
+                          setBuyMore(e.target.valueAsNumber);
                         }
                       }}
                     />
