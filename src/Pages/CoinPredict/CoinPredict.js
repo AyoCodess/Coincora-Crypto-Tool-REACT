@@ -240,6 +240,7 @@ function CoinForecast() {
             <YourPrediction
               coinName={coinName}
               setData={setData}
+              data={data}
               doYouOwnAnyCoin={doYouOwnAnyCoin}
               setDoYouOwnAnyCoin={setDoYouOwnAnyCoin}
               setDoYouWantToBuyMoreCoin={setDoYouWantToBuyMoreCoin}
@@ -260,6 +261,7 @@ function CoinForecast() {
               coinPredictedRBM={coinPredictedRBM}
               profit={profit}
               xTimesProfit={xTimesProfit}
+              selectedFromDropdown={selectedFromDropdown}
             />
             <YourAssessment
               top10CryptoRBM={top10CryptoRBM}

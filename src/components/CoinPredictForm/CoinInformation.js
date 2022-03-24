@@ -11,6 +11,8 @@ import GeneralInputDollarIcon from './GeneralInputDollarIcon';
 import GeneralInputPercentageIcon from './GeneralInputPercentageIcon';
 import CoinPredictHeading from './CoinPredictHeading';
 import SectionContainer from './SectionContainer';
+import { height } from '@mui/system';
+import CoinInformationDisplay from './CoinInformationDisplay';
 
 function CoinInformation({
   setData,
@@ -22,6 +24,7 @@ function CoinInformation({
   coinName,
   coinCurrentRBM,
 }) {
+  console.log({ selectedFromDropdown });
   return (
     <>
       <CoinPredictHeading
@@ -34,26 +37,51 @@ function CoinInformation({
       {/* <div className=' border-t-2 border-appBlue pt-2 '></div> */}
 
       <SectionContainer>
-        <GeneralInput
-          message={'hey'}
-          title={'Circulating Supply'}
-          value={circulatingSupply}
-        />
-        <GeneralInputDollarIcon
-          message={'hey'}
-          title={'Coin Price'}
-          value={currentPrice}
-        />
-        <GeneralInputDollarIcon
-          message={'hey'}
-          title={'Current Marketcap'}
-          value={currentMarketCap}
-        />
-        <GeneralInputPercentageIcon
-          message={'hey'}
-          title={`${coinName}'s Current RBM`}
-          value={coinCurrentRBM}
-        />
+        {selectedFromDropdown && selectedFromDropdown.name !== 'Select Coin' ? (
+          <>
+            <CoinInformationDisplay
+              selectedFromDropdown={selectedFromDropdown}
+              data={data}
+              value={circulatingSupply}
+              sign={null}
+              title={'Circulating Supply'}
+              message={'hey'}
+              coinLogo={true}
+            />
+            <CoinInformationDisplay
+              selectedFromDropdown={selectedFromDropdown}
+              data={data}
+              value={currentPrice}
+              sign={null}
+              title={'Current Price'}
+              message={'hey'}
+              coinLogo={true}
+            />
+            <CoinInformationDisplay
+              selectedFromDropdown={selectedFromDropdown}
+              data={data}
+              value={currentMarketCap}
+              sign={'$'}
+              title={'Current Marketcap'}
+              message={'hey'}
+              coinLogo={true}
+            />
+            <CoinInformationDisplay
+              selectedFromDropdown={selectedFromDropdown}
+              data={data}
+              value={coinCurrentRBM}
+              sign2={'%'}
+              title={`${coinName}'s Current RBM`}
+              message={'hey'}
+              coinLogo={true}
+            />
+          </>
+        ) : (
+          <div className='text-black flex justify-center font-semibold text-lg text-center'>
+            Please select a coin via the <br />
+            search to enable all features.
+          </div>
+        )}
       </SectionContainer>
     </>
   );
