@@ -15,7 +15,6 @@ function YourResults({
   xTimesProfit,
   selectedFromDropdown,
 }) {
-  console.log({ selectedFromDropdown });
   return (
     <>
       <CoinPredictHeading

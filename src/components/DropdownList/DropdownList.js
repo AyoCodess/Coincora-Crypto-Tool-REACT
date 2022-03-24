@@ -45,11 +45,6 @@ export default function Example() {
                   setEvent(e.target.value);
                   setOpenDropdown(false);
 
-                  data.filter((coin) => {
-                    if (coin.symbol === 'opct') console.log(coin);
-                    return coin;
-                  });
-
                   let searchedFromDropdown = data.filter((coin) => {
                     if (
                       e.target.value.toLowerCase() ===

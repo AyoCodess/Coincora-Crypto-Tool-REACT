@@ -178,7 +178,7 @@ function YourPrediction({
                         if (e.target.value === '') {
                           return 0;
                         } else {
-                          setBuyMore(e.target.valueAsNumber);
+                          setAvgPriceBought(e.target.valueAsNumber);
                         }
                       }}
                     />

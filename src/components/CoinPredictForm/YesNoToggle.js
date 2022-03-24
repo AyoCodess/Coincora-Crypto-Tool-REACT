@@ -7,8 +7,6 @@ function classNames(...classes) {
 }
 
 export default function YesNoToggle({ text, state, setState, disabled }) {
-  console.log({ disabled });
-
   const [toggle, setToggle] = useState('false');
 
   // - Disables toggle button when there is no selected coin

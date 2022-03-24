@@ -24,7 +24,6 @@ function CoinInformation({
   coinName,
   coinCurrentRBM,
 }) {
-  console.log({ selectedFromDropdown });
   return (
     <>
       <CoinPredictHeading

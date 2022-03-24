@@ -45,10 +45,10 @@ function CoinForecast() {
   const [currentMarketCap, setCurrentMarketCap] = useState(null);
   const [currentMarketCapNumber, setCurrentMarketCapNumber] = useState(null);
 
-  const [coinRBM, setCoinRBM] = useState('0.00');
+  const [coinRBM, setCoinRBM] = useState(0);
   const [coinRBMNumber, setCoinRBMNumber] = useState(null);
 
-  const [coinPredictedRBM, setCoinPredictedRBM] = useState('0.00');
+  const [coinPredictedRBM, setCoinPredictedRBM] = useState(0);
 
   // - user coin data
   const [totalAmountOwned, setTotalAmountOwned] = useState(0);
@@ -59,8 +59,8 @@ function CoinForecast() {
   const [predictedPrice, setPredictedPrice] = useState(null);
   const [predictedMarketcap, setPredictedMarketcap] = useState(0);
 
-  const [profit, setProfit] = useState('');
-  const [xTimesProfit, setXTimesProfit] = useState('');
+  const [profit, setProfit] = useState(0);
+  const [xTimesProfit, setXTimesProfit] = useState(0);
 
   // - form questions logic
 
@@ -128,15 +128,28 @@ function CoinForecast() {
       //- reset your prediction fields
 
       if (predictedPrice === 0 || Number.isNaN(predictedPrice)) {
-        setCoinPredictedRBM('0.00');
-        setCoinRBM('0.00');
-        setPredictedMarketcap('');
+        setCoinPredictedRBM(0);
+        setCoinRBM(0);
+        setPredictedMarketcap(0);
       }
 
       //- calculating profit
 
       let previousCoinsBoughtTotalCost = totalAmountOwned * avgPriceBought;
       let futureCoinsBoughtTotalCost = buyMore * avgFuturePriceBought;
+
+      console.log({ previousCoinsBoughtTotalCost });
+      console.log({ futureCoinsBoughtTotalCost });
+
+      if (totalAmountOwned && !buyMore) {
+        let prediction =
+          (totalAmountOwned + buyMore) * predictedPrice +
+          previousProfit -
+          previousCoinsBoughtTotalCost -
+          futureCoinsBoughtTotalCost;
+
+        setProfit(prediction);
+      }
 
       if (totalAmountOwned && buyMore) {
         let prediction =
@@ -166,6 +179,8 @@ function CoinForecast() {
         setProfit(prediction);
       }
 
+      console.log({ profit });
+
       // - X times profit increase
       if (
         (totalAmountOwned && avgPriceBought) ||
@@ -179,7 +194,7 @@ function CoinForecast() {
           previousCoinsBoughtTotalCost -
           futureCoinsBoughtTotalCost;
 
-        const result = finalProfit / owned;
+        const result = finalProfit / owned - 1;
 
         setXTimesProfit(result.toFixed(2));
       }
@@ -209,6 +224,7 @@ function CoinForecast() {
   console.log({ totalAmountOwned });
   console.log({ avgPriceBought });
   console.log({ previousProfit });
+  console.log({ profit });
   console.log({ buyMore });
   console.log({ avgFuturePriceBought });
 
