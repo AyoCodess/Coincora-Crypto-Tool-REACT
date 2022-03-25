@@ -21,7 +21,12 @@ function CoinInformationDisplay({
       <label
         htmlFor={title}
         className='block text-lg font-medium text-white-700'>
-        <Tooltip message={message} title={title} textColor={'text-gray-600'} />
+        <Tooltip
+          message={message}
+          title={title}
+          textColor={'text-gray-600'}
+          tooltipIconColor={'gray'}
+        />
       </label>
       <div className='text-black p-1 border border-gray-200 shadow rounded-md bg-white'>
         <div className='flex gap-2 items-center px-1'>

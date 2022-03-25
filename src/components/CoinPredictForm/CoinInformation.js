@@ -51,7 +51,7 @@ function CoinInformation({
               selectedFromDropdown={selectedFromDropdown}
               data={data}
               value={currentPrice}
-              sign={null}
+              sign={'$'}
               title={'Current Price'}
               message={'hey'}
               coinLogo={true}
