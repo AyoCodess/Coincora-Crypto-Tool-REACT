@@ -56,10 +56,10 @@ export default function BetaModal() {
                 </div>
                 <div className='mt-3  sm:mt-0 sm:ml-1 text-left'>
                   <div className='mt-3'>
-                    <p className='text-lg text-black font-semibold mt-2'>
+                    {/* <p className='text-lg text-black font-semibold mt-2'>
                       <span className='text-red-500'>Update:</span> Form logic
                       is broken, currently fixing 23/3/22
-                    </p>
+                    </p> */}
                     <p className='text-lg text-black font-semibold mt-2'>
                       Coin predict is constantly being updated. Everything
                       within this page is subject to change and is in early

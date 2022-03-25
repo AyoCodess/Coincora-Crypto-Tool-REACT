@@ -66,6 +66,8 @@ function CoinForecast() {
 
   const [doYouOwnAnyCoin, setDoYouOwnAnyCoin] = useState(false);
   const [doYouWantToBuyMoreCoin, setDoYouWantToBuyMoreCoin] = useState(false);
+  const [isResults, setIsResults] = useState(false);
+  const [viewMarketRBM, setViewMarketRBM] = useState(false);
 
   // - form
   useEffect(() => {
@@ -278,20 +280,21 @@ function CoinForecast() {
               profit={profit}
               xTimesProfit={xTimesProfit}
               selectedFromDropdown={selectedFromDropdown}
-            />
-            <YourAssessment
+              setIsResults={setIsResults}
               top10CryptoRBM={top10CryptoRBM}
               top50CryptoRBM={top50CryptoRBM}
               top100CryptoRBM={top100CryptoRBM}
               top500CryptoRBM={top500CryptoRBM}
               top1000CryptoRBM={top1000CryptoRBM}
               ethRBM={ethRBM}
-              coinName={coinName}
               coinCurrentRBM={coinCurrentRBM}
-              coinPredictedRBM={coinPredictedRBM}
+              isResults={isResults}
+              viewMarketRBM={viewMarketRBM}
+              setViewMarketRBM={setViewMarketRBM}
             />
-            <Analysis coinName={coinName} />
-            <QuickPredictArea />
+            <YourAssessment isResults={isResults} />
+            <Analysis coinName={coinName} setData={setData} />
+            {/* <QuickPredictArea /> */}
           </div>
         </>
       )}

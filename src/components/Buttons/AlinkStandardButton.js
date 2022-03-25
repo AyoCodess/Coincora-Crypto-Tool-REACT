@@ -8,6 +8,7 @@ function AlinkStandardButton({
   color,
   ref,
   onClick,
+  margin,
 }) {
   return (
     <a
@@ -16,7 +17,7 @@ function AlinkStandardButton({
       href={href}
       ref={ref}
       target='_blank'
-      className={`${color} ${width} font-medium text-center justify-center py-2 px-4 border border-transparent shadow-sm text-lg rounded-md text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-500 ${height}`}
+      className={`${color} ${width} font-medium text-center justify-center py-2 px-4 border border-transparent shadow-sm text-lg rounded-md text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-500 ${height} ${margin}`}
       rel='noreferrer'>
       {text}
     </a>

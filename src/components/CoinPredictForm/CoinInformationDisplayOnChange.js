@@ -46,6 +46,7 @@ function CoinInformationDisplay({
           )}
           <input
             type={inputType}
+            onWheel={(e) => e.target.blur()}
             className='p-2'
             onChange={onChange}
             placeholder='000.000'

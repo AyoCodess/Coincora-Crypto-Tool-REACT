@@ -179,6 +179,7 @@ function App() {
                         element={<TheCommunity />}></Route>
                     </Routes>
                   </div>
+                  <div className='h-[3rem] FOOTER'></div>
                 </div>
               </div>
             </div>

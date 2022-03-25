@@ -1,12 +1,17 @@
-function Analysis({ coinName }) {
+import CoinPredictHeading from './CoinPredictHeading';
+import SectionContainer from './SectionContainer';
+
+function Analysis({ coinName, setData }) {
   return (
-    <div className='prose mt-5 border-t-2 border-appBlue pt-2'>
-      <h4>The Analysis - Coming Soon</h4>
-      <p>
-        This section will tell you what {coinName}'s predicted RBM could
-        objectively mean, and what you need to consider to asses if your
-        prediction is feasible or not.
-      </p>
+    <>
+      <CoinPredictHeading
+        title={'The Analysis '}
+        subHeading={`This section will tell you what {coinName}'s predicted RBM could
+          objectively mean, and what you need to consider to asses if your
+          prediction is feasible or not.`}
+        setData={setData}
+        search={false}
+      />
       {/* <p>{coinName}'s predicted RBM is in the 'Top 10!'</p>
         <p className=' text-appBlue font-bold'>
           Cryptos in the top 10 generally have...
@@ -25,7 +30,13 @@ function Analysis({ coinName }) {
           Does {coinName} meet the above criteria? if not re-consider your
           expectations and change your numbers.
         </p> */}
-    </div>
+
+      <SectionContainer>
+        <div className='text-black flex justify-center font-semibold text-lg text-center'>
+          Coming soon
+        </div>
+      </SectionContainer>
+    </>
   );
 }
 export default Analysis;

@@ -6,6 +6,10 @@ import SectionContainerBlue from './SectionContainerBlue';
 import SectionContainerWhite from './SectionContainerWhite';
 import CoinPriceStat from './CoinPriceStat';
 import SectionContainer from './SectionContainer';
+import RMBlist from './RMBlist';
+import YesNoToggle from './YesNoToggle';
+import StandardButtonTypeButton from '../Buttons/StandardButtonTypeButton';
+import AlinkStandardButton from '../Buttons/AlinkStandardButton';
 
 function YourResults({
   coinName,
@@ -14,7 +18,19 @@ function YourResults({
   profit,
   xTimesProfit,
   selectedFromDropdown,
+  setIsResults,
+  top10CryptoRBM,
+  top50CryptoRBM,
+  top100CryptoRBM,
+  top500CryptoRBM,
+  top1000CryptoRBM,
+  ethRBM,
+  coinCurrentRBM,
+  viewMarketRBM,
+  setViewMarketRBM,
 }) {
+  // - unhide crypto market RBM list in the ' your assessment' component.
+  if (coinPredictedRBM > 0) setIsResults(true);
   return (
     <>
       <CoinPredictHeading
@@ -23,6 +39,41 @@ function YourResults({
       />
       {selectedFromDropdown && selectedFromDropdown.name !== 'Select Coin' ? (
         <div>
+          <SectionContainer>
+            <div className='flex gap-5 items-center justify-between'>
+              <YesNoToggle
+                text={`View Crypto Market RBM's `}
+                state={viewMarketRBM}
+                setState={setViewMarketRBM}
+                disabled={selectedFromDropdown}
+              />
+              <AlinkStandardButton
+                href={'https://www.coincora.com/knowledge-base/what-is-RBM'}
+                text={'What is RBM?'}
+                width={'w-40'}
+                height={null}
+                color={'bg-appBlue'}
+                margin={'mr-3'}
+              />
+            </div>
+
+            {viewMarketRBM && (
+              <>
+                <RMBlist
+                  top10CryptoRBM={top10CryptoRBM}
+                  top50CryptoRBM={top50CryptoRBM}
+                  top100CryptoRBM={top100CryptoRBM}
+                  top500CryptoRBM={top500CryptoRBM}
+                  top1000CryptoRBM={top1000CryptoRBM}
+                  ethRBM={ethRBM}
+                  coinName={coinName}
+                  coinCurrentRBM={coinCurrentRBM}
+                  coinPredictedRBM={coinPredictedRBM}
+                />
+              </>
+            )}
+          </SectionContainer>
+
           <div className='mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
             <CoinPriceStat
               stat={coinRBM}
