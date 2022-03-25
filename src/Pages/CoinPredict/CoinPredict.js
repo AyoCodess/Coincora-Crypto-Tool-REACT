@@ -286,7 +286,6 @@ function CoinForecast() {
               top1000CryptoRBM={top1000CryptoRBM}
               ethRBM={ethRBM}
               coinCurrentRBM={coinCurrentRBM}
-              isResults={isResults}
               viewMarketRBM={viewMarketRBM}
               setViewMarketRBM={setViewMarketRBM}
             />
