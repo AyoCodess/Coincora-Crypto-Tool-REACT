@@ -279,7 +279,6 @@ function CoinForecast() {
               profit={profit}
               xTimesProfit={xTimesProfit}
               selectedFromDropdown={selectedFromDropdown}
-              setIsResults={setIsResults}
               top10CryptoRBM={top10CryptoRBM}
               top50CryptoRBM={top50CryptoRBM}
               top100CryptoRBM={top100CryptoRBM}
