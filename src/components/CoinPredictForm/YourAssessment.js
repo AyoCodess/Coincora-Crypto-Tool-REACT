@@ -13,26 +13,19 @@ function YourAssessment({
   coinName,
   coinCurrentRBM,
   coinPredictedRBM,
-  isResults,
 }) {
   return (
     <>
       <CoinPredictHeading
         title={'Assessment of your prediction'}
-        subHeading={'Check out your prediction assessment below'}
+        subHeading={'Check out your prediction assessment below.'}
         setData={false}
         search={false}
       />
       <SectionContainer>
-        {isResults ? (
-          <>
-            <div className='mt-5'>Coming soon</div>
-          </>
-        ) : (
-          <div className='text-black flex justify-center font-semibold text-lg text-center'>
-            Coming soon
-          </div>
-        )}
+        <div className='text-black flex justify-center font-semibold text-lg text-center'>
+          Coming soon
+        </div>
       </SectionContainer>
     </>
   );

@@ -65,12 +65,12 @@ export default function CoinPriceStat({
             <div>
               {!stat || stat === undefined || stat === '' ? (
                 <p className={` text-black ${textColor}`}>
-                  {sign2} 0.00 {sign}
+                  {`${sign2 ? sign2 : ''}`} 0.00 {`${sign ? sign : ''}`}
                 </p>
               ) : (
                 <p className={` text-black ${textColor}`}>{`${
                   sign2 ? sign2 : ''
-                } ${stat} ${sign}`}</p>
+                } ${stat} ${sign ? sign : ' '}`}</p>
               )}
             </div>
           </p>

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Tooltip from '../Tooltip/Tooltip';
 import InputTextWithDollarIconReadOnly from '../InoutFields/InputTextWithDollarIconReadOnly';
 import InputTextTimesProfit from '../InoutFields/InputTextTimesProfit';
@@ -31,6 +32,9 @@ function YourResults({
 }) {
   // - unhide crypto market RBM list in the ' your assessment' component.
   if (coinPredictedRBM > 0) setIsResults(true);
+  const [viewExplanation, setViewExplanation] = useState(false);
+
+  console.log({ coinRBM });
   return (
     <>
       <CoinPredictHeading
@@ -39,23 +43,54 @@ function YourResults({
       />
       {selectedFromDropdown && selectedFromDropdown.name !== 'Select Coin' ? (
         <div>
-          <SectionContainer>
-            <div className='flex gap-5 items-center justify-between'>
-              <YesNoToggle
-                text={`View Crypto Market RBM's `}
-                state={viewMarketRBM}
-                setState={setViewMarketRBM}
-                disabled={selectedFromDropdown}
-              />
-              <AlinkStandardButton
-                href={'https://www.coincora.com/knowledge-base/what-is-RBM'}
-                text={'What is RBM?'}
-                width={'w-40'}
-                height={null}
-                color={'bg-appBlue'}
-                margin={'mr-3'}
-              />
+          <SectionContainer margin={'p-0 pt-2'}>
+            <div className='flex flex-col sm:flex-row gap-2 sm:gap-5 sm:items-center sm:justify-between'>
+              <div className='p-3'>
+                <YesNoToggle
+                  text={`View Crypto Market RBM's `}
+                  state={viewMarketRBM}
+                  setState={setViewMarketRBM}
+                  disabled={selectedFromDropdown}
+                />
+              </div>
+              <div className='flex flex-col items-center sm:flex-row gap-4'>
+                {' '}
+                <StandardButtonTypeButton
+                  text={'Quick Explanation'}
+                  onClick={() => {
+                    if (!viewExplanation) {
+                      setViewExplanation(true);
+                    } else {
+                      setViewExplanation(false);
+                    }
+                  }}
+                  color={'bg-appBlue'}
+                  width={'w-48'}
+                  textColor={'text-white'}
+                />
+                <AlinkStandardButton
+                  href={'https://www.coincora.com/knowledge-base/what-is-RBM'}
+                  text={'What is RBM?'}
+                  width={'w-48'}
+                  height={null}
+                  color={'bg-appBlue'}
+                  margin={'sm:mr-3 mb-3 sm:mb-0'}
+                />
+              </div>
             </div>
+            {viewExplanation && (
+              <>
+                <p className=' px-2 py-1 sm:p-0  '>
+                  {`The crypto market RBM's are the average crypto marketcap sizes in percentage terms in comparison to bitcoins.`}{' '}
+                </p>
+                <p className='px-2 py-1 sm:p-0 '>
+                  {`E.g If we combined the top 10 crypto projects marketcaps together and dived them 10, we get the average marketcap size for a top 10 project, which is currently ${top10CryptoRBM}% of Bitcoins marketcap.`}
+                </p>
+                <p className='px-2 py-1 sm:p-0 '>
+                  {`Compare ${coinName}'s predicted RBM to the market average's to quickly gage if your prediction is feasible within a given time frame.`}
+                </p>
+              </>
+            )}
 
             {viewMarketRBM && (
               <>
@@ -76,7 +111,7 @@ function YourResults({
 
           <div className='mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
             <CoinPriceStat
-              stat={coinRBM}
+              stat={coinCurrentRBM}
               title={`${coinName}'s current marketcap RBM`}
               sign={'%'}
               tooltipIconColor={'blue'}
@@ -91,7 +126,7 @@ function YourResults({
           <div className=' mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
             <hr className='sm:hidden  my-1 w-2/3 mx-auto border-t-2  bg-gray-200' />
             <CoinPriceStat
-              stat={profit}
+              stat={profit.toFixed(2)}
               title={`Your profit if ${coinName} went to predicted price`}
               sign2={'$'}
               tooltipIconColor={'blue'}

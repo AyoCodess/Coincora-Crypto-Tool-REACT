@@ -66,7 +66,6 @@ function CoinForecast() {
 
   const [doYouOwnAnyCoin, setDoYouOwnAnyCoin] = useState(false);
   const [doYouWantToBuyMoreCoin, setDoYouWantToBuyMoreCoin] = useState(false);
-  const [isResults, setIsResults] = useState(false);
   const [viewMarketRBM, setViewMarketRBM] = useState(false);
 
   // - form
@@ -292,7 +291,7 @@ function CoinForecast() {
               viewMarketRBM={viewMarketRBM}
               setViewMarketRBM={setViewMarketRBM}
             />
-            <YourAssessment isResults={isResults} />
+            <YourAssessment />
             <Analysis coinName={coinName} setData={setData} />
             {/* <QuickPredictArea /> */}
           </div>

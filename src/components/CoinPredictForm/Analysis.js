@@ -5,8 +5,8 @@ function Analysis({ coinName, setData }) {
   return (
     <>
       <CoinPredictHeading
-        title={'The Analysis '}
-        subHeading={`This section will tell you what {coinName}'s predicted RBM could
+        title={'The Analysis'}
+        subHeading={`This section will tell you what ${coinName}'s predicted RBM could
           objectively mean, and what you need to consider to asses if your
           prediction is feasible or not.`}
         setData={setData}
