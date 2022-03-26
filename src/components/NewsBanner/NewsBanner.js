@@ -46,7 +46,7 @@ export default function NewsBanner({
                   text={'Learn More'}
                   textColor={'text-gray-500'}
                   textSize={'text-base'}
-                  color={'bg-gray-50  '}
+                  color={'bg-gray-50 hover:bg-gray-100  '}
                   width={'w-full'}>
                   Learn more
                 </StandardButtonDarkBG>
@@ -55,10 +55,10 @@ export default function NewsBanner({
             <div className='order-2 flex-shrink-0 sm:order-3 sm:ml-3'>
               <button
                 type='button'
-                className='-mr-1 flex p-2 rounded-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2'>
+                className='-mr-1 flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2'>
                 <span className='sr-only'>Dismiss</span>
                 <XIcon
-                  className='h-6 w-6 text-gray-300'
+                  className='h-6 w-6 text-gray-500'
                   aria-hidden='true'
                   onClick={closeModal}
                 />
