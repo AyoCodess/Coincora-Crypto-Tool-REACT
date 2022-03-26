@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import RMBlist from '../../../../components/CoinPredictForm/RMBlist';
 import DataContext from '../../../../Context/context';
 
 export default function WhatIsRBM() {
@@ -96,57 +97,54 @@ export default function WhatIsRBM() {
                   investments that look at crypto from a 3 to 10-year scope.
                 </p>
                 <p className='font-bold p-4'>RBM Reference points</p>
-                <div
-                  style={{
-                    boxShadow: 'rgba(17, 12, 46, 0.10) 0px 10px 40px 0px',
-                  }}
-                  className=' bg-white rounded-flex flex-col mt-5 p-4'>
-                  <div className=' text-black font-bold mb-4 border-b border-slate-300 pb-4'>
+
+                <div className=' bg-white rounded-flex flex-col mt-5 p-4 shadow-md'>
+                  <div className=' text-black text-lg font-bold mb-1 border-b border-slate-300 pb-4'>
                     Crypto Market Average RBM's as of Today
                   </div>
-                  <div className=' flex gap-4 mb-4'>
+                  <div className=' flex gap-4 mb-1'>
                     <div
-                      className=' font-bold text-green-600
+                      className=' text-base font-semibold text-gray-600
                      mb-2'>
                       Top 10 Crypto RBM
                     </div>
                     <div className=' text-black'>{top10CryptoRBM}%</div>
                   </div>
-                  <div className=' flex gap-4 mb-4'>
+                  <div className=' flex gap-4 mb-1'>
                     <div
-                      className=' font-bold text-green-600
+                      className=' text-base font-semibold text-gray-600
                      mb-2'>
                       Top 50 Crypto RBM
                     </div>
                     <div className=' text-black'>{top50CryptoRBM}%</div>
                   </div>
-                  <div className='flex gap-4  mb-4'>
+                  <div className='flex gap-4  mb-1'>
                     <div
-                      className=' font-bold text-green-600
+                      className=' text-base font-semibold text-gray-600
                      mb-2'>
                       Top 100 Crypto RBM
                     </div>
                     <div className=' text-black'>{top100CryptoRBM}%</div>
                   </div>
-                  <div className=' flex gap-4 mb-4'>
+                  <div className=' flex gap-4 mb-1'>
                     <div
-                      className=' font-bold text-green-600
+                      className=' text-base font-semibold text-gray-600
                      mb-2'>
                       Top 500 Crypto RBM
                     </div>
                     <div className=' text-black'>{top500CryptoRBM}%</div>
                   </div>
-                  <div className='flex gap-4  mb-4'>
+                  <div className='flex gap-4  mb-1'>
                     <div
-                      className=' font-bold text-green-600
+                      className=' text-base font-semibold text-gray-600
                      mb-2'>
                       Top 1000 Crypto RBM
                     </div>
                     <div className=' text-black'>{top1000CryptoRBM}%</div>
                   </div>
-                  <div className='flex gap-4 mb-4 items-center'>
+                  <div className='flex gap-4 mb-1 items-center'>
                     <div
-                      className=' font-bold text-green-600
+                      className=' text-base  font-semibold text-gray-600
                      mb-2 border-t-2 pt-3 border-slate-200'>
                       Ethereum RBM
                     </div>
@@ -158,11 +156,11 @@ export default function WhatIsRBM() {
                  font-bold'>
                   Examples
                 </p>
-                <p className='text-2xl font-bold  text-appBlue'>
+                <p className='text-xl font-semibold  text-appBlue'>
                   {' '}
                   How NOT to use RBM
                 </p>
-                <p className='italic text-2xl'>In another universe…</p>
+                <p className='italic text-xl'>In another universe…</p>
                 <p>
                   <b> Bitcoin’s market cap is $1,000,000</b>
                   <br />
@@ -249,11 +247,11 @@ export default function WhatIsRBM() {
                   along with the RBM to help you assess any coin from our
                   current list.
                 </p>
-                <p className='text-2xl font-bold mt-10 text-appBlue'>
+                <p className='text-xl font-bold mt-10 text-appBlue'>
                   {' '}
                   How NOT to use RBM
                 </p>
-                <p className='italic text-2xl'>In another universe…</p>
+                <p className='italic text-xl'>In another universe…</p>
                 <p>
                   <b> Bitcoin’s market cap is $1,000,000</b>
                   <br />
