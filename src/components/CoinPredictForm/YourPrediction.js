@@ -21,6 +21,8 @@ function YourPrediction({
   setAvgFuturePriceBought,
   setPredictedPrice,
   predictedMarketcap,
+  setPredictedMarketcap,
+  setCoinPredictedRBM,
   setData,
   data,
 }) {
@@ -43,11 +45,13 @@ function YourPrediction({
               data={data}
               sign2={'%'}
               title={`What are you predicting ${coinName}'s future price at?`}
-              message={'hey'}
+              message={'coming soon'}
               icon={'dollarIcon'}
               inputType={'number'}
               onChange={(e) => {
                 if (e.target.value === '') {
+                  setPredictedMarketcap(0);
+                  setCoinPredictedRBM(0);
                   return 0;
                 } else {
                   setPredictedPrice(e.target.valueAsNumber);
@@ -58,9 +62,10 @@ function YourPrediction({
               selectedFromDropdown={selectedFromDropdown}
               data={data}
               title={`${coinName}'s future market cap based off your prediction`}
-              message={'hey'}
+              message={'coming soon'}
               icon={'dollarIcon'}
               coinLogo={true}
+              sign={'$'}
               value={predictedMarketcap}
             />
 
@@ -85,7 +90,7 @@ function YourPrediction({
                       data={data}
                       sign2={null}
                       title={`Total Amount of ${coinName} you own?`}
-                      message={'hey'}
+                      message={'coming soon'}
                       icon={null}
                       coinLogo={true}
                       inputType={'number'}
@@ -103,7 +108,7 @@ function YourPrediction({
                       data={data}
                       sign2={null}
                       title={`Average price you bought ${coinName} at?`}
-                      message={'hey'}
+                      message={'coming soon'}
                       coinLogo={null}
                       icon={'dollarIcon'}
                       inputType={'number'}
@@ -121,7 +126,7 @@ function YourPrediction({
                       data={data}
                       sign2={null}
                       title={`How much profit or loss have you made on ${coinName} so far?`}
-                      message={'hey'}
+                      message={'coming soon'}
                       coinLogo={null}
                       icon={'dollarIcon'}
                       inputType={'number'}
@@ -152,7 +157,7 @@ function YourPrediction({
                       data={data}
                       sign2={null}
                       title={` If you want to buy more ${coinName}, how much (Units)?`}
-                      message={'hey'}
+                      message={'coming soon'}
                       coinLogo={true}
                       icon={null}
                       inputType={'number'}
@@ -170,7 +175,7 @@ function YourPrediction({
                       data={data}
                       sign2={null}
                       title={`Average price you think you will buy more ${coinName} at?`}
-                      message={'hey'}
+                      message={'coming soon'}
                       coinLogo={null}
                       icon={'dollarIcon'}
                       inputType={'number'}

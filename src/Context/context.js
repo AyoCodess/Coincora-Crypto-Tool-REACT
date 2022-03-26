@@ -95,13 +95,21 @@ export function DataProvider({ children }) {
   }, []);
 
   // - crypto RBM calculations
+
   useEffect(() => {
     if (btcMarketcapNumber) {
-      const top10 = data.slice(1, 11);
-      const top50 = data.slice(1, 51);
-      const top100 = data.slice(1, 101);
-      const top500 = data.slice(1, 501);
-      const top1000 = data.slice(1, 1000);
+      const top1000WithEth = data.slice(1, 1000);
+
+      // - removing ETH from top lists
+      const data1000MinsETH = top1000WithEth.filter(
+        (coin) => coin.name !== 'Ethereum'
+      );
+
+      const top10 = data1000MinsETH.slice(1, 11);
+      const top50 = data1000MinsETH.slice(1, 51);
+      const top100 = data1000MinsETH.slice(1, 101);
+      const top500 = data1000MinsETH.slice(1, 501);
+      const top1000 = data1000MinsETH.slice(1, 1000);
 
       data.filter((coin) => {
         if (coin.id === 'ethereum') {

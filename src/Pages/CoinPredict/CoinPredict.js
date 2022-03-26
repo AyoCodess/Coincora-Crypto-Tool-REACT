@@ -70,6 +70,19 @@ function CoinForecast() {
 
   // - form
   useEffect(() => {
+    if (selectedFromDropdown.name === 'Select Coin') {
+      // - global data rest when there is no coin selected
+      setTotalAmountOwned(0);
+      setAvgPriceBought(0);
+      setPreviousProfit(0);
+      setBuyMore(0);
+      setAvgFuturePriceBought(0);
+      setPredictedPrice(0);
+      setPredictedMarketcap(0);
+      setProfit(0);
+      setXTimesProfit(0);
+    }
+
     if (selectedFromDropdown) {
       // - setting global state for coin name
       setCoinName(selectedFromDropdown.name);
@@ -139,9 +152,6 @@ function CoinForecast() {
       let previousCoinsBoughtTotalCost = totalAmountOwned * avgPriceBought;
       let futureCoinsBoughtTotalCost = buyMore * avgFuturePriceBought;
 
-      console.log({ previousCoinsBoughtTotalCost });
-      console.log({ futureCoinsBoughtTotalCost });
-
       if (totalAmountOwned && !buyMore) {
         let prediction =
           (totalAmountOwned + buyMore) * predictedPrice +
@@ -179,8 +189,6 @@ function CoinForecast() {
 
         setProfit(prediction);
       }
-
-      console.log({ profit });
 
       // - X times profit increase
       if (
@@ -222,12 +230,12 @@ function CoinForecast() {
     xTimesProfit,
   ]);
 
-  console.log({ totalAmountOwned });
-  console.log({ avgPriceBought });
-  console.log({ previousProfit });
-  console.log({ profit });
-  console.log({ buyMore });
-  console.log({ avgFuturePriceBought });
+  //   console.log({ totalAmountOwned });
+  //   console.log({ avgPriceBought });
+  //   console.log({ previousProfit });
+  //   console.log({ profit });
+  //   console.log({ buyMore });
+  //   console.log({ avgFuturePriceBought });
 
   return (
     <>
@@ -271,6 +279,8 @@ function CoinForecast() {
               predictedPrice={predictedPrice}
               setPredictedPrice={setPredictedPrice}
               predictedMarketcap={predictedMarketcap}
+              setPredictedMarketcap={setPredictedMarketcap}
+              setCoinPredictedRBM={setCoinPredictedRBM}
             />
             <YourResults
               coinName={coinName}

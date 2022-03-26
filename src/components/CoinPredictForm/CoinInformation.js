@@ -44,7 +44,7 @@ function CoinInformation({
               value={circulatingSupply}
               sign={null}
               title={'Circulating Supply'}
-              message={'hey'}
+              message={'coming soon'}
               coinLogo={true}
             />
             <CoinInformationDisplay
@@ -53,7 +53,7 @@ function CoinInformation({
               value={currentPrice}
               sign={'$'}
               title={'Current Price'}
-              message={'hey'}
+              message={'coming soon'}
               coinLogo={true}
             />
             <CoinInformationDisplay
@@ -62,7 +62,7 @@ function CoinInformation({
               value={currentMarketCap}
               sign={'$'}
               title={'Current Marketcap'}
-              message={'hey'}
+              message={'coming soon'}
               coinLogo={true}
             />
             <CoinInformationDisplay
@@ -71,7 +71,7 @@ function CoinInformation({
               value={coinCurrentRBM}
               sign2={'%'}
               title={`${coinName}'s Current RBM`}
-              message={'hey'}
+              message={'coming soon'}
               coinLogo={true}
             />
           </>

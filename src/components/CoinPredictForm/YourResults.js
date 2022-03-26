@@ -31,10 +31,11 @@ function YourResults({
   setViewMarketRBM,
 }) {
   // - unhide crypto market RBM list in the ' your assessment' component.
-  if (coinPredictedRBM > 0) setIsResults(true);
+
   const [viewExplanation, setViewExplanation] = useState(false);
 
-  console.log({ coinRBM });
+  console.log({ coinPredictedRBM });
+
   return (
     <>
       <CoinPredictHeading
@@ -118,28 +119,32 @@ function YourResults({
               title={`${coinName}'s current marketcap RBM`}
               sign={'%'}
               tooltipIconColor={'blue'}
+              message={'coming soon'}
             />
             <CoinPriceStat
               stat={coinPredictedRBM}
               title={`${coinName}'s predicted marketcap RBM`}
               sign={'%'}
               tooltipIconColor={'blue'}
+              message={'Compared to Bitcoins current marketcap'}
             />
           </div>
           <div className=' mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
             <hr className='sm:hidden  my-1 w-2/3 mx-auto border-t-2  bg-gray-200' />
             <CoinPriceStat
               stat={profit.toFixed(2)}
-              title={`Your profit if ${coinName} went to predicted price`}
+              title={`Your profit/loss if ${coinName} went to predicted price`}
               sign2={'$'}
               tooltipIconColor={'blue'}
+              message={'coming soon'}
             />
             <CoinPriceStat
               stat={xTimesProfit}
-              title={'Your predicted X increase'}
+              title={'Your predicted X increase/decrease'}
               sign={'x'}
               textColor={'text-green-400'}
               tooltipIconColor={'blue'}
+              message={'coming soon'}
             />
           </div>
         </div>

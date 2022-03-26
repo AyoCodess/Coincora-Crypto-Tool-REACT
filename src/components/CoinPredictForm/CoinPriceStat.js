@@ -28,11 +28,10 @@ export default function CoinPriceStat({
 }) {
   const { data, selectedFromDropdown } = useContext(DataContext);
 
-  console.log({ stat });
   return (
     <div>
       <Tooltip
-        message={(message = 'hey')}
+        message={message}
         title={title}
         button={false}
         textColor={null}
