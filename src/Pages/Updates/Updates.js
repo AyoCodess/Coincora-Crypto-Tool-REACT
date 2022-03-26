@@ -12,6 +12,11 @@ function Updates() {
           width={'w-48'}
           to={'/todo'}
         />
+        <StandardButtonReactRouter
+          text={'Beta Release Log'}
+          width={'w-48'}
+          to={'/betalog'}
+        />
       </div>
       <div className='flex flex-wrap gap-6 items-start'>
         <div className='mt-5 w-96 h-[22rem] shadow overflow-hidden border  border-gray-200 sm:rounded-lg p-6'>
