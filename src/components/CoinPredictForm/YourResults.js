@@ -83,13 +83,13 @@ function YourResults({
               <>
                 <div className='p-3'>
                   {' '}
-                  <p className=' px-2 py-1 sm:p-0  '>
+                  <p className=' px-1 py-1   '>
                     {`The crypto market RBM's are the average crypto marketcap sizes in percentage terms in comparison to bitcoins.`}{' '}
                   </p>
-                  <p className='px-2 py-1 sm:p-0 '>
-                    {`E.g If we combined the top 10 crypto projects marketcaps together and dived them 10, we get the average marketcap size for a top 10 project, which is currently ${top10CryptoRBM}% of Bitcoins marketcap.`}
+                  <p className='px-1 py-1  '>
+                    {`E.g If we combined the top 10 crypto projects marketcaps together and divided them by 10, we get the average marketcap size for a top 10 project, which is currently ${top10CryptoRBM}% of Bitcoins marketcap.`}
                   </p>
-                  <p className='px-2 py-1 sm:p-0 '>
+                  <p className='px-1 py-1  '>
                     {`Compare ${coinName}'s predicted RBM to the market average's to quickly gage if your prediction is feasible within a given time frame.`}
                   </p>
                 </div>

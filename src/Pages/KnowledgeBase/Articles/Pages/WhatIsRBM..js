@@ -221,9 +221,9 @@ export default function WhatIsRBM() {
                 </div>
                 <p className='text-xl font-bold px-4 mt-10 '>Assessment </p>
                 <p>
-                  <b>Random coin’s RBM is 0.1%</b> and is in the top 1000
-                  average crypto range <b>{top1000CryptoRBM}%.</b> Indicating a
-                  very small marketcap size when compared to Bitcoin.
+                  <b>Random coin’s RBM is 1%</b> and is in the top 1000 average
+                  crypto range <b>{top1000CryptoRBM}%.</b> Indicating a very
+                  small marketcap size when compared to Bitcoin.
                 </p>
                 <p>
                   Based on the RBM alone this looks extremely promising at face
