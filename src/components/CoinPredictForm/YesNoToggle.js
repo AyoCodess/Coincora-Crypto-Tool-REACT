@@ -21,7 +21,7 @@ export default function YesNoToggle({ text, state, setState, disabled }) {
   return (
     <>
       <div>
-        <p className='text-base mb-2 font-medium text-gray-600'>{text}</p>
+        <p className='text-lg mb-2 font-medium text-gray-600'>{text}</p>
         <Switch
           disabled={toggle}
           checked={state}

@@ -1,30 +1,47 @@
 /* This SubMenu requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/solid';
+import {
+  ChatAlt2Icon,
+  ChevronDownIcon,
+  SupportIcon,
+} from '@heroicons/react/solid';
 import {
   ChartBarIcon,
   CursorClickIcon,
   PhoneIcon,
+  MailIcon,
   PlayIcon,
   RefreshIcon,
   ShieldCheckIcon,
   ViewGridIcon,
 } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
+import {
+  Book,
+  Group,
+  Help,
+  HelpCenter,
+  HelpOutline,
+  Mail,
+  MinimizeRounded,
+  People,
+  ReadMore,
+  RequestPage,
+} from '@mui/icons-material';
 
 const solutions = [
   {
     name: 'Support Me',
     description: 'Support my work directly.',
     to: '/support-me',
-    icon: ChartBarIcon,
+    icon: People,
   },
   {
     name: 'Knowledge Base',
     description: 'Confused? This will help.',
     to: '/knowledge-base',
-    icon: CursorClickIcon,
+    icon: Book,
   },
   {
     name: 'Updates',
@@ -36,7 +53,7 @@ const solutions = [
     name: 'Feature Request',
     description: 'Got an idea for the app? Share it!',
     to: '/feature-request',
-    icon: ViewGridIcon,
+    icon: HelpOutline,
   },
   {
     name: 'Legal',
@@ -46,8 +63,8 @@ const solutions = [
   },
 ];
 const callsToAction = [
-  { name: 'Telegram', href: 'https://t.me/coincora', icon: PlayIcon },
-  { name: 'Contact', href: 'mailto:ayo@ayoadesanya.com', icon: PhoneIcon },
+  { name: 'Telegram', href: 'https://t.me/coincora', icon: ChatAlt2Icon },
+  { name: 'Contact', href: 'mailto:ayo@ayoadesanya.com', icon: MailIcon },
 ];
 
 function classNames(...classes) {
@@ -87,7 +104,7 @@ export default function SubMenu({ button, closeMain }) {
             <Popover.Panel className='absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 sm:mt-6 px-2 w-screen max-w-md sm:px-0'>
               <div className='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden'>
                 <div
-                  className='relative grid gap-6 bg-gray-100
+                  className='relative grid gap-6 bg-white
                  px-5 py-6 sm:gap-8 sm:p-8'>
                   {solutions.map((item) => (
                     <Link
@@ -97,7 +114,7 @@ export default function SubMenu({ button, closeMain }) {
                       }}
                       key={item.name}
                       to={item.to}
-                      className='-m-3 p-3 flex items-start rounded-lg hover:bg-white transition ease-in-out duration-150'>
+                      className='-m-3 p-3 flex items-start rounded-lg hover:bg-gray-100 transition ease-in-out duration-150'>
                       <item.icon
                         className='flex-shrink-0 h-6 w-6 text-gray-600 hover:text-white'
                         aria-hidden='true'
@@ -106,7 +123,7 @@ export default function SubMenu({ button, closeMain }) {
                         <p className='text-base font-medium text-gray-600'>
                           {item.name}
                         </p>
-                        <p className='mt-1 text-sm text-gray-500'>
+                        <p className='mt-1 text-sm text-gray-600'>
                           {item.description}
                         </p>
                       </div>
