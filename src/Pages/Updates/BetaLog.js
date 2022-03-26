@@ -18,7 +18,8 @@ function BetaLog() {
           predictions much more relevant as it only compares your predicted
           coins market cap to bitcoins current market cap. And not Bitcoins
           potential future market caps based on several time frames relating to
-          your prediction. This is a feature i've planned for&nbsp;
+          your prediction. This is a feature i've planned for&nbsp; but need
+          sponsorship.
           <a
             className='underline'
             target='_blank'
