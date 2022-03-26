@@ -33,10 +33,10 @@ export default function WhatIsRBM() {
                 What’s ‘RBM’ and the ‘Fundamentals’?
               </h3>
 
-              <div className='mt-5 prose prose-blue prose-xl flex flex-col mx-auto max-w-5xl text-black'>
+              <div className='mt-5 prose prose-lg lg:prose-xl mx-auto max-w-5xl text-black'>
                 <div className='p-2 border-2 border-gray-200 rounded-md '>
                   <div className='text-xl font-bold p-4'>Crypto Dictionary</div>
-                  <ul role='list' className='pl-0'>
+                  <ul role='list' className='pl-0 list-none'>
                     <li>
                       <span className='font-bold'>Market cap</span> = the total
                       amount of money invested into a coin from retail and

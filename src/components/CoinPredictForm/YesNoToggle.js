@@ -1,17 +1,29 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch } from '@headlessui/react';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function YesNoToggle({ text, state, setState }) {
+export default function YesNoToggle({ text, state, setState, disabled }) {
+  const [toggle, setToggle] = useState('false');
+
+  // - Disables toggle button when there is no selected coin
+  useEffect(() => {
+    if (disabled === false) {
+      setToggle('false');
+    } else {
+      setToggle(null);
+    }
+  }, [disabled]);
+
   return (
     <>
       <div>
         <p className='text-base mb-2 font-medium text-gray-600'>{text}</p>
         <Switch
+          disabled={toggle}
           checked={state}
           onChange={setState}
           className={classNames(

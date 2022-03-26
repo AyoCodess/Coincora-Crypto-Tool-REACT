@@ -27,10 +27,11 @@ export default function CoinPriceStat({
   tooltipIconColor,
 }) {
   const { data, selectedFromDropdown } = useContext(DataContext);
+
   return (
     <div>
       <Tooltip
-        message={(message = 'hey')}
+        message={message}
         title={title}
         button={false}
         textColor={null}
@@ -61,16 +62,14 @@ export default function CoinPriceStat({
         <dd className='ml-16 py-6 flex sm:py-7'>
           <p className='text-2xl font-semibold text-gray-900 pal'>
             <div>
-              {!stat ||
-              stat === undefined ||
-              stat === '' ||
-              typeof stat === 'string' ? (
+              {!stat || stat === undefined || stat === '' ? (
                 <p className={` text-black ${textColor}`}>
-                  {sign2} 0.00 {sign}
+                  {`${sign2 ? sign2 : ''}`} 0.00 {`${sign ? sign : ''}`}
                 </p>
               ) : (
-                <p
-                  className={` text-black ${textColor}`}>{`${sign2} ${stat} ${sign}`}</p>
+                <p className={` text-black ${textColor}`}>{`${
+                  sign2 ? sign2 : ''
+                } ${stat} ${sign ? sign : ' '}`}</p>
               )}
             </div>
           </p>

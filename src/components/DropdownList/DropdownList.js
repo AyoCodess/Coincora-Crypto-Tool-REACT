@@ -45,11 +45,6 @@ export default function Example() {
                   setEvent(e.target.value);
                   setOpenDropdown(false);
 
-                  data.filter((coin) => {
-                    if (coin.symbol === 'opct') console.log(coin);
-                    return coin;
-                  });
-
                   let searchedFromDropdown = data.filter((coin) => {
                     if (
                       e.target.value.toLowerCase() ===
@@ -69,7 +64,7 @@ export default function Example() {
               <div className='mt-1 relative '>
                 {openDropdown && (
                   <ul
-                    className='  absolute z-10 mt-1 h-12 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm'
+                    className='  absolute z-10  h-12 w-full bg-white shadow-lg max-h-56  rounded-md text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm'
                     role='listbox'>
                     {data.map((coin, i) => {
                       if (
@@ -84,9 +79,9 @@ export default function Example() {
                               setSelectedFromDropdown(coin);
                               setOpenDropdown(false);
                             }}
-                            className='text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-appBlue hover:text-white'
+                            className='text-gray-900 cursor-default select-none h-full  relative py-2 pl-3 pr-9 hover:bg-appBlue  hover:text-white'
                             id='listbox-option-0'>
-                            <div className='flex items-center'>
+                            <div className='flex items-center pt-1'>
                               <img
                                 src={coin.image}
                                 alt=''

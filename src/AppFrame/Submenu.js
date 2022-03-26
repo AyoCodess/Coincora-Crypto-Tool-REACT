@@ -66,7 +66,7 @@ export default function SubMenu({ button, closeMain }) {
                 : 'flex text-white hover:bg-indigo-500 hover:bg-opacity-75',
               'px-3 py-2 rounded-md text-sm font-medium  '
             )}>
-            <span>{button}</span>
+            <span className='text-[1rem] md:text-sm'>{button}</span>
             <ChevronDownIcon
               className={classNames(
                 open ? 'text-orange-600' : 'text-orange-400',

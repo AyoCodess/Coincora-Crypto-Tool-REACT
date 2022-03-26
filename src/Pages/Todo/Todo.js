@@ -4,13 +4,13 @@ import StandardButtonReactRouter from '../../components/Buttons/StandardButtonRe
 export default function Todo() {
   return (
     <article className=' prose prose-md max-w-full xl:max-w-6xl'>
-      <div className='flex justify-between items-center mb-10 pb-5 border-b border-slate-400'>
+      <div className='flex justify-between sm:items-center mb-10 pb-5 border-b border-slate-400'>
         <span className='text-2xl font-bold'>Planned Features</span>
         <StandardButtonReactRouter text={'Back'} to={'/updates'} />
       </div>
       <h3>Major Features</h3>
       <ol>
-        <div className=' flex flex-col sm:flex-row sm:gap-10 justify-between items-center py-2 border-b pb-3 border-slate-400'>
+        <div className=' flex flex-col sm:flex-row sm:gap-10 justify-between sm:sm:items-center py-2 border-b pb-3 border-slate-400'>
           <li className='sm:sm:w-[75%]  '>
             <p>
               Add 1, 2, 3 to 10 year Bitcoin average RBM forecasts so users can
@@ -26,7 +26,7 @@ export default function Todo() {
             Need sponsorship
           </span>
         </div>
-        <div className='flex flex-col sm:flex-row sm:gap-10 justify-between items-center py-2 border-b pb-3 border-slate-400'>
+        <div className='flex flex-col sm:flex-row sm:gap-10 justify-between sm:items-center py-2 border-b pb-3 border-slate-400'>
           <li className='sm:w-[75%] '>
             <p>
               Display bitcoin's market cap as a moving average over 1 ,3, 5 and
@@ -44,7 +44,7 @@ export default function Todo() {
             Need sponsorship
           </span>
         </div>
-        <div className='flex flex-col sm:flex-row sm:gap-10 justify-between items-center py-2 border-b pb-3 border-slate-400'>
+        <div className='flex flex-col sm:flex-row sm:gap-10 justify-between sm:items-center py-2 border-b pb-3 border-slate-400'>
           <li className='sm:w-[75%] '>Coin verification database.</li>
           <span className='inline-block mb-4 sm:mb-0  mb-4 sm:mb-0  w-40 text-center bg-violet-500 p-1 font-bold rounded-md text-white'>
             Need sponsorship
@@ -53,7 +53,7 @@ export default function Todo() {
       </ol>
       <h3>Minor Features</h3>
       <ol>
-        <div className='flex flex-col sm:flex-row sm:gap-10 justify-between items-center py-2 border-b pb-3 border-slate-400'>
+        <div className='flex flex-col sm:flex-row sm:gap-10 justify-between sm:items-center py-2 border-b pb-3 border-slate-400'>
           <li className='sm:w-[75%] '>
             Convert page which will allow users to calculate usd value into any
             crypto currency via a dropdown menu.
@@ -63,7 +63,7 @@ export default function Todo() {
           </span>
         </div>
 
-        <div className='flex flex-col sm:flex-row sm:gap-10 justify-between items-center py-2 border-b pb-3 border-slate-400'>
+        <div className='flex flex-col sm:flex-row sm:gap-10 justify-between sm:items-center py-2 border-b pb-3 border-slate-400'>
           <li className='sm:w-[75%] '>
             Add blue check icon in coin predict input field when information is
             entered.

@@ -45,10 +45,10 @@ function CoinForecast() {
   const [currentMarketCap, setCurrentMarketCap] = useState(null);
   const [currentMarketCapNumber, setCurrentMarketCapNumber] = useState(null);
 
-  const [coinRBM, setCoinRBM] = useState('0.00');
+  const [coinRBM, setCoinRBM] = useState(0);
   const [coinRBMNumber, setCoinRBMNumber] = useState(null);
 
-  const [coinPredictedRBM, setCoinPredictedRBM] = useState('0.00');
+  const [coinPredictedRBM, setCoinPredictedRBM] = useState(0);
 
   // - user coin data
   const [totalAmountOwned, setTotalAmountOwned] = useState(0);
@@ -59,16 +59,30 @@ function CoinForecast() {
   const [predictedPrice, setPredictedPrice] = useState(null);
   const [predictedMarketcap, setPredictedMarketcap] = useState(0);
 
-  const [profit, setProfit] = useState('');
-  const [xTimesProfit, setXTimesProfit] = useState('');
+  const [profit, setProfit] = useState(0);
+  const [xTimesProfit, setXTimesProfit] = useState(0);
 
   // - form questions logic
 
   const [doYouOwnAnyCoin, setDoYouOwnAnyCoin] = useState(false);
   const [doYouWantToBuyMoreCoin, setDoYouWantToBuyMoreCoin] = useState(false);
+  const [viewMarketRBM, setViewMarketRBM] = useState(false);
 
   // - form
   useEffect(() => {
+    if (selectedFromDropdown.name === 'Select Coin') {
+      // - global data rest when there is no coin selected
+      setTotalAmountOwned(0);
+      setAvgPriceBought(0);
+      setPreviousProfit(0);
+      setBuyMore(0);
+      setAvgFuturePriceBought(0);
+      setPredictedPrice(0);
+      setPredictedMarketcap(0);
+      setProfit(0);
+      setXTimesProfit(0);
+    }
+
     if (selectedFromDropdown) {
       // - setting global state for coin name
       setCoinName(selectedFromDropdown.name);
@@ -128,15 +142,25 @@ function CoinForecast() {
       //- reset your prediction fields
 
       if (predictedPrice === 0 || Number.isNaN(predictedPrice)) {
-        setCoinPredictedRBM('0.00');
-        setCoinRBM('0.00');
-        setPredictedMarketcap('');
+        setCoinPredictedRBM(0);
+        setCoinRBM(0);
+        setPredictedMarketcap(0);
       }
 
       //- calculating profit
 
       let previousCoinsBoughtTotalCost = totalAmountOwned * avgPriceBought;
       let futureCoinsBoughtTotalCost = buyMore * avgFuturePriceBought;
+
+      if (totalAmountOwned && !buyMore) {
+        let prediction =
+          (totalAmountOwned + buyMore) * predictedPrice +
+          previousProfit -
+          previousCoinsBoughtTotalCost -
+          futureCoinsBoughtTotalCost;
+
+        setProfit(prediction);
+      }
 
       if (totalAmountOwned && buyMore) {
         let prediction =
@@ -179,7 +203,7 @@ function CoinForecast() {
           previousCoinsBoughtTotalCost -
           futureCoinsBoughtTotalCost;
 
-        const result = finalProfit / owned;
+        const result = finalProfit / owned - 1;
 
         setXTimesProfit(result.toFixed(2));
       }
@@ -206,11 +230,12 @@ function CoinForecast() {
     xTimesProfit,
   ]);
 
-  console.log({ totalAmountOwned });
-  console.log({ avgPriceBought });
-  console.log({ previousProfit });
-  console.log({ buyMore });
-  console.log({ avgFuturePriceBought });
+  //   console.log({ totalAmountOwned });
+  //   console.log({ avgPriceBought });
+  //   console.log({ previousProfit });
+  //   console.log({ profit });
+  //   console.log({ buyMore });
+  //   console.log({ avgFuturePriceBought });
 
   return (
     <>
@@ -240,6 +265,7 @@ function CoinForecast() {
             <YourPrediction
               coinName={coinName}
               setData={setData}
+              data={data}
               doYouOwnAnyCoin={doYouOwnAnyCoin}
               setDoYouOwnAnyCoin={setDoYouOwnAnyCoin}
               setDoYouWantToBuyMoreCoin={setDoYouWantToBuyMoreCoin}
@@ -253,6 +279,8 @@ function CoinForecast() {
               predictedPrice={predictedPrice}
               setPredictedPrice={setPredictedPrice}
               predictedMarketcap={predictedMarketcap}
+              setPredictedMarketcap={setPredictedMarketcap}
+              setCoinPredictedRBM={setCoinPredictedRBM}
             />
             <YourResults
               coinName={coinName}
@@ -260,20 +288,20 @@ function CoinForecast() {
               coinPredictedRBM={coinPredictedRBM}
               profit={profit}
               xTimesProfit={xTimesProfit}
-            />
-            <YourAssessment
+              selectedFromDropdown={selectedFromDropdown}
               top10CryptoRBM={top10CryptoRBM}
               top50CryptoRBM={top50CryptoRBM}
               top100CryptoRBM={top100CryptoRBM}
               top500CryptoRBM={top500CryptoRBM}
               top1000CryptoRBM={top1000CryptoRBM}
               ethRBM={ethRBM}
-              coinName={coinName}
               coinCurrentRBM={coinCurrentRBM}
-              coinPredictedRBM={coinPredictedRBM}
+              viewMarketRBM={viewMarketRBM}
+              setViewMarketRBM={setViewMarketRBM}
             />
-            <Analysis coinName={coinName} />
-            <QuickPredictArea />
+            <YourAssessment />
+            <Analysis coinName={coinName} setData={setData} />
+            {/* <QuickPredictArea /> */}
           </div>
         </>
       )}
