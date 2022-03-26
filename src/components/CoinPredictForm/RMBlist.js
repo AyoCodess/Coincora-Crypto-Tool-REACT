@@ -18,8 +18,8 @@ export default function RMBlist({
       <div className='  '>
         <div className=' flex flex-col  shadow overflow-hidden sm:rounded-lg pb-3'>
           <p className='px-3 mb-1'>
-            These averages do not include Ethermeum producing more realistic and
-            accurate data.
+            These averages do not include Ethermeum, translating into more
+            realistic numbers.
           </p>
           <div className='flex items-center'>
             <div className='w-[50%] px-3 py-3 text-left font-medium text-gray- bg-gray-50'>
