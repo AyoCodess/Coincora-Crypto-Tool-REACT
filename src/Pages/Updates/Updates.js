@@ -26,7 +26,7 @@ function Updates() {
             </h2>
             <h3 className='mt-2 font-bold'>Date: 27/01/2022</h3>
           </div>
-          <div className='  border-2 border-gray-200 max-w-max shadow-lg rounded-md'>
+          <div className='sm:mt-14 border-2 border-gray-200 max-w-max shadow-lg rounded-md'>
             <iframe
               width='285'
               height='185'
