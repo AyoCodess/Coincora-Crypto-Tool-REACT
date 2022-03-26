@@ -70,10 +70,9 @@ function SupportMeSection() {
         </div>
         <div className='mt-5 flex flex-col sm:flex-row gap-2'>
           <Link
-            href='https://www.paypal.com/donate/?business=VCJPM8B8JADKU&currency_code=USD'
+            href='https://linktr.ee/ayocodes'
             target='_blank'
             rel='noreferrer'
-            type='submit'
             style={{ cursor: 'pointer' }}
             className='inline-block   w-80  border-2 rounded-md shadow-lg hover:text-appBlue hover:bg-gray-100 transition-all duration-500 ease-in-out'>
             <div className='flex flex-col gap-2 justify-center items-center '>
