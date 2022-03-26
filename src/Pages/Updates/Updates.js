@@ -4,8 +4,8 @@ import StandardButtonReactRouter from '../../components/Buttons/StandardButtonRe
 function Updates() {
   return (
     <article className=''>
-      <h1 className='text-3xl font-bold'>Latest Updates</h1>
-      <div className='mt-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5'>
+      <h1 className='text-3xl font-bold '>Latest Updates</h1>
+      <div className='mt-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 border-b border-gray-400 pb-6'>
         <p>View features that are planned to be implemented</p>
         <StandardButtonReactRouter
           text={'Planned Features'}
@@ -18,7 +18,7 @@ function Updates() {
           to={'/betalog'}
         />
       </div>
-      <div className='flex flex-wrap gap-6 items-start'>
+      <div className='flex flex-wrap gap-6 items-start mt-5 sm:mt-10'>
         <div className=' flex flex-col items-center mt-5 w-80 h-[22rem] shadow overflow-hidden border border-gray-200 sm:rounded-lg p-3'>
           <div className='h-[5rem]'>
             <h2 className='text-appBlue text-xl font-bold max-w-max'>

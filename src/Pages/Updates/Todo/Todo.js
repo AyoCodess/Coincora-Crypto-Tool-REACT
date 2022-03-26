@@ -5,7 +5,7 @@ export default function Todo() {
   return (
     <>
       <div className='flex justify-between sm:items-center mb-10 pb-5 border-b border-slate-400'>
-        <span className='text-2xl font-bold'>Planned Features</span>
+        <span className='text-3xl font-bold'>Planned Features</span>
         <StandardButtonReactRouter text={'Back'} to={'/updates'} />
       </div>
       <article className=' prose prose-md max-w-full xl:max-w-6xl'>

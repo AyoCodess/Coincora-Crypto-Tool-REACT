@@ -6,7 +6,7 @@ function BetaLog() {
   return (
     <div className='prose-lg xl:prose-xl'>
       <div className='flex justify-between sm:items-center mb-10 pb-5 border-b border-slate-400'>
-        <span className='text-2xl font-bold'>Beta Release Log</span>
+        <span className='text-3xl font-bold'>Beta Release Log</span>
         <StandardButtonReactRouter text={'Back'} to={'/updates'} />
       </div>
       <div>
