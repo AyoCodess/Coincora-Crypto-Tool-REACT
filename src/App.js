@@ -68,7 +68,7 @@ function App() {
             <div>
               <Dashboard />
               {/* // - background art */}
-              <div className='bg-white px-4 overflow-hidden sm:px-6 lg:px-8'>
+              <div className='bg-white px-2 overflow-hidden sm:px-6 lg:px-8'>
                 <div className='relative max-w-7xl mx-auto'>
                   <svg
                     className='absolute left-[70rem] transform translate-x-1/2'
