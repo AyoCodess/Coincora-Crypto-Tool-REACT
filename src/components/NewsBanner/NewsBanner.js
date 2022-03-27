@@ -10,6 +10,7 @@ export default function NewsBanner({
   newsLink,
   mobileHeadline,
   desktopHeadline,
+  setSeen,
 }) {
   const closeModal = () => {
     setOpenNews(false);
@@ -60,7 +61,15 @@ export default function NewsBanner({
                 <XIcon
                   className='h-6 w-6 text-gray-500'
                   aria-hidden='true'
-                  onClick={closeModal}
+                  onClick={() => {
+                    // - Local storage expires after 7 days.
+                    const today = new Date();
+                    const expire = new Date();
+                    expire.setDate(today.getDate() + 7);
+                    localStorage.setItem('seenBanner', expire);
+                    setSeen(true);
+                    closeModal();
+                  }}
                 />
               </button>
             </div>

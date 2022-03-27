@@ -43,6 +43,7 @@ function App() {
   const doesLocalStorageExist = localStorage.getItem('understand');
   const [understand, setUnderstand] = useState(false);
   const parsedDate = Date.parse(localStorage.understand);
+
   const currentDate = new Date();
   //. If the date of the accepted cookie + 7 days, is less than the current date, the cookie persists.
   if (understand && parsedDate < currentDate) {
