@@ -24,7 +24,7 @@ export default function WhatIsRBM() {
             />
           </div>
         </div>
-        <div className='relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6'>
+        <div className='relative pt-12 pb-16 sm:pt-16 sm:px-6'>
           <div className=' '>
             <div className='text-base flex flex-col mx-auto max-w-5xl   '>
               <h2 className='leading-6 text-indigo-600 font-semibold tracking-wide uppercase'>

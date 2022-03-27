@@ -182,6 +182,14 @@ function App() {
                     </Routes>
                   </div>
                   <div className='h-[3rem] FOOTER'></div>
+                  {!doesLocalStorageExist && (
+                    <CookiesBanner
+                      open={openDisclaimer}
+                      setOpen={setOpenDisclaimer}
+                      understand={understand}
+                      setUnderstand={setUnderstand}
+                    />
+                  )}
                 </div>
               </div>
             </div>

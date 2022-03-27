@@ -9,7 +9,7 @@ function SupportMeSection() {
   return (
     <div>
       <div className='flex flex-col gap-2'>
-        <div className='text-xl font-bold mt-3 '>
+        <div className='text-xl  mt-3 '>
           Click the one of the buttons below, there's no long form, you can
           support me in just couple clicks.
         </div>
@@ -62,8 +62,9 @@ function SupportMeSection() {
         </div>
       </div>
       <div className='text-3xl font-bold mt-10 '>More about me</div>
+
       <div className='flex flex-col gap-2'>
-        <div className='text-xl font-bold mt-3 '>
+        <div className=' mt-3 '>
           Visit my <span className='text-green-500'>Linktree🌲 </span>URL to
           view my <span className='text-appBlue'>resume, portfolio, blog </span>
           among other links.

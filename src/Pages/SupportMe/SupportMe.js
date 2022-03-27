@@ -83,7 +83,9 @@ export default function DonateCrypto() {
 
   return (
     <>
-      <div className='text-3xl font-bold '>Support me with Crypto Currency</div>
+      <div className='text-3xl font-bold  '>
+        Support me with Crypto Currency
+      </div>
       <div className='text-xl font-bold mt-3 '>
         You can also send Crypto Currency to&nbsp;
         <span className=' inline-block text-2xl text-appBlue border-b-4 pb-2 border-appBlue '>
@@ -516,6 +518,9 @@ export default function DonateCrypto() {
           }}
         />
       </div>
+      <div>
+        <hr className='w-2/3 border border-gray-200 mx-auto my-8'></hr>
+      </div>
 
       <div className='flex text-3xl font-bold mt-10 gap-2 items-center'>
         <div className=''>Quick How To Video</div>
@@ -556,6 +561,7 @@ export default function DonateCrypto() {
         />
       </div>
       <div className='text-3xl font-bold mt-10 '>
+        <hr className='w-2/3 border border-gray-200 mx-auto my-8'></hr>
         Support me with Fiat Currency
       </div>
       <SupportMeSection />

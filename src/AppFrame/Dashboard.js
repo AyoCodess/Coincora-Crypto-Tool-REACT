@@ -6,6 +6,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import NewsBanner from '../components/NewsBanner/NewsBanner';
 import btcFavicon from '../assets/other/btc-favicon8.png';
 import SubMenu from './Submenu';
+import CookiesBanner from '../components/CookiesBanner/CookiesBanner';
 
 const user = {
   name: 'Ayo Adesanya',
