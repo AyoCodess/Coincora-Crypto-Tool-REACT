@@ -37,12 +37,12 @@ const solutions = [
     to: '/support-me',
     icon: People,
   },
-  {
-    name: 'Knowledge Base',
-    description: 'Confused? This will help.',
-    to: '/knowledge-base',
-    icon: Book,
-  },
+  //   {
+  //     name: 'Knowledge Base',
+  //     description: 'Confused? This will help.',
+  //     to: '/knowledge-base',
+  //     icon: Book,
+  //   },
   {
     name: 'Updates',
     description: 'The Latest and planned feature updates.',

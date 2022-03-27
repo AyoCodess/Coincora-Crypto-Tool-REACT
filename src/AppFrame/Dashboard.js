@@ -16,6 +16,7 @@ const navigation = [
   { name: 'Coin Predict', to: '/coin-predict', current: false },
   { name: 'For Newbies', to: '/newbies', current: false },
   { name: 'Mission', to: '/mission', current: false },
+  { name: 'Knowledge Base', to: '/Knowledge-base', current: false },
 ];
 
 const userNavigation = [
