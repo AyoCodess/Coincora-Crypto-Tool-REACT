@@ -1,4 +1,6 @@
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from '@xzar90/react-router-hash-link';
+import { Link } from 'react-router-dom';
+
 import SupportMeSection from '../../../SupportMe/SupportMeSection';
 
 export default function GoFundMe() {
@@ -14,7 +16,7 @@ export default function GoFundMe() {
             />
           </div>
         </div>
-        <div className='relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6'>
+        <div className='relative pt-12 pb-16 sm:pt-16 sm:px-6'>
           <div className=' '>
             <div className='text-base mx-auto '>
               <div className='flex max-w-5xl flex-col mx-auto'>
@@ -24,59 +26,63 @@ export default function GoFundMe() {
                 <h3 className='mt-4 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
                   Protect crypto-investors from getting scammed
                 </h3>
-                <ol className='flex flex-col my-4 gap-2 p-4 text-xl mt-10 font-bold border-2 border-gray-200 rounded-md max-w-max'>
+                <ol className=' hidden lg:flex flex-col my-4 gap-2 p-4 text-xl mt-10 font-bold border-2 border-gray-200 rounded-md max-w-max'>
                   <h3 className='text-2xl py-3'>Contents</h3>
-                  <HashLink smooth to='/knowledge-base/GoFundMe#theGist'>
+                  <HashLink smooth to={'/knowledge-base/GoFundMe#theGist'}>
                     <li className='hover:text-appBlue transition ease-in '>
                       1. My Gist
                     </li>
                   </HashLink>
-                  <HashLink smooth to='/knowledge-base/GoFundMe#myStory'>
+                  <HashLink smooth to={'/knowledge-base/GoFundMe#myStory'}>
                     <li className='hover:text-appBlue transition ease-in '>
                       2. My Story
                     </li>
                   </HashLink>
-                  <HashLink smooth to='/knowledge-base/GoFundMe#codingForGood'>
+                  <HashLink
+                    smooth
+                    to={'/knowledge-base/GoFundMe#codingForGood'}>
                     <li className='hover:text-appBlue transition ease-in '>
                       3. What is #codingForGood
                     </li>
                   </HashLink>
-                  <HashLink smooth to='/knowledge-base/GoFundMe#whatIsCoincora'>
+                  <HashLink
+                    smooth
+                    to={'/knowledge-base/GoFundMe#whatIsCoincora'}>
                     <li className='hover:text-appBlue transition ease-in '>
                       4. What is Coincora
                     </li>
                   </HashLink>
                   <HashLink
                     smooth
-                    to='/knowledge-base/GoFundMe#whyImBuildingCoincora'>
+                    to={'/knowledge-base/GoFundMe#whyImBuildingCoincora'}>
                     <li className='hover:text-appBlue transition ease-in '>
                       5. Why I'm Building Coincora
                     </li>
                   </HashLink>
                   <HashLink
                     smooth
-                    to='/knowledge-base/GoFundMe#whoIsCoincoraFor'>
+                    to={'/knowledge-base/GoFundMe#whoIsCoincoraFor'}>
                     <li className='hover:text-appBlue transition ease-in '>
                       6. Who is Coincora For
                     </li>
                   </HashLink>
                   <HashLink
                     smooth
-                    to='/knowledge-base/GoFundMe#coincoraCoreFeatures'>
+                    to={'/knowledge-base/GoFundMe#coincoraCoreFeatures'}>
                     <li className='hover:text-appBlue transition ease-in '>
                       7. Coincora Core Features
                     </li>
                   </HashLink>
                   <HashLink
                     smooth
-                    to='/knowledge-base/GoFundMe#whereIsCoincoraGoing'>
+                    to={'/knowledge-base/GoFundMe#whereIsCoincoraGoing'}>
                     <li className='hover:text-appBlue transition ease-in '>
                       8. Where is Coincora Going
                     </li>
                   </HashLink>
                   <HashLink
                     smooth
-                    to='/knowledge-base/GoFundMe#whyDoINeedSupport'>
+                    to={'/knowledge-base/GoFundMe#whyDoINeedSupport'}>
                     <li className='hover:text-appBlue transition ease-in '>
                       9. Why do I need Support?
                     </li>

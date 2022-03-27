@@ -16,6 +16,7 @@ const navigation = [
   { name: 'Coin Predict', to: '/coin-predict', current: false },
   { name: 'For Newbies', to: '/newbies', current: false },
   { name: 'Mission', to: '/mission', current: false },
+  { name: 'Knowledge Base', to: '/Knowledge-base', current: false },
 ];
 
 const userNavigation = [
@@ -35,6 +36,17 @@ export default function Dashboard() {
   let desktopHeadline =
     "We're excited to release Beta v.1 of the app very soon.";
   const [openNews, setOpenNews] = useState(true);
+  const [seen, setSeen] = useState(false);
+
+  // - local storage new banner logic
+  const getSeen = localStorage.getItem('seenBanner');
+  const parsedDate = Date.parse(getSeen);
+  const currentDate = new Date();
+  //. If the date of the accepted cookie + 7 days, is less than the current date, the cookie persists.
+  if (seen && parsedDate < currentDate) {
+    localStorage.removeItem('seenBanner');
+    setSeen(false);
+  }
 
   return (
     <>
@@ -222,13 +234,16 @@ export default function Dashboard() {
 
       <header className='bg-white shadow-sm'>
         <div className='max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8'>
-          <NewsBanner
-            openNews={openNews}
-            setOpenNews={setOpenNews}
-            newsLink={newsLink}
-            mobileHeadline={mobileHeadline}
-            desktopHeadline={desktopHeadline}
-          />
+          {seen && (
+            <NewsBanner
+              openNews={openNews}
+              setOpenNews={setOpenNews}
+              newsLink={newsLink}
+              mobileHeadline={mobileHeadline}
+              desktopHeadline={desktopHeadline}
+              setSeen={setSeen}
+            />
+          )}
         </div>
       </header>
     </>

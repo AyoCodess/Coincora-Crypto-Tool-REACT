@@ -19,7 +19,7 @@ import SupportMe from './Pages/SupportMe/SupportMe';
 import ScrollToTop from './ScrollToTop';
 import { DataProvider } from './Context/context';
 import Updates from './Pages/Updates/Updates';
-import Todo from './Pages/Todo/Todo.js';
+import Todo from './Pages/Updates/Todo/Todo';
 import Mission from './Pages/Mission/Misson';
 
 import ReactGA from 'react-ga';
@@ -28,6 +28,7 @@ import WhatIsRBM from './Pages/KnowledgeBase/Articles/Pages/WhatIsRBM.';
 import GoFundMe from './Pages/KnowledgeBase/Articles/Pages/GoFundMe';
 import TheCommunity from './Pages/KnowledgeBase/Articles/Pages/TheCommunity';
 import PageBackground from './AppFrame/PageBackground';
+import BetaLog from './Pages/Updates/BetaLog';
 
 function App() {
   const [openDisclaimer, setOpenDisclaimer] = useState(true);
@@ -42,6 +43,7 @@ function App() {
   const doesLocalStorageExist = localStorage.getItem('understand');
   const [understand, setUnderstand] = useState(false);
   const parsedDate = Date.parse(localStorage.understand);
+
   const currentDate = new Date();
   //. If the date of the accepted cookie + 7 days, is less than the current date, the cookie persists.
   if (understand && parsedDate < currentDate) {
@@ -66,7 +68,7 @@ function App() {
             <div>
               <Dashboard />
               {/* // - background art */}
-              <div className='bg-white px-4 overflow-hidden sm:px-6 lg:px-8'>
+              <div className='bg-white px-2 overflow-hidden sm:px-6 lg:px-8'>
                 <div className='relative max-w-7xl mx-auto'>
                   <svg
                     className='absolute left-[70rem] transform translate-x-1/2'
@@ -148,6 +150,7 @@ function App() {
                       <Route path='/support-me' element={<SupportMe />}></Route>
                       <Route path='/updates' element={<Updates />}></Route>
                       <Route path='/todo' element={<Todo />}></Route>
+                      <Route path='/betalog' element={<BetaLog />}></Route>
                       <Route
                         path='/feature-request'
                         element={<FeatureRequest />}></Route>
@@ -180,6 +183,14 @@ function App() {
                     </Routes>
                   </div>
                   <div className='h-[3rem] FOOTER'></div>
+                  {!doesLocalStorageExist && (
+                    <CookiesBanner
+                      open={openDisclaimer}
+                      setOpen={setOpenDisclaimer}
+                      understand={understand}
+                      setUnderstand={setUnderstand}
+                    />
+                  )}
                 </div>
               </div>
             </div>

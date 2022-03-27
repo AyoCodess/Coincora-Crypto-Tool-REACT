@@ -10,6 +10,7 @@ export default function NewsBanner({
   newsLink,
   mobileHeadline,
   desktopHeadline,
+  setSeen,
 }) {
   const closeModal = () => {
     setOpenNews(false);
@@ -23,18 +24,18 @@ export default function NewsBanner({
       leave='transition-opacity ease-in-out duration-300'
       leaveFrom='opacity-100'
       leaveTo='opacity-0'>
-      <div className='bg-orange-500 mb-5 rounded-lg shadow-md animated fadeInUp'>
+      <div className='bg-white mb-5 rounded-lg shadow-md animated fadeInUp'>
         <div className=' py-3 px-3 sm:px-6 lg:px-8'>
           <div className='flex items-center justify-between flex-wrap'>
             <div className='w-0 flex-1 flex items-center'>
               <span className='flex p-2 rounded-lg  '>
                 <SpeakerphoneIcon
-                  className='h-6 w-6 text-white  rounded-md'
+                  className='h-6 w-6 text-  rounded-md'
                   aria-hidden='true'
-                  style={{ color: 'white' }}
+                  style={{ color: 'gray' }}
                 />
               </span>
-              <p className='ml-3 text-white font-bold truncate'>
+              <p className='ml-3 text-gray-500 font-bold truncate'>
                 <span className='md:hidden'>{mobileHeadline}</span>
                 <span className='hidden md:inline'>{desktopHeadline}</span>
               </p>
@@ -44,9 +45,9 @@ export default function NewsBanner({
                 <StandardButtonDarkBG
                   onClick={() => setOpenNews(false)}
                   text={'Learn More'}
-                  textColor={'text-gray-50'}
+                  textColor={'text-gray-500'}
                   textSize={'text-base'}
-                  color={'bg-appBlue'}
+                  color={'bg-gray-50 hover:bg-gray-100  '}
                   width={'w-full'}>
                   Learn more
                 </StandardButtonDarkBG>
@@ -55,12 +56,20 @@ export default function NewsBanner({
             <div className='order-2 flex-shrink-0 sm:order-3 sm:ml-3'>
               <button
                 type='button'
-                className='-mr-1 flex p-2 rounded-md hover:bg-appBlue focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2'>
+                className='-mr-1 flex p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2'>
                 <span className='sr-only'>Dismiss</span>
                 <XIcon
-                  className='h-6 w-6 text-white'
+                  className='h-6 w-6 text-gray-500'
                   aria-hidden='true'
-                  onClick={closeModal}
+                  onClick={() => {
+                    // - Local storage expires after 7 days.
+                    const today = new Date();
+                    const expire = new Date();
+                    expire.setDate(today.getDate() + 7);
+                    localStorage.setItem('seenBanner', expire);
+                    setSeen(true);
+                    closeModal();
+                  }}
                 />
               </button>
             </div>
