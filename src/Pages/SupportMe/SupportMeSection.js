@@ -21,7 +21,7 @@ function SupportMeSection() {
             type='submit'
             style={{ cursor: 'pointer' }}
             className='inline-block   w-80  hover:text-appBlue '>
-            <div className='flex flex-col gap-2 justify-center items-center  '>
+            <div className='flex flex-col gap-2  items-center  '>
               <img
                 src={paypal}
                 alt='coin logo'
@@ -36,7 +36,7 @@ function SupportMeSection() {
             type='submit'
             style={{ cursor: 'pointer' }}
             className='inline-block   w-80   hover:text-appBlue '>
-            <div className='flex flex-col gap-2 justify-center items-center '>
+            <div className='flex flex-col gap-2 items-center '>
               <img
                 src={coffee}
                 alt='coin logo'
@@ -51,7 +51,7 @@ function SupportMeSection() {
             type='submit'
             style={{ cursor: 'pointer' }}
             className='inline-block   w-80  hover:text-appBlue '>
-            <div className='flex flex-col gap-2 justify-center items-center  '>
+            <div className='flex flex-col gap-2  items-center  '>
               <img
                 src={github}
                 alt='coin logo'
