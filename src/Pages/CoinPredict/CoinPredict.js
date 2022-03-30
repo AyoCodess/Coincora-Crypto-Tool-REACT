@@ -153,7 +153,7 @@ function CoinForecast() {
         setPredictedMarketcap(0);
       }
 
-      //- calculating current and predicted profit
+      // . calculating current and predicted profit
 
       let previousCoinsBoughtTotalCost = totalAmountOwned * avgPriceBought;
       let futureCoinsBoughtTotalCost = buyMore * avgFuturePriceBought;
@@ -324,6 +324,7 @@ function CoinForecast() {
               coinCurrentRBM={coinCurrentRBM}
               viewMarketRBM={viewMarketRBM}
               setViewMarketRBM={setViewMarketRBM}
+              predictedPrice={predictedPrice}
             />
             <YourAssessment />
             <Analysis coinName={coinName} setData={setData} />
