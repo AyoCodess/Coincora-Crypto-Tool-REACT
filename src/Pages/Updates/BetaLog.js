@@ -16,10 +16,9 @@ function BetaLog() {
           users better understand their predictions. There is still some
           critical logic and features I need to implement to make the
           predictions much more relevant as it only compares your predicted
-          coins market cap to bitcoins current market cap. And not to Bitcoins
-          potential future market caps based on several time frames relating to
-          your prediction. This is a feature i've planned for&nbsp; but need
-          sponsorship.
+          coin's market cap to Bitcoin's current market cap. And not to
+          Bitcoin's potential future market caps based on several time frames
+          relating to your prediction. This is a feature I've planned&nbsp;{' '}
           <a
             className='underline'
             target='_blank'
@@ -27,22 +26,23 @@ function BetaLog() {
             href='https://www.beta.coincora.com/todo'>
             here
           </a>
+          for but need sponsorship.
         </p>
         <h4 className='font-semibold'>Right now you can...</h4>
         <ul>
           <li>
             <b>1)</b> View potential the market cap size of a coin you choose
-            based on your price prediction also comparing it bitcoins current
+            based on your price prediction also compare it to bitcoins current
             marketcap which may give you some basic insight.
           </li>
           <li>
-            <b>2)</b> Automatically Calculate current profit and loss based off
+            <b>2)</b> Automatically Calculate current profit and loss based on
             your current investments very quickly.
           </li>
           <li>
-            <b>3) </b>Automatically Calculate potential profit off your future
-            price prediction which can optionally include your current profit
-            and loss.
+            <b>3) </b>Automatically Calculate the potential profit of your
+            future price prediction which can optionally include your current
+            profit and loss figures.
           </li>
         </ul>
       </div>
