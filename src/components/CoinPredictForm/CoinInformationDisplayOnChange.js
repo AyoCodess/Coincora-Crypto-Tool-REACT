@@ -28,6 +28,7 @@ function CoinInformationDisplay({
           tooltipIconColor={'gray'}
         />
       </label>
+
       <div className='text-black p-1 border border-gray-200 shadow rounded-md bg-white'>
         <div className='flex gap-2 items-center px-1'>
           {coinLogo && (
