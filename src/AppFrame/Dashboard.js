@@ -87,7 +87,7 @@ export default function Dashboard() {
                 </div>
                 <div className='hidden md:block'>
                   <div className='ml-4 flex items-center md:ml-6'>
-                    <button
+                    {/* <button
                       type='button'
                       className='p-1 bg-indigo-600 rounded-full text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white'>
                       <span className='sr-only'>View notifications</span>
@@ -96,7 +96,7 @@ export default function Dashboard() {
                         aria-hidden='true'
                         onClick={() => setOpenNews(true)}
                       />
-                    </button>
+                    </button> */}
 
                     {/* // -  Desktop Profile dropdown  */}
                     {/* <Menu as='div' className='ml-3 relative'>
@@ -175,7 +175,7 @@ export default function Dashboard() {
 
                 <SubMenu button={'Support'} closeMain={close} />
 
-                <div className='flex w-full justify-end'>
+                {/* <div className='flex w-full justify-end'>
                   <button
                     type='button'
                     className='  mr-3 inline-block p-1 bg-indigo-600 rounded-full text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white'>
@@ -186,7 +186,7 @@ export default function Dashboard() {
                       onClick={() => setOpenNews(true)}
                     />
                   </button>
-                </div>
+                </div> */}
 
                 <div lassName='pt-4 pb-3 border border-indigo-700 w-full'></div>
               </div>

@@ -16,8 +16,10 @@ function YourResults({
   coinName,
   coinRBM,
   coinPredictedRBM,
-  profit,
-  xTimesProfit,
+  currentProfit,
+  currentXtimesProfit,
+  predictedProfit,
+  predictedXtimesProfit,
   selectedFromDropdown,
   setIsResults,
   top10CryptoRBM,
@@ -129,22 +131,50 @@ function YourResults({
               message={'Compared to Bitcoins current marketcap'}
             />
           </div>
-          <div className=' mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
-            <hr className='sm:hidden  my-1 w-2/3 mx-auto border-t-2  bg-gray-200' />
+
+          <div className='w-full my-8'>
+            <hr className=' my-1 w-2/3 mx-auto border-t-2  bg-gray-200' />
+          </div>
+
+          <div className='  grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
             <CoinPriceStat
-              stat={profit.toFixed(2)}
-              title={`Your profit/loss if ${coinName} went to predicted price`}
+              stat={currentProfit.toFixed(2)}
+              title={`Current profit/loss`}
               sign2={'$'}
               tooltipIconColor={'blue'}
-              message={'coming soon'}
+              message={'Excludes predicted price and profit figures.'}
             />
             <CoinPriceStat
-              stat={xTimesProfit}
-              title={'Your predicted X increase/decrease'}
+              stat={currentXtimesProfit}
+              title={'Current X increase/decrease'}
               sign={'x'}
               textColor={'text-green-400'}
               tooltipIconColor={'blue'}
-              message={'coming soon'}
+              message={'Excludes predicted price and profit figures.'}
+            />
+          </div>
+
+          <div className='w-full my-8'>
+            <hr className=' my-1 w-2/3 mx-auto border-t-2  bg-gray-200' />
+          </div>
+
+          <div className=' grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
+            <CoinPriceStat
+              stat={predictedProfit.toFixed(2)}
+              title={`Predicted profit/loss if ${coinName} went to predicted price`}
+              sign2={'$'}
+              tooltipIconColor={'blue'}
+              message={
+                'This figure includes your current profit and loss figures.'
+              }
+            />
+            <CoinPriceStat
+              stat={predictedXtimesProfit}
+              title={'Predicted X increase/decrease'}
+              sign={'x'}
+              textColor={'text-green-400'}
+              tooltipIconColor={'blue'}
+              message={'This figure includes your current profit and loss.'}
             />
           </div>
         </div>

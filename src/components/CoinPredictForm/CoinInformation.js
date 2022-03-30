@@ -44,7 +44,7 @@ function CoinInformation({
               value={circulatingSupply}
               sign={null}
               title={'Circulating Supply'}
-              message={'coming soon'}
+              message={`The total amount of ${coinName}(units) in the marketplace available for purchase.`}
               coinLogo={true}
             />
             <CoinInformationDisplay
@@ -53,7 +53,7 @@ function CoinInformation({
               value={currentPrice}
               sign={'$'}
               title={'Current Price'}
-              message={'coming soon'}
+              message={`The current purchase price of a single unit of ${coinName}`}
               coinLogo={true}
             />
             <CoinInformationDisplay
@@ -62,7 +62,9 @@ function CoinInformation({
               value={currentMarketCap}
               sign={'$'}
               title={'Current Marketcap'}
-              message={'coming soon'}
+              message={
+                'The total amount of money invested into a coin from retail and institutional investors.'
+              }
               coinLogo={true}
             />
             <CoinInformationDisplay
@@ -71,7 +73,7 @@ function CoinInformation({
               value={coinCurrentRBM}
               sign2={'%'}
               title={`${coinName}'s Current RBM`}
-              message={'coming soon'}
+              message={`${coinName}'s marketcap divided by bitcoins in percentage.`}
               coinLogo={true}
             />
           </>

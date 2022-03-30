@@ -16,35 +16,37 @@ function Tooltip({
 }) {
   return (
     <>
-      {' '}
-      <div className='flex flex-col gap-2  justify-between'>
-        <Tippy
-          arrow={true}
-          content={<span className='text-lg'>{message}</span>}>
-          <div
-            className={`flex items-center max-w-max text-left font-medium ${textColor} ${customTextClasses}`}>
-            {title}
-            <div className='ml-2 pb-[0.1rem]'>
-              <InfoOutlinedIcon
-                style={{
-                  color: !tooltipIconColor ? 'white' : tooltipIconColor,
-                  fontSize: '1.2rem',
-                  padding: '1px 0px 1px 0px',
-                }}
-              />
+      {!message && <div className='text-gray-600'>{title}</div>}
+      {message && (
+        <div className='flex flex-col gap-2  justify-between'>
+          <Tippy
+            arrow={true}
+            content={<span className='text-lg'>{message}</span>}>
+            <div
+              className={`flex items-center max-w-max text-left font-medium ${textColor} ${customTextClasses}`}>
+              {title}
+              <div className='ml-2 pb-[0.1rem]'>
+                <InfoOutlinedIcon
+                  style={{
+                    color: !tooltipIconColor ? 'white' : tooltipIconColor,
+                    fontSize: '1.2rem',
+                    padding: '1px 0px 1px 0px',
+                  }}
+                />
+              </div>
             </div>
-          </div>
-        </Tippy>
-        {button && (
-          <AlinkStandardButton
-            text={'What is RBM'}
-            href={'https://www.beta.coincora.com/knowledge-base/what-is-RBM'}
-            width={'w-36'}
-            height={'h-10'}
-            color={'bg-appBlue'}
-          />
-        )}
-      </div>
+          </Tippy>
+          {button && (
+            <AlinkStandardButton
+              text={'What is RBM'}
+              href={'https://www.beta.coincora.com/knowledge-base/what-is-RBM'}
+              width={'w-36'}
+              height={'h-10'}
+              color={'bg-appBlue'}
+            />
+          )}
+        </div>
+      )}
     </>
   );
 }
