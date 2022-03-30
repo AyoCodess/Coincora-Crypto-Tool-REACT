@@ -31,12 +31,11 @@ function YourResults({
   coinCurrentRBM,
   viewMarketRBM,
   setViewMarketRBM,
+  predictedPrice,
 }) {
   // - unhide crypto market RBM list in the ' your assessment' component.
 
   const [viewExplanation, setViewExplanation] = useState(false);
-
-  console.log({ coinPredictedRBM });
 
   return (
     <>
@@ -158,25 +157,27 @@ function YourResults({
             <hr className=' my-1 w-2/3 mx-auto border-t-2  bg-gray-200' />
           </div>
 
-          <div className=' grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
-            <CoinPriceStat
-              stat={predictedProfit.toFixed(2)}
-              title={`Predicted profit/loss if ${coinName} went to predicted price`}
-              sign2={'$'}
-              tooltipIconColor={'blue'}
-              message={
-                'This figure includes your current profit and loss figures.'
-              }
-            />
-            <CoinPriceStat
-              stat={predictedXtimesProfit}
-              title={'Predicted X increase/decrease'}
-              sign={'x'}
-              textColor={'text-green-400'}
-              tooltipIconColor={'blue'}
-              message={'This figure includes your current profit and loss.'}
-            />
-          </div>
+          {predictedPrice > 0 && (
+            <div className=' grid grid-cols-1 gap-5 sm:grid-cols-2 items-end'>
+              <CoinPriceStat
+                stat={predictedProfit.toFixed(2)}
+                title={`Predicted profit/loss if ${coinName} went to predicted price`}
+                sign2={'$'}
+                tooltipIconColor={'blue'}
+                message={
+                  'This figure includes your current profit and loss figures.'
+                }
+              />
+              <CoinPriceStat
+                stat={predictedXtimesProfit}
+                title={'Predicted X increase/decrease'}
+                sign={'x'}
+                textColor={'text-green-400'}
+                tooltipIconColor={'blue'}
+                message={'This figure includes your current profit and loss.'}
+              />
+            </div>
+          )}
         </div>
       ) : (
         <SectionContainer>
