@@ -18,7 +18,7 @@ function BetaLog() {
           predictions much more relevant as it only compares your predicted
           coin's market cap to Bitcoin's current market cap. And not to
           Bitcoin's potential future market caps based on several time frames
-          relating to your prediction. This is a feature I've planned&nbsp;{' '}
+          relating to your prediction. This is a feature I've planned&nbsp;
           <a
             className='underline'
             target='_blank'
@@ -26,7 +26,7 @@ function BetaLog() {
             href='https://www.beta.coincora.com/todo'>
             here
           </a>
-          for but need sponsorship.
+          &nbsp;and need sponsorship for.
         </p>
         <h4 className='font-semibold'>Right now you can...</h4>
         <ul>
