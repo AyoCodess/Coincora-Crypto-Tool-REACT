@@ -96,7 +96,7 @@ function YourPrediction({
                 setState={setDoYouOwnAnyCoin}
                 disabled={selectedFromDropdown}
                 tooltip={true}
-                message={'calculate your current profit and loss quickly.'}
+                message={'Calculate your current profit and loss quickly.'}
               />
               {!selectedFromDropdown && (
                 <p className='mx-auto text-lg text-black font-semibold text-center '>
@@ -165,15 +165,14 @@ function YourPrediction({
                     /> */}
                     </>
                   )}
-
-                  <YesNoToggle
-                    text={`Are you going to buy anymore ${coinName}?`}
-                    state={doYouWantToBuyMoreCoin}
-                    setState={setDoYouWantToBuyMoreCoin}
-                  />
                 </>
               )}
-              {doYouWantToBuyMoreCoin && doYouOwnAnyCoin && (
+              <YesNoToggle
+                text={`Are you going to buy anymore ${coinName} or buy for the first time?`}
+                state={doYouWantToBuyMoreCoin}
+                setState={setDoYouWantToBuyMoreCoin}
+              />
+              {doYouWantToBuyMoreCoin && (
                 <>
                   {selectedFromDropdown && (
                     <>
