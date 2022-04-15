@@ -205,7 +205,6 @@ function YourPrediction({
                             return 0;
                           } else {
                             setAvgPriceBought(e.target.valueAsNumber);
-                            setAvgPriceBought2(e.target.valueAsNumber);
                           }
                         }}
                       />
