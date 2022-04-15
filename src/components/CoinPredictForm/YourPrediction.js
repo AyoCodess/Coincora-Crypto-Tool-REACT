@@ -1,9 +1,6 @@
 import CoinPredictHeading from './CoinPredictHeading';
 import SectionContainer from './SectionContainer';
 import YesNoToggle from './YesNoToggle.js';
-import GeneralInputNoIconOnChange from './GeneralInputNoIconOnChange';
-import GeneralInputDollarIconOnChange from './GeneralInputDollarIconOnChange';
-import GeneralInputDollarIcon from './GeneralInputDollarIcon';
 import CoinInformationDisplayOnChange from './CoinInformationDisplayOnChange';
 import CoinInformationDisplay from './CoinInformationDisplay';
 
@@ -208,6 +205,7 @@ function YourPrediction({
                             return 0;
                           } else {
                             setAvgPriceBought(e.target.valueAsNumber);
+                            setAvgPriceBought2(e.target.valueAsNumber);
                           }
                         }}
                       />
