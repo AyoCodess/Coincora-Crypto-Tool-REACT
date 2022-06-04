@@ -1,17 +1,7 @@
-import Tooltip from '../Tooltip/Tooltip';
-import DropdownList from '../DropdownList/DropdownList';
-import InputTextWithCheckIcon from '../InoutFields/InputTextWithCheckIcon';
-import InputTextWithDollarIconReadOnly from '../InoutFields/InputTextWithDollarIconReadOnly';
-import InputWithNumGrayBoxLarge from '../InoutFields/InputWithNumGrayBoxLarge';
-import AlinkStandardButton from '../Buttons/AlinkStandardButton';
 import '../CoinPredictForm/CoinPredict.scss';
-import CoinLogoDisplay from './CoinLogoDisplay';
-import GeneralInput from './GeneralInput';
-import GeneralInputDollarIcon from './GeneralInputDollarIcon';
-import GeneralInputPercentageIcon from './GeneralInputPercentageIcon';
+
 import CoinPredictHeading from './CoinPredictHeading';
 import SectionContainer from './SectionContainer';
-import { height } from '@mui/system';
 import CoinInformationDisplay from './CoinInformationDisplay';
 
 function CoinInformation({

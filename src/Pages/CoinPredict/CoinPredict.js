@@ -56,8 +56,9 @@ function CoinForecast() {
   const [avgPriceBought, setAvgPriceBought] = useState(0);
   const [previousProfit, setPreviousProfit] = useState(0);
   const [buyMore, setBuyMore] = useState(0);
+  const [buyMore2, setBuyMore2] = useState(0);
   const [avgFuturePriceBought, setAvgFuturePriceBought] = useState(0);
-  const [predictedPrice, setPredictedPrice] = useState(null);
+  const [predictedPrice, setPredictedPrice] = useState(0);
   const [predictedMarketcap, setPredictedMarketcap] = useState(0);
 
   const [currentProfit, setCurrentProfit] = useState(0);
@@ -89,6 +90,11 @@ function CoinForecast() {
       setPredictedXtimesProfit(0);
     }
 
+    console.log({ predictedPrice });
+    console.log({ buyMore });
+
+    console.log({ avgPriceBought });
+
     if (selectedFromDropdown) {
       // - setting global state for coin name
       setCoinName(selectedFromDropdown.name);
@@ -117,7 +123,6 @@ function CoinForecast() {
 
       // - coin name RBM calculation
       let sumRBM = (selectedFromDropdown.market_cap / data[0].market_cap) * 100;
-      console.log({ coinCurrentRBM });
       let sumRBM2 = sumRBM.toFixed(4);
       setCoinCurrentRMBnumber(sumRBM);
       setCoinCurrentRMB(sumRBM2.toLocaleString());
@@ -173,6 +178,14 @@ function CoinForecast() {
       }
 
       //, predicted profit
+
+      // - predicted profit based on prediction only
+      if (predictedPrice && buyMore && avgPriceBought) {
+        let cost = buyMore * avgPriceBought;
+        let grossPotential = predictedPrice * buyMore - cost;
+        setPredictedProfit(grossPotential);
+        setPredictedXtimesProfit(grossPotential / cost);
+      }
 
       if (totalAmountOwned && !buyMore) {
         let prediction =
@@ -305,6 +318,7 @@ function CoinForecast() {
               setCoinPredictedRBM={setCoinPredictedRBM}
               isPredicting={isPredicting}
               setIsPredicting={setIsPredicting}
+              setBuyMore2={setBuyMore2}
             />
             <YourResults
               coinName={coinName}

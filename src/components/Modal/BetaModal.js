@@ -61,10 +61,8 @@ export default function BetaModal() {
                       is partly broken, currently working on it.
                     </p> */}
                     <p className='text-lg text-black  mt-2'>
-                      Coin predict is constantly being updated. Everything
-                      within this page is subject to change and is in early
-                      stage development. If you have any issues or feedback
-                      contact me directly.
+                      This the old version of coin-predict. A new version is
+                      currently under-construction.
                     </p>
                   </div>
                 </div>
