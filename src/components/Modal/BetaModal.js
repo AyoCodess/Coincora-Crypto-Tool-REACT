@@ -61,7 +61,8 @@ export default function BetaModal() {
                       is partly broken, currently working on it.
                     </p> */}
                     <p className='text-lg text-black  mt-2'>
-                      This the old version of coin-predict. A new version is
+                      This is the old version of coin-predict. There are bugs
+                      that will be addressed in the next major release which is
                       currently under-construction.
                     </p>
                   </div>
