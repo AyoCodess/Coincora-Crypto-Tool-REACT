@@ -90,11 +90,6 @@ function CoinForecast() {
       setPredictedXtimesProfit(0);
     }
 
-    console.log({ predictedPrice });
-    console.log({ buyMore });
-
-    console.log({ avgPriceBought });
-
     if (selectedFromDropdown) {
       // - setting global state for coin name
       setCoinName(selectedFromDropdown.name);
