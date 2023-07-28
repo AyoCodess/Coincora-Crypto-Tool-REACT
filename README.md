@@ -12,7 +12,7 @@ I’m building this game-changing platform for investors who aren’t highly sop
 
 ### Note:
 
-This app is currently being re-imagined and re-built with NEXT.js. This is the incomplete beta v.2 version.
+This app is currently being re-imagined and re-built with better tooling and code architecture. This is the incomplete beta V.03 version.
 
 ### Live Link:
 

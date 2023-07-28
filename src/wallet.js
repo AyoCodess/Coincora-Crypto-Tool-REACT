@@ -85,7 +85,7 @@ const wallet = {
     bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
   },
   cosmos: {
-    cosmon: 'cosmos15v50ymp6n5dn73erkqtmq0u8adpl8d3ujv2e74',
+    cosmos: 'cosmos15v50ymp6n5dn73erkqtmq0u8adpl8d3ujv2e74',
     memo: '104151990',
     bsc: '0x133beb923826428b046f7740ddc500eea0b0fa4c',
     trustWallet: 'cosmos1htyk9ym9rh95axk9w2v0n8m7cs4rh2cufpy0rc',

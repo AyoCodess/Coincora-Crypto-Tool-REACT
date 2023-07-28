@@ -10,7 +10,7 @@ export function DataProvider({ children }) {
   const [complete, setComplete] = useState(true);
   const [coinName, setCoinName] = useState('Select Coin');
   const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [btcMarketcapFormatted, setBtcMarketcapFormatted] = useState(null);
   const [btcMarketcapNumber, setBtcMarketcapNumber] = useState(null);
 
@@ -70,8 +70,8 @@ export function DataProvider({ children }) {
           market_cap: '',
           max_supply: '',
           name: '',
-          symbol: '',
-        },
+          symbol: ''
+        }
       ];
 
       let newFullSetData = fullDataSet.concat(emptyCoin);
@@ -84,7 +84,8 @@ export function DataProvider({ children }) {
         setBtcMarketcapFormatted(btcMarketcapNumber.toLocaleString());
       }
     } catch (err) {
-      console.log(err);
+      setIsLoading(false);
+      console.error(err);
     }
   };
 
@@ -202,8 +203,9 @@ export function DataProvider({ children }) {
         top50CryptoRBM,
         top100CryptoRBM,
         top500CryptoRBM,
-        top1000CryptoRBM,
-      }}>
+        top1000CryptoRBM
+      }}
+    >
       {children}
     </DataContext.Provider>
   );
